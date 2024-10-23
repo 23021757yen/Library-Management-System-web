@@ -11,119 +11,224 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7efd8" height="600.0" layoutX="648.0" stroke="TRANSPARENT" strokeType="INSIDE" width="376.0" />
-      <HBox layoutX="96.0" layoutY="21.0" prefHeight="21.0" prefWidth="309.0">
+      <Pane layoutX="625.0" prefHeight="600.0" prefWidth="399.0" style="-fx-background-color: #f7efd8;">
          <children>
-            <TextField prefHeight="25.0" prefWidth="265.0" promptText="search" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;" />
-            <ImageView fitHeight="29.0" fitWidth="30.0">
-               <image>
-                  <Image url="@../../../picture/search.png" />
-               </image>
-            </ImageView>
-         </children>
-      </HBox>
-      <Pane layoutX="20.0" layoutY="79.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
-         <children>
-            <Button layoutX="2.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: 000000;">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0">
-                     <image>
-                        <Image url="@../../../picture/menu.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="2.0" layoutY="143.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="31.0" style="-fx-background-color: 000000;">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0">
-                     <image>
-                        <Image url="@../../../picture/home.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="2.0" layoutY="291.0" mnemonicParsing="false" style="-fx-background-color: 000000;">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0">
-                     <image>
-                        <Image url="@../../../picture/question.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="1.0" layoutY="359.0" mnemonicParsing="false" style="-fx-background-color: 000000;">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0">
-                     <image>
-                        <Image url="@../../../picture/settings.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="3.0" layoutY="213.0" mnemonicParsing="false" style="-fx-background-color: 000000;">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0">
-                     <image>
-                        <Image url="@../../../picture/profile.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-         </children>
-         <effect>
-            <DropShadow height="10.0" offsetX="2.0" offsetY="2.0" radius="4.5" width="10.0" />
-         </effect>
-      </Pane>
-      <Label layoutX="15.0" layoutY="16.0" text="LMS">
-         <font>
-            <Font name="Impact" size="30.0" />
-         </font>
-      </Label>
-      <ScrollPane layoutX="88.0" layoutY="290.0" prefHeight="283.0" prefWidth="535.0" stylesheets="@../../../style.css">
-         <content>
-            <VBox prefHeight="715.0" prefWidth="537.0" spacing="10.0" style="-fx-background-color: ffffff;">
+            <Pane layoutX="175.0" layoutY="73.0" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;" stylesheets="@../../../style.css" text="POPULAR">
+                  <Text layoutX="-4.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NO 1">
                      <font>
-                        <Font name="Impact" size="12.0" />
+                        <Font name="Impact" size="60.0" />
                      </font>
-                     <effect>
-                        <DropShadow offsetX="2.0" offsetY="3.0" radius="7.25" width="10.0" />
-                     </effect>
-                  </Button>
-                  <ScrollPane prefHeight="310.0" prefWidth="540.0" stylesheets="@../../../style.css">
-                     <content>
-                        <HBox prefHeight="298.0" prefWidth="540.0" spacing="10.0" style="-fx-background-color: ffffff;" />
-                     </content>
-                  </ScrollPane>
-                  <Button lineSpacing="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;" stylesheets="@../../../style.css" text="LATEST">
+                  </Text>
+                  <Text layoutX="-1.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tác giả:">
                      <font>
-                        <Font name="Impact" size="12.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
-                     <effect>
-                        <DropShadow offsetX="2.0" offsetY="3.0" radius="7.25" width="10.0" />
-                     </effect>
-                  </Button>
-                  <ScrollPane prefHeight="310.0" prefWidth="540.0" stylesheets="@../../../style.css">
-                     <content>
-                        <HBox prefHeight="298.0" prefWidth="540.0" style="-fx-background-color: ffffff;" />
-                     </content>
-                  </ScrollPane>
+                  </Text>
+                  <Text layoutX="-2.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới hạn độ tuổi:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="-1.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượt truy cập:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="-1.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượt đọc:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="-2.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượt mượn: ">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="126.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="18+">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="60.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Catelineblanc">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="126.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="92.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="107.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
                </children>
-            </VBox>
-         </content>
-      </ScrollPane>
-      <Text layoutX="695.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATE OF READING" underline="true">
-         <font>
-            <Font name="Impact" size="15.0" />
-         </font>
-      </Text>
+            </Pane>
+            <Button layoutX="62.0" layoutY="288.0" mnemonicParsing="false" style="-fx-background-color: 000000;" text="DATE OF READING" underline="true">
+               <font>
+                  <Font name="Impact" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane prefHeight="600.0" prefWidth="648.0" style="-fx-background-color: ffffff;" styleClass="style.css">
+         <children>
+            <HBox layoutX="96.0" layoutY="21.0" prefHeight="21.0" prefWidth="309.0">
+               <children>
+                  <TextField prefHeight="25.0" prefWidth="265.0" promptText="search" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;" />
+                  <ImageView fitHeight="29.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@../../../picture/search.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Pane layoutX="92.0" layoutY="78.0" prefHeight="200.0" prefWidth="415.0">
+               <children>
+                  <Button layoutX="-2.0" layoutY="160.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;" stylesheets="@../../../style.css" text="READING HERE" underline="true">
+                     <font>
+                        <Font name="Impact" size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="35.0">
+                           <image>
+                              <Image url="@../../../picture/right-arrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <effect>
+                        <DropShadow height="5.0" offsetX="2.0" offsetY="3.0" radius="3.25" width="10.0" />
+                     </effect>
+                  </Button>
+                  <Text layoutX="-1.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOI DUNG CUAAM (NGAN GON) CHI TRONG 2 dsjdhjsdhjsmbdhjcmxnshjdfcmswhjekdfmndhsjkedmfnjdkemndfjckmsejrdfkd" wrappingWidth="415.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Text>
+                  <Text layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAME OF BOOK" wrappingWidth="415.0">
+                     <font>
+                        <Font name="Impact" size="60.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane layoutX="20.0" layoutY="79.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
+               <children>
+                  <Button layoutX="2.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: 000000;">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0">
+                           <image>
+                              <Image url="@../../../picture/menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="2.0" layoutY="143.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="31.0" style="-fx-background-color: 000000;">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0">
+                           <image>
+                              <Image url="@../../../picture/home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="2.0" layoutY="291.0" mnemonicParsing="false" style="-fx-background-color: 000000;">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0">
+                           <image>
+                              <Image url="@../../../picture/question.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="1.0" layoutY="359.0" mnemonicParsing="false" style="-fx-background-color: 000000;">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0">
+                           <image>
+                              <Image url="@../../../picture/settings.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="3.0" layoutY="213.0" mnemonicParsing="false" style="-fx-background-color: 000000;">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0">
+                           <image>
+                              <Image url="@../../../picture/profile.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <effect>
+                  <DropShadow height="10.0" offsetX="2.0" offsetY="2.0" radius="4.5" width="10.0" />
+               </effect>
+            </Pane>
+            <ScrollPane layoutX="87.0" layoutY="315.0" prefHeight="283.0" prefWidth="535.0" stylesheets="@../../../style.css">
+               <content>
+                  <VBox prefHeight="715.0" prefWidth="537.0" spacing="10.0" style="-fx-background-color: ffffff;">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;" stylesheets="@../../../style.css" text="POPULAR">
+                           <font>
+                              <Font name="Impact" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow offsetX="2.0" offsetY="3.0" radius="7.25" width="10.0" />
+                           </effect>
+                        </Button>
+                        <ScrollPane prefHeight="310.0" prefWidth="540.0" stylesheets="@../../../style.css">
+                           <content>
+                              <HBox prefHeight="298.0" prefWidth="540.0" spacing="10.0" style="-fx-background-color: ffffff;" />
+                           </content>
+                        </ScrollPane>
+                        <Button lineSpacing="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;" stylesheets="@../../../style.css" text="LATEST">
+                           <font>
+                              <Font name="Impact" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow offsetX="2.0" offsetY="3.0" radius="7.25" width="10.0" />
+                           </effect>
+                        </Button>
+                        <ScrollPane prefHeight="310.0" prefWidth="540.0" stylesheets="@../../../style.css">
+                           <content>
+                              <HBox prefHeight="298.0" prefWidth="540.0" style="-fx-background-color: ffffff;" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <ImageView fitHeight="200.0" fitWidth="250.0" layoutX="527.0" layoutY="72.0">
+               <image>
+                  <Image url="@../../../../../../../../Downloads/a7fcedad38c5e081e580e3a1ae71d29d-removebg-preview.png" />
+               </image>
+               <effect>
+                  <DropShadow height="18.09" offsetX="1.0" offsetY="3.0" radius="7.8149999999999995" width="15.17">
+                     <color>
+                        <Color opacity="0.7200000286102295" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+            <Label layoutX="16.0" layoutY="14.0" text="LMS">
+               <font>
+                  <Font name="Impact" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
