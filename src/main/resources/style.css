@@ -13,23 +13,23 @@
 }
 
 .scroll-pane .scroll-bar:vertical {
-    -fx-background-color: #ffffff; /* Nền thanh cuộn */
+    -fx-background-color: transparent; /* Nền thanh cuộn */
     -fx-pref-width: 10; /* Độ rộng thanh cuộn */
 }
 
 .scroll-pane .scroll-bar:horizontal {
-    -fx-background-color: #ffffff; /* Nền thanh cuộn */
+    -fx-background-color: transparent; /* Nền thanh cuộn */
     -fx-pref-height: 10; /* Chiều cao thanh cuộn */
 }
 
 .scroll-pane .thumb:vertical {
     -fx-background-color: #ffffff; /* Màu thanh cuộn */
-    -fx-background-radius: 30; /* Làm tròn các góc */
+    -fx-background-radius: 20; /* Làm tròn các góc */
 }
 
 .scroll-pane .thumb:horizontal {
     -fx-background-color:#ffffff; /* Màu thanh cuộn */
-    -fx-background-radius: 30; /* Làm tròn các góc */
+    -fx-background-radius: 20; /* Làm tròn các góc */
 }
 
 .rounded-image {
