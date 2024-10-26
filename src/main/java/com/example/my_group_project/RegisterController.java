@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.io.File;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 
@@ -40,6 +42,9 @@ public class RegisterController {
 
     @FXML
     private Label registrationMessageLabel;
+
+    @FXML
+    private Button backButton;
 
     @FXML
     void loginButtonOnAction(ActionEvent event) throws IOException {
@@ -73,17 +78,49 @@ public class RegisterController {
         String email = setEmailTextField.getText();
         String phone = setPhoneTextField.getText();
 
-        String insertFields = "INSERT INTO user_account(userName, password, email, phone) VALUES ('";
-        String insertValues = userName + "', '" + password + "', '" + email + "', '" + phone + "')";
-        String insertToRegister = insertFields + insertValues;
+        // Generate random ID using MySQL function
+        String randomIDQuery = "SELECT generateRandomID(10) AS randomID";
 
         try {
             Statement statement = connectDB.createStatement();
-            statement.executeUpdate(insertToRegister);
-            registrationMessageLabel.setText("User has been registered successfully!");
+            ResultSet resultSet = statement.executeQuery(randomIDQuery);
+            resultSet.next();
+            String userID = resultSet.getString("randomID");
+
+            String insertQuery = "INSERT INTO user (User_ID, name, password, email, phone) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement preparedStatement = connectDB.prepareStatement(insertQuery);
+            preparedStatement.setString(1, userID);
+            preparedStatement.setString(2, userName);
+            preparedStatement.setString(3, password);
+            preparedStatement.setString(4, email);
+            preparedStatement.setString(5, phone);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                registrationMessageLabel.setText("User has been registered successfully!");
+                toLogInScene();
+            } else {
+                registrationMessageLabel.setText("Registration failed. Please try again.");
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
-            e.getCause();
         }
     }
+
+    public void toLogInScene() throws IOException {
+        Stage stage = (Stage) registerButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("logInUser.fxml"));
+        stage.setTitle("Login Again");
+        stage.setScene(new Scene(root));
+    }
+
+    public void backButtonOnAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("welcomeToWebsite.fxml"));
+        stage.setTitle("Hello!");
+        stage.setScene(new Scene(root));
+    }
 }
+
