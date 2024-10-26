@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: myoop
+-- Host: 127.0.0.1    Database: library
 -- ------------------------------------------------------
 -- Server version	8.0.39
 
@@ -18,6 +18,9 @@
 --
 -- Table structure for table `admin`
 --
+
+create database library;
+use library;
 
 DROP TABLE IF EXISTS `admin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -129,17 +132,39 @@ CREATE TABLE `nhaxb` (
 -- Table structure for table `user`
 --
 
+DELIMITER $$
+
+CREATE FUNCTION generateRandomID(length INT) RETURNS VARCHAR(255)
+    DETERMINISTIC
+BEGIN
+    DECLARE chars VARCHAR(62) DEFAULT '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    DECLARE result VARCHAR(255) DEFAULT '';
+    DECLARE i INT DEFAULT 0;
+
+    WHILE i < length DO
+            SET result = CONCAT(result, SUBSTRING(chars, FLOOR(1 + RAND() * 62), 1));
+            SET i = i + 1;
+        END WHILE;
+
+    RETURN result;
+END$$
+
+DELIMITER ;
+
 DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
   `User_ID` varchar(20) NOT NULL DEFAULT '',
-  `email` varchar(50) NOT NULL DEFAULT '',
   `name` varchar(100) DEFAULT NULL,
   `password` varchar(100) NOT NULL DEFAULT 'root',
+  `email` varchar(50) NOT NULL DEFAULT '',
+  `phone` varchar(20) DEFAULT NULL,
   `status` varchar(20) NOT NULL DEFAULT 'active',
   PRIMARY KEY (`User_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
