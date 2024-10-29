@@ -51,7 +51,7 @@ public class HelloController {
     @FXML
     void adminButtonOnAction(ActionEvent event) throws IOException {
         Stage stage = (Stage)this.adminButton.getScene().getWindow();
-        Parent root = (Parent)FXMLLoader.load(this.getClass().getResource("login_admin.fxml"));
+        Parent root = (Parent)FXMLLoader.load(this.getClass().getResource("logInAdmin.fxml"));
         stage.setTitle("Admin Login");
         stage.setScene(new Scene(root));
     }
@@ -92,7 +92,13 @@ public class HelloController {
         if (!this.usernameTextField.getText().isBlank() && !this.enterPasswordField.getText().isBlank()) {
             validateLogin();
         } else {
-            this.loginMessageLabel.setText("Please enter your username and password");
+            if(!this.usernameTextField.getText().isBlank() && this.enterPasswordField.getText().isBlank()) {
+                this.loginMessageLabel.setText("Please enter your password!");
+            } else if (this.usernameTextField.getText().isBlank() && !this.enterPasswordField.getText().isBlank()) {
+                this.loginMessageLabel.setText("Please enter your username!");
+            } else {
+                this.loginMessageLabel.setText("Please enter your username and password!");
+            }
         }
     }
 
@@ -127,8 +133,11 @@ public class HelloController {
 
     public void toMainScene() throws IOException {
         Stage stage = (Stage) checkLoginButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("mainScene.fxml"));
-        stage.setTitle("Main Scene");
+        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+        stage.setTitle("Home");
         stage.setScene(new Scene(root));
     }
+
+
+
 }
