@@ -37,7 +37,7 @@ public class BookProfileController implements Initializable {
     private Text limitAge;
 
     @FXML
-    private Button menuButton;
+    private Button categoryButton;
 
     @FXML
     private Button moreInforButton;
@@ -83,8 +83,8 @@ public class BookProfileController implements Initializable {
     }
 
     @FXML
-    void menuButtonOnAction(ActionEvent event) throws IOException {
-        loadScene("dashBoard.fxml", "DashBoard");
+    void categoryButtonOnAction(ActionEvent event) throws IOException {
+        loadScene("categoryMenu.fxml", "Category");
     }
 
     @FXML
@@ -115,6 +115,10 @@ public class BookProfileController implements Initializable {
     @FXML
     void backButtonOnAction(ActionEvent event) throws IOException {
         loadScene("home.fxml", "Home");
+    }
+
+    void borrowButtonOnAction(ActionEvent event) {
+
     }
 
     private void loadScene(String fxml, String title) throws IOException {
