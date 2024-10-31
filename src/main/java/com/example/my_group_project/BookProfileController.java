@@ -117,9 +117,7 @@ public class BookProfileController implements Initializable {
         loadScene("home.fxml", "Home");
     }
 
-    void borrowButtonOnAction(ActionEvent event) {
-
-    }
+    void borrowButtonOnAction(ActionEvent event){};
 
     private void loadScene(String fxml, String title) throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
