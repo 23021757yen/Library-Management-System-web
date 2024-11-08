@@ -14,12 +14,15 @@
       <Insets bottom="15.0" left="5.0" right="15.0" top="5.0" />
    </padding>
    <children>
-      <Label layoutX="59.0" layoutY="204.0" text="VIEWER: ">
+      <Label layoutX="59.0" layoutY="203.0" text="VIEWER: ">
          <font>
-            <Font name="Impact" size="14.0" />
+            <Font name="Impact" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="setContentBook" alignment="TOP_LEFT" layoutX="18.0" layoutY="222.0" prefHeight="54.0" prefWidth="144.0" text="Ghi nội dung quyển sách jshcjkawjerhdiskerhfikxzmnweh4rf 1 cách ngắn gọn nhất có thể" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="setContentBook" alignment="TOP_LEFT" layoutX="8.0" layoutY="217.0" prefHeight="65.0" prefWidth="164.0" text="mdfjewfrgejwrfnsdjdndsmdsjfndkndmcmdmdcsls,cndkemfkwvmdksmcsmmc" textAlignment="JUSTIFY" wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
       <ImageView fx:id="setImageBook" fitHeight="200.0" fitWidth="135.0" layoutX="22.0">
          <image>
             <Image url="@../../../bookImage/Bogia.jpg" />
@@ -30,7 +33,7 @@
       </ImageView>
       <Text fx:id="setPageViews" layoutX="107.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
          <font>
-            <Font name="Impact" size="13.0" />
+            <Font name="Impact" size="15.0" />
          </font>
       </Text>
    </children>

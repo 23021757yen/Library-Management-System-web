@@ -1,25 +1,32 @@
 package com.example.my_group_project;
 
-import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import javafx.fxml.Initializable;
-import java.net.URL;  // Thêm import cho URL
-import java.util.ResourceBundle;
 
-public class BookProfileController implements Initializable {
+public class BookProfileController extends BaseController{
+
+    @FXML
+    private Button homeButton;
+
+    @FXML
+    private Text nameOfBookTextField;
+
+    @FXML
+    private Text contentTextField;
+
+    @FXML
+    private Text nameOfAuthorTextField;
 
     @FXML
     private Button backButton;
 
     @FXML
     private Button borrowButton;
+
+    @FXML
+    private Button categoryButton;
 
     @FXML
     private Button categoryComedyButton;
@@ -30,14 +37,12 @@ public class BookProfileController implements Initializable {
     @FXML
     private Button highlightButton;
 
-    @FXML
-    private Button homeButton;
 
     @FXML
     private Text limitAge;
 
     @FXML
-    private Button categoryButton;
+    private Button logOutButton;
 
     @FXML
     private Button moreInforButton;
@@ -61,68 +66,56 @@ public class BookProfileController implements Initializable {
     private Button profileButton;
 
     @FXML
-    private Button readButton;
-
-    @FXML
     private Button searchButton;
 
     @FXML
-    private Button settingButton;
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // Thực hiện các thao tác khởi tạo tại đây, ví dụ:
-        // Thiết lập nội dung cho các Text
-        nameOfBook.setText("Tên sách");
-        nameOfAuthor.setText("Tác giả");
-        numberOfRead.setText("0");
-        numberOfBorrow.setText("0");
-        pageViews.setText("0");
-        content.setText("Nội dung sách");
-        limitAge.setText("Dành cho 18+");
+    void backButtonOnAction(ActionEvent event) {
+        super.changeScene("home.fxml", "Home");
     }
 
     @FXML
-    void categoryButtonOnAction(ActionEvent event) throws IOException {
-        loadScene("categoryMenu.fxml", "Category");
+    void categoryButtonOnAction(ActionEvent event) {
+        super.changeScene("categoryMenu.fxml", "Category Menu");
     }
 
     @FXML
-    void searchButtonOnAction(ActionEvent event) throws IOException {
-        loadScene("searchBook.fxml", "Searching");
+    void logOutButtonOnAction(ActionEvent event) {
+        super.changeScene("welcomeToWebsite.fxml", "HelloView");
     }
 
     @FXML
-    void homeButtonOnAction(ActionEvent event) throws IOException {
-        loadScene("home.fxml", "Home");
+    void moreInforButtonOnAction(ActionEvent event) {
+        super.changeScene("moreInformation.fxml", "More Information");
     }
 
     @FXML
-    void profileButtonOnAction(ActionEvent event) throws IOException {
-        loadScene("profileUser.fxml", "ProfileUser");
+    void profileButtonOnAction(ActionEvent event) {
+        super.changeScene("profileUser.fxml", "Profile");
     }
 
     @FXML
-    void moreInforButtonOnAction(ActionEvent event) throws IOException {
-        loadScene("moreInfor.fxml", "MoreInfor");
+    void searchButtonOnAction(ActionEvent event) {
+        super.changeScene("searchBook.fxml", "Searching");
     }
+
 
     @FXML
-    void settingButtonOnAction(ActionEvent event) throws IOException {
-        loadScene("settingUser.fxml", "Setting");
+    void homeButtonOnAction(ActionEvent event) {
+        super.changeScene("home.fxml", "Home");
     }
 
-    @FXML
-    void backButtonOnAction(ActionEvent event) throws IOException {
-        loadScene("home.fxml", "Home");
+    public void setBookDetails(Book book) {
+        if (book == null) {
+            // Add error handling as necessary
+            System.err.println("Book is null.");
+            return;
+        }
+        // Ensuring the text update is done on the JavaFX Application Thread
+        javafx.application.Platform.runLater(() -> {
+            nameOfBookTextField.setText(book.getTitle());
+            nameOfAuthorTextField.setText(book.getAuthors());
+            contentTextField.setText(book.getDescription());
+        });
     }
 
-    void borrowButtonOnAction(ActionEvent event){};
-
-    private void loadScene(String fxml, String title) throws IOException {
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource(fxml));
-        stage.setTitle(title);
-        stage.setScene(new Scene(root));
-    }
 }
