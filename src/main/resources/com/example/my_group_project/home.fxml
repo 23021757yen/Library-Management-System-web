@@ -7,369 +7,30 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.HomeController">
    <children>
       <Pane layoutX="664.0" prefHeight="600.0" prefWidth="360.0" style="-fx-background-color: #f7efd8;">
          <children>
-            <Pane layoutX="175.0" layoutY="73.0" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <Text layoutX="-4.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NO 1">
-                     <font>
-                        <Font name="Impact" size="60.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="-1.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tác giả:">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="-2.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới hạn độ tuổi:">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="-1.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượt truy cập:">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="-1.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượt đọc:">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="-2.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượt mượn: ">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="126.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="18+">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="60.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Catelineblanc">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="126.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="92.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="107.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Text>
-               </children>
-            </Pane>
-            <Button layoutX="16.0" layoutY="288.0" mnemonicParsing="false" style="-fx-background-color: 000000;" text="DATE OF READING" underline="true">
+            <Text layoutX="17.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RECENT">
                <font>
-                  <Font name="Impact" size="15.0" />
+                  <Font name="Impact" size="60.0" />
                </font>
-            </Button>
-            <GridPane layoutX="35.0" layoutY="357.0" prefHeight="191.0" prefWidth="300.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="T2" textAlignment="CENTER" wrappingWidth="41.943359375">
-                     <font>
-                        <Font name="Impact" size="20.0" />
-                     </font>
-                  </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="T3" textAlignment="CENTER" wrappingWidth="41.943359375" GridPane.columnIndex="1">
-                     <font>
-                        <Font name="Impact" size="20.0" />
-                     </font>
-                  </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="T4" textAlignment="CENTER" wrappingWidth="41.943359375" GridPane.columnIndex="2">
-                     <font>
-                        <Font name="Impact" size="20.0" />
-                     </font>
-                  </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="T5" textAlignment="CENTER" wrappingWidth="41.943359375" GridPane.columnIndex="3">
-                     <font>
-                        <Font name="Impact" size="20.0" />
-                     </font>
-                  </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="T6" textAlignment="CENTER" wrappingWidth="41.943359375" GridPane.columnIndex="4">
-                     <font>
-                        <Font name="Impact" size="20.0" />
-                     </font>
-                  </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="T7" textAlignment="CENTER" wrappingWidth="41.943359375" GridPane.columnIndex="5">
-                     <font>
-                        <Font name="Impact" size="20.0" />
-                     </font>
-                  </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CN" textAlignment="CENTER" wrappingWidth="41.943359375" GridPane.columnIndex="6">
-                     <font>
-                        <Font name="Impact" size="20.0" />
-                     </font>
-                  </Text>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="43.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="43.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="5" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="6" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.rowIndex="4">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.rowIndex="5">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="2" GridPane.rowIndex="5">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="3" GridPane.rowIndex="4">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="3" GridPane.rowIndex="5">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="4" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="4" GridPane.rowIndex="5">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="5" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="5" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="5" GridPane.rowIndex="4">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="5" GridPane.rowIndex="5">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="6" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="6" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="6" GridPane.rowIndex="4">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="46.0" style="-fx-background-color: #f7efd8; -fx-background-color: 50;" text="01" GridPane.columnIndex="6" GridPane.rowIndex="5">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-               </children>
-            </GridPane>
-            <Text layoutX="131.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10/2024">
-               <font>
-                  <Font name="Impact" size="30.0" />
-               </font></Text>
-            <Button layoutX="2.0" layoutY="443.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" style="-fx-background-color: 000000;">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0">
-                     <image>
-                        <Image url="@../../../picture/lArrow.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="318.0" layoutY="441.0" mnemonicParsing="false" style="-fx-background-color: 000000;">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0">
-                     <image>
-                        <Image url="@../../../../../../../../Downloads/rArrow.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
+            </Text>
+            <ScrollPane layoutX="18.0" layoutY="146.0" prefHeight="427.0" prefWidth="324.0" style="-fx-background-color: #f7efd8;" stylesheets="@../../../style.css">
+               <content>
+                  <VBox fx:id="bookTableVbox" prefHeight="1499.0" prefWidth="312.0" style="-fx-background-color: #f7efd8;" />
+               </content>
+            </ScrollPane>
          </children>
       </Pane>
       <Pane prefHeight="600.0" prefWidth="664.0" style="-fx-background-color: ffffff;" styleClass="style.css">
          <children>
-            <Pane layoutX="100.0" layoutY="70.0" prefHeight="200.0" prefWidth="415.0">
-               <children>
-                  <Button layoutX="-2.0" layoutY="160.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;" stylesheets="@../../../style.css" text="READING HERE" underline="true">
-                     <font>
-                        <Font name="Impact" size="15.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="35.0">
-                           <image>
-                              <Image url="@../../../picture/right-arrow.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <effect>
-                        <DropShadow height="5.0" offsetX="2.0" offsetY="3.0" radius="3.25" width="10.0" />
-                     </effect>
-                  </Button>
-                  <Text layoutX="-1.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOI DUNG CUAAM (NGAN GON) CHI TRONG 2 dsjdhjsdhjsmbdhjcmxnshjdfcmswhjekdfmndhsjkedmfnjdkemndfjckmsejrdfkd" wrappingWidth="415.0">
-                     <font>
-                        <Font size="15.0" />
-                     </font></Text>
-                  <Text layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAME OF BOOK" wrappingWidth="415.0">
-                     <font>
-                        <Font name="Impact" size="60.0" />
-                     </font>
-                  </Text>
-               </children>
-            </Pane>
             <ScrollPane layoutX="100.0" layoutY="317.0" prefHeight="283.0" prefWidth="535.0" stylesheets="@../../../style.css">
                <content>
                   <VBox prefHeight="715.0" prefWidth="537.0" spacing="10.0" style="-fx-background-color: ffffff;">
@@ -404,21 +65,9 @@
                   </VBox>
                </content>
             </ScrollPane>
-            <ImageView fitHeight="200.0" fitWidth="250.0" layoutX="544.0" layoutY="68.0">
-               <image>
-                  <Image url="@../../../../../../../../Downloads/a7fcedad38c5e081e580e3a1ae71d29d-removebg-preview.png" />
-               </image>
-               <effect>
-                  <DropShadow height="18.09" offsetX="1.0" offsetY="3.0" radius="7.8149999999999995" width="15.17">
-                     <color>
-                        <Color opacity="0.7200000286102295" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </ImageView>
             <Pane layoutX="23.0" layoutY="73.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
                <children>
-                  <Button layoutX="2.0" layoutY="85.0" mnemonicParsing="false" style="-fx-background-color: 000000;">
+                  <Button fx:id="categoryButton" layoutX="2.0" layoutY="85.0" mnemonicParsing="false" onAction="#cateButtonOnAction" style="-fx-background-color: 000000;">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0">
                            <image>
@@ -427,7 +76,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="2.0" layoutY="203.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #f7efd8;">
+                  <Button fx:id="homeButton" layoutX="2.0" layoutY="203.0" mnemonicParsing="false" onAction="#homeButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #f7efd8;">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0">
                            <image>
@@ -436,7 +85,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="2.0" layoutY="319.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: 000000;">
+                  <Button fx:id="moreInforButton" layoutX="2.0" layoutY="319.0" mnemonicParsing="false" onAction="#moreInforButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: 000000;">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0">
                            <image>
@@ -445,16 +94,16 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="2.0" layoutY="374.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: 000000;">
+                  <Button fx:id="logOutButton" layoutX="2.0" layoutY="431.0" mnemonicParsing="false" onAction="#logOutButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: 000000;">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0">
                            <image>
-                              <Image url="@../../../picture/settings.png" />
+                              <Image url="@../../../picture/logout.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="2.0" layoutY="263.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: 000000;">
+                  <Button fx:id="profileButton" layoutX="2.0" layoutY="263.0" mnemonicParsing="false" onAction="#profileButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: 000000;">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0">
                            <image>
@@ -463,7 +112,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="2.0" layoutY="145.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #f7efd8;">
+                  <Button fx:id="searchButton" layoutX="2.0" layoutY="145.0" mnemonicParsing="false" onAction="#searchButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #f7efd8;">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0">
                            <image>
@@ -477,6 +126,44 @@
                   <DropShadow height="10.0" offsetX="2.0" offsetY="2.0" radius="4.5" width="10.0" />
                </effect>
             </Pane>
+            <Pane layoutX="100.0" layoutY="73.0" prefHeight="214.0" prefWidth="157.0" style="-fx-background-color: FFC100;" />
+            <Text layoutX="298.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAME OF BOOK">
+               <font>
+                  <Font name="Impact" size="60.0" />
+               </font>
+            </Text>
+            <Text layoutX="298.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="jdfbhdsfhseesbjxjdksmndbfhdrjedksamsndbfhjdksmxncjdhbfdjskmnbhcgdjsksmnzbfxhdrjseaksmnfbhcdrjewksmdnbcghjdrekwsmnbfhjekwsdmnbcjgdfksmnhbvfdjkwsmdnjgcfdskmnvhfdjskmnhfdjskmnvbjcgfdksmdnbvhfjds" wrappingWidth="339.609375">
+               <font>
+                  <Font size="15.0" />
+               </font></Text>
+            <Button fx:id="readingNowButton" layoutX="485.0" layoutY="284.0" mnemonicParsing="false" onAction="#readingNowButtonOnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;" stylesheets="@../../../style.css" text="READING NOW">
+               <font>
+                  <Font name="Impact" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow offsetX="2.0" offsetY="3.0" radius="7.25" width="10.0" />
+               </effect>
+            </Button>
+            <ImageView fitHeight="65.0" fitWidth="64.0" layoutX="226.0" layoutY="41.0">
+               <image>
+                  <Image url="@../../../picture/badge.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="298.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Content:">
+               <font>
+                  <Font name="Impact" size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="298.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author:">
+               <font>
+                  <Font name="Impact" size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="349.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CatelineBlanc4">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
       <Label layoutX="19.0" layoutY="15.0" text="LMS">

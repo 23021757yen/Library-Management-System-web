@@ -31,7 +31,7 @@
             <Font name="Impact" size="60.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="943.0" layoutY="516.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="60.0" style="-fx-background-color: ffffff;">
+      <Button fx:id="backButton" layoutX="943.0" layoutY="524.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="66.0" prefWidth="54.0" style="-fx-background-color: ffffff;">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0">
                <image>

@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 import java.io.IOException;
 
-public class CategoryController {
+public class CategoryController extends BaseController{
     @FXML
     private Button backButton;
 
@@ -33,46 +33,39 @@ public class CategoryController {
     private MenuItem searchMenuItem;
 
     @FXML
-    private MenuItem settingMenuItem;
-    @FXML
-    private void loadScene(String fxml, String title) throws IOException {
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource(fxml));
-        stage.setTitle(title);
-        stage.setScene(new Scene(root));
-    }
+    private MenuItem logOutMenuItem;
     @FXML
     void backButtonOnAction (ActionEvent event) throws IOException {
-        loadScene("home.fxml", "Home");
+        super.changeScene("home.fxml", "Home");
     }
     @FXML
     void homeMenuItemOnAction(ActionEvent event) throws IOException {
         MenuItem clickedItem = (MenuItem) event.getSource();
         String selectedItem = clickedItem.getText();
-        loadScene("home.fxml", "Home");
+        super.changeScene("home.fxml", "Home");
     }
     @FXML
     void searchMenuItemOnAction(ActionEvent event) throws IOException {
         MenuItem clickedItem = (MenuItem) event.getSource();
         String selectedItem = clickedItem.getText();
-        loadScene("searchBook.fxml", "Searching");
+        super.changeScene("searchBook.fxml", "Searching");
     }
     @FXML
-    void settingMenuItemOnAction(ActionEvent event) throws IOException {
+    void logOutMenuItemOnAction(ActionEvent event) throws IOException {
         MenuItem clickedItem = (MenuItem) event.getSource();
         String selectedItem = clickedItem.getText();
-        loadScene("settingUser.fxml", "Setting");
+        super.changeScene("welcomeToWebsite.fxml", "Hello View");
     }
     @FXML
     void moreInforMenuItemOnAction(ActionEvent event) throws IOException {
         MenuItem clickedItem = (MenuItem) event.getSource();
         String selectedItem = clickedItem.getText();
-        loadScene("moreInfor.fxml", "MoreInfor");
+        super.changeScene("moreInformation.fxml", "MoreInfor");
     }
     @FXML
     void profileMenuItemOnAction(ActionEvent event) throws IOException {
         MenuItem clickedItem = (MenuItem) event.getSource();
         String selectedItem = clickedItem.getText();
-        loadScene("profileUser.fxml", "ProfileUser");
+        super.changeScene("profileUser.fxml", "ProfileUser");
     }
 }

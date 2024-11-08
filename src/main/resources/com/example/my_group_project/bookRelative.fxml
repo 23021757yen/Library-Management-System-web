@@ -23,29 +23,41 @@
             <Font name="Impact" size="30.0" />
          </font>
       </Text>
-      <Label layoutX="107.0" layoutY="64.0" text="Số lượt đọc: ">
+      <Label layoutX="107.0" layoutY="64.0" text="Viewrs: ">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="106.0" layoutY="83.0" text="Số lượt mượn:">
+      <Label layoutX="106.0" layoutY="83.0" text="Borrows:">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="106.0" layoutY="101.0" text="Tác giả:">
+      <Label layoutX="106.0" layoutY="101.0" text="Author:">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="106.0" layoutY="120.0" text="Thể loại: ">
+      <Label layoutX="106.0" layoutY="120.0" text="Category: ">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="numberOfRead" layoutX="178.0" layoutY="65.0" text="12" />
-      <Label fx:id="numberOfBorrow" layoutX="191.0" layoutY="85.0" text="12" />
-      <Label fx:id="setAuthor" layoutX="153.0" layoutY="103.0" text="CatelineBlanc" />
-      <Label fx:id="setCategory" layoutX="157.0" layoutY="120.0" prefHeight="17.0" prefWidth="150.0" text="Kinh dị, máu me, có cảnh 18+" />
+      <Label fx:id="numberOfRead" layoutX="160.0" layoutY="64.0" text="12">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label fx:id="numberOfBorrow" layoutX="170.0" layoutY="83.0" text="12">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label fx:id="setAuthor" layoutX="164.0" layoutY="102.0" text="CatelineBlanc">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label fx:id="setCategory" layoutX="180.0" layoutY="120.0" prefHeight="21.0" prefWidth="123.0" text="Kinh dị, máu me, có cảnh 18+">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
    </children>
 </Pane>
