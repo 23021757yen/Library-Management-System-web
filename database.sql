@@ -157,12 +157,20 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `User_ID` varchar(20) NOT NULL DEFAULT '',
   `name` varchar(100) DEFAULT NULL,
+  `fullname` varchar(100) DEFAULT NULL,
   `password` varchar(100) NOT NULL DEFAULT 'root',
   `email` varchar(50) NOT NULL DEFAULT '',
   `phone` varchar(20) DEFAULT NULL,
   `status` varchar(20) NOT NULL DEFAULT 'active',
+  `dateOfBirth` varchar(20) NOT NULL DEFAULT '',
+  `gender` varchar(20) NOT NULL DEFAULT '',
+  `profile_image` BLOB,
   PRIMARY KEY (`User_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+ALTER TABLE `user` MODIFY COLUMN `profile_image` BLOB NULL;
+
+ALTER TABLE user MODIFY COLUMN profile_image LONGBLOB;
 
 
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -176,4 +184,7 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+
+
 -- Dump completed on 2024-10-14 20:20:51
+

@@ -3,13 +3,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.layout.AnchorPane?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.HelloController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7efd8" height="600.0" stroke="#00000001" strokeType="INSIDE" style="-fx-arc-height: 20; -fx-arc-width: 20;" width="1024.0" />
@@ -42,22 +41,22 @@
             <Font name="System Italic" size="16.0" />
          </font>
       </Text>
-      <Button fx:id="loginButton" layoutX="510.0" layoutY="29.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: ffc100; -fx-background-radius: 30;" text="LOG IN" textFill="WHITE" visible="false">
+      <Button fx:id="loginButton" layoutX="510.0" layoutY="29.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="43.0" prefWidth="130.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHide.css" text="LOG IN" textFill="WHITE" visible="false">
          <font>
             <Font name="Impact" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="signupButton" layoutX="660.0" layoutY="28.0" mnemonicParsing="false" onAction="#signupButtonOnAction" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: ffc100; -fx-background-radius: 30;" text="SIGN UP" textFill="WHITE" visible="false">
+      <Button fx:id="signupButton" layoutX="660.0" layoutY="28.0" mnemonicParsing="false" onAction="#signupButtonOnAction" prefHeight="43.0" prefWidth="130.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHide.css" text="SIGN UP" textFill="WHITE" visible="false">
          <font>
             <Font name="Impact" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="userButton" layoutX="84.0" layoutY="481.0" mnemonicParsing="false" onAction="#userButtonOnAction" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: eeb60d; -fx-background-radius: 30;" text="USER" textFill="WHITE">
+      <Button fx:id="userButton" layoutX="84.0" layoutY="481.0" mnemonicParsing="false" onAction="#userButtonOnAction" prefHeight="43.0" prefWidth="130.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonChoose.css" text="USER" textFill="WHITE">
          <font>
             <Font name="Impact" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="adminButton" layoutX="250.0" layoutY="481.0" mnemonicParsing="false" onAction="#adminButtonOnAction" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: eeb60d; -fx-background-radius: 30;" text="ADMIN" textFill="WHITE">
+      <Button fx:id="adminButton" layoutX="250.0" layoutY="481.0" mnemonicParsing="false" onAction="#adminButtonOnAction" prefHeight="43.0" prefWidth="130.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonChoose.css" text="ADMIN" textFill="WHITE">
          <font>
             <Font name="Impact" size="20.0" />
          </font>

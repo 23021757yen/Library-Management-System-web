@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.HistoryController">
+<AnchorPane prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.UserHistoryController">
    <children>
       <Pane prefHeight="161.0" prefWidth="1024.0" style="-fx-background-color: #f7efd8;">
          <children>
@@ -24,7 +24,7 @@
                   <Image url="@../../../picture/background.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="backButton" layoutX="960.0" layoutY="17.0" mnemonicParsing="false" onAction="#backButtonOnAction" style="-fx-background-color: 000000;" underline="true">
+            <Button fx:id="backButton" layoutX="960.0" layoutY="17.0" mnemonicParsing="false" onAction="#backButtonOnAction" style="-fx-background-color: transparent;" stylesheets="@../../../buttonText.css" underline="true">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

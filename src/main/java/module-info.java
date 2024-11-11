@@ -21,5 +21,6 @@ module com.example.my_group_project {
     requires google.api.services.books.v1.rev114;
 
     opens com.example.my_group_project to javafx.fxml;
-    exports com.example.my_group_project;
+    exports com.example.my_group_project ;
+
 }
