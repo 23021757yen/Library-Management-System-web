@@ -45,19 +45,6 @@
                   <DropShadow />
                </effect>
                <children>
-                  <ImageView fx:id="bookImageView" fitHeight="182.0" fitWidth="134.0" layoutX="17.0" layoutY="14.0">
-                     <image>
-                        <Image url="@../../../bookImage/Bogia.jpg" />
-                     </image>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </ImageView>
-                  <Text fx:id="nameOfBook" layoutX="182.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên sách nha">
-                     <font>
-                        <Font name="Impact" size="40.0" />
-                     </font>
-                  </Text>
                   <Text layoutX="181.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tác giả:">
                      <font>
                         <Font name="System Bold" size="15.0" />
@@ -93,11 +80,6 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Text>
-                  <Text layoutX="180.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nổi bật:">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Text>
                   <HBox layoutX="80.0" layoutY="355.0" prefHeight="29.0" prefWidth="435.0">
                      <children>
                         <Button fx:id="categoryComedyButton" mnemonicParsing="false" style="-fx-background-color: ffffff; -fx-background-radius: 20;" text="Chính kịch">
@@ -107,37 +89,27 @@
                         </Button>
                      </children>
                   </HBox>
-                  <Text fx:id="limitAge" layoutX="308.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="18+">
+                  <Text fx:id="limitAge" layoutX="308.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fx:id="nameOfAuthor" layoutX="242.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Catelineblanc">
+                  <Text fx:id="pageViews" layoutX="308.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fx:id="pageViews" layoutX="308.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
+                  <Text fx:id="numberOfRead" layoutX="274.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fx:id="numberOfRead" layoutX="274.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
+                  <Text fx:id="numberOfBorrow" layoutX="289.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fx:id="numberOfBorrow" layoutX="289.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="247.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Đạt giải bla bla,...">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Text>
-                  <Button fx:id="highlightButton" layoutX="458.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-color: #f7efd8;">
+                  <Button fx:id="highlightButton" layoutX="473.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-color: #f7efd8;">
                      <graphic>
                         <ImageView fitHeight="23.0" fitWidth="21.0">
                            <image>
@@ -150,7 +122,7 @@
                      <content>
                         <VBox prefHeight="274.0" prefWidth="481.0" style="-fx-background-color: #f7efd8;">
                            <children>
-                              <Text fx:id="content" strokeType="OUTSIDE" strokeWidth="0.0" text="TextnsbdhwjhebdfghdjwdhjwnebdhjsansbdghejwnsFHREHDFGDEHDFEWJEDHWJQSDHWQDUFHGWQUEDFYWQIEDFJWEDFKJWQKSDCbdjdnsdjsndjswnedjmswdjmsndfjmnsdcmxnawsdcjmxasndcjmxasndcmxasndcmxsndcmxsdjmmncdncnjbcjdcnsjdncbksndbvjndbjsnbgvtyfdusiesnbxgygufvigbjkgjtnrfbedvwsacDFSDGYHKGJHFBDGVSCDFJNBCVCFSDAJWHDFUSWHDUHDJWSHDJASDNJWJEHDFJEWQJEHDJNSXMANSJDKSJAWQDJFEWQERJFGIRHEWRUUR3HIJWEDFJSKJSNDJIDWJEFJIEWJNNJIJEHFJUHDJSATWEGYRFHBGVSTEDYURTG" wrappingWidth="479.1708984375">
+                              <Text fx:id="content" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="479.1708984375">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -159,9 +131,24 @@
                         </VBox>
                      </content>
                   </ScrollPane>
+                  <Label fx:id="nameOfBook" layoutX="179.0" layoutY="35.0" prefHeight="45.0" prefWidth="285.0">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nameOfAuthor" layoutX="241.0" layoutY="101.0" prefHeight="21.0" prefWidth="254.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="bookImageView" fitHeight="186.0" fitWidth="152.0" layoutX="18.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
                </children>
             </Pane>
-            <Button fx:id="backButton" layoutX="563.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButtonOnAction" style="-fx-background-color: transparent;" stylesheets="@../../../buttonText.css" underline="true">
+            <Button fx:id="backButton" layoutX="581.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButtonOnAction" style="-fx-background-color: transparent;" stylesheets="@../../../buttonText.css" underline="true">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
