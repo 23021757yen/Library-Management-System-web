@@ -1,17 +1,30 @@
-package com.example.my_group_project;
+package com.example.my_group_project ;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.shape.Rectangle;
-
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.ComboBox;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.FileChooser;
+import java.io.File;
+import javafx.scene.image.Image;
+import java.io.IOException;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.Parent;
+import javafx.fxml.FXMLLoader;
 import java.sql.Statement;
+import javafx.scene.shape.Rectangle;
+
+
 
 public class HelloController extends BaseController {
     @FXML
@@ -24,6 +37,10 @@ public class HelloController extends BaseController {
     private TextField usernameTextField;
     @FXML
     private PasswordField enterPasswordField;
+
+    private String userId;
+
+    public static String userIdMain;
 
     @FXML
     void adminButtonOnAction(ActionEvent event) {
@@ -74,6 +91,9 @@ public class HelloController extends BaseController {
                     loginMessageLabel.setText("Invalid username or password");
                 } else {
                     loginMessageLabel.setText("Login successful");
+                    userId = getUserId(connectDB);  // Gọi phương thức getUserId để lấy User_ID
+                    System.out.println("User ID after login: " + userId);
+                    userIdMain = userId;
                     toMainScene();
                 }
             } catch (SQLException e) {
@@ -82,7 +102,26 @@ public class HelloController extends BaseController {
         }
     }
 
+    public String getUserId(Connection connectDB) {
+        String query = "SELECT User_ID FROM user WHERE name = ? AND password = ?";
+        try (PreparedStatement statement = connectDB.prepareStatement(query)) {
+            statement.setString(1, usernameTextField.getText());
+            statement.setString(2, enterPasswordField.getText());
+
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                userId = resultSet.getString("User_ID");
+                System.out.print("acb");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.print("acbd");
+        }
+        return userId;
+    }
+
     public void toMainScene() {
         super.changeScene("home.fxml", "Home");
     }
 }
+

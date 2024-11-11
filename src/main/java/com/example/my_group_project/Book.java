@@ -5,26 +5,18 @@ public class Book {
     private String authors;
     private String imageUrl;
     private String description;
+    private String genre; // Add genre field
 
-    public Book(String title, String authors) {
-        this.title = title;
-        this.authors = authors;
-    }
-    public Book(String title, String authors, String imageUrl) {
+    // Constructor with genre
+    public Book(String title, String authors, String imageUrl, String description, String genre) {
         this.title = title;
         this.authors = authors;
         this.imageUrl = imageUrl;
-    }
-
-    public Book(String title, String authors, String imageUrl, String Description) {
-        this.title = title;
-        this.authors = authors;
-        this.imageUrl = imageUrl;
-        this.description = Description;
+        this.description = description;
+        this.genre = genre; // Initialize genre
     }
 
     // Getters and setters
-
     public String getTitle() {
         return title;
     }
@@ -56,5 +48,12 @@ public class Book {
     public void setDescription(String description) {
         this.description = description;
     }
-}
 
+    public String getGenre() {
+        return genre; // Getter for genre
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre; // Setter for genre
+    }
+}

@@ -22,16 +22,51 @@ public class BookAPI {
                 .build();
     }
 
+    public static List<Book> getRecommendedBooks(String genre, String maxAllowedMaturityRating) throws IOException, GeneralSecurityException {
+        Books books = getBooksService();
+        // Modify the query to include the genre
+        String query = "subject:" + genre; // Assuming genre is a subject in Google Books API
+        Books.Volumes.List volumesList = books.volumes().list(query);
+        Volumes volumes = volumesList.execute();
+        List<Book> bookList = new ArrayList<>();
+
+        if (volumes.getItems() != null) {
+            for (Volume volume : volumes.getItems()) {
+                String title = volume.getVolumeInfo().getTitle();
+                String authors = (volume.getVolumeInfo().getAuthors() != null) ? String.join(", ", volume.getVolumeInfo().getAuthors()) : "No authors found";
+                String imageUrl = (volume.getVolumeInfo().getImageLinks() != null) ? volume.getVolumeInfo().getImageLinks().getThumbnail() : null;
+                String description = (volume.getVolumeInfo().getDescription() != null) ? volume.getVolumeInfo().getDescription() : "No description available";
+                String bookGenre = (volume.getVolumeInfo().getCategories() != null) ? String.join(", ", volume.getVolumeInfo().getCategories()) : "No genre available"; // Get genre from categories
+
+                bookList.add(new Book(title, authors, imageUrl, description, bookGenre));
+            }
+        }
+        return bookList;
+    }
+
     public static List<Book> searchBooks(String query) throws IOException, GeneralSecurityException {
         Books books = getBooksService();
         Books.Volumes.List volumesList = books.volumes().list(query);
         Volumes volumes = volumesList.execute();
         List<Book> bookList = new ArrayList<>();
+
         if (volumes.getItems() != null) {
             for (Volume volume : volumes.getItems()) {
                 String title = volume.getVolumeInfo().getTitle();
-                String authors = String.join(", ", volume.getVolumeInfo().getAuthors());
-                bookList.add(new Book(title, authors));
+                String authors = (volume.getVolumeInfo().getAuthors() != null)
+                        ? String.join(", ", volume.getVolumeInfo().getAuthors())
+                        : "No authors found";
+                String imageUrl = (volume.getVolumeInfo().getImageLinks() != null)
+                        ? volume.getVolumeInfo().getImageLinks().getThumbnail()
+                        : null;
+                String description = (volume.getVolumeInfo().getDescription() != null)
+                        ? volume.getVolumeInfo().getDescription()
+                        : "No description available";
+                String bookGenre = (volume.getVolumeInfo().getCategories() != null)
+                        ? String.join(", ", volume.getVolumeInfo().getCategories())
+                        : "No genre available"; // Extract genre from categories
+
+                bookList.add(new Book(title, authors, imageUrl, description, bookGenre));
             }
         }
         return bookList;

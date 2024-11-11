@@ -2,18 +2,14 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="310.0" style="-fx-background-color: #f7efd8;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="310.0" style="-fx-background-color: #f7efd8;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.UserBookCardController">
    <children>
       <ImageView fx:id="setImageBook" fitHeight="140.0" fitWidth="90.0" layoutX="5.0" layoutY="11.0">
-         <image>
-            <Image url="@../../../bookImage/Bogia.jpg" />
-         </image>
          <effect>
             <DropShadow />
          </effect>

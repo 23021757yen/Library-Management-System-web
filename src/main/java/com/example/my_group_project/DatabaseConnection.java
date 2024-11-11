@@ -1,4 +1,4 @@
-package com.example.my_group_project;
+package com.example.my_group_project ;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,6 @@ public class DatabaseConnection {
         String databaseUser = "root";
         String databasePassword = "Catelineblanc4";
         String url = "jdbc:mysql://localhost/" + databaseName;
-
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("Attempting to connect to database...");

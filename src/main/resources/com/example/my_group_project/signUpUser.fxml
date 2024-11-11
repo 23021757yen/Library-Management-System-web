@@ -11,10 +11,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.RegisterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.UserRegisterController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffc100" height="600.0" layoutX="704.0" stroke="#00000000" strokeType="INSIDE" width="320.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7efd8" height="600.0" layoutY="-6.0" stroke="#00000000" strokeType="INSIDE" width="704.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f7efd8" height="600.0" stroke="#00000000" strokeType="INSIDE" width="704.0" />
       <ImageView fitHeight="400.0" fitWidth="400.0" layoutX="504.0" layoutY="112.0">
          <image>
             <Image url="@../../../picture/atLogInPage.png" />
@@ -76,7 +76,7 @@
             <Font name="System Italic" size="20.0" />
          </font>
       </Text>
-      <Button fx:id="registerButton" layoutX="56.0" layoutY="461.0" mnemonicParsing="false" onAction="#registerButtonOnAction" prefHeight="25.0" prefWidth="424.0" style="-fx-background-color: FFC100; -fx-background-radius: 30;" text="CREATE ACCOUNT">
+      <Button fx:id="registerButton" layoutX="56.0" layoutY="461.0" mnemonicParsing="false" onAction="#registerButtonOnAction" prefHeight="25.0" prefWidth="424.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHover.css" text="CREATE ACCOUNT">
          <font>
             <Font name="Impact" size="20.0" />
          </font>
@@ -86,22 +86,22 @@
             <Font size="20.0" />
          </font>
       </Text>
+      <Button fx:id="loginButton" layoutX="296.0" layoutY="498.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="43.0" prefWidth="93.0" style="-fx-background-color: transparent;" stylesheets="@../../../buttonText.css" text="Here" underline="true">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
       <Text layoutX="374.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" text="to log in" wrappingWidth="81.0">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Button fx:id="loginButton" layoutX="296.0" layoutY="498.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="43.0" prefWidth="93.0" style="-fx-background-color: 000000;" text="Here" underline="true">
-         <font>
-            <Font name="System Bold Italic" size="20.0" />
-         </font>
-      </Button>
       <Label fx:id="registrationMessageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="548.0" prefHeight="17.0" prefWidth="424.0" textFill="#1967d3">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="610.0" layoutY="25.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefWidth="81.0" style="-fx-background-color: ffc100; -fx-background-radius: 20;" text="Back" textFill="WHITE" underline="true">
+      <Button fx:id="backButton" layoutX="610.0" layoutY="25.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefWidth="81.0" style="-fx-background-radius: 20;" stylesheets="@../../../buttonHover.css" text="Back" textFill="WHITE" underline="true">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>

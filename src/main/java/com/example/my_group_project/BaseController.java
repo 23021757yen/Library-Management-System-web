@@ -1,4 +1,4 @@
-package com.example.my_group_project;
+package com.example.my_group_project ;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

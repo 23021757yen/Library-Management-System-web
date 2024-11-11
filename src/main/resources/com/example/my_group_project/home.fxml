@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.HomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.UserHomeController">
    <children>
       <Pane layoutX="664.0" prefHeight="600.0" prefWidth="360.0" style="-fx-background-color: #f7efd8;">
          <children>
@@ -35,30 +35,28 @@
                <content>
                   <VBox prefHeight="715.0" prefWidth="537.0" spacing="10.0" style="-fx-background-color: ffffff;">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;" stylesheets="@../../../style.css" text="POPULAR">
-                           <font>
-                              <Font name="Impact" size="15.0" />
-                           </font>
-                           <effect>
-                              <DropShadow offsetX="2.0" offsetY="3.0" radius="7.25" width="10.0" />
-                           </effect>
-                        </Button>
                         <ScrollPane prefHeight="310.0" prefWidth="540.0" stylesheets="@../../../style.css">
                            <content>
-                              <HBox prefHeight="298.0" prefWidth="540.0" spacing="10.0" style="-fx-background-color: ffffff;" />
+                              <HBox prefHeight="298.0" prefWidth="540.0" spacing="10.0" style="-fx-background-color: ffffff;">
+                                 <children>
+                                    <Label text="POPULAR" underline="true">
+                                       <font>
+                                          <Font name="Impact" size="30.0" />
+                                       </font>
+                                    </Label>
+                                 </children></HBox>
                            </content>
                         </ScrollPane>
-                        <Button lineSpacing="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;" stylesheets="@../../../style.css" text="LATEST">
-                           <font>
-                              <Font name="Impact" size="15.0" />
-                           </font>
-                           <effect>
-                              <DropShadow offsetX="2.0" offsetY="3.0" radius="7.25" width="10.0" />
-                           </effect>
-                        </Button>
                         <ScrollPane prefHeight="310.0" prefWidth="540.0" stylesheets="@../../../style.css">
                            <content>
-                              <HBox prefHeight="298.0" prefWidth="540.0" style="-fx-background-color: ffffff;" />
+                              <HBox prefHeight="298.0" prefWidth="540.0" style="-fx-background-color: ffffff;">
+                                 <children>
+                                    <Label text="LATEST" underline="true">
+                                       <font>
+                                          <Font name="Impact" size="30.0" />
+                                       </font>
+                                    </Label>
+                                 </children></HBox>
                            </content>
                         </ScrollPane>
                      </children>
@@ -67,7 +65,7 @@
             </ScrollPane>
             <Pane layoutX="23.0" layoutY="73.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
                <children>
-                  <Button fx:id="categoryButton" layoutX="2.0" layoutY="85.0" mnemonicParsing="false" onAction="#cateButtonOnAction" style="-fx-background-color: 000000;">
+                  <Button fx:id="categoryButton" layoutX="2.0" layoutY="85.0" mnemonicParsing="false" onAction="#cateButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0">
                            <image>
@@ -76,7 +74,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="homeButton" layoutX="2.0" layoutY="203.0" mnemonicParsing="false" onAction="#homeButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #f7efd8;">
+                  <Button fx:id="homeButton" layoutX="2.0" layoutY="203.0" mnemonicParsing="false" onAction="#homeButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0">
                            <image>
@@ -85,7 +83,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="moreInforButton" layoutX="2.0" layoutY="319.0" mnemonicParsing="false" onAction="#moreInforButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: 000000;">
+                  <Button fx:id="moreInforButton" layoutX="2.0" layoutY="319.0" mnemonicParsing="false" onAction="#moreInforButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0">
                            <image>
@@ -94,7 +92,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="logOutButton" layoutX="2.0" layoutY="431.0" mnemonicParsing="false" onAction="#logOutButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: 000000;">
+                  <Button fx:id="logOutButton" layoutX="2.0" layoutY="431.0" mnemonicParsing="false" onAction="#logOutButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0">
                            <image>
@@ -103,7 +101,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="profileButton" layoutX="2.0" layoutY="263.0" mnemonicParsing="false" onAction="#profileButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: 000000;">
+                  <Button fx:id="profileButton" layoutX="2.0" layoutY="263.0" mnemonicParsing="false" onAction="#profileButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0">
                            <image>
@@ -112,7 +110,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="searchButton" layoutX="2.0" layoutY="145.0" mnemonicParsing="false" onAction="#searchButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #f7efd8;">
+                  <Button fx:id="searchButton" layoutX="2.0" layoutY="145.0" mnemonicParsing="false" onAction="#searchButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0">
                            <image>
@@ -136,7 +134,7 @@
                <font>
                   <Font size="15.0" />
                </font></Text>
-            <Button fx:id="readingNowButton" layoutX="485.0" layoutY="284.0" mnemonicParsing="false" onAction="#readingNowButtonOnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;" stylesheets="@../../../style.css" text="READING NOW">
+            <Button fx:id="readingNowButton" layoutX="485.0" layoutY="284.0" mnemonicParsing="false" onAction="#readingNowButtonOnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-background-radius: 20;" stylesheets="@../../../buttonHoverv2.css" text="READING NOW">
                <font>
                   <Font name="Impact" size="15.0" />
                </font>
