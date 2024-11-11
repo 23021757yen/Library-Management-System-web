@@ -14,6 +14,7 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.List;
+import javafx.scene.control.Label;
 
 public class UserBookProfileController extends BaseController {
     @FXML
@@ -23,7 +24,7 @@ public class UserBookProfileController extends BaseController {
     private Button borrowButton;
 
     @FXML
-    private Text nameOfBook;
+    private Label nameOfBook;
 
     @FXML
     private Button categoryComedyButton;
@@ -32,7 +33,7 @@ public class UserBookProfileController extends BaseController {
     private Text limitAge;
 
     @FXML
-    private Text nameOfAuthor;
+    private Label nameOfAuthor;
 
     @FXML
     private Text pageViews;
@@ -139,7 +140,7 @@ public class UserBookProfileController extends BaseController {
     private void displayRecommendedBooks(List<Book> books) {
         if (books == null || books.isEmpty()) {
             Text noBooksText = new Text("No recommended books available.");
-            noBooksText.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-fill: #333333;");
+            noBooksText.setStyle("-fx-font-family: 'System'; -fx-font-size: 14px; -fx-fill: #333333;");
             bookTableVbox.getChildren().clear(); // Clear previous entries
             bookTableVbox.getChildren().add(noBooksText); // Show message if no books are available
             return;
@@ -149,7 +150,7 @@ public class UserBookProfileController extends BaseController {
 
         for (Book book : books) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("bookCard.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("bookRelative.fxml"));
                 Pane bookCard = loader.load();
 
                 // Access the BookCardController to set the book details
