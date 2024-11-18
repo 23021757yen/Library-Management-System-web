@@ -1,9 +1,15 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
-public class AdminUserManagementController extends BaseController {
+public class AdminReportOneUserController extends BaseController{
 
     @FXML
     private Button backButton;
@@ -12,22 +18,46 @@ public class AdminUserManagementController extends BaseController {
     private Button bookBorrowButton;
 
     @FXML
+    private Text contentText;
+
+    @FXML
+    private DatePicker datePicker;
+
+    @FXML
     private Button homeScene1Button;
 
     @FXML
     private Button logOutButton;
 
     @FXML
+    private TextField noteTextField;
+
+    @FXML
     private Button reportButton;
 
     @FXML
-    private TextField searchTextField;
+    private ScrollPane scrollPane;
+
+    @FXML
+    private CheckBox statusCheckBox;
+
+    @FXML
+    private Label userEmailTextField;
+
+    @FXML
+    private Label userFullNameTextField;
+
+    @FXML
+    private Label userIdTextField;
 
     @FXML
     private Button userManagementButton;
 
     @FXML
-    private Button addButton;
+    private Label userNameTextField;
+
+    @FXML
+    private Label userPhoneNumberTextField;
 
     @FXML
     private ScrollPane scrollpane;
@@ -36,8 +66,11 @@ public class AdminUserManagementController extends BaseController {
     private VBox vBox;
 
     @FXML
+    private ImageView userImage;
+
+    @FXML
     void backButtonOnAction(ActionEvent event) {
-        sceneChange("AdminHomeScene1.fxml", "AdminHomeScene1");
+        sceneChange("AdminHomeScene1.fxml", "AdminHomeScene1")
     }
 
     @FXML
@@ -60,10 +93,8 @@ public class AdminUserManagementController extends BaseController {
         sceneChange("welcomToWebsite.fxml", "welcomeToWebsite");
     }
 
-    @FXML
-    void searchTextFieldOnAction(ActionEvent event) {
-    }
-     // search ra nguoi dung
-    // add them nguoi dung tai day tuong tu add sach (xem lai o homescene1 co note)
+    //load thong tin dung theo report ( lay tu email tai trang MoreInformation cua nguoi dung)
+    //tick trang thai sau khi su ly thong tin
+    //note ghi chu
 
 }

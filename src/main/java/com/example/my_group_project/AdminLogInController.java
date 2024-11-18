@@ -21,3 +21,4 @@ public class AdminLogInController extends BaseController {
         }
     }
 }
+// admin chi dang nhap voi 1 mat khau
