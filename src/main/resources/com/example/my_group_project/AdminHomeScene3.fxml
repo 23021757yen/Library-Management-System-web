@@ -131,9 +131,9 @@
             </Text>
          </children>
       </Pane>
-      <ScrollPane layoutX="103.0" layoutY="317.0" prefHeight="246.0" prefWidth="899.0" stylesheets="@../../../style.css">
+      <ScrollPane fx:id="scrollpane" layoutX="103.0" layoutY="317.0" prefHeight="246.0" prefWidth="899.0" stylesheets="@../../../style.css">
          <content>
-            <VBox prefHeight="5000.0" prefWidth="887.0" style="-fx-background-color: FFFFFF;" />
+            <VBox fx:id="vBox" prefHeight="5000.0" prefWidth="887.0" style="-fx-background-color: FFFFFF;" />
          </content>
       </ScrollPane>
       <HBox layoutX="104.0" layoutY="284.0" prefHeight="45.0" prefWidth="885.0" style="-fx-background-color: ffffff;">

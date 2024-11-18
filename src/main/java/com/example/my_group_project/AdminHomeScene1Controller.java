@@ -32,9 +32,6 @@ public class AdminHomeScene1Controller extends BaseController {
     private Button logOutButton;
 
     @FXML
-    private Pane paneHomeScene1;
-
-    @FXML
     private Pane paneHomeScene2;
 
     @FXML
@@ -57,6 +54,12 @@ public class AdminHomeScene1Controller extends BaseController {
 
     @FXML
     private Button userManagementButton;
+
+    @FXML
+    private ScrollPane scrollpane;
+
+    @FXML
+    private VBox vBox;
 
     @FXML
     void bookBorrowButtonOnAction(ActionEvent event) throws IOException {
@@ -93,7 +96,7 @@ public class AdminHomeScene1Controller extends BaseController {
     void addButtonOnAction(ActionEvent event) throws IOException {
 
     }
-
+    // 1 hàm add sách, cũng là add thêm pane thoi(sau khiấn vào thì trực tiếp vào trạng thái edit để điền thông tin sách)
    // 1 ham cho tin kiem : ra thong tin
     // 1 ham de load cac pane ( da tao rieng 1 file fxml :))))
     // 1 ham chuyen scene chuyen sang bookinformation( 2 kieu : an nut cuoi ben phai// dup chuot)
