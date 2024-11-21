@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="33.0" layoutY="83.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
+         <children>
+            <Button fx:id="homeScene1Button" layoutX="2.0" layoutY="104.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/book.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="reportButton" layoutX="2.0" layoutY="310.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/question.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="logOutButton" layoutX="2.0" layoutY="431.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="userManagementButton" layoutX="1.0" layoutY="241.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/profile.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="bookBorrowButton" layoutX="2.0" layoutY="173.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/bookBorrow.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <effect>
+            <DropShadow height="10.0" offsetX="2.0" offsetY="2.0" radius="4.5" width="10.0" />
+         </effect>
+      </Pane>
+      <Label layoutX="29.0" layoutY="25.0" text="LMS">
+         <font>
+            <Font name="Impact" size="30.0" />
+         </font>
+      </Label>
+      <TextField fx:id="noteTextField" layoutX="104.0" layoutY="529.0" prefHeight="25.0" prefWidth="874.0" promptText="take note" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;" />
+      <Label layoutX="110.0" layoutY="502.0" text="NOTE" underline="true">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Pane layoutX="110.0" layoutY="83.0" prefHeight="370.0" prefWidth="858.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;">
+         <children>
+            <ImageView fx:id="userImage" fitHeight="204.0" fitWidth="149.0" layoutX="14.0" layoutY="11.0">
+               <image>
+                  <Image url="@../../../picture/Bibliophile-bro.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="165.0" layoutY="67.0" text="USER ID:">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="163.0" layoutY="139.0" text="DATE OF BIRTH:">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="484.0" layoutY="67.0" text="USER FULLNAME:">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="482.0" layoutY="101.0" text="EMAIL:">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="481.0" layoutY="135.0" text="PHONE NUMBER: ">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="163.0" layoutY="103.0" text="USER NAME:">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="userIdTextField" layoutX="276.0" layoutY="67.0" prefHeight="21.0" prefWidth="195.0" text="DJNJDCMKndcsnjcd">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="userNameTextField" layoutX="276.0" layoutY="103.0" prefHeight="21.0" prefWidth="195.0" text="DJNJDCMKndcsnjcd">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="userFullNameTextField" layoutX="621.0" layoutY="67.0" text="DJNJDCMKndcsnjcd">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="userEmailTextField" layoutX="622.0" layoutY="100.0" text="DJNJDCMKndcsnjcd">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="userPhoneNumberTextField" layoutX="622.0" layoutY="135.0" text="DJNJDCMKndcsnjcd">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="46.0" layoutY="216.0" text="CONTENT:">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <ScrollPane fx:id="scrollPane" layoutX="46.0" layoutY="252.0" prefHeight="88.0" prefWidth="789.0" style="-fx-background-color: #f7efd8;" stylesheets="@../../../style.css">
+               <content>
+                  <VBox fx:id="vBox" prefHeight="200.0" prefWidth="777.0" style="-fx-background-color: #f7efd8;">
+                     <children>
+                        <Text fx:id="contentText" strokeType="OUTSIDE" strokeWidth="0.0" text="jwdcndeejdfejwhbedfjwskqmjwdehewqefbjwdhusebdyvxdshwgqtydsewfghdswfgvhdsabsvdchdswnbsgdhcdsawbsgdchdsabdgchdbsdgchdswsgdchdswnbsgdchdsabvgchbhxzjszjhxzbhxjghcxbghjsghcgyjasghcgyasgyjsgdhcbgshdcgsydyc" wrappingWidth="771.6708984375">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <CheckBox fx:id="statusCheckBox" layoutX="694.0" layoutY="211.0" mnemonicParsing="false" text="Trạng thái xử lý" underline="true">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </CheckBox>
+            <DatePicker fx:id="datePicker" layoutX="280.0" layoutY="136.0" />
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+      <Button fx:id="backButton" layoutX="920.0" layoutY="30.0" mnemonicParsing="false" onAction="#backButtonOnAction" style="-fx-background-color: transparent;" stylesheets="@../../../buttonHover.css" underline="true">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="26.0">
+               <image>
+                  <Image url="@../../../picture/back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

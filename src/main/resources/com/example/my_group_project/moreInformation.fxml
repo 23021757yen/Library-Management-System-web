@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.UserMoreInformationController">
+   <children>
+      <ImageView fitHeight="452.0" fitWidth="479.0" layoutX="551.0" layoutY="106.0" opacity="0.5">
+         <image>
+            <Image url="@../../../picture/Bibliophile-bro.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="23.0" layoutY="73.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
+         <children>
+            <Button fx:id="categoryButton" layoutX="2.0" layoutY="85.0" mnemonicParsing="false" onAction="#categoryButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/menu.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="homeButton" layoutX="2.0" layoutY="203.0" mnemonicParsing="false" onAction="#homeButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="moreInforButton" layoutX="2.0" layoutY="319.0" mnemonicParsing="false" onAction="#moreInforButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/question.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="profileButton" layoutX="2.0" layoutY="263.0" mnemonicParsing="false" onAction="#profileButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/profile.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="searchButton" layoutX="2.0" layoutY="145.0" mnemonicParsing="false" onAction="#searchButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="logOutButton" layoutX="2.0" layoutY="431.0" mnemonicParsing="false" onAction="#logOutButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <effect>
+            <DropShadow height="10.0" offsetX="2.0" offsetY="2.0" radius="4.5" width="10.0" />
+         </effect>
+      </Pane>
+      <Label layoutX="20.0" layoutY="15.0" text="LMS">
+         <font>
+            <Font name="Impact" size="30.0" />
+         </font>
+      </Label>
+      <Text layoutX="111.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LMS (Library Management System) là một trang web quản lý thư viện trực tuyến, giúp người dùng dễ dàng tìm kiếm, đăng ký và mượn sách từ kho sách của thư viện. Với giao diện thân thiện và dễ sử dụng, LMS cho phép người dùng duyệt qua danh sách các đầu sách, kiểm tra tình trạng sách còn hay đã mượn, và đăng ký mượn sách chỉ với vài thao tác đơn giản. Hệ thống cũng hỗ trợ tính năng quản lý thông tin người dùng, lịch sử mượn sách, và thông báo về hạn trả sách, giúp nâng cao trải nghiệm người dùng và tiết kiệm thời gian cho cả người mượn và nhân viên thư viện." textAlignment="JUSTIFY" wrappingWidth="816.76953125">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="146.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Đảm bảo cập nhật, thêm, hủy sách kịp thời" wrappingWidth="479.02587890625">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="146.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yêu cầu người dùng sử dụng sách cũng như mượn trả sách đúng hạn" wrappingWidth="479.02587890625">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="146.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact: lmsLibraryManagmentSystem@gmail.com" wrappingWidth="479.02587890625">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="111.0" layoutY="284.0">
+         <image>
+            <Image url="@../../../picture/idea.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="111.0" layoutY="329.0">
+         <image>
+            <Image url="@../../../picture/idea.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="146.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotline: 0978349285" wrappingWidth="479.02587890625">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="114.0" layoutY="373.0">
+         <image>
+            <Image url="@../../../picture/chat.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="114.0" layoutY="413.0">
+         <image>
+            <Image url="@../../../picture/phone-call.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="backButton" layoutX="948.0" layoutY="536.0" mnemonicParsing="false" onAction="#backButtonOnAction" style="-fx-background-color: ffffff; -fx-background-radius: 20;" underline="true">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="26.0">
+               <image>
+                  <Image url="@../../../picture/back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
