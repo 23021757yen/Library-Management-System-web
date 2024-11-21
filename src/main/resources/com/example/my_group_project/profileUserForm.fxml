@@ -45,11 +45,11 @@
                <top>
                   <MenuButton mnemonicParsing="false" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: 000000;" BorderPane.alignment="CENTER">
                      <items>
-                        <MenuItem fx:id="searchMenuItem" mnemonicParsing="false" onAction="#searchMenuItemOnAction" text="Search" />
-                        <MenuItem fx:id="profileMenuItem" mnemonicParsing="false" onAction="#profileMenuItemOnAction" text="CategoryMenu" />
-                        <MenuItem fx:id="homeMenuItem" mnemonicParsing="false" onAction="#homeMenuItemOnAction" text="Home" />
-                        <MenuItem fx:id="moreInforMenuItem" mnemonicParsing="false" onAction="#moreInforMenuItemOnAction" text="MoreInformaition" />
-                        <MenuItem fx:id="logOutMenuItem" mnemonicParsing="false" onAction="#logOutMenuItemOnAction" text="LogOut" />
+                        <MenuItem fx:id="searchMenuItem" mnemonicParsing="false" onAction="#searchOnAction" text="Search" />
+                        <MenuItem fx:id="profileMenuItem" mnemonicParsing="false" onAction="#profileOnAction" text="Category Menu" />
+                        <MenuItem fx:id="homeMenuItem" mnemonicParsing="false" onAction="#homeOnAction" text="Home" />
+                        <MenuItem fx:id="moreInforMenuItem" mnemonicParsing="false" onAction="#moreInforOnAction" text="More Information" />
+                        <MenuItem fx:id="logOutMenuItem" mnemonicParsing="false" onAction="#logOutOnAction" text="Log Out" />
                      </items>
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0">

@@ -6,17 +6,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class AdminLogInController extends BaseController {
-
-    @FXML
-    private Button loginButton;
-
     @FXML
     private TextField passwordTextField;
 
     @FXML
     void adminLogInButtonOnAction(ActionEvent event) {
-
-        if(passwordTextField.getText().equals("ntnynguqua4*!")) {
+        if(passwordTextField.getText().equals("amen")) {
             changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
         }
     }

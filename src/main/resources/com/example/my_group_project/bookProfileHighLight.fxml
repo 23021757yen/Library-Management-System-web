@@ -2,68 +2,72 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="900.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
-   <padding>
-      <Insets bottom="10.0" top="10.0" />
-   </padding>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="900.0" style="-fx-background-radius: 20; -fx-background-color: #f7efd8;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.UserBookProfileHighlightController">
    <children>
-      <ImageView fitHeight="133.0" fitWidth="92.0" layoutX="16.0" layoutY="8.0">
-         <image>
-            <Image url="@../../../bookImage/Bogia.jpg" />
-         </image>
-         <effect>
-            <DropShadow />
-         </effect>
-      </ImageView>
-      <Text layoutX="125.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAME OF BOOK">
-         <font>
-            <Font name="Impact" size="30.0" />
-         </font>
-      </Text>
-      <Text layoutX="123.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mfrdendksqmwnefgkelwmenrhgjfdsmqnswbedfrghfvjcsanwdjfhdjwdnfvbhdsjqNƯBERFHDJSKAWqưnebgrhfvdksaỨNERBGJFKSNDBFVHCDBVNDCNCNCNNfncmxmmccmvebrhgjfsndbergthfjdsabcnfdnmxxmvmcmmc,vmdcnmvdnfjfkdsmrnthgjfidsawmenrthgjksla,wmerntgjfkds,ưmertnhyjgbkdsawmerthynbv" wrappingWidth="739.63671875">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Text layoutX="124.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Content: ">
-         <font>
-            <Font name="Impact" size="15.0" />
-         </font>
-      </Text>
-      <Text layoutX="124.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author: ">
-         <font>
-            <Font name="Impact" size="15.0" />
-         </font>
-      </Text>
-      <Text layoutX="177.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Catelineblanc4" wrappingWidth="116.63671875">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Button layoutX="788.0" mnemonicParsing="false" style="-fx-background-color: #f7efd8;">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="30.0">
-               <image>
-                  <Image url="@../../../picture/remember.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button layoutX="831.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: #f7efd8;">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="30.0">
-               <image>
-                  <Image url="@../../../picture/borrow.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
+      <Pane layoutY="13.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="900.0" style="-fx-background-color: #f2c57b; -fx-background-radius: 20;">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <children>
+            <ScrollPane fx:id="scrollPane" layoutX="123.0" layoutY="85.0" prefHeight="60.0" prefWidth="750.0" style="-fx-background-color: #f2c57b;" stylesheets="@../../../style.css">
+               <content>
+                  <VBox prefHeight="312.0" prefWidth="738.0" style="-fx-background-color: #f2c57b;">
+                     <children>
+                        <Text fx:id="contentTextField" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="732.3328857421875">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <Text layoutX="124.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Content: ">
+               <font>
+                  <Font name="Impact" size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="124.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author: ">
+               <font>
+                  <Font name="Impact" size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="authorTextField" layoutX="177.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="488.13671875">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Button fx:id="highlightButton" layoutX="827.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@../../../picture/remember.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label fx:id="nameOfBookTextField" layoutX="122.0" layoutY="6.0" prefHeight="17.0" prefWidth="399.0" text="Label">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="bookImageView" fitHeight="136.0" fitWidth="96.0" layoutX="18.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
    </children>
 </Pane>

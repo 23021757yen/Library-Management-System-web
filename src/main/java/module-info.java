@@ -8,7 +8,7 @@ module com.example.my_group_project {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
-    //requires eu.hansolo.tilesfx;
+    requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.desktop;
 
@@ -19,8 +19,8 @@ module com.example.my_group_project {
     requires google.http.client;
     requires google.http.client.jackson2;
     requires google.api.services.books.v1.rev114;
+    requires java.prefs;
 
     opens com.example.my_group_project to javafx.fxml;
-    exports com.example.my_group_project ;
-
+    exports com.example.my_group_project;
 }

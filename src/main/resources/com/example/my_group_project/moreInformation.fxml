@@ -20,7 +20,7 @@
       </ImageView>
       <Pane layoutX="23.0" layoutY="73.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
          <children>
-            <Button fx:id="categoryButton" layoutX="2.0" layoutY="85.0" mnemonicParsing="false" onAction="#categoryButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="categoryButton" layoutX="2.0" layoutY="85.0" mnemonicParsing="false" onAction="#categoryOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -29,7 +29,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="homeButton" layoutX="2.0" layoutY="203.0" mnemonicParsing="false" onAction="#homeButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="homeButton" layoutX="2.0" layoutY="203.0" mnemonicParsing="false" onAction="#homeOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -38,7 +38,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="moreInforButton" layoutX="2.0" layoutY="319.0" mnemonicParsing="false" onAction="#moreInforButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="moreInforButton" layoutX="2.0" layoutY="319.0" mnemonicParsing="false" onAction="#moreInforOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -47,7 +47,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="profileButton" layoutX="2.0" layoutY="263.0" mnemonicParsing="false" onAction="#profileButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="profileButton" layoutX="2.0" layoutY="263.0" mnemonicParsing="false" onAction="#profileOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -56,7 +56,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="searchButton" layoutX="2.0" layoutY="145.0" mnemonicParsing="false" onAction="#searchButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="searchButton" layoutX="2.0" layoutY="145.0" mnemonicParsing="false" onAction="#searchOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -65,7 +65,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="logOutButton" layoutX="2.0" layoutY="431.0" mnemonicParsing="false" onAction="#logOutButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="logOutButton" layoutX="2.0" layoutY="431.0" mnemonicParsing="false" onAction="#logOutOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>

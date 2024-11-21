@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.AdminBookInformationController">
    <children>
       <Pane layoutX="33.0" layoutY="83.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
          <children>
@@ -76,12 +76,7 @@
             <Font name="Impact" size="30.0" />
          </font>
       </Label>
-      <ImageView fx:id="bookImage" fitHeight="255.0" fitWidth="134.0" layoutX="121.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../bookImage/Bogia.jpg" />
-         </image>
-      </ImageView>
-      <Label fx:id="nameBookText" layoutX="297.0" layoutY="78.0" text="NAME OF BOOK">
+      <Label fx:id="nameBookText" layoutX="297.0" layoutY="78.0" prefHeight="45.0" prefWidth="555.0">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -113,33 +108,30 @@
       </Label>
       <ScrollPane fx:id="scrollpane1" layoutX="298.0" layoutY="226.0" prefHeight="67.0" prefWidth="679.0" style="-fx-background-color: ffffff;" stylesheets="@../../../style.css">
          <content>
-            <VBox fx:id="vbox1" prefHeight="454.0" prefWidth="667.0" style="-fx-background-color: ffffff;">
+            <VBox prefHeight="454.0" prefWidth="667.0" style="-fx-background-color: ffffff;">
                <children>
-                  <Text fx:id="contentBook" strokeType="OUTSIDE" strokeWidth="0.0" text="ựmdfdwhefkdnqabhfidsabjsmanbsvhjkjhdfhjewbhefvhjwdsanqbvdhdjsansbdjsqnbdfhdjsaqmnbwdnxnxbxzbbdfgdtyrdt6rydghutdrfgvhbjhgyjfthfgjhytrsedfghjuytrdfgvhytdffghjygtfrdcfvbhjhuytrdcvbnjuytrdfvgbhnjkkuytrdsxcvbnmjhuytrdfvbhnjkuytredcfvbnjkiuytrdefcvbnmjkiuytresxdcvbnmjkuytrdfgvhbjkuytresdcbvghjyutresdcfbvghjytresdxcvbnhjhytresfdxcvhuytresfdxcvhjbguutyrsdbjhytrdesđxcvbnjuytrdfxcvbnjuytrdsxcvbhjytrdfxcvbnhjytrédzxcvbnmjkjytrdfcvbnjuytrdf" wrappingWidth="661.13671875">
-                     <font>
-                        <Font size="15.0" />
-                     </font></Text>
+                  <Text fx:id="content" strokeType="OUTSIDE" strokeWidth="0.0" text="fking content of this sh*t book" wrappingWidth="667.44287109375" />
                </children>
             </VBox>
          </content>
       </ScrollPane>
-      <Label fx:id="nameAuthorText" layoutX="395.0" layoutY="120.0" prefHeight="21.0" prefWidth="577.0" text="mckdmskswdhwkdnfvbhjnwksmendbfhnejwkwsmdn fvbhnedmwms dchfndemwksdn fbvhnjedmwks dcnhfnj">
+      <Label fx:id="nameAuthorText" layoutX="395.0" layoutY="119.0" prefHeight="21.0" prefWidth="577.0">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label fx:id="limitBookText" layoutX="397.0" layoutY="140.0" text="sưd">
+      <Label fx:id="limitBookText" layoutX="396.0" layoutY="139.0" prefHeight="21.0" prefWidth="576.0">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label fx:id="categoryBookText" layoutX="395.0" layoutY="160.0" prefHeight="21.0" prefWidth="576.0" text="mckdmskswdhwkdnfvbhjnwksmendbfhnejwkwsmdn fvbhnedmwms dchfndemwksdn fbvhnjedmwks dcnhfnj">
+      <Label fx:id="categoryBookText" layoutX="395.0" layoutY="160.0" prefHeight="21.0" prefWidth="576.0">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label fx:id="goalBookText" layoutX="395.0" layoutY="182.0" prefHeight="21.0" prefWidth="576.0" text="mckdmskswdhwkdnfvbhjnwksmendbfhnejwkwsmdn fvbhnedmwms dchfndemwksdn fbvhnjedmwks dcnhfnj">
+      <Label fx:id="goalBookText" layoutX="395.0" layoutY="182.0" prefHeight="21.0" prefWidth="576.0">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Button fx:id="editButton" layoutX="890.0" layoutY="79.0" mnemonicParsing="false" style="-fx-background-color: ffffff;">
+      <Button fx:id="editButton" layoutX="890.0" layoutY="79.0" mnemonicParsing="false" onAction="#editButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0">
                <image>
@@ -148,7 +140,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="saveButon" layoutX="923.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: ffffff;">
+      <Button fx:id="saveButon" layoutX="924.0" layoutY="79.0" mnemonicParsing="false" onAction="#saveButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0">
                <image>
@@ -255,7 +247,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="deleteButton" layoutX="854.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+      <Button fx:id="deleteButton" layoutX="854.0" layoutY="80.0" mnemonicParsing="false" onAction="#deleteButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0">
                <image>
@@ -264,5 +256,6 @@
             </ImageView>
          </graphic>
       </Button>
+      <ImageView fx:id="bookImage" fitHeight="205.0" fitWidth="150.0" layoutX="120.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

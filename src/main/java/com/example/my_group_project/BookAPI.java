@@ -32,13 +32,14 @@ public class BookAPI {
 
         if (volumes.getItems() != null) {
             for (Volume volume : volumes.getItems()) {
+                String id = volume.getId(); // Retrieve the book ID
                 String title = volume.getVolumeInfo().getTitle();
                 String authors = (volume.getVolumeInfo().getAuthors() != null) ? String.join(", ", volume.getVolumeInfo().getAuthors()) : "No authors found";
                 String imageUrl = (volume.getVolumeInfo().getImageLinks() != null) ? volume.getVolumeInfo().getImageLinks().getThumbnail() : null;
                 String description = (volume.getVolumeInfo().getDescription() != null) ? volume.getVolumeInfo().getDescription() : "No description available";
                 String bookGenre = (volume.getVolumeInfo().getCategories() != null) ? String.join(", ", volume.getVolumeInfo().getCategories()) : "No genre available"; // Get genre from categories
 
-                bookList.add(new Book(title, authors, imageUrl, description, bookGenre));
+                bookList.add(new Book(id, title, authors, imageUrl, description, bookGenre));
             }
         }
         return bookList;
@@ -52,21 +53,14 @@ public class BookAPI {
 
         if (volumes.getItems() != null) {
             for (Volume volume : volumes.getItems()) {
+                String id = volume.getId(); // Retrieve the book ID
                 String title = volume.getVolumeInfo().getTitle();
-                String authors = (volume.getVolumeInfo().getAuthors() != null)
-                        ? String.join(", ", volume.getVolumeInfo().getAuthors())
-                        : "No authors found";
-                String imageUrl = (volume.getVolumeInfo().getImageLinks() != null)
-                        ? volume.getVolumeInfo().getImageLinks().getThumbnail()
-                        : null;
-                String description = (volume.getVolumeInfo().getDescription() != null)
-                        ? volume.getVolumeInfo().getDescription()
-                        : "No description available";
-                String bookGenre = (volume.getVolumeInfo().getCategories() != null)
-                        ? String.join(", ", volume.getVolumeInfo().getCategories())
-                        : "No genre available"; // Extract genre from categories
+                String authors = (volume.getVolumeInfo().getAuthors() != null) ? String.join(", ", volume.getVolumeInfo().getAuthors()) : "No authors found";
+                String imageUrl = (volume.getVolumeInfo().getImageLinks() != null) ? volume.getVolumeInfo().getImageLinks().getThumbnail() : null;
+                String description = (volume.getVolumeInfo().getDescription() != null) ? volume.getVolumeInfo().getDescription() : "No description available";
+                String bookGenre = (volume.getVolumeInfo().getCategories() != null) ? String.join(", ", volume.getVolumeInfo().getCategories()) : "No genre available"; // Extract genre from categories
 
-                bookList.add(new Book(title, authors, imageUrl, description, bookGenre));
+                bookList.add(new Book(id, title, authors, imageUrl, description, bookGenre));
             }
         }
         return bookList;

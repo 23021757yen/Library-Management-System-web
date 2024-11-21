@@ -1,4 +1,4 @@
-package com.example.my_group_project ;
+package com.example.my_group_project;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,7 +28,7 @@ public class UserMoreInformationController extends BaseController {
 
     @FXML
     void backButtonOnAction(ActionEvent event) {
-        super.changeScene("home.fxml", "Home");
+        super.backButtonOnAction(event);
     }
 
     @FXML

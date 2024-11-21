@@ -35,28 +35,24 @@
                <content>
                   <VBox prefHeight="715.0" prefWidth="537.0" spacing="10.0" style="-fx-background-color: ffffff;">
                      <children>
+                        <Label text="POPULAR" underline="true">
+                           <font>
+                              <Font name="Impact" size="30.0" />
+                           </font>
+                        </Label>
                         <ScrollPane prefHeight="310.0" prefWidth="540.0" stylesheets="@../../../style.css">
                            <content>
-                              <HBox prefHeight="298.0" prefWidth="540.0" spacing="10.0" style="-fx-background-color: ffffff;">
-                                 <children>
-                                    <Label text="POPULAR" underline="true">
-                                       <font>
-                                          <Font name="Impact" size="30.0" />
-                                       </font>
-                                    </Label>
-                                 </children></HBox>
+                              <HBox fx:id="booksHere" prefHeight="298.0" prefWidth="540.0" spacing="10.0" style="-fx-background-color: ffffff;" />
                            </content>
                         </ScrollPane>
+                        <Label text="LATEST" underline="true">
+                           <font>
+                              <Font name="Impact" size="30.0" />
+                           </font>
+                        </Label>
                         <ScrollPane prefHeight="310.0" prefWidth="540.0" stylesheets="@../../../style.css">
                            <content>
-                              <HBox prefHeight="298.0" prefWidth="540.0" style="-fx-background-color: ffffff;">
-                                 <children>
-                                    <Label text="LATEST" underline="true">
-                                       <font>
-                                          <Font name="Impact" size="30.0" />
-                                       </font>
-                                    </Label>
-                                 </children></HBox>
+                              <HBox fx:id="hBoxBooks" prefHeight="298.0" prefWidth="540.0" style="-fx-background-color: ffffff;" />
                            </content>
                         </ScrollPane>
                      </children>
@@ -65,7 +61,7 @@
             </ScrollPane>
             <Pane layoutX="23.0" layoutY="73.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
                <children>
-                  <Button fx:id="categoryButton" layoutX="2.0" layoutY="85.0" mnemonicParsing="false" onAction="#cateButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+                  <Button fx:id="categoryButton" layoutX="2.0" layoutY="85.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0">
                            <image>
@@ -74,7 +70,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="homeButton" layoutX="2.0" layoutY="203.0" mnemonicParsing="false" onAction="#homeButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+                  <Button fx:id="homeButton" layoutX="2.0" layoutY="203.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0">
                            <image>
@@ -124,16 +120,6 @@
                   <DropShadow height="10.0" offsetX="2.0" offsetY="2.0" radius="4.5" width="10.0" />
                </effect>
             </Pane>
-            <Pane layoutX="100.0" layoutY="73.0" prefHeight="214.0" prefWidth="157.0" style="-fx-background-color: FFC100;" />
-            <Text layoutX="298.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAME OF BOOK">
-               <font>
-                  <Font name="Impact" size="60.0" />
-               </font>
-            </Text>
-            <Text layoutX="298.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="jdfbhdsfhseesbjxjdksmndbfhdrjedksamsndbfhjdksmxncjdhbfdjskmnbhcgdjsksmnzbfxhdrjseaksmnfbhcdrjewksmdnbcghjdrekwsmnbfhjekwsdmnbcjgdfksmnhbvfdjkwsmdnjgcfdskmnvhfdjskmnhfdjskmnvbjcgfdksmdnbvhfjds" wrappingWidth="339.609375">
-               <font>
-                  <Font size="15.0" />
-               </font></Text>
             <Button fx:id="readingNowButton" layoutX="485.0" layoutY="284.0" mnemonicParsing="false" onAction="#readingNowButtonOnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-background-radius: 20;" stylesheets="@../../../buttonHoverv2.css" text="READING NOW">
                <font>
                   <Font name="Impact" size="15.0" />
@@ -157,11 +143,29 @@
                   <Font name="Impact" size="15.0" />
                </font>
             </Text>
-            <Text layoutX="349.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CatelineBlanc4">
+            <Text fx:id="authorBook" layoutX="350.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="281.8115234375">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
+            <ImageView fx:id="imageBooks" fitHeight="212.0" fitWidth="163.0" layoutX="90.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="nameOfPopular" layoutX="298.0" layoutY="73.0" prefHeight="17.0" prefWidth="340.0">
+               <font>
+                  <Font name="System Bold Italic" size="30.0" />
+               </font></Label>
+            <ScrollPane layoutX="298.0" layoutY="191.0" prefHeight="86.0" prefWidth="340.0" stylesheets="@../../../style.css">
+               <content>
+                  <VBox prefHeight="448.0" prefWidth="328.0" style="-fx-background-color: ffffff;">
+                     <children>
+                        <Text fx:id="descriptionHere" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="339.609375">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
          </children>
       </Pane>
       <Label layoutX="19.0" layoutY="15.0" text="LMS">
