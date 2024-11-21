@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.UserHistoryController">
+   <children>
+      <Pane prefHeight="161.0" prefWidth="1024.0" style="-fx-background-color: #f7efd8;">
+         <children>
+            <ImageView fitHeight="161.0" fitWidth="1024.0" opacity="0.24">
+               <image>
+                  <Image url="@../../../picture/background.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="backButton" layoutX="960.0" layoutY="17.0" mnemonicParsing="false" onAction="#backButtonOnAction" style="-fx-background-color: transparent;" stylesheets="@../../../buttonText.css" underline="true">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="26.0">
+                     <image>
+                        <Image url="@../../../picture/back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <BorderPane layoutX="875.0" layoutY="18.0" prefHeight="155.0" prefWidth="99.0">
+               <top>
+                  <MenuButton mnemonicParsing="false" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: 000000;" BorderPane.alignment="CENTER">
+                     <items>
+                        <MenuItem fx:id="searchMenuItem" mnemonicParsing="false" onAction="#searchMenuItemOnAction" text="Search" />
+                        <MenuItem fx:id="profileMenuItem" mnemonicParsing="false" onAction="#profileMenuItemOnAction" text="CategoryMenu" />
+                        <MenuItem fx:id="homeMenuItem" mnemonicParsing="false" onAction="#homeMenuItemOnAction" text="Home" />
+                        <MenuItem fx:id="moreInforMenuItem" mnemonicParsing="false" onAction="#moreInforMenuItemOnAction" text="MoreInformaition" />
+                        <MenuItem fx:id="logOutMenuItem" mnemonicParsing="false" onAction="#logOutMenuItemOnAction" text="LogOut" />
+                     </items>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0">
+                           <image>
+                              <Image url="@../../../picture/menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuButton>
+               </top>
+            </BorderPane>
+            <Label layoutX="15.0" layoutY="15.0" text="LMS">
+               <font>
+                  <Font name="Impact" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="411.0" layoutY="87.0" text="HISTORY" textAlignment="CENTER">
+               <font>
+                  <Font name="Impact" size="60.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+      <ScrollPane layoutX="56.0" layoutY="210.0" prefHeight="375.0" prefWidth="909.0" stylesheets="@../../../style.css">
+         <content>
+            <VBox prefHeight="5000.0" prefWidth="897.0" style="-fx-background-color: FFFFFF;" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

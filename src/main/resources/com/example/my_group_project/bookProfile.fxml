@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.UserBookProfileController">
+   <children>
+      <Pane layoutX="664.0" prefHeight="600.0" prefWidth="360.0" style="-fx-background-color: #f7efd8;">
+         <children>
+            <Text layoutX="27.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MORE">
+               <font>
+                  <Font name="Impact" size="50.0" />
+               </font>
+            </Text>
+            <ScrollPane layoutX="27.0" layoutY="131.0" prefHeight="427.0" prefWidth="324.0" style="-fx-background-color: #f7efd8;" stylesheets="@../../../style.css">
+               <content>
+                  <VBox fx:id="bookTableVbox" prefHeight="1499.0" prefWidth="312.0" style="-fx-background-color: #f7efd8;" />
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+      <Pane prefHeight="600.0" prefWidth="664.0" style="-fx-background-color: ffffff;" styleClass="style.css">
+         <children>
+            <Button fx:id="borrowButton" layoutX="108.0" layoutY="520.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="522.0" style="-fx-background-radius: 20;" stylesheets="@../../../buttonHoverv2.css" text="BORROW">
+               <font>
+                  <Font name="Impact" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow height="10.0" offsetX="2.0" offsetY="2.0" radius="4.5" width="10.0" />
+               </effect>
+            </Button>
+            <Pane layoutX="110.0" layoutY="76.0" prefHeight="420.0" prefWidth="522.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <Text layoutX="181.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tác giả:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="17.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nội dung:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="180.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Giới hạn độ tuổi:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="17.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thể loại:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="181.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượt truy cập:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="181.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượt đọc:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="180.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượt mượn: ">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <HBox layoutX="80.0" layoutY="355.0" prefHeight="29.0" prefWidth="435.0">
+                     <children>
+                        <Button fx:id="categoryComedyButton" mnemonicParsing="false" style="-fx-background-color: ffffff; -fx-background-radius: 20;" text="Chính kịch">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Text fx:id="limitAge" layoutX="308.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="pageViews" layoutX="308.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="numberOfRead" layoutX="274.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="numberOfBorrow" layoutX="289.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="highlightButton" layoutX="473.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-color: #f7efd8;">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="21.0">
+                           <image>
+                              <Image url="@../../../picture/remember.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <ScrollPane layoutX="16.0" layoutY="229.0" prefHeight="186.0" prefWidth="493.0" style="-fx-background-color: #f7efd8;" stylesheets="@../../../style.css">
+                     <content>
+                        <VBox prefHeight="274.0" prefWidth="481.0" style="-fx-background-color: #f7efd8;">
+                           <children>
+                              <Text fx:id="content" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="479.1708984375">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                  <Label fx:id="nameOfBook" layoutX="179.0" layoutY="35.0" prefHeight="45.0" prefWidth="285.0">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nameOfAuthor" layoutX="241.0" layoutY="101.0" prefHeight="21.0" prefWidth="254.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="bookImageView" fitHeight="186.0" fitWidth="152.0" layoutX="18.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button fx:id="backButton" layoutX="581.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButtonOnAction" style="-fx-background-color: transparent;" stylesheets="@../../../buttonText.css" underline="true">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="26.0">
+                     <image>
+                        <Image url="@../../../picture/back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="23.0" layoutY="73.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
+         <children>
+            <Button fx:id="categoryButton" layoutX="2.0" layoutY="85.0" mnemonicParsing="false" onAction="#categoryButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/menu.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="homeButton" layoutX="2.0" layoutY="203.0" mnemonicParsing="false" onAction="#homeButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="moreInforButton" layoutX="2.0" layoutY="319.0" mnemonicParsing="false" onAction="#moreInforButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/question.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="profileButton" layoutX="2.0" layoutY="263.0" mnemonicParsing="false" onAction="#profileButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/profile.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="searchButton" layoutX="2.0" layoutY="145.0" mnemonicParsing="false" onAction="#searchButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="logOutButton" layoutX="2.0" layoutY="431.0" mnemonicParsing="false" onAction="#logOutButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <effect>
+            <DropShadow height="10.0" offsetX="2.0" offsetY="2.0" radius="4.5" width="10.0" />
+         </effect>
+      </Pane>
+      <Label layoutX="21.0" layoutY="15.0" text="LMS">
+         <font>
+            <Font name="Impact" size="30.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
