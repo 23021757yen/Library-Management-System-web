@@ -74,7 +74,7 @@
             <Font name="Impact" size="30.0" />
          </font>
       </Label>
-      <Pane fx:id="paneHomeScene1" layoutX="111.0" layoutY="85.0" prefHeight="146.0" prefWidth="283.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;">
+      <Pane fx:id="paneHomeScene1" layoutX="111.0" layoutY="85.0" onMouseClicked="#homeScene1OnClicked" prefHeight="146.0" prefWidth="283.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;">
          <children>
             <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="5.0" layoutY="19.0">
                <image>
@@ -112,7 +112,7 @@
             </Text>
          </children>
       </Pane>
-      <Pane fx:id="paneHomeScene3" layoutX="719.0" layoutY="87.0" prefHeight="146.0" prefWidth="283.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;">
+      <Pane fx:id="paneHomeScene3" layoutX="719.0" layoutY="87.0" onMouseClicked="#homeScene3OnClicked" prefHeight="146.0" prefWidth="283.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;">
          <children>
             <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="-2.0" layoutY="24.0">
                <image>
@@ -192,7 +192,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button fx:id="addBookButton" mnemonicParsing="false" onAction="#addButtonOnAction" prefHeight="45.0" prefWidth="52.0" style="-fx-background-color: transparent;">
+            <Button fx:id="addBookButton" mnemonicParsing="false" onAction="#addButtonOnAction" prefHeight="45.0" prefWidth="52.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>

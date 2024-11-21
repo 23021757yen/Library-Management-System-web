@@ -1,190 +1,131 @@
--- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1    Database: library
--- ------------------------------------------------------
--- Server version	8.0.39
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 19, 2024 lúc 12:59 PM
+-- Phiên bản máy phục vụ: 10.4.32-MariaDB
+-- Phiên bản PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
 
---
--- Table structure for table `admin`
---
+-- Create the database
+-- CREATE DATABASE IF NOT EXISTS library;
+USE library;
 
-create database library;
-use library;
+-- Ensure settings are properly configured
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+SET NAMES utf8mb4;
 
-DROP TABLE IF EXISTS `admin`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `admin` (
-  `admin_ID` varchar(10) NOT NULL DEFAULT '',
-  `password` varchar(100) NOT NULL DEFAULT 'root',
-  PRIMARY KEY (`admin_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `author`
---
-
-DROP TABLE IF EXISTS `author`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `author` (
-  `au_ID` varchar(20) DEFAULT '',
-  `tacpham` text,
-  `name` varchar(255) NOT NULL DEFAULT '',
-  `tieusu` text,
-  PRIMARY KEY (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `books`
---
-
-DROP TABLE IF EXISTS `books`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `books` (
-  `title` varchar(255) DEFAULT NULL,
-  `amount` int DEFAULT '100',
-  `description` text,
-  `location` varchar(255) DEFAULT NULL,
-  `yearPublic` date DEFAULT NULL,
-  `price` int DEFAULT NULL,
-  `kind` varchar(50) DEFAULT NULL,
-  `book_ID` varchar(20) NOT NULL,
-  `author` varchar(20) NOT NULL,
-  PRIMARY KEY (`book_ID`),
-  KEY `author` (`author`),
-  CONSTRAINT `books_ibfk_1` FOREIGN KEY (`author`) REFERENCES `author` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `borrow`
---
-
-DROP TABLE IF EXISTS `borrow`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `borrow` (
-  `book_ID` varchar(20) NOT NULL DEFAULT '',
-  `endDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dueDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `User_ID` varchar(20) NOT NULL,
-  `status` varchar(20) DEFAULT NULL,
-  `overTime` varchar(10) DEFAULT NULL,
-  KEY `User_ID` (`User_ID`),
-  KEY `book_ID` (`book_ID`),
-  CONSTRAINT `borrow_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`),
-  CONSTRAINT `borrow_ibfk_2` FOREIGN KEY (`book_ID`) REFERENCES `books` (`book_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `fine`
---
-
-DROP TABLE IF EXISTS `fine`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `fine` (
-  `fine_ID` int NOT NULL AUTO_INCREMENT,
-  `dueDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `endDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `reason` varchar(255) DEFAULT NULL,
-  `amount` int DEFAULT NULL,
-  `status` varchar(20) NOT NULL DEFAULT 'done',
-  `User_ID` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`fine_ID`),
-  KEY `User_ID` (`User_ID`),
-  CONSTRAINT `fine_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `nhaxb`
---
-
-DROP TABLE IF EXISTS `nhaxb`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `nhaxb` (
-  `name` varchar(255) NOT NULL DEFAULT '',
-  `address` varchar(255) DEFAULT NULL,
-  `contact` varchar(255) NOT NULL DEFAULT '',
-  PRIMARY KEY (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `user`
---
-
+-- Create custom function
 DELIMITER $$
-
-CREATE FUNCTION generateRandomID(length INT) RETURNS VARCHAR(255)
-    DETERMINISTIC
+CREATE DEFINER=`root`@`localhost` FUNCTION `generateRandomID` (`len` INT) RETURNS VARCHAR(255) CHARSET utf8mb4 DETERMINISTIC
 BEGIN
-    DECLARE chars VARCHAR(62) DEFAULT '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    DECLARE chars VARCHAR(62) DEFAULT 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     DECLARE result VARCHAR(255) DEFAULT '';
     DECLARE i INT DEFAULT 0;
-
-    WHILE i < length DO
-            SET result = CONCAT(result, SUBSTRING(chars, FLOOR(1 + RAND() * 62), 1));
+    WHILE i < len DO
+            SET result = CONCAT(result, SUBSTRING(chars, FLOOR(1 + RAND() * CHAR_LENGTH(chars)), 1));
             SET i = i + 1;
         END WHILE;
-
     RETURN result;
 END$$
-
 DELIMITER ;
 
-DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user` (
-  `User_ID` varchar(20) NOT NULL DEFAULT '',
-  `name` varchar(100) DEFAULT NULL,
-  `fullname` varchar(100) DEFAULT NULL,
-  `password` varchar(100) NOT NULL DEFAULT 'root',
-  `email` varchar(50) NOT NULL DEFAULT '',
-  `phone` varchar(20) DEFAULT NULL,
-  `status` varchar(20) NOT NULL DEFAULT 'active',
-  `dateOfBirth` varchar(20) NOT NULL DEFAULT '',
-  `gender` varchar(20) NOT NULL DEFAULT '',
-  `profile_image` BLOB,
-  PRIMARY KEY (`User_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- Create tables
+CREATE TABLE IF NOT EXISTS `admin` (
+                                       `admin_ID` VARCHAR(10) NOT NULL DEFAULT '',
+                                       `password` VARCHAR(100) NOT NULL DEFAULT 'root',
+                                       PRIMARY KEY (`admin_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE `user` MODIFY COLUMN `profile_image` BLOB NULL;
+CREATE TABLE IF NOT EXISTS `user` (
+                                      `User_ID` VARCHAR(20) NOT NULL DEFAULT '',
+                                      `email` VARCHAR(50) NOT NULL DEFAULT '',
+                                      `name` VARCHAR(100) DEFAULT NULL,
+                                      `password` VARCHAR(100) NOT NULL DEFAULT 'amen',
+                                      `phone` VARCHAR(20) NOT NULL DEFAULT '0000000000',
+                                      `profile_image` LONGBLOB,
+                                      PRIMARY KEY (`User_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ALTER TABLE user MODIFY COLUMN profile_image LONGBLOB;
+CREATE TABLE IF NOT EXISTS `author` (
+                                        `books` TEXT DEFAULT NULL,
+                                        `name` VARCHAR(255) NOT NULL DEFAULT '',
+                                        `autobiography` TEXT DEFAULT NULL,
+                                        PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE IF NOT EXISTS `publisher` (
+                                           `name` VARCHAR(255) NOT NULL DEFAULT '',
+                                           `address` VARCHAR(255) DEFAULT NULL,
+                                           `contact` VARCHAR(255) NOT NULL DEFAULT '',
+                                           PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+CREATE TABLE IF NOT EXISTS `books` (
+                                       `book_ID` VARCHAR(20) NOT NULL, -- Assuming book_ID from Google Books API is a string
+                                       `title` VARCHAR(255) DEFAULT NULL,
+                                       `amount` INT DEFAULT 100,
+                                       `description` TEXT DEFAULT NULL,
+                                       `location` VARCHAR(255) DEFAULT NULL,
+                                       `yearPublic` YEAR DEFAULT NULL,
+                                       `price` INT DEFAULT NULL,
+                                       `kind` VARCHAR(50) DEFAULT NULL,
+                                       `author` VARCHAR(255) NOT NULL,
+                                       `image` VARCHAR(255) NOT NULL,
+                                       `addDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                                       `viewCount` INT DEFAULT 0,
+                                       PRIMARY KEY (`book_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+CREATE TABLE IF NOT EXISTS `borrow` (
+                                        `book_ID` VARCHAR(20) NOT NULL,
+                                        `endDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                                        `dueDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                                        `User_ID` VARCHAR(20) NOT NULL,
+                                        `status` VARCHAR(20) DEFAULT NULL,
+                                        `overTime` VARCHAR(10) DEFAULT NULL,
+                                        PRIMARY KEY (`book_ID`, `User_ID`),
+                                        FOREIGN KEY (`book_ID`) REFERENCES `books` (`book_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+                                        FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE IF NOT EXISTS `fine` (
+                                      `fine_ID` INT NOT NULL AUTO_INCREMENT,
+                                      `dueDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                                      `endDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                                      `reason` VARCHAR(255) DEFAULT NULL,
+                                      `amount` INT DEFAULT NULL,
+                                      `status` VARCHAR(20) NOT NULL DEFAULT 'done',
+                                      `User_ID` VARCHAR(20) DEFAULT NULL,
+                                      PRIMARY KEY (`fine_ID`),
+                                      FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE IF NOT EXISTS `highlightbook` (
+                                               `user_ID` VARCHAR(20) NOT NULL,
+                                               `book_ID` VARCHAR(20) NOT NULL,
+                                               PRIMARY KEY (`user_ID`, `book_ID`),
+                                               FOREIGN KEY (`book_ID`) REFERENCES `books` (`book_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+                                               FOREIGN KEY (`user_ID`) REFERENCES `user` (`User_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dump completed on 2024-10-14 20:20:51
+CREATE TABLE IF NOT EXISTS `recentbooks` (
+                                             `user_ID` VARCHAR(20) NOT NULL,
+                                             `book_ID` VARCHAR(20) NOT NULL,
+                                             `time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                                             PRIMARY KEY (`user_ID`, `book_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- Commit the transaction
+COMMIT;

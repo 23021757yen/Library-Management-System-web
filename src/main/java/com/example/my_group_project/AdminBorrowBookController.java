@@ -1,3 +1,4 @@
+package com.example.my_group_project;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -45,8 +46,8 @@ public class AdminBorrowBookController extends BaseController {
     }
 
     @FXML
-    void backButtonOnAction(ActionEvent event) throws IOException {
-        super.changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
+    void backButtonOnAction(ActionEvent event) {
+        super.backButtonOnAction(event);
     }
 
     @FXML
@@ -72,7 +73,7 @@ public class AdminBorrowBookController extends BaseController {
     @FXML
     void logOutButtonOnAction(ActionEvent event) throws IOException {
         super.changeScene("welcomeToWebsite.fxml", "welcomeToWebsite");
-    }g
+    }
 
 
     // load pane san co

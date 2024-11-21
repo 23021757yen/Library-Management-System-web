@@ -3,10 +3,11 @@ package com.example.my_group_project;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -62,17 +63,12 @@ public class AdminHomeScene3Controller extends BaseController {
     private VBox vBox;
 
     @FXML
-    void backButtonOnAction(ActionEvent event) throws IOException {
-        super.changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
+    void backButtonOnAction(ActionEvent event) {
+        super.backButtonOnAction(event);
     }
 
     @FXML
     void homeScene1ButtonOnAction(ActionEvent event) throws IOException {
-        super.changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
-    }
-
-    @FXML
-    void homeScene1PaneOnAction(ActionEvent event) throws IOException {
         super.changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
     }
 
@@ -97,13 +93,19 @@ public class AdminHomeScene3Controller extends BaseController {
     }
 
     @FXML
-    void homeScene2PaneOnAction(ActionEvent event) throws IOException {
-        super.changeScene("AdminHomeScene3.fxml", "AdminHomeScene3");
+    void addButtonOnAction(ActionEvent event) throws IOException {
+
     }
 
     @FXML
-    void addButtonOnAction(ActionEvent event) throws IOException {
+    void homeScene2OnClicked() throws IOException {
+        super.changeScene("AdminHomeScene2.fxml", "AdminHomeScene2");
+    }
 
+    // Chuyển cảnh khi nhấn vào Pane 3
+    @FXML
+    void homeScene1OnClicked() throws IOException {
+        super.changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
     }
 
     // 1 ham cho tin kiem : ra thong tin

@@ -1,49 +1,25 @@
-package com.example.my_group_project ;
+package com.example.my_group_project;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.stage.FileChooser;
-import java.io.File;
-import javafx.scene.image.Image;
-import java.io.IOException;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.ByteArrayInputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
-public class UserProfileUserFormController extends BaseController {
-    @FXML
-    private MenuItem homeMenuItem;
+public class UserProfileUserFormController extends UserMenuController {
     @FXML
     private Label name;
-    @FXML
-    private MenuItem moreInforMenuItem;
-
-    @FXML
-    private MenuItem profileMenuItem;
-
-    @FXML
-    private MenuItem searchMenuItem;
-
-    @FXML
-    private MenuItem logOutMenuItem;
-
-    @FXML
-    private Button backButton;
 
     @FXML
     private TextField fullnameField;
@@ -64,13 +40,7 @@ public class UserProfileUserFormController extends BaseController {
     private ComboBox<String> genderBox;
 
     @FXML
-    private Button editButton;
-
-    @FXML
     private Button saveButton;
-
-    @FXML
-    private Button uploadButton;
 
     @FXML
     private ImageView imageProfile;
@@ -231,46 +201,11 @@ public class UserProfileUserFormController extends BaseController {
 
     @FXML
     private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
+        Alert alert = new Alert(AlertType.WARNING);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
     }
-
-    @FXML
-    void backButtonOnAction (ActionEvent event) throws IOException {
-        super.changeScene("home.fxml", "Home");
-    }
-    @FXML
-    void homeMenuItemOnAction(ActionEvent event) throws IOException {
-        MenuItem clickedItem = (MenuItem) event.getSource();
-        String selectedItem = clickedItem.getText();
-        super.changeScene("home.fxml", "Home");
-    }
-    @FXML
-    void searchMenuItemOnAction(ActionEvent event) throws IOException {
-        MenuItem clickedItem = (MenuItem) event.getSource();
-        String selectedItem = clickedItem.getText();
-        super.changeScene("searchBook.fxml", "Searching");
-    }
-    @FXML
-    void logOutMenuItemOnAction(ActionEvent event) throws IOException {
-        MenuItem clickedItem = (MenuItem) event.getSource();
-        String selectedItem = clickedItem.getText();
-        super.changeScene("welcomeToWebsite.fxml", "Hello View");
-    }
-    @FXML
-    void moreInforMenuItemOnAction(ActionEvent event) throws IOException {
-        MenuItem clickedItem = (MenuItem) event.getSource();
-        String selectedItem = clickedItem.getText();
-        super.changeScene("moreInformation.fxml", "MoreInfor");
-    }
-    @FXML
-    void profileMenuItemOnAction(ActionEvent event) throws IOException {
-        MenuItem clickedItem = (MenuItem) event.getSource();
-        String selectedItem = clickedItem.getText();
-        super.changeScene("profileUser.fxml", "ProfileUser");
-    }
-
 }
+

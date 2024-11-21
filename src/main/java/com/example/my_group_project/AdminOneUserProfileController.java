@@ -1,3 +1,4 @@
+package com.example.my_group_project;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,7 +9,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 
-public class AdminOneUserProfileController {
+public class AdminOneUserProfileController extends BaseController {
 
     @FXML
     private Button backButton;
@@ -65,8 +66,8 @@ public class AdminOneUserProfileController {
     private TextField userPhoneNumber;
 
     @FXML
-    void backButtonOnAction(ActionEvent event) throws IOException {
-        super.changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
+    void backButtonOnAction(ActionEvent event) {
+        super.backButtonOnAction(event);
     }
 
     @FXML

@@ -1,4 +1,4 @@
-package com.example.my_group_project ;
+package com.example.my_group_project;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ public class DatabaseConnection {
     public static Connection getConnection() {
         String databaseName = "library";
         String databaseUser = "root";
-        String databasePassword = "Catelineblanc4";
+        String databasePassword = "bunnoob2005";
         String url = "jdbc:mysql://localhost/" + databaseName;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

@@ -1,60 +1,106 @@
-package com.example.my_group_project ;
+package com.example.my_group_project;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.MenuItem;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class UserHistoryController extends BaseController {
-
-    @FXML
-    private MenuItem homeMenuItem;
-
-    @FXML
-    private MenuItem moreInforMenuItem;
-
-    @FXML
-    private MenuItem profileMenuItem;
+public class UserHistoryController extends UserMenuController {
 
     @FXML
-    private MenuItem searchMenuItem;
+    private VBox historyVBox;
+
+    private static String currentUserId = HelloController.userIdMain; // Replace with actual user ID handling
 
     @FXML
-    private MenuItem logOutMenuItem;
-    @FXML
-    void backButtonOnAction (ActionEvent event) throws IOException {
-        super.changeScene("home.fxml", "Home");
-    }
-    @FXML
-    void homeMenuItemOnAction(ActionEvent event) throws IOException {
-        MenuItem clickedItem = (MenuItem) event.getSource();
-        String selectedItem = clickedItem.getText();
-        super.changeScene("home.fxml", "Home");
-    }
-    @FXML
-    void searchMenuItemOnAction(ActionEvent event) throws IOException {
-        MenuItem clickedItem = (MenuItem) event.getSource();
-        String selectedItem = clickedItem.getText();
-        super.changeScene("searchBook.fxml", "Searching");
-    }
-    @FXML
-    void logOutMenuItemOnAction(ActionEvent event) throws IOException {
-        MenuItem clickedItem = (MenuItem) event.getSource();
-        String selectedItem = clickedItem.getText();
-        super.changeScene("welcomeToWebsite.fxml", "Hello View");
-    }
-    @FXML
-    void moreInforMenuItemOnAction(ActionEvent event) throws IOException {
-        MenuItem clickedItem = (MenuItem) event.getSource();
-        String selectedItem = clickedItem.getText();
-        super.changeScene("moreInformation.fxml", "MoreInfor");
-    }
-    @FXML
-    void profileMenuItemOnAction(ActionEvent event) throws IOException {
-        MenuItem clickedItem = (MenuItem) event.getSource();
-        String selectedItem = clickedItem.getText();
-        super.changeScene("profileUser.fxml", "ProfileUser");
+    public void initialize() {
+        displayHistory();
     }
 
+
+
+    private void displayHistory() {
+        List<Book> clickedBooks = getClickedBooksFromDatabase();
+        System.out.println(clickedBooks.size());
+        if (clickedBooks.isEmpty()) {
+            historyVBox.getChildren().add(new Label("No books clicked yet."));
+            return;
+        }
+
+        for (Book book : clickedBooks) {
+            if (book == null) {
+                continue; // Skip if the book object is null
+            }
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("bookProfileHighLight.fxml"));
+                Pane bookCard = loader.load();
+                System.out.println("Book card loaded: " + (bookCard != null));
+                UserBookProfileHighlightController controller = loader.getController();
+                controller.setBookDetails(book);
+
+                bookCard.setOnMouseClicked(event -> {
+                    System.out.println("Book clicked: " + book.getTitle());
+                    showBookProfile(book); // Open book profile scene
+                });
+
+                historyVBox.getChildren().add(bookCard);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    protected static List<Book> getClickedBooksFromDatabase() {
+        List<Book> books = new ArrayList<>();
+        String sql = "SELECT book_ID FROM borrow WHERE User_ID = ?";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, currentUserId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    String bookId = rs.getString("book_ID");
+                    Book book = BookUtils.getBookById(bookId); // Ensure this method is public or accessible
+                    books.add(book);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return books;
+    }
+
+    private void showBookProfile(Book book) {
+        try {
+            Book.setMainBook(book);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("bookProfile.fxml"));
+            Pane root = loader.load();
+
+            UserBookProfileController controller = loader.getController();
+
+            controller.setBookDetails(book);
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Book Profile");
+            stage.show();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

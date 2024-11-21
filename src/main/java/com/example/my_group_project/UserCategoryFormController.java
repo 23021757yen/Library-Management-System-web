@@ -1,4 +1,4 @@
-package com.example.my_group_project ;
+package com.example.my_group_project;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,8 +27,8 @@ public class UserCategoryFormController extends BaseController {
     @FXML
     private MenuItem logOutMenuItem;
     @FXML
-    void backButtonOnAction (ActionEvent event) throws IOException {
-        super.changeScene("home.fxml", "Home");
+    void backButtonOnAction (ActionEvent event) {
+        super.backButtonOnAction(event);
     }
     @FXML
     void homeMenuItemOnAction(ActionEvent event) throws IOException {

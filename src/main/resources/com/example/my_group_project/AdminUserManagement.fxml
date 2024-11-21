@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" type="AnchorPane" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminUserManagementController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.AdminUserManagementController">
    <children>
       <Pane layoutX="33.0" layoutY="83.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
          <children>
-            <Button fx:id="homeScene1Button" layoutX="2.0" layoutY="104.0" mnemonicParsing="false" onAction="#homeScene1ButtononOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="homeScene1Button" layoutX="2.0" layoutY="104.0" mnemonicParsing="false" onAction="#homeScene1ButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -134,7 +134,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button fx:id="addBookButton" mnemonicParsing="false" onAction="#addButtonOnAction" prefHeight="45.0" prefWidth="52.0" style="-fx-background-color: transparent;">
+            <Button fx:id="addBookButton" mnemonicParsing="false" onAction="#addBookButtonOnAction" prefHeight="45.0" prefWidth="52.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -171,4 +171,4 @@
          </graphic>
       </Button>
    </children>
-</fx:root>
+</AnchorPane>
