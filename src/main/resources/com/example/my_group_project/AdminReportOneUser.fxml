@@ -16,11 +16,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.AdminReportOneUserController">
    <children>
       <Pane layoutX="33.0" layoutY="83.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
          <children>
-            <Button fx:id="homeScene1Button" layoutX="2.0" layoutY="104.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="homeScene1Button" layoutX="2.0" layoutY="104.0" mnemonicParsing="false" onAction="#homeScene1ButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -29,7 +29,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="reportButton" layoutX="2.0" layoutY="310.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="reportButton" layoutX="2.0" layoutY="310.0" mnemonicParsing="false" onAction="#reportButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -38,7 +38,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="logOutButton" layoutX="2.0" layoutY="431.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="logOutButton" layoutX="2.0" layoutY="431.0" mnemonicParsing="false" onAction="#logOutButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -47,7 +47,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="userManagementButton" layoutX="1.0" layoutY="241.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="userManagementButton" layoutX="1.0" layoutY="241.0" mnemonicParsing="false" onAction="#userManagementButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -56,7 +56,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="bookBorrowButton" layoutX="2.0" layoutY="173.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="bookBorrowButton" layoutX="2.0" layoutY="173.0" mnemonicParsing="false" onAction="#bookBorrowButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -83,11 +83,6 @@
       </Label>
       <Pane layoutX="110.0" layoutY="83.0" prefHeight="370.0" prefWidth="858.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;">
          <children>
-            <ImageView fx:id="userImage" fitHeight="204.0" fitWidth="149.0" layoutX="14.0" layoutY="11.0">
-               <image>
-                  <Image url="@../../../picture/Bibliophile-bro.png" />
-               </image>
-            </ImageView>
             <Label layoutX="165.0" layoutY="67.0" text="USER ID:">
                <font>
                   <Font name="System Bold" size="15.0" />
@@ -118,27 +113,27 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="userIdTextField" layoutX="276.0" layoutY="67.0" prefHeight="21.0" prefWidth="195.0" text="DJNJDCMKndcsnjcd">
+            <Label fx:id="userIdTextField" layoutX="276.0" layoutY="67.0" prefHeight="21.0" prefWidth="195.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="userNameTextField" layoutX="276.0" layoutY="103.0" prefHeight="21.0" prefWidth="195.0" text="DJNJDCMKndcsnjcd">
+            <Label fx:id="userNameTextField" layoutX="276.0" layoutY="103.0" prefHeight="21.0" prefWidth="195.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="userFullNameTextField" layoutX="621.0" layoutY="67.0" text="DJNJDCMKndcsnjcd">
+            <Label fx:id="userFullNameTextField" layoutX="621.0" layoutY="67.0" prefHeight="21.0" prefWidth="174.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="userEmailTextField" layoutX="622.0" layoutY="100.0" text="DJNJDCMKndcsnjcd">
+            <Label fx:id="userEmailTextField" layoutX="622.0" layoutY="100.0" prefHeight="21.0" prefWidth="174.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="userPhoneNumberTextField" layoutX="622.0" layoutY="135.0" text="DJNJDCMKndcsnjcd">
+            <Label fx:id="userPhoneNumberTextField" layoutX="622.0" layoutY="135.0" prefHeight="21.0" prefWidth="174.0">
                <font>
                   <Font size="15.0" />
                </font>
@@ -152,7 +147,7 @@
                <content>
                   <VBox fx:id="vBox" prefHeight="200.0" prefWidth="777.0" style="-fx-background-color: #f7efd8;">
                      <children>
-                        <Text fx:id="contentText" strokeType="OUTSIDE" strokeWidth="0.0" text="jwdcndeejdfejwhbedfjwskqmjwdehewqefbjwdhusebdyvxdshwgqtydsewfghdswfgvhdsabsvdchdswnbsgdhcdsawbsgdchdsabdgchdbsdgchdswsgdchdswnbsgdchdsabvgchbhxzjszjhxzbhxjghcxbghjsghcgyjasghcgyasgyjsgdhcbgshdcgsydyc" wrappingWidth="771.6708984375">
+                        <Text fx:id="contentText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="771.6708984375">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -167,6 +162,7 @@
                </font>
             </CheckBox>
             <DatePicker fx:id="datePicker" layoutX="280.0" layoutY="136.0" />
+            <ImageView fx:id="userImage" fitHeight="169.0" fitWidth="133.0" layoutX="24.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
          </children>
          <effect>
             <DropShadow />

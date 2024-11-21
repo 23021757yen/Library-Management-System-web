@@ -18,7 +18,7 @@
    <children>
       <Pane layoutX="33.0" layoutY="83.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
          <children>
-            <Button fx:id="homeScene1Button" layoutX="2.0" layoutY="104.0" mnemonicParsing="false" onAction="#homeScene1ButtononOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="homeScene1Button" layoutX="2.0" layoutY="104.0" mnemonicParsing="false" onAction="#homeScene1ButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -27,7 +27,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="reportButton" layoutX="2.0" layoutY="310.0" mnemonicParsing="false" onAction="#reportButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="reportButton" layoutX="2.0" layoutY="310.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -45,7 +45,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="userManagementButton" layoutX="1.0" layoutY="241.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="userManagementButton" layoutX="1.0" layoutY="241.0" mnemonicParsing="false" onAction="#userManagementButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -80,7 +80,7 @@
       </ScrollPane>
       <HBox layoutX="98.0" layoutY="81.0" prefHeight="34.0" prefWidth="897.0">
          <children>
-            <TextField fx:id="searchTextField" onAction="#searchTextFieldOnAction" prefHeight="32.0" prefWidth="860.0" promptText="search" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;" />
+            <TextField fx:id="searchTextField" prefHeight="32.0" prefWidth="860.0" promptText="search" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;" />
             <ImageView fitHeight="33.0" fitWidth="35.0">
                <image>
                   <Image url="@../../../picture/search.png" />

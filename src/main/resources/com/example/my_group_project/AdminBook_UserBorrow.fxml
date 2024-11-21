@@ -13,11 +13,11 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.AdminBookUserBorrowController">
    <children>
       <Pane layoutX="33.0" layoutY="83.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
          <children>
-            <Button fx:id="homeScene1Button" layoutX="2.0" layoutY="104.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="homeScene1Button" layoutX="2.0" layoutY="104.0" mnemonicParsing="false" onAction="#homeScene1ButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -26,7 +26,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="reportButton" layoutX="2.0" layoutY="310.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="reportButton" layoutX="2.0" layoutY="310.0" mnemonicParsing="false" onAction="#reportButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -35,7 +35,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="logOutButton" layoutX="2.0" layoutY="431.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="logOutButton" layoutX="2.0" layoutY="431.0" mnemonicParsing="false" onAction="#logOutButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -44,7 +44,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="userManagementButton" layoutX="1.0" layoutY="241.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="userManagementButton" layoutX="1.0" layoutY="241.0" mnemonicParsing="false" onAction="#userManagementButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -53,7 +53,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="bookBorrowButton" layoutX="2.0" layoutY="173.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="bookBorrowButton" layoutX="2.0" layoutY="173.0" mnemonicParsing="false" onAction="#bookBorrowButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -105,7 +105,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="26.0" layoutY="284.0" text="STATUS:">
+            <Label layoutX="26.0" layoutY="283.0" text="STATUS:">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -115,27 +115,27 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="bookIdLabel" layoutX="268.0" layoutY="61.0" prefHeight="21.0" prefWidth="114.0" text="DJNJDCMKndcsnjcd">
+            <Label fx:id="bookIdLabel" layoutX="268.0" layoutY="61.0" prefHeight="21.0" prefWidth="114.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="authorNameLabel" layoutX="268.0" layoutY="95.0" prefHeight="21.0" prefWidth="114.0" text="DJNJDCMKndcsnjcd">
+            <Label fx:id="authorNameLabel" layoutX="268.0" layoutY="95.0" prefHeight="21.0" prefWidth="114.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="categoryLabel" layoutX="268.0" layoutY="130.0" prefHeight="21.0" prefWidth="114.0" text="DJNJDCMKndcsnjcd">
+            <Label fx:id="categoryLabel" layoutX="268.0" layoutY="130.0" prefHeight="21.0" prefWidth="114.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="bookNameLabel" layoutX="176.0" layoutY="249.0" prefHeight="21.0" prefWidth="184.0" text="DJNJDCMKndcsnjcd">
+            <Label fx:id="bookNameLabel" layoutX="176.0" layoutY="249.0" prefHeight="21.0" prefWidth="184.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="statusLabel" layoutX="176.0" layoutY="282.0" prefHeight="21.0" prefWidth="184.0" text="DJNJDCMKndcsnjcd">
+            <Label fx:id="statusLabel" layoutX="176.0" layoutY="282.0" prefHeight="21.0" prefWidth="184.0">
                <font>
                   <Font size="15.0" />
                </font>
@@ -188,32 +188,32 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="userIdLabel" layoutX="276.0" layoutY="67.0" prefWidth="90.0" text="DJNJDCMKndcsnjcd">
+            <Label fx:id="userIdLabel" layoutX="276.0" layoutY="67.0" prefWidth="90.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="userNameLabel" layoutX="278.0" layoutY="103.0" prefHeight="21.0" prefWidth="90.0" text="DJNJDCMKndcsnjcd">
+            <Label fx:id="userNameLabel" layoutX="278.0" layoutY="103.0" prefHeight="21.0" prefWidth="90.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="dateOfBirthLabel" layoutX="278.0" layoutY="138.0" text="23/10/2005">
+            <Label fx:id="dateOfBirthLabel" layoutX="278.0" layoutY="138.0" prefHeight="21.0" prefWidth="90.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="userFullNameLabel" layoutX="166.0" layoutY="219.0" text="DJNJDCMKndcsnjcd">
+            <Label fx:id="userFullNameLabel" layoutX="166.0" layoutY="219.0" prefHeight="21.0" prefWidth="193.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="userEmailLabel" layoutX="167.0" layoutY="252.0" text="DJNJDCMKndcsnjcd">
+            <Label fx:id="userEmailLabel" layoutX="167.0" layoutY="252.0" prefHeight="21.0" prefWidth="193.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="userPhoneNumberLabel" layoutX="167.0" layoutY="287.0" text="DJNJDCMKndcsnjcd">
+            <Label fx:id="userPhoneNumberLabel" layoutX="167.0" layoutY="287.0" prefHeight="21.0" prefWidth="193.0">
                <font>
                   <Font size="15.0" />
                </font>
@@ -240,7 +240,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="editButton" layoutX="849.0" layoutY="40.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+      <Button fx:id="editButton" layoutX="849.0" layoutY="40.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0">
                <image>
@@ -249,7 +249,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="saveButton" layoutX="884.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-color: ffffff;">
+      <Button fx:id="saveButton" layoutX="884.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0">
                <image>

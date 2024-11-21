@@ -28,7 +28,7 @@ public class UserMoreInformationController extends BaseController {
 
     @FXML
     void backButtonOnAction(ActionEvent event) {
-        super.changeScene("home.fxml", "Home");
+        super.backButtonOnAction(event);
     }
 
     @FXML

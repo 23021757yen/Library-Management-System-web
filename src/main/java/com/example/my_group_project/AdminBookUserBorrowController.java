@@ -1,3 +1,4 @@
+package com.example.my_group_project ;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -5,6 +6,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
@@ -83,8 +86,8 @@ public class AdminBookUserBorrowController extends BaseController {
     private Label userPhoneNumberLabel;
 
     @FXML
-    void backButtonOnAction(ActionEvent event) throws IOException {
-        super.changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
+    void backButtonOnAction(ActionEvent event) {
+        super.backButtonOnAction(event);
     }
 
     @FXML

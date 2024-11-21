@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.UserCategoryController">
+<AnchorPane prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.UserCategoryFormController">
    <children>
       <Pane prefHeight="161.0" prefWidth="1024.0" style="-fx-background-color: #f7efd8;">
          <children>
@@ -49,11 +49,11 @@
                <top>
                   <MenuButton mnemonicParsing="false" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: 000000;" BorderPane.alignment="CENTER">
                      <items>
-                        <MenuItem fx:id="searchMenuItem" mnemonicParsing="false" onAction="#searchMenuItemOnAction" text="Search" />
-                        <MenuItem fx:id="profileMenuItem" mnemonicParsing="false" onAction="#profileMenuItemOnAction" text="Profile" />
-                        <MenuItem fx:id="homeMenuItem" mnemonicParsing="false" onAction="#homeMenuItemOnAction" text="Home" />
-                        <MenuItem fx:id="moreInforMenuItem" mnemonicParsing="false" onAction="#moreInforMenuItemOnAction" text="MoreInformaition" />
-                        <MenuItem fx:id="logOutMenuItem" mnemonicParsing="false" onAction="#logOutMenuItemOnAction" text="LogOut" />
+                        <MenuItem fx:id="searchMenuItem" mnemonicParsing="false" onAction="#searchOnAction" text="Search" />
+                        <MenuItem fx:id="profileMenuItem" mnemonicParsing="false" onAction="#profileOnAction" text="Profile" />
+                        <MenuItem fx:id="homeMenuItem" mnemonicParsing="false" onAction="#homeOnAction" text="Home" />
+                        <MenuItem fx:id="moreInforMenuItem" mnemonicParsing="false" onAction="#moreInforOnAction" text="MoreInformaition" />
+                        <MenuItem fx:id="logOutMenuItem" mnemonicParsing="false" onAction="#logOutOnAction" text="LogOut" />
                      </items>
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0">

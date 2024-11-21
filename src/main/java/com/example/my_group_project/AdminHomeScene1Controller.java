@@ -10,6 +10,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.VBox;
 
 public class AdminHomeScene1Controller extends BaseController {
 
@@ -67,7 +69,7 @@ public class AdminHomeScene1Controller extends BaseController {
     }
 
     @FXML
-    void userManagementButtonOnAction(ActionEvent event) throws IOException {
+    void userManagementButtonOnAction(ActionEvent event) {
         super.changeScene("AdminUserManagement.fxml", "AdminUserManagement");
     }
 
@@ -81,14 +83,14 @@ public class AdminHomeScene1Controller extends BaseController {
         super.changeScene("welcomeToWebsite.fxml", "welcomeToWebsite");
     }
 
-
     @FXML
-    void homeScene2PaneOnAction(ActionEvent event) throws IOException {
+    void homeScene2OnClicked() throws IOException {
         super.changeScene("AdminHomeScene2.fxml", "AdminHomeScene2");
     }
 
+    // Chuyển cảnh khi nhấn vào Pane 3
     @FXML
-    void homeScene3PaneOnAction(ActionEvent event) throws IOException {
+    void homeScene3OnClicked() throws IOException {
         super.changeScene("AdminHomeScene3.fxml", "AdminHomeScene3");
     }
 

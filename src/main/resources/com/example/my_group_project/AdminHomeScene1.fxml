@@ -92,7 +92,7 @@
             </Text>
          </children>
       </Pane>
-      <Pane fx:id="paneHomeScene2" layoutX="416.0" layoutY="87.0" onDragDetected="#homeScene2PaneOnAction" prefHeight="146.0" prefWidth="283.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;">
+      <Pane fx:id="paneHomeScene2" layoutX="416.0" layoutY="87.0" onMouseClicked="#homeScene2OnClicked" prefHeight="146.0" prefWidth="283.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;">
          <children>
             <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="7.0" layoutY="23.0">
                <image>
@@ -111,7 +111,7 @@
             </Text>
          </children>
       </Pane>
-      <Pane fx:id="paneHomeScene3" layoutX="719.0" layoutY="87.0" onDragDetected="#homeScene3PaneOnAction" prefHeight="146.0" prefWidth="283.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;">
+      <Pane fx:id="paneHomeScene3" layoutX="719.0" layoutY="87.0" onMouseClicked="#homeScene3OnClicked" prefHeight="146.0" prefWidth="283.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;">
          <children>
             <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="-2.0" layoutY="24.0">
                <image>
@@ -191,7 +191,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button fx:id="addBookButton" mnemonicParsing="false" onAction="#addButtonOnAction" prefHeight="45.0" prefWidth="52.0" style="-fx-background-color: transparent;">
+            <Button fx:id="addBookButton" mnemonicParsing="false" onAction="#addButtonOnAction" prefHeight="45.0" prefWidth="52.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>

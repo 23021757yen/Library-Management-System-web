@@ -1,3 +1,4 @@
+package com.example.my_group_project ;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -75,27 +76,32 @@ public class AdminBookInformationController extends BaseController {
 
     @FXML
     void backButtonOnAction(ActionEvent event) {
-        sceneChange("AdminHomeScene1.fxml", "AdminHomeScene1");
+        super.backButtonOnAction(event);
     }
 
     @FXML
     void homeScene1ButtononOnAction(ActionEvent event) {
-        sceneChange("AdminHomeScene1.fxml", "AdminHomeScene1");
+        changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
     }
 
     @FXML
     void bookBorrowButtonOnAction(ActionEvent event) {
-        sceneChange("AdminBorrowBook.fxml", "AdminBorrowBook");
+        changeScene("AdminBorrowBook.fxml", "AdminBorrowBook");
+    }
+
+    @FXML
+    void userManagementButtonOnAction(ActionEvent event) {
+        changeScene("AdminUserManagement.fxml", "AdminUserManagement");
     }
 
     @FXML
     void reportButtonOnAction(ActionEvent event) {
-        sceneChange("AdminReport.fxml", "AdminReport");
+        changeScene("AdminReport.fxml", "AdminReport");
     }
 
     @FXML
     void logOutButtonOnAction(ActionEvent event) {
-        sceneChange("welcomToWebsite.fxml", "welcomeToWebsite");
+        changeScene("welcomToWebsite.fxml", "welcomeToWebsite");
     }
 
     @FXML

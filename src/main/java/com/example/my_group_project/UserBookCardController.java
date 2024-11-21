@@ -11,7 +11,7 @@ public class UserBookCardController {
     @FXML
     private ImageView setImageBook;
     @FXML
-    private Text nameOfBook;
+    private Label nameOfBook;
     @FXML
     private Label numberOfRead;
     @FXML
@@ -27,9 +27,9 @@ public class UserBookCardController {
         setCategory.setText(book.getGenre());
         numberOfRead.setText("Views: " /* logic to get number of views */);
         numberOfBorrow.setText("Borrows: " /* logic to get number of borrows */);
-        if (book.getImageUrl() != null && !book.getImageUrl().isEmpty()) {
+        if (book.getImage() != null && !book.getImage().isEmpty()) {
             try {
-                Image image = new Image(book.getImageUrl());
+                Image image = new Image(book.getImage());
                 setImageBook.setImage(image);
             } catch (Exception e) {
                 System.err.println("Failed to load image: " + e.getMessage());

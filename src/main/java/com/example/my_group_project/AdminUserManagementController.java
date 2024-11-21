@@ -1,7 +1,11 @@
+package com.example.my_group_project ;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 
 public class AdminUserManagementController extends BaseController {
 
@@ -21,49 +25,41 @@ public class AdminUserManagementController extends BaseController {
     private Button reportButton;
 
     @FXML
+    private ScrollPane scrollPane;
+
+    @FXML
     private TextField searchTextField;
 
     @FXML
     private Button userManagementButton;
 
     @FXML
-    private Button addButton;
-
-    @FXML
-    private ScrollPane scrollpane;
-
-    @FXML
     private VBox vBox;
 
     @FXML
     void backButtonOnAction(ActionEvent event) {
-        sceneChange("AdminHomeScene1.fxml", "AdminHomeScene1");
-    }
-
-    @FXML
-    void homeScene1ButtononOnAction(ActionEvent event) {
-        sceneChange("AdminHomeScene1.fxml", "AdminHomeScene1");
+        super.backButtonOnAction(event);
     }
 
     @FXML
     void bookBorrowButtonOnAction(ActionEvent event) {
-        sceneChange("AdminBorrowBook.fxml", "AdminBorrowBook");
+        changeScene("AdminBorrowBook.fxml", "AdminBorrowBook");
     }
 
     @FXML
-    void reportButtonOnAction(ActionEvent event) {
-        sceneChange("AdminReport.fxml", "AdminReport");
+    void homeScene1ButtonOnAction(ActionEvent event) {
+        changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
     }
 
     @FXML
     void logOutButtonOnAction(ActionEvent event) {
-        sceneChange("welcomToWebsite.fxml", "welcomeToWebsite");
+        changeScene("welcomeToWebsite.fxml", "welcomeToWebsite");
     }
 
     @FXML
-    void searchTextFieldOnAction(ActionEvent event) {
+    void reportButtonOnAction(ActionEvent event) {
+        changeScene("AdminReport.fxml", "AdminReport");
     }
-     // search ra nguoi dung
-    // add them nguoi dung tai day tuong tu add sach (xem lai o homescene1 co note)
 
 }
+

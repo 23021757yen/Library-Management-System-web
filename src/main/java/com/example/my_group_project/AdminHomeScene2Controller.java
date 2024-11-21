@@ -10,6 +10,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.VBox;
 
 public class AdminHomeScene2Controller extends BaseController {
 
@@ -62,17 +64,23 @@ public class AdminHomeScene2Controller extends BaseController {
     private VBox vBox;
 
     @FXML
-    void backButtonOnAction(ActionEvent event) throws IOException {
+    void homeScene1OnClicked() throws IOException {
         super.changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
+    }
+
+    // Chuyển cảnh khi nhấn vào Pane 3
+    @FXML
+    void homeScene3OnClicked() throws IOException {
+        super.changeScene("AdminHomeScene3.fxml", "AdminHomeScene3");
+    }
+
+    @FXML
+    void backButtonOnAction(ActionEvent event) {
+        super.backButtonOnAction(event);
     }
 
     @FXML
     void homeScene1ButtonOnAction(ActionEvent event) throws IOException {
-        super.changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
-    }
-
-    @FXML
-    void homeScene1PaneOnAction(ActionEvent event) throws IOException {
         super.changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
     }
 
@@ -94,11 +102,6 @@ public class AdminHomeScene2Controller extends BaseController {
     @FXML
     void logOutButtonOnAction(ActionEvent event) throws IOException {
         super.changeScene("welcomeToWebsite.fxml", "welcomeToWebsite");
-    }
-
-    @FXML
-    void homeScene3PaneOnAction(ActionEvent event) throws IOException {
-        super.changeScene("AdminHomeScene3.fxml", "AdminHomeScene3");
     }
 
     @FXML
