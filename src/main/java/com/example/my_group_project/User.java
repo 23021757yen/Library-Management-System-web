@@ -11,6 +11,10 @@ public class User {
     private String id;
     private String username;
     private String password;
+    private String gender;
+    private String email;
+    private String phone;
+    private String dateOfBirth;
     private static User currentUser;
     private RecentBookController recentBookConTroller = new RecentBookController();
     private List<Book> savedBooks = new ArrayList<>();
@@ -75,6 +79,47 @@ public class User {
 
     public User() {
 
+    }
+
+    public User (String id, String userName, String email, String phone, String dateOfBirth, String gender) {
+        this.id = id;
+        this.userName = userName;
+        this.email = email;
+        this.phone = phone;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public User(String id, String username) {
