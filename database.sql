@@ -206,8 +206,12 @@ CREATE TABLE `user` (
                         `User_ID` varchar(20) NOT NULL DEFAULT '',
                         `email` varchar(50) NOT NULL DEFAULT '',
                         `name` varchar(100) DEFAULT NULL,
+                        `fullname` varchar(100) DEFAULT NULL,
                         `password` varchar(100) NOT NULL DEFAULT 'root',
-                        `phone` varchar(20) NOT NULL DEFAULT 'active'
+                        `phone` varchar(20) NOT NULL DEFAULT ' ',
+                        `status` varchar(20) NOT NULL DEFAULT 'active',
+                        `dateOfBirth` varchar(20) NOT NULL DEFAULT ' ',
+                        `gender` varchar(20) NOT NULL DEFAULT ' '
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

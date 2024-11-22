@@ -20,9 +20,9 @@ public class BookUtils {
                             rs.getString("title"),
                             rs.getString("author"),
                             rs.getString("image"),
-                            rs.getString("description"),
-                            rs.getString("genre"),
                             rs.getInt("viewCount"),
+                            rs.getString("kind"),
+                            rs.getString("description"),
                             rs.getTimestamp("addDate").toLocalDateTime()
                     );
                 }
@@ -109,9 +109,9 @@ public class BookUtils {
                         rs.getString("title"),
                         rs.getString("author"),
                         rs.getString("image"),
-                        rs.getString("description"),
-                        rs.getString("genre"),
                         rs.getInt("viewCount"),
+                        rs.getString("kind"),
+                        rs.getString("description"),
                         rs.getTimestamp("addDate").toLocalDateTime()
                 );
                 books.add(book);

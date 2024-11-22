@@ -26,7 +26,7 @@ public class AdminBookInformationController extends AdminMenuController {
     @FXML
     private Text content;
 
-    //intialise the book have clicked befroe
+    //intialise the book have clicked before
     @FXML
     public void initialize() {
         // Example: Load book information with ID 1
@@ -114,4 +114,3 @@ public class AdminBookInformationController extends AdminMenuController {
     // xoa sach khoi csdl
     // chinh sua thong tin sach
     // luu thong tin sach
-    // load cao pane o muc ben duoi giup ntny

@@ -49,7 +49,7 @@ public class AdminReportController extends BaseController {
 
     @FXML
     void logOutButtonOnAction(ActionEvent event) {
-        changeScene("welcomToWebsite.fxml", "welcomeToWebsite");
+        changeScene("welcomeToWebsite.fxml", "welcomeToWebsite");
     }
 
     @FXML

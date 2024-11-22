@@ -41,9 +41,6 @@ public class AdminBookUserBorrowController extends AdminMenuController {
     private DatePicker dateReturn;
 
     @FXML
-    private Button editButton;
-
-    @FXML
     private TextField noteTextField;
 
     @FXML
@@ -58,6 +55,15 @@ public class AdminBookUserBorrowController extends AdminMenuController {
     @FXML
     private Label userNameLabel;
 
+    @FXML
+    private Label userFullNameLabel;
+
+    @FXML
+    private Label userEmailLabel;
+
+    @FXML
+    private Label userPhoneNumberLabel;
+
     private boolean isEditable = false;
     private Book currentBook;
     private User currentUser;
@@ -70,8 +76,10 @@ public class AdminBookUserBorrowController extends AdminMenuController {
 
         dateBorrow.setValue(LocalDateTime.parse(borrowedBook.getDateBorrow(), dateTimeFormatter).toLocalDate());
         dateReturn.setValue(LocalDateTime.parse(borrowedBook.getDateBack(), dateTimeFormatter).toLocalDate());
-        noteTextField.setText(borrowedBook.getDescription());
         statusLabel.setText(borrowedBook.getStatus());
+
+        // Ensure edit mode is set to false initially
+        setEditMode(false);
     }
 
     private void loadBookInformation(String bookId) {
@@ -86,9 +94,9 @@ public class AdminBookUserBorrowController extends AdminMenuController {
                             rs.getString("title"),
                             rs.getString("author"),
                             rs.getString("image"),
-                            rs.getString("description"),
-                            rs.getString("kind"),
                             rs.getInt("viewCount"),
+                            rs.getString("kind"),
+                            rs.getString("description"),
                             rs.getTimestamp("addDate").toLocalDateTime()
                     );
                     displayBookInformation();
@@ -108,7 +116,11 @@ public class AdminBookUserBorrowController extends AdminMenuController {
                 if (rs.next()) {
                     currentUser = new User(
                             rs.getString("User_ID"),
-                            rs.getString("name")
+                            rs.getString("name"),
+                            rs.getString("fullname"),
+                            rs.getString("email"),
+                            rs.getString("phone"),
+                            rs.getString("dateOfBirth")
                     );
                     displayUserInformation();
                 }
@@ -134,6 +146,9 @@ public class AdminBookUserBorrowController extends AdminMenuController {
         if (currentUser != null) {
             userIdLabel.setText(currentUser.getId());
             userNameLabel.setText(currentUser.getUsername());
+            userFullNameLabel.setText(currentUser.getFullname());
+            userEmailLabel.setText(currentUser.getEmail());
+            userPhoneNumberLabel.setText(currentUser.getPhone());
         }
     }
 
@@ -141,11 +156,14 @@ public class AdminBookUserBorrowController extends AdminMenuController {
     void editButtonOnAction(ActionEvent event) {
         // Toggle edit mode
         isEditable = !isEditable;
-        dateBorrow.setDisable(!isEditable);
-        dateReturn.setDisable(!isEditable);
-        noteTextField.setDisable(!isEditable);
-        saveButton.setDisable(!isEditable);
-        editButton.setText(isEditable ? "Cancel" : "Edit");
+        setEditMode(isEditable);
+    }
+
+    private void setEditMode(boolean editable) {
+        dateBorrow.setDisable(!editable);
+        dateReturn.setDisable(!editable);
+        noteTextField.setDisable(!editable);
+        saveButton.setDisable(!editable);
     }
 
     @FXML
@@ -156,17 +174,12 @@ public class AdminBookUserBorrowController extends AdminMenuController {
             LocalDate returnDate = dateReturn.getValue();
             String note = noteTextField.getText();
 
-            // Add your logic to save this information to the database
             try {
                 // Assuming you have a method to update the borrow information
-                updateBorrowInformation(borrowDate, returnDate, note);
+                updateBorrowInformation(borrowDate, returnDate);
                 statusLabel.setText("Information saved successfully!");
                 isEditable = false;
-                dateBorrow.setDisable(true);
-                dateReturn.setDisable(true);
-                noteTextField.setDisable(true);
-                saveButton.setDisable(true);
-                editButton.setText("Edit");
+                setEditMode(false);
             } catch (SQLException e) {
                 e.printStackTrace();
                 statusLabel.setText("Failed to save information. Try again.");
@@ -174,15 +187,14 @@ public class AdminBookUserBorrowController extends AdminMenuController {
         }
     }
 
-    private void updateBorrowInformation(LocalDate borrowDate, LocalDate returnDate, String note) throws SQLException {
-        String sql = "UPDATE borrow SET borrowDate = ?, backDate = ?, note = ? WHERE book_ID = ? AND user_ID = ?";
+    private void updateBorrowInformation(LocalDate borrowDate, LocalDate returnDate) throws SQLException {
+        String sql = "UPDATE borrow SET borrowDate = ?, backDate = ? WHERE book_ID = ? AND user_ID = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setDate(1, java.sql.Date.valueOf(borrowDate));
             pstmt.setDate(2, java.sql.Date.valueOf(returnDate));
-            pstmt.setString(3, note);
-            pstmt.setString(4, currentBook.getId());
-            pstmt.setString(5, currentUser.getId());
+            pstmt.setString(3, currentBook.getId());
+            pstmt.setString(4, currentUser.getId());
             pstmt.executeUpdate();
         }
     }

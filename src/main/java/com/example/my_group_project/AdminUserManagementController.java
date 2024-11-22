@@ -11,11 +11,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class AdminUserManagementController extends AdminMenuController {
 
     @FXML
     private VBox vBox;
+
+    private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @FXML
     public void initialize() {
@@ -40,7 +43,7 @@ public class AdminUserManagementController extends AdminMenuController {
                         rs.getString("description"),
                         rs.getString("kind"),
                         rs.getInt("viewCount"),
-                        LocalDateTime.parse(rs.getString("addDate")),
+                        LocalDateTime.parse(rs.getString("addDate"), dateTimeFormatter),
                         rs.getString("borrowDate"),
                         rs.getString("backDate"),
                         rs.getString("status")

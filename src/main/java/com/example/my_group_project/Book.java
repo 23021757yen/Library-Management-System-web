@@ -11,12 +11,13 @@ public class Book {
     private String description;
     private String genre;
     private int viewCount = 0;// Add genre field
+    private int amount;
     private LocalDateTime time;
     private static Book mainBook;
 
     public Book() {}
 
-    public Book(String id, String title, String authors, String imageUrl, String description, String genre, int viewCount, LocalDateTime time) {
+    public Book(String id, String title, String authors, String imageUrl, String description, String genre, int viewCount, int amount, LocalDateTime time) {
         this.id = id;
         this.title = title;
         this.authors = authors;
@@ -24,6 +25,7 @@ public class Book {
         this.description = description;
         this.genre = genre;
         this.viewCount = viewCount;
+        this.amount = amount;
         this.time = (time != null) ? time : LocalDateTime.now();
     }
 
@@ -36,6 +38,7 @@ public class Book {
         this.description = description;
         this.genre = genre;     // Initialize genre
     }
+
     public Book(String id, String title,String author, String genre, int viewCount, String imageUrl, String description){
         this.authors = author;
         this.id = id;
@@ -44,6 +47,17 @@ public class Book {
         this.viewCount = viewCount;
         this.imageUrl = imageUrl;
         this.description = description;
+    }
+
+    public Book(String id, String title, String author, String imageUrl, int viewCount, String genre, String description, LocalDateTime time){
+        this.authors = author;
+        this.id = id;
+        this.title = title;
+        this.genre = genre;
+        this.viewCount = viewCount;
+        this.imageUrl = imageUrl;
+        this.description = description;
+        this.time = (time != null) ? time : LocalDateTime.now();
     }
 
     //constructor
@@ -55,7 +69,13 @@ public class Book {
         this.genre = genre;
     }
 
-
+    public Book(String id, String title, String authors, String genre, int amount) {
+        this.id = id;
+        this.title = title;
+        this.authors = authors;
+        this.genre = genre;
+        this.amount = amount;
+    }
 
     public LocalDateTime getTime() {
         return time;
@@ -128,6 +148,14 @@ public class Book {
 
     public void setViewCount(int viewCount) {
         this.viewCount = viewCount;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     @Override

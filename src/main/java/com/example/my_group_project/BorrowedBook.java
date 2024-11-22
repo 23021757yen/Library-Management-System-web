@@ -10,8 +10,8 @@ public class BorrowedBook extends Book {
 
     // Constructor
     public BorrowedBook(String userId, String bookId, String title, String authors, String imageUrl, String description,
-                        String genre, int viewCount, LocalDateTime time, String dateBorrow, String dateBack, String status) {
-        super(bookId, title, authors, imageUrl, description, genre, viewCount, time);
+                        String genre, int viewCount, int amount, LocalDateTime time, String dateBorrow, String dateBack, String status) {
+        super(bookId, title, authors, imageUrl, description, genre, viewCount, amount, time);
         this.userId = userId;
         this.dateBorrow = dateBorrow;
         this.dateBack = dateBack;
@@ -19,8 +19,8 @@ public class BorrowedBook extends Book {
     }
 
     public BorrowedBook(String userId, String bookId, String title, String authors, String imageUrl, String description,
-                        String genre, int viewCount, String dateBorrow, String dateBack, String status) {
-        super(bookId, title, authors, imageUrl, viewCount, genre, description);
+                        String genre, int viewCount, LocalDateTime time, String dateBorrow, String dateBack, String status) {
+        super(bookId, title, authors, imageUrl, viewCount, genre, description, time);
         this.userId = userId;
         this.dateBorrow = dateBorrow;
         this.dateBack = dateBack;
