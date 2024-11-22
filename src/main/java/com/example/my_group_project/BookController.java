@@ -1,8 +1,5 @@
 package com.example.my_group_project;
 
-import javafx.fxml.FXML;
-import javafx.scene.image.Image;
-
 
 import java.sql.*;
 import java.util.ArrayList;

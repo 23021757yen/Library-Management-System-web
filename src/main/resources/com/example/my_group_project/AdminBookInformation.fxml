@@ -17,11 +17,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.AdminBookInformationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="33.0" layoutY="83.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
          <children>
-            <Button fx:id="homeScene1Button" layoutX="2.0" layoutY="104.0" mnemonicParsing="false" onAction="#homeScene1ButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="homeScene1Button" layoutX="2.0" layoutY="104.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -30,7 +30,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="reportButton" layoutX="2.0" layoutY="310.0" mnemonicParsing="false" onAction="#reportButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="reportButton" layoutX="2.0" layoutY="310.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -39,7 +39,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="logOutButton" layoutX="2.0" layoutY="431.0" mnemonicParsing="false" onAction="#logOutButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="logOutButton" layoutX="2.0" layoutY="431.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -48,7 +48,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="userManagementButton" layoutX="1.0" layoutY="241.0" mnemonicParsing="false" onAction="#userManagementButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="userManagementButton" layoutX="1.0" layoutY="241.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -57,7 +57,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="bookBorrowButton" layoutX="2.0" layoutY="173.0" mnemonicParsing="false" onAction="#bookBorrowButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="bookBorrowButton" layoutX="2.0" layoutY="173.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -76,7 +76,12 @@
             <Font name="Impact" size="30.0" />
          </font>
       </Label>
-      <Label fx:id="nameBookText" layoutX="297.0" layoutY="78.0" prefHeight="45.0" prefWidth="555.0">
+      <ImageView fx:id="bookImage" fitHeight="255.0" fitWidth="134.0" layoutX="121.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../bookImage/Bogia.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="nameBookText" layoutX="297.0" layoutY="78.0" text="NAME OF BOOK">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -110,7 +115,7 @@
          <content>
             <VBox fx:id="vbox1" prefHeight="454.0" prefWidth="667.0" style="-fx-background-color: ffffff;">
                <children>
-                  <Text fx:id="contentBook" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="661.13671875">
+                  <Text fx:id="contentBook" strokeType="OUTSIDE" strokeWidth="0.0" text="ựmdfdwhefkdnqabhfidsabjsmanbsvhjkjhdfhjewbhefvhjwdsanqbvdhdjsansbdjsqnbdfhdjsaqmnbwdnxnxbxzbbdfgdtyrdt6rydghutdrfgvhbjhgyjfthfgjhytrsedfghjuytrdfgvhytdffghjygtfrdcfvbhjhuytrdcvbnjuytrdfvgbhnjkkuytrdsxcvbnmjhuytrdfvbhnjkuytredcfvbnjkiuytrdefcvbnmjkiuytresxdcvbnmjkuytrdfgvhbjkuytresdcbvghjyutresdcfbvghjytresdxcvbnhjhytresfdxcvhuytresfdxcvhjbguutyrsdbjhytrdesđxcvbnjuytrdfxcvbnjuytrdsxcvbhjytrdfxcvbnhjytrédzxcvbnmjkjytrdfcvbnjuytrdf" wrappingWidth="661.13671875">
                      <font>
                         <Font size="15.0" />
                      </font></Text>
@@ -118,23 +123,23 @@
             </VBox>
          </content>
       </ScrollPane>
-      <Label fx:id="nameAuthorText" layoutX="395.0" layoutY="119.0" prefHeight="21.0" prefWidth="577.0">
+      <Label fx:id="nameAuthorText" layoutX="395.0" layoutY="120.0" prefHeight="21.0" prefWidth="577.0" text="mckdmskswdhwkdnfvbhjnwksmendbfhnejwkwsmdn fvbhnedmwms dchfndemwksdn fbvhnjedmwks dcnhfnj">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label fx:id="limitBookText" layoutX="396.0" layoutY="139.0" prefHeight="21.0" prefWidth="576.0">
+      <Label fx:id="limitBookText" layoutX="397.0" layoutY="140.0" text="sưd">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label fx:id="categoryBookText" layoutX="395.0" layoutY="160.0" prefHeight="21.0" prefWidth="576.0">
+      <Label fx:id="categoryBookText" layoutX="395.0" layoutY="160.0" prefHeight="21.0" prefWidth="576.0" text="mckdmskswdhwkdnfvbhjnwksmendbfhnejwkwsmdn fvbhnedmwms dchfndemwksdn fbvhnjedmwks dcnhfnj">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label fx:id="goalBookText" layoutX="395.0" layoutY="182.0" prefHeight="21.0" prefWidth="576.0">
+      <Label fx:id="goalBookText" layoutX="395.0" layoutY="182.0" prefHeight="21.0" prefWidth="576.0" text="mckdmskswdhwkdnfvbhjnwksmendbfhnejwkwsmdn fvbhnedmwms dchfndemwksdn fbvhnjedmwks dcnhfnj">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Button fx:id="editButton" layoutX="890.0" layoutY="79.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
+      <Button fx:id="editButton" layoutX="890.0" layoutY="79.0" mnemonicParsing="false" style="-fx-background-color: ffffff;">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0">
                <image>
@@ -143,7 +148,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="saveButon" layoutX="924.0" layoutY="79.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
+      <Button fx:id="saveButon" layoutX="923.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: ffffff;">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0">
                <image>
@@ -250,7 +255,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="deleteButton" layoutX="854.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
+      <Button fx:id="deleteButton" layoutX="854.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0">
                <image>
@@ -259,6 +264,5 @@
             </ImageView>
          </graphic>
       </Button>
-      <ImageView fx:id="bookImage" fitHeight="205.0" fitWidth="150.0" layoutX="120.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

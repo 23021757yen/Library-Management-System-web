@@ -1,117 +1,117 @@
-package com.example.my_group_project ;
+package com.example.my_group_project;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class AdminBookInformationController extends BaseController {
-
-    @FXML
-    private Button backButton;
-
-    @FXML
-    private Button bookBorrowButton;
-
-    @FXML
-    private ImageView bookImage;
-
-    @FXML
-    private Label categoryBookText;
-
-    @FXML
-    private Text contentBook;
-
-    @FXML
-    private Button deleteButton;
-
-    @FXML
-    private Button editButton;
-
-    @FXML
-    private Label goalBookText;
-
-    @FXML
-    private Button homeScene1Button;
-
-    @FXML
-    private Label limitBookText;
-
-    @FXML
-    private Button logOutButton;
+public class AdminBookInformationController extends AdminMenuController {
 
     @FXML
     private Label nameAuthorText;
 
     @FXML
-    private Label nameBookText;
+    private Label limitBookText;
 
     @FXML
-    private Button reportButton;
+    private Label categoryBookText;
 
     @FXML
-    private Button saveButon;
+    private Label goalBookText;
 
     @FXML
-    private ScrollPane scrollpane1;
+    private Text content;
 
+    //intialise the book have clicked befroe
     @FXML
-    private ScrollPane scrollpane2;
+    public void initialize() {
+        // Example: Load book information with ID 1
+        loadBookInformation(1);
+    }
 
-    @FXML
-    private TextField searchTextField;
-
-    @FXML
-    private Button userManagementButton;
-
-    @FXML
-    private VBox vBox2;
-
-    @FXML
-    private VBox vbox1;
-
-    @FXML
-    void backButtonOnAction(ActionEvent event) {
-        super.backButtonOnAction(event);
+    public void loadBookInformation(int bookId) {
+        String query = "SELECT * FROM books WHERE book_ID = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setInt(1, bookId);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                nameAuthorText.setText(rs.getString("author"));
+                limitBookText.setText(String.valueOf(rs.getInt("amount")));
+                categoryBookText.setText(rs.getString("kind"));
+                goalBookText.setText(rs.getString("goal"));
+                content.setText(rs.getString("description"));
+            }
+        } catch (SQLException e) {
+            System.err.println("Error loading book information: " + e.getMessage());
+        }
     }
 
     @FXML
-    void homeScene1ButtononOnAction(ActionEvent event) {
-        changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
+    void editButtonOnAction(ActionEvent event) {
+        // Allow editing of the text fields, if necessary
     }
 
     @FXML
-    void bookBorrowButtonOnAction(ActionEvent event) {
-        changeScene("AdminBorrowBook.fxml", "AdminBorrowBook");
+    void saveButtonOnAction(ActionEvent event) {
+        String query = "UPDATE books SET author = ?, amount = ?, kind = ?, goal = ?, description = ? WHERE book_ID = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, nameAuthorText.getText());
+            pstmt.setInt(2, Integer.parseInt(limitBookText.getText()));
+            pstmt.setString(3, categoryBookText.getText());
+            pstmt.setString(4, goalBookText.getText());
+            pstmt.setString(5, content.getText());
+            pstmt.setInt(6, 1); // Replace with the actual book ID
+            pstmt.executeUpdate();
+            System.out.println("Book information updated successfully.");
+        } catch (SQLException e) {
+            System.err.println("Error saving book information: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.err.println("Invalid number format: " + e.getMessage());
+        }
     }
 
     @FXML
-    void userManagementButtonOnAction(ActionEvent event) {
-        changeScene("AdminUserManagement.fxml", "AdminUserManagement");
-    }
+    void deleteButtonOnAction(ActionEvent event) {
+        String query = "DELETE FROM books WHERE book_ID = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setInt(1, 1); // Replace with the actual book ID
+            pstmt.executeUpdate();
 
-    @FXML
-    void reportButtonOnAction(ActionEvent event) {
-        changeScene("AdminReport.fxml", "AdminReport");
-    }
+            // Clear text fields after deletion
+            nameAuthorText.setText("");
+            limitBookText.setText("");
+            categoryBookText.setText("");
+            goalBookText.setText("");
+            content.setText("");
 
-    @FXML
-    void logOutButtonOnAction(ActionEvent event) {
-        changeScene("welcomToWebsite.fxml", "welcomeToWebsite");
+            System.out.println("Book deleted successfully.");
+        } catch (SQLException e) {
+            System.err.println("Error deleting book: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.err.println("Invalid number format: " + e.getMessage());
+        }
     }
 
     @FXML
     void searchTextFieldOnAction(ActionEvent event) {
+        // Implement search functionality, if needed
     }
 
-    // load thong tin cua sach
+    @FXML
+    void homeScene1ButtonOnAction(ActionEvent event) {
+        changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
+    }
+}
+
+// load thong tin cua sach
     // xoa sach khoi csdl
     // chinh sua thong tin sach
     // luu thong tin sach
     // load cao pane o muc ben duoi giup ntny
-
-}
