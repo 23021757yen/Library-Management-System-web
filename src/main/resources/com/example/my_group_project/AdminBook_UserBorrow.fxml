@@ -13,11 +13,11 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.AdminBookUserBorrowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.AdminBookUserBorrowController">
    <children>
       <Pane layoutX="33.0" layoutY="83.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
          <children>
-            <Button fx:id="homeScene1Button" layoutX="2.0" layoutY="104.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="homeScene1Button" layoutX="2.0" layoutY="104.0" mnemonicParsing="false" onAction="#homeScene1ButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -240,7 +240,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="editButton" layoutX="849.0" layoutY="40.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
+      <Button fx:id="editButton" layoutX="849.0" layoutY="40.0" mnemonicParsing="false" onAction="#editButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0">
                <image>
@@ -249,7 +249,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="saveButton" layoutX="884.0" layoutY="41.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
+      <Button fx:id="saveButton" layoutX="884.0" layoutY="41.0" mnemonicParsing="false" onAction="#saveButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0">
                <image>

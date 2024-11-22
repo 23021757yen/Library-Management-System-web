@@ -13,52 +13,6 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 
 public class AdminHomeScene1Controller extends AdminMenuController {
-
-    @FXML
-    private Button addBookButton;
-
-    @FXML
-    private Button backButton;
-
-    @FXML
-    private Button bookBorrowButton;
-
-    @FXML
-    private HBox contentHbox;
-
-    @FXML
-    private Button homeScene1Button;
-
-    @FXML
-    private Button logOutButton;
-
-    @FXML
-    private Pane paneHomeScene2;
-
-    @FXML
-    private Pane paneHomeScene3;
-
-    @FXML
-    private Text quantity1Text;
-
-    @FXML
-    private Text quantity2Text;
-
-    @FXML
-    private Text quantity3Text;
-
-    @FXML
-    private Button reportButton;
-
-    @FXML
-    private TextField searchTextField;
-
-    @FXML
-    private Button userManagementButton;
-
-    @FXML
-    private ScrollPane scrollpane;
-
     @FXML
     private VBox vBox;
 

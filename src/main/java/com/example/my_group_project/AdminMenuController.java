@@ -7,8 +7,13 @@ import java.io.IOException;
 
 public abstract class AdminMenuController extends BaseController{
     @FXML
+    void homeScene1ButtonOnAction(ActionEvent event) {
+        super.changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
+    }
+
+    @FXML
     void bookBorrowButtonOnAction(ActionEvent event) throws IOException {
-        super.changeScene("AdminBook_UserBorrow.fxml", "AdminBorrowBook");
+        super.changeScene("AdminBorrowBook.fxml", "AdminBorrowBook");
     }
 
     @FXML

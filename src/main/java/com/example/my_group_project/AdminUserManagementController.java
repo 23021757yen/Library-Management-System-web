@@ -24,7 +24,7 @@ public class AdminUserManagementController extends AdminMenuController {
 
     public void loadBorrowedBooks() {
         String query = "SELECT b.User_ID, b.book_ID, bo.title, bo.author, bo.image, bo.description, bo.kind, " +
-                "bo.viewCount, bo.addDate, b.endDate AS date_borrow, b.dueDate AS date_back, b.status " +
+                "bo.viewCount, bo.addDate, b.borrowDate, b.backDate, b.status " +
                 "FROM borrow b JOIN books bo ON b.book_ID = bo.book_ID";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
@@ -35,14 +35,14 @@ public class AdminUserManagementController extends AdminMenuController {
                         rs.getString("User_ID"),
                         rs.getString("book_ID"),
                         rs.getString("title"),
-                        rs.getString("authors"),
-                        rs.getString("imageUrl"),
+                        rs.getString("author"),
+                        rs.getString("image"),
                         rs.getString("description"),
-                        rs.getString("genre"),
+                        rs.getString("kind"),
                         rs.getInt("viewCount"),
                         LocalDateTime.parse(rs.getString("addDate")),
-                        rs.getString("date_borrow"),
-                        rs.getString("date_back"),
+                        rs.getString("borrowDate"),
+                        rs.getString("backDate"),
                         rs.getString("status")
                 );
                 HBox row = createRow(borrowedBook);
@@ -90,11 +90,6 @@ public class AdminUserManagementController extends AdminMenuController {
     @FXML
     void searchTextFieldOnAction(ActionEvent event) {
         // Implement search functionality, if needed
-    }
-
-    @FXML
-    void homeScene1ButtonOnAction(ActionEvent event) {
-        super.changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
     }
 
     @FXML

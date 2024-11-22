@@ -112,12 +112,22 @@ INSERT INTO books (title, amount, description, location, yearPublic, price, kind
 
 CREATE TABLE `borrow` (
                           `book_ID` int(11) DEFAULT NULL,
-                          `endDate` datetime NOT NULL DEFAULT current_timestamp(),
-                          `dueDate` datetime NOT NULL DEFAULT current_timestamp(),
+                          `borrowDate` datetime NOT NULL DEFAULT current_timestamp,
+                          `backDate` datetime NOT NULL DEFAULT current_timestamp,
                           `User_ID` varchar(20) NOT NULL,
                           `status` varchar(20) DEFAULT NULL,
                           `overTime` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- for testing purpose
+--
+INSERT INTO borrow (book_ID, borrowDate, backDate, User_ID, status, overTime) VALUES
+                                                                                  (1, '2024-11-01 10:00:00', '2024-12-01 10:00:00', 'bnzNlV6rpM', 'borrowed', 'no'),
+                                                                                  (23, '2024-11-05 11:00:00', '2024-12-05 11:00:00', 'VIlmTripsi', 'borrowed', 'yes'),
+                                                                                  (24, '2024-11-10 09:30:00', '2024-12-10 09:30:00', 'bnzNlV6rpM', 'returned', 'no'),
+                                                                                  (25, '2024-11-15 14:00:00', '2024-12-15 14:00:00', 'Vvyvawn0VJ', 'borrowed', 'no'),
+                                                                                  (26, '2024-11-20 16:00:00', '2024-12-20 16:00:00', 'vSLEwrImsp', 'borrowed', 'yes');
 
 -- --------------------------------------------------------
 
