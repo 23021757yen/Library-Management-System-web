@@ -2,64 +2,103 @@ package com.example.my_group_project;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class AdminUserManagementController extends BaseController {
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
 
-    @FXML
-    private Button backButton;
-
-    @FXML
-    private Button bookBorrowButton;
-
-    @FXML
-    private Button homeScene1Button;
-
-    @FXML
-    private Button logOutButton;
-
-    @FXML
-    private Button reportButton;
-
-    @FXML
-    private ScrollPane scrollPane;
-
-    @FXML
-    private TextField searchTextField;
-
-    @FXML
-    private Button userManagementButton;
+public class AdminUserManagementController extends AdminMenuController {
 
     @FXML
     private VBox vBox;
 
     @FXML
-    void backButtonOnAction(ActionEvent event) {
-        super.backButtonOnAction(event);
+    public void initialize() {
+        loadBorrowedBooks();
+    }
+
+    public void loadBorrowedBooks() {
+        String query = "SELECT b.User_ID, b.book_ID, bo.title, bo.author, bo.image, bo.description, bo.kind, " +
+                "bo.viewCount, bo.addDate, b.endDate AS date_borrow, b.dueDate AS date_back, b.status " +
+                "FROM borrow b JOIN books bo ON b.book_ID = bo.book_ID";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            ResultSet rs = pstmt.executeQuery();
+            vBox.getChildren().clear(); // Clear existing items
+            while (rs.next()) {
+                BorrowedBook borrowedBook = new BorrowedBook(
+                        rs.getString("User_ID"),
+                        rs.getString("book_ID"),
+                        rs.getString("title"),
+                        rs.getString("authors"),
+                        rs.getString("imageUrl"),
+                        rs.getString("description"),
+                        rs.getString("genre"),
+                        rs.getInt("viewCount"),
+                        LocalDateTime.parse(rs.getString("addDate")),
+                        rs.getString("date_borrow"),
+                        rs.getString("date_back"),
+                        rs.getString("status")
+                );
+                HBox row = createRow(borrowedBook);
+                vBox.getChildren().add(row);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private HBox createRow(BorrowedBook borrowedBook) {
+        HBox hBox = new HBox();
+        hBox.setStyle("-fx-background-color: #ffffff;");
+        hBox.setPrefHeight(45);
+        hBox.setPrefWidth(885);
+
+        Label userIdLabel = new Label(borrowedBook.getUserId());
+        userIdLabel.setPrefWidth(130);
+        userIdLabel.setStyle("-fx-alignment: center;");
+
+        Label bookIdLabel = new Label(borrowedBook.getId());
+        bookIdLabel.setPrefWidth(130);
+        bookIdLabel.setStyle("-fx-alignment: center;");
+
+        Label bookNameLabel = new Label(borrowedBook.getTitle());
+        bookNameLabel.setPrefWidth(200);
+        bookNameLabel.setStyle("-fx-alignment: center;");
+
+        Label dateBorrowLabel = new Label(borrowedBook.getDateBorrow());
+        dateBorrowLabel.setPrefWidth(140);
+        dateBorrowLabel.setStyle("-fx-alignment: center;");
+
+        Label dateBackLabel = new Label(borrowedBook.getDateBack());
+        dateBackLabel.setPrefWidth(140);
+        dateBackLabel.setStyle("-fx-alignment: center;");
+
+        Label statusLabel = new Label(borrowedBook.getStatus());
+        statusLabel.setPrefWidth(140);
+        statusLabel.setStyle("-fx-alignment: center;");
+
+        hBox.getChildren().addAll(userIdLabel, bookIdLabel, bookNameLabel, dateBorrowLabel, dateBackLabel, statusLabel);
+        return hBox;
     }
 
     @FXML
-    void bookBorrowButtonOnAction(ActionEvent event) {
-        changeScene("AdminBorrowBook.fxml", "AdminBorrowBook");
+    void searchTextFieldOnAction(ActionEvent event) {
+        // Implement search functionality, if needed
     }
 
     @FXML
     void homeScene1ButtonOnAction(ActionEvent event) {
-        changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
+        super.changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
     }
 
     @FXML
-    void logOutButtonOnAction(ActionEvent event) {
-        changeScene("welcomeToWebsite.fxml", "welcomeToWebsite");
+    void addBookButtonOnAction(ActionEvent event) {
+        // Implement add book functionality, if needed
     }
-
-    @FXML
-    void reportButtonOnAction(ActionEvent event) {
-        changeScene("AdminReport.fxml", "AdminReport");
-    }
-
 }
-

@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-public class RecentBookController {
+public class RecentBook {
     private static final int MAX_BOOKS = 10;
     private Queue<Book> recentbooks = new LinkedList<>(recentBooks());
 
