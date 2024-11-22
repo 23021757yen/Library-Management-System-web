@@ -87,7 +87,7 @@ public class AdminBookUserBorrowController extends AdminMenuController {
                             rs.getString("author"),
                             rs.getString("image"),
                             rs.getString("description"),
-                            rs.getString("genre"),
+                            rs.getString("kind"),
                             rs.getInt("viewCount"),
                             rs.getTimestamp("addDate").toLocalDateTime()
                     );
@@ -108,7 +108,7 @@ public class AdminBookUserBorrowController extends AdminMenuController {
                 if (rs.next()) {
                     currentUser = new User(
                             rs.getString("User_ID"),
-                            rs.getString("username")
+                            rs.getString("name")
                     );
                     displayUserInformation();
                 }
