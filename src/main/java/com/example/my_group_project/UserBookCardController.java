@@ -27,9 +27,9 @@ public class UserBookCardController {
         setCategory.setText(book.getGenre());
         numberOfRead.setText("Views: " /* logic to get number of views */);
         numberOfBorrow.setText("Borrows: " /* logic to get number of borrows */);
-        if (book.getImage() != null && !book.getImage().isEmpty()) {
+        if (book.getImageUrl() != null && !book.getImageUrl().isEmpty()) {
             try {
-                Image image = new Image(book.getImage());
+                Image image = new Image(book.getImageUrl());
                 setImageBook.setImage(image);
             } catch (Exception e) {
                 System.err.println("Failed to load image: " + e.getMessage());

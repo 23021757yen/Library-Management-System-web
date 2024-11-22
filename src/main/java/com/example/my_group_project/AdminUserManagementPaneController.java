@@ -33,13 +33,24 @@ public class AdminUserManagementPaneController extends BaseController {
     @FXML
     private Label userName;
 
-    public void set userDetails ( User user) {
+    public static String currentIdUser ;
+
+    @FXML
+    public void setUserDetail(User user) {
+        if (user == null) {
+            System.out.println("User is null.");
+            return;
+        }
         userId.setText(user.getId());
-        userName.setText(user.getUserName());
+        userName.setText(user.getUsername());
         email.setText(user.getEmail());
         phoneNumber.setText(user.getPhone());
         dateOfBirth.setText(user.getDateOfBirth());
         gender.setText(user.getGender());
     }
 
+    public String getUserId() {
+        currentIdUser = userId.getText();
+        return currentIdUser;
+    }
 }

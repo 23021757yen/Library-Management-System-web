@@ -36,9 +36,9 @@ public class UserBookProfileHighlightController {
         nameOfBookTextField.setText(book.getTitle());
         authorTextField.setText(book.getAuthors());
         contentTextField.setText(book.getDescription());
-        if (book.getImage() != null && !book.getImage().isEmpty()) {
+        if (book.getImageUrl() != null && !book.getImageUrl().isEmpty()) {
             try {
-                Image image = new Image(book.getImage());
+                Image image = new Image(book.getImageUrl());
                 bookImageView.setImage(image);
             } catch (Exception e) {
                 System.err.println("Failed to load image: " + e.getMessage());

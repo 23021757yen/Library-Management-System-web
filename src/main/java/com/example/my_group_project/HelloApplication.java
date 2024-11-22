@@ -19,7 +19,7 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1024, 600);
         stage.setTitle("Hello!");
         stage.setScene(scene);
-        stage.show();
+        stage.show();   
 
         stage.setOnCloseRequest(event -> {
             showAlter(event); // Lưu dữ liệu trước khi thoát
@@ -45,18 +45,11 @@ public class HelloApplication extends Application {
             if (result.get() == sureButton) {
                 try {
                     saveRecentBooksToDatabase();
-                    /*Alert infoAlert = new Alert(Alert.AlertType.INFORMATION);
-                    infoAlert.setTitle("Save Status");
-                    infoAlert.setHeaderText(null);
-                    infoAlert.setContentText("Chúc bạn một ngày mới vui vẻ!!!");
-                    infoAlert.showAndWait();
-
-                     */
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
             } else if (result.get() == cancelButton) {
-                event.consume();// Hủy đóng cửa sổ
+                event.consume();
             }
         }
     }

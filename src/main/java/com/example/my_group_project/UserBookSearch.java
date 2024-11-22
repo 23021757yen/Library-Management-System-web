@@ -72,9 +72,9 @@ public class UserBookSearch extends BaseController {
             Text bookInfo = new Text(book.getTitle() + " by " + book.getAuthors());
             bookInfo.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-fill: #333333;");
 
-            if (book.getImage() != null) {
+            if (book.getImageUrl() != null) {
                 try {
-                    Image image = new Image(book.getImage());
+                    Image image = new Image(book.getImageUrl());
                     ImageView bookImage = new ImageView(image);
                     bookImage.setFitHeight(50);
                     bookImage.setFitWidth(50);

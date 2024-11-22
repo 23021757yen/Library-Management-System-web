@@ -95,7 +95,7 @@ public class UserHighLightController extends BaseController {
             //System.out.println();
             Button button = (Button) newBook.lookup("#highlightButton");
 
-            image.setImage(new Image(book.getImage()));
+            image.setImage(new Image(book.getImageUrl()));
             name.setText(book.getTitle());
             author.setText(book.getAuthors());
 

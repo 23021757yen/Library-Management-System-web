@@ -1,3 +1,4 @@
+
 package com.example.my_group_project;
 
 import java.time.LocalDateTime;
@@ -9,18 +10,18 @@ public class BorrowedBook extends Book {
     private String status;
 
     // Constructor
-    public BorrowedBook(String userId, String bookId, String title, String authors, String imageUrl, String description,
+    public BorrowedBook(String userId, String bookId, String title, String authors, String image, String description,
                         String genre, int viewCount, LocalDateTime time, String dateBorrow, String dateBack, String status) {
-        super(bookId, title, authors, imageUrl, description, genre, viewCount, time);
+        super(bookId, title, authors, image, description, genre, viewCount, time);
         this.userId = userId;
         this.dateBorrow = dateBorrow;
         this.dateBack = dateBack;
         this.status = status;
     }
 
-    public BorrowedBook(String userId, String bookId, String title, String authors, String imageUrl, String description,
+    public BorrowedBook(String userId, String bookId, String title, String authors, String image, String description,
                         String genre, int viewCount, String dateBorrow, String dateBack, String status) {
-        super(bookId, title, authors, imageUrl, viewCount, genre, description);
+        super(bookId, title, authors, image, description, genre, viewCount);
         this.userId = userId;
         this.dateBorrow = dateBorrow;
         this.dateBack = dateBack;

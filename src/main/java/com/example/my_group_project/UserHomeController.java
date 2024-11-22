@@ -93,7 +93,7 @@ public class UserHomeController extends BaseController {
 
             description.setText(newBook.getDescription());
             title.setText(newBook.getTitle());
-            image.setImage(new Image(newBook.getImage()));
+            image.setImage(new Image(newBook.getImageUrl()));
 
             image.setOnMouseClicked(mouseEvent -> {
                 try {
@@ -120,7 +120,7 @@ public class UserHomeController extends BaseController {
 
             description.setText(newBook.getDescription());
             title.setText(newBook.getTitle());
-            image.setImage(new Image(newBook.getImage()));
+            image.setImage(new Image(newBook.getImageUrl()));
 
             image.setOnMouseClicked(mouseEvent -> {
                 try {
@@ -154,7 +154,7 @@ public class UserHomeController extends BaseController {
                 Label borrow = (Label) book.lookup("#numberOfBorrow");
                 Label read = (Label) book.lookup("#numberOfRead");
 
-                image.setImage(new Image(newbook.getImage()));
+                image.setImage(new Image(newbook.getImageUrl()));
                 author.setText(newbook.getAuthors());
                 title.setText(newbook.getTitle());
                 category.setText(newbook.getGenre());
@@ -183,7 +183,7 @@ public class UserHomeController extends BaseController {
         nameOfPopular.setText(popularBook.getTitle());
         descriptionHere.setText(popularBook.getDescription());
         authorBook.setText(popularBook.getAuthors());
-        imageBooks.setImage(new Image(popularBook.getImage()));
+        imageBooks.setImage(new Image(popularBook.getImageUrl()));
         imageBooks.setOnMouseClicked(mouseEvent -> {
             try {
                 bookProfile(imageBooks, popularBook);
@@ -268,7 +268,7 @@ public class UserHomeController extends BaseController {
             statement.setInt(6, 200);
             statement.setString(7, book.getGenre());
             statement.setString(8, book.getAuthors());
-            statement.setString(9, book.getImage());
+            statement.setString(9, book.getImageUrl());
             statement.setString(10, String.valueOf(LocalDate.now()));
             statement.setInt(11, book.getViewCount() + 1);
             statement.executeUpdate();

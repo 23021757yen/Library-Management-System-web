@@ -151,7 +151,7 @@
             </ImageView>
          </children>
       </HBox>
-      <GridPane layoutX="428.0" layoutY="125.0" prefHeight="120.0" prefWidth="572.0">
+      <GridPane layoutX="380.0" layoutY="125.0" prefHeight="136.0" prefWidth="572.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.5" minWidth="10.0" prefWidth="111.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.5" minWidth="10.0" prefWidth="174.0" />
@@ -160,10 +160,13 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.5" minWidth="10.0" prefWidth="166.5" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="29.5" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="50.0" minHeight="5.5" prefHeight="5.5" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="38.5" minHeight="10.0" prefHeight="38.5" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="38.0" minHeight="5.0" prefHeight="6.5" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="13.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="USER ID:">
@@ -171,27 +174,27 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label text="USER NAME:" GridPane.rowIndex="1">
+            <Label text="USER NAME:" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label text="USER FULL NAME:" GridPane.rowIndex="2">
+            <Label text="USER FULL NAME:" GridPane.rowIndex="4">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label text="PHONE NUMBER:" GridPane.rowIndex="3">
+            <Label text="PHONE NUMBER:" GridPane.rowIndex="6">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="userIdTextField" prefHeight="25.0" prefWidth="181.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;" GridPane.columnIndex="1">
+            <TextField fx:id="userIdTextField" prefHeight="25.0" prefWidth="181.0" style="-fx-background-color: f7efd8; -fx-background-radius: 20;" GridPane.columnIndex="1">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Label text="DATE OF BIRTH:" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Label text="DATE OF BIRTH:" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -201,36 +204,46 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label text="GENDER:" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <Label text="GENDER:" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <ComboBox fx:id="genderComboBox" prefHeight="17.0" prefWidth="114.0" style="-fx-background-color: ffffff;" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <TextField fx:id="userNameTextField" layoutX="122.0" layoutY="10.0" prefHeight="25.0" prefWidth="181.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <ComboBox fx:id="genderComboBox" prefHeight="25.0" prefWidth="127.0" style="-fx-background-color: ffffff;" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <TextField fx:id="userNameTextField" layoutX="122.0" layoutY="10.0" prefHeight="25.0" prefWidth="181.0" style="-fx-background-color: f7efd8; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="userFullNameTextField" prefHeight="25.0" prefWidth="181.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="userFullNameTextField" prefHeight="25.0" prefWidth="181.0" style="-fx-background-color: f7efd8; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="userPhoneNumber" prefHeight="25.0" prefWidth="181.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="userPhoneNumber" prefHeight="25.0" prefWidth="181.0" style="-fx-background-color: f7efd8; -fx-background-radius: 20;" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="userEmail" prefHeight="25.0" prefWidth="181.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;" GridPane.columnIndex="4">
+            <TextField fx:id="userEmail" prefHeight="25.0" prefWidth="181.0" style="-fx-background-color: f7efd8; -fx-background-radius: 20;" GridPane.columnIndex="4">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <DatePicker fx:id="userDatePicker" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <DatePicker fx:id="userDatePicker" style="-fx-background-color: ffffff;" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Label text="PASSWORD:" GridPane.columnIndex="3" GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="passwordTextField" prefHeight="25.0" prefWidth="181.0" style="-fx-background-color: f7efd8; -fx-background-radius: 20;" GridPane.columnIndex="4" GridPane.rowIndex="6">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
          </children>
       </GridPane>
-      <Button fx:id="editButton" layoutX="229.0" layoutY="71.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
+      <Button fx:id="editButton" layoutX="220.0" layoutY="47.0" mnemonicParsing="false" onAction="#onEdit" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0">
                <image>
@@ -239,7 +252,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="saveButton" layoutX="265.0" layoutY="73.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
+      <Button fx:id="saveButton" layoutX="262.0" layoutY="49.0" mnemonicParsing="false" onAction="#onSave" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0">
                <image>
@@ -248,7 +261,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="backButton" layoutX="920.0" layoutY="30.0" mnemonicParsing="false" onAction="#backButtonOnAction" style="-fx-background-color: transparent;" stylesheets="@../../../buttonHover.css" underline="true">
+      <Button fx:id="backButton" layoutX="920.0" layoutY="30.0" mnemonicParsing="false" onAction="#backButtonOnAction" style="-fx-background-radius: 20;" stylesheets="@../../../buttoHoverv3.css" underline="true">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -263,7 +276,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="deleteButton" layoutX="193.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
+      <Button fx:id="deleteButton" layoutX="173.0" layoutY="47.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0">
                <image>
@@ -272,6 +285,18 @@
             </ImageView>
          </graphic>
       </Button>
-      <ImageView fx:id="userImage" fitHeight="174.0" fitWidth="140.0" layoutX="177.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" />
+      <Pane layoutX="149.0" layoutY="85.0" prefHeight="200.0" prefWidth="167.0" style="-fx-background-color: #f7efd8;">
+         <children>
+            <ImageView fx:id="userImage" fitHeight="158.0" fitWidth="114.0" layoutX="24.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <effect>
+                  <DropShadow />
+               </effect></ImageView>
+            <Button fx:id="uploadButton" layoutX="15.0" layoutY="172.0" mnemonicParsing="false" onAction="#onUploadPicture" prefHeight="25.0" prefWidth="130.0" style="-fx-background-radius: 20;" stylesheets="@../../../buttoHoverv3.css" text="UPLOAD PICTURE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

@@ -44,6 +44,12 @@ public class UserProfileUserFormController extends UserMenuController {
     private Button saveButton;
 
     @FXML
+    private Button editButton;
+
+    @FXML
+    private Button uploadButton;
+
+    @FXML
     private ImageView imageProfile;
 
     private String userId ;

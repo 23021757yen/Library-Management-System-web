@@ -11,8 +11,10 @@ public class Book {
     private String description;
     private String genre;
     private int viewCount = 0;// Add genre field
+    private int number_of_borrows = 0;
     private LocalDateTime time;
     private static Book mainBook;
+
 
     public Book() {}
 
@@ -27,6 +29,17 @@ public class Book {
         this.time = (time != null) ? time : LocalDateTime.now();
     }
 
+    public Book(String id, String title, String authors, String imageUrl, String description, String genre, int viewCount, int number_of_borrows) {
+        this.id = id;
+        this.title = title;
+        this.authors = authors;
+        this.imageUrl = imageUrl;
+        this.description = description;
+        this.genre = genre;
+        this.viewCount = viewCount;
+        this.number_of_borrows = number_of_borrows;
+    }
+
     // Constructor with id and genre
     public Book(String id, String title, String authors, String imageUrl, String description, String genre) {
         this.id = id;           // Initialize id
@@ -36,6 +49,17 @@ public class Book {
         this.description = description;
         this.genre = genre;     // Initialize genre
     }
+
+    public Book(String id, String title, String authors, String imageUrl, String description, String genre, int viewCount) {
+        this.id = id;           // Initialize id
+        this.title = title;
+        this.authors = authors;
+        this.imageUrl = imageUrl;
+        this.description = description;
+        this.genre = genre;
+        this.viewCount = viewCount;// Initialize genre
+    }
+
     public Book(String id, String title,String author, String genre, int viewCount, String imageUrl, String description){
         this.authors = author;
         this.id = id;

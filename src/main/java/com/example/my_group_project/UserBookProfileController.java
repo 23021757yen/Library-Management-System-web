@@ -143,7 +143,7 @@ public class UserBookProfileController extends UserMenuController {
                 Book newBook = books.get(i);
                 author.setText(newBook.getAuthors());
                 //image.setImage(new Image(newBook.getImage()));
-                String imageUrl = newBook.getImage();
+                String imageUrl = newBook.getImageUrl();
                 if (imageUrl != null && !imageUrl.isEmpty()) {
                     image.setImage(new Image(imageUrl));
                 } else {
@@ -176,7 +176,7 @@ public class UserBookProfileController extends UserMenuController {
         try {
             nameOfAuthor.setText(currentBook.getAuthors());
             nameOfBook.setText(currentBook.getTitle());
-            bookImageView.setImage(new Image(currentBook.getImage()));
+            bookImageView.setImage(new Image(currentBook.getImageUrl()));
             pageViews.setText(String.valueOf(currentBook.getViewCount()));
             numberOfBorrow.setText(String.valueOf(currentBook.getViewCount()));
             content.setText(currentBook.getDescription());
@@ -283,9 +283,9 @@ public class UserBookProfileController extends UserMenuController {
 
             //highlightButton.setVisible(true);
             bookImageView.setImage(null); // Clear any previous image
-            if (book.getImage() != null && !book.getImage().isEmpty()) {
+            if (book.getImageUrl() != null && !book.getImageUrl().isEmpty()) {
                 try {
-                    Image image = new Image(book.getImage());
+                    Image image = new Image(book.getImageUrl());
                     bookImageView.setImage(image);
                 } catch (Exception e) {
                     System.err.println("Failed to load image: " + e.getMessage());
