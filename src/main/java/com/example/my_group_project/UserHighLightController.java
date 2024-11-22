@@ -100,7 +100,7 @@ public class UserHighLightController extends BaseController {
                 //Code chỗn này
                 System.out.println("He lo me ne con !!!");
                 if(BaseController.showAlter("Hoi lai", "Ban co muon huy luu sach khong")){
-                    User.getCurrentUser().removedBooks(book);
+                    User.getCurrentUser().removeBook(book);
                     UserHomeController.showIntro("Ban da huy luu sach thanh cong!", BaseController.getMainStage());
                 }else {
                     mouseEvent.consume();

@@ -16,7 +16,16 @@ public class Book {
 
     public Book() {}
 
-
+    public Book(String id, String title, String authors, String imageUrl, String description, String genre, int viewCount, LocalDateTime time) {
+        this.id = id;
+        this.title = title;
+        this.authors = authors;
+        this.imageUrl = imageUrl;
+        this.description = description;
+        this.genre = genre;
+        this.viewCount = viewCount;
+        this.time = (time != null) ? time : LocalDateTime.now();
+    }
 
     // Constructor with id and genre
     public Book(String id, String title, String authors, String imageUrl, String description, String genre) {

@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 public class HelloApplication extends Application {
+
     @Override
     public void start(Stage stage) throws IOException {
         BaseController.setMainStage(stage);
@@ -23,49 +24,39 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
 
-        stage.setOnCloseRequest(event -> {
-            showAlter(event); // Lưu dữ liệu trước khi thoát
-        });
-
+        stage.setOnCloseRequest(this::showAlert); // Save data before exiting
     }
 
-    void showAlter(WindowEvent event){
+    private void showAlert(WindowEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Thoát khỏi ứng dụng");
-        alert.setHeaderText("Bạn chắc chắn muốn rời bỏ chúng tôi chứ???");
+        alert.setTitle("Exit Application");
+        alert.setHeaderText("Are you sure you want to leave us?");
         alert.setContentText(null);
 
-        ButtonType sureButton = new ButtonType("Tạm biệt!");
-        ButtonType cancelButton = new ButtonType("Tôi ở lại", ButtonBar.ButtonData.CANCEL_CLOSE);
+        ButtonType sureButton = new ButtonType("Goodbye!");
+        ButtonType cancelButton = new ButtonType("I'll stay", ButtonBar.ButtonData.CANCEL_CLOSE);
 
         alert.getButtonTypes().setAll(sureButton, cancelButton);
         Optional<ButtonType> result = alert.showAndWait();
+
         if (result.isPresent()) {
             if (result.get() == sureButton) {
                 try {
                     saveRecentBooksToDatabase();
-                    /*Alert infoAlert = new Alert(Alert.AlertType.INFORMATION);
-                    infoAlert.setTitle("Save Status");
-                    infoAlert.setHeaderText(null);
-                    infoAlert.setContentText("Chúc bạn một ngày mới vui vẻ!!!");
-                    infoAlert.showAndWait();
-
-                     */
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
             } else if (result.get() == cancelButton) {
-                event.consume();// Hủy đóng cửa sổ
+                event.consume(); // Cancel the close request
             }
         }
     }
 
-    void saveRecentBooksToDatabase() throws SQLException {
-        if(User.getCurrentUser() != null) {
-            User.getCurrentUser().getRecentBookConTroller().changeBooksToDate();
+    private void saveRecentBooksToDatabase() throws SQLException {
+        if (User.getCurrentUser() != null) {
+            User.getCurrentUser().getRecentBook().changeBooksToDate();
         }
     }
-
 
     public static void main(String[] args) {
         launch();

@@ -56,7 +56,7 @@ public class UserBookProfileController extends UserMenuController {
         if (highlightStyle.equals("-fx-text-fill: white")) {
             //hien la ban co chac muon huy luu sach khong
             if(BaseController.showAlter("Hoi lai", "Ban co muon huy luu sach khong")){
-                User.getCurrentUser().removedBooks(Book.getMainBook());
+                User.getCurrentUser().removeBook(Book.getMainBook());
                 highlightButton.setStyle("-fx-text-fill: black");
                 //highlightButton.setVisible(true);
                 UserHomeController.showIntro("Ban da huy luu sach thanh cong!", BaseController.getMainStage());
@@ -77,7 +77,7 @@ public class UserBookProfileController extends UserMenuController {
     void highlightBook() throws SQLException {
         try {
             //Code chỗ này
-            User.getCurrentUser().savedBooks(currentBook, User.getCurrentUser());
+            User.getCurrentUser().saveBook(currentBook);
             //System.out.println(currentBook.getTitle());
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -140,7 +140,7 @@ public class UserBookProfileController extends UserMenuController {
         try {
             get();
             // ca cho nay nha
-            User.getCurrentUser().getRecentBookConTroller().addBook(Book.getMainBook());
+            User.getCurrentUser().getRecentBook().addBook(Book.getMainBook());
             currentBook.setTime(LocalDateTime.now());
             if (User.getCurrentUser().getSavedBooks().contains(Book.getMainBook())) {
                 System.out.println("Sao lai khong cooooo");

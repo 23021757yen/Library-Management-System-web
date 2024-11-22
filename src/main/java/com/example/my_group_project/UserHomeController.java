@@ -181,7 +181,7 @@ public class UserHomeController extends BaseController {
             suggestListBooks(BookController.getListofBooks());
             latestBooks(BookController.getListofBooks());
             //chu y cho nay
-            recentBooks(User.getCurrentUser().getRecentBookConTroller().getRecentbooks());
+            recentBooks(User.getCurrentUser().getRecentBook().getRecentbooks());
         } catch (IOException | SQLException e) {
             e.printStackTrace();
         }

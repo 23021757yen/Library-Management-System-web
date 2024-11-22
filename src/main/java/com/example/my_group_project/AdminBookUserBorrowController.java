@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 
-public class AdminBookUserBorrowController extends BaseController {
+public class AdminBookUserBorrowController extends AdminMenuController {
 
     @FXML
     private Label authorNameLabel;
@@ -83,38 +83,7 @@ public class AdminBookUserBorrowController extends BaseController {
     @FXML
     private Label userPhoneNumberLabel;
 
-    @FXML
-    void backButtonOnAction(ActionEvent event) {
-        super.backButtonOnAction(event);
-    }
-
-    @FXML
-    void homeScene1ButtonOnAction(ActionEvent event) throws IOException {
-        super.changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
-    }
-
-    @FXML
-    void bookBorrowButtonOnAction(ActionEvent event) throws IOException {
-        super.changeScene("AdminBorrowBook.fxml", "AdminBorrowBook");
-    }
-
-    @FXML
-    void userManagementButtonOnAction(ActionEvent event) throws IOException {
-        super.changeScene("AdminUserManagement.fxml", "AdminUserManagement");
-    }
-
-    @FXML
-    void reportButtonOnAction(ActionEvent event) throws IOException {
-        super.changeScene("AdminReport.fxml", "AdminReport");
-    }
-
-    @FXML
-    void logOutButtonOnAction(ActionEvent event) throws IOException {
-        super.changeScene("welcomeToWebsite.fxml", "welcomeToWebsite");
-    }
-
     // edit
     // save
     // note textfield
-
 }
