@@ -24,7 +24,7 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
 
-        stage.setOnCloseRequest(this::showAlert); // Save data before exiting
+        stage.setOnCloseRequest(this::showAlert);
     }
 
     private void showAlert(WindowEvent event) {
@@ -47,7 +47,7 @@ public class HelloApplication extends Application {
                     e.printStackTrace();
                 }
             } else if (result.get() == cancelButton) {
-                event.consume(); // Cancel the close request
+                event.consume();
             }
         }
     }

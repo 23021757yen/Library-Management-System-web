@@ -38,14 +38,11 @@ public abstract class BaseController {
             Parent root = loader.load();
             Scene newScene = new Scene(root);
 
-            // Push the new scene to the stack
             sceneStack.push(newScene);
 
             mainStage.setTitle(title);
             mainStage.setScene(newScene);
 
-            // Print the scene stack for debugging
-            // printSceneStack();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -70,20 +67,7 @@ public abstract class BaseController {
         } else {
             System.out.println("No previous scene to go back to.");
         }
-
-        // Print the scene stack for debugging
-        //printSceneStack();
     }
-
-    // Method to print the scene stack
-    /*
-    private void printSceneStack() {
-        System.out.println("Scene Stack:");
-        for (Scene scene : sceneStack) {
-            System.out.println(scene);
-        }
-    }
-    */
 
     public static boolean showAlter(String title, String message){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

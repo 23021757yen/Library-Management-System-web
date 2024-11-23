@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,18 +27,23 @@ public class AdminBookInformationController extends AdminMenuController {
     @FXML
     private Text content;
 
-    //intialise the book have clicked before
-    @FXML
-    public void initialize() {
-        // Example: Load book information with ID 1
-        loadBookInformation(1);
+    private Book currentBook;
+
+    public void setBookData(Book book) {
+        this.currentBook = book;
+        loadBookInformation(book.getId());
     }
 
-    public void loadBookInformation(int bookId) {
+    @FXML
+    public void initialize() {
+        // Initialization logic if needed
+    }
+
+    public void loadBookInformation(String bookId) {
         String query = "SELECT * FROM books WHERE book_ID = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setInt(1, bookId);
+            pstmt.setString(1, bookId);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 nameAuthorText.setText(rs.getString("author"));
@@ -54,48 +60,49 @@ public class AdminBookInformationController extends AdminMenuController {
     @FXML
     void editButtonOnAction(ActionEvent event) {
         // Allow editing of the text fields, if necessary
+        setFieldsEditable(false); // Make fields non-editable by default
     }
 
     @FXML
     void saveButtonOnAction(ActionEvent event) {
-        String query = "UPDATE books SET author = ?, amount = ?, kind = ?, goal = ?, description = ? WHERE book_ID = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, nameAuthorText.getText());
-            pstmt.setInt(2, Integer.parseInt(limitBookText.getText()));
-            pstmt.setString(3, categoryBookText.getText());
-            pstmt.setString(4, goalBookText.getText());
-            pstmt.setString(5, content.getText());
-            pstmt.setInt(6, 1); // Replace with the actual book ID
-            pstmt.executeUpdate();
-            System.out.println("Book information updated successfully.");
-        } catch (SQLException e) {
-            System.err.println("Error saving book information: " + e.getMessage());
-        } catch (NumberFormatException e) {
-            System.err.println("Invalid number format: " + e.getMessage());
+        if (currentBook != null) {
+            String query = "UPDATE books SET author = ?, amount = ?, kind = ?, description = ? WHERE book_ID = ?";
+            try (Connection conn = DatabaseConnection.getConnection();
+                 PreparedStatement pstmt = conn.prepareStatement(query)) {
+                pstmt.setString(1, nameAuthorText.getText());
+                pstmt.setInt(2, Integer.parseInt(limitBookText.getText()));
+                pstmt.setString(3, categoryBookText.getText());
+                pstmt.setString(4, content.getText());
+                pstmt.executeUpdate();
+                System.out.println("Book information updated successfully.");
+            } catch (SQLException e) {
+                System.err.println("Error saving book information: " + e.getMessage());
+            } catch (NumberFormatException e) {
+                System.err.println("Invalid number format: " + e.getMessage());
+            }
         }
     }
 
     @FXML
     void deleteButtonOnAction(ActionEvent event) {
-        String query = "DELETE FROM books WHERE book_ID = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setInt(1, 1); // Replace with the actual book ID
-            pstmt.executeUpdate();
+        if (currentBook != null) {
+            String query = "DELETE FROM books WHERE book_ID = ?";
+            try (Connection conn = DatabaseConnection.getConnection();
+                 PreparedStatement pstmt = conn.prepareStatement(query)) {
+                pstmt.setString(1, currentBook.getId());
+                pstmt.executeUpdate();
 
-            // Clear text fields after deletion
-            nameAuthorText.setText("");
-            limitBookText.setText("");
-            categoryBookText.setText("");
-            goalBookText.setText("");
-            content.setText("");
+                // Clear text fields after deletion
+                nameAuthorText.setText("");
+                limitBookText.setText("");
+                categoryBookText.setText("");
+                goalBookText.setText("");
+                content.setText("");
 
-            System.out.println("Book deleted successfully.");
-        } catch (SQLException e) {
-            System.err.println("Error deleting book: " + e.getMessage());
-        } catch (NumberFormatException e) {
-            System.err.println("Invalid number format: " + e.getMessage());
+                System.out.println("Book deleted successfully.");
+            } catch (SQLException e) {
+                System.err.println("Error deleting book: " + e.getMessage());
+            }
         }
     }
 
@@ -103,14 +110,4 @@ public class AdminBookInformationController extends AdminMenuController {
     void searchTextFieldOnAction(ActionEvent event) {
         // Implement search functionality, if needed
     }
-
-    @FXML
-    void homeScene1ButtonOnAction(ActionEvent event) {
-        changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
-    }
 }
-
-// load thong tin cua sach
-    // xoa sach khoi csdl
-    // chinh sua thong tin sach
-    // luu thong tin sach
