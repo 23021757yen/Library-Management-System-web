@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Optional;
 import java.util.Stack;
 
-public class BaseController {
+public abstract class BaseController {
     private static Stage mainStage;
     private static Stack<Scene> sceneStack = new Stack<>();
 
@@ -72,16 +72,18 @@ public class BaseController {
         }
 
         // Print the scene stack for debugging
-        printSceneStack();
+        //printSceneStack();
     }
 
     // Method to print the scene stack
+    /*
     private void printSceneStack() {
         System.out.println("Scene Stack:");
         for (Scene scene : sceneStack) {
             System.out.println(scene);
         }
     }
+    */
 
     public static boolean showAlter(String title, String message){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
