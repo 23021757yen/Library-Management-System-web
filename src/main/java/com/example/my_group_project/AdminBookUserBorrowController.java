@@ -154,7 +154,6 @@ public class AdminBookUserBorrowController extends AdminMenuController {
 
     @FXML
     void editButtonOnAction(ActionEvent event) {
-        // Toggle edit mode
         isEditable = !isEditable;
         setEditMode(isEditable);
     }

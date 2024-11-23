@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -15,13 +16,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.AdminBookInformationController">
    <children>
       <Pane layoutX="33.0" layoutY="83.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
          <children>
-            <Button fx:id="homeScene1Button" layoutX="2.0" layoutY="104.0" mnemonicParsing="false" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="homeScene1Button" layoutX="2.0" layoutY="104.0" mnemonicParsing="false" onAction="#homeScene1ButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -30,7 +30,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="reportButton" layoutX="2.0" layoutY="310.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="reportButton" layoutX="2.0" layoutY="310.0" mnemonicParsing="false" onAction="#reportButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -39,7 +39,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="logOutButton" layoutX="2.0" layoutY="431.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="logOutButton" layoutX="2.0" layoutY="431.0" mnemonicParsing="false" onAction="#logOutButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -48,7 +48,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="userManagementButton" layoutX="1.0" layoutY="241.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="userManagementButton" layoutX="1.0" layoutY="241.0" mnemonicParsing="false" onAction="#userManagementButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -57,7 +57,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="bookBorrowButton" layoutX="2.0" layoutY="173.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="bookBorrowButton" layoutX="2.0" layoutY="173.0" mnemonicParsing="false" onAction="#bookBorrowButtonOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -110,27 +110,28 @@
          <content>
             <VBox prefHeight="454.0" prefWidth="667.0" style="-fx-background-color: ffffff;">
                <children>
-                  <Text fx:id="content" strokeType="OUTSIDE" strokeWidth="0.0" text="fking content of this sh*t book" wrappingWidth="667.44287109375" />
+                  <TextArea fx:id="content" text="This is the content of the book..." />
                </children>
             </VBox>
          </content>
       </ScrollPane>
-      <Label fx:id="nameAuthorText" layoutX="395.0" layoutY="119.0" prefHeight="21.0" prefWidth="577.0">
+      <TextField fx:id="nameAuthorText" layoutX="395.0" layoutY="115.0" prefHeight="29.0" prefWidth="576.0">
          <font>
             <Font size="15.0" />
-         </font></Label>
-      <Label fx:id="limitBookText" layoutX="396.0" layoutY="139.0" prefHeight="21.0" prefWidth="576.0">
+         </font>
+      </TextField>
+      <TextField fx:id="limitBookText" layoutX="395.0" layoutY="139.0" prefHeight="21.0" prefWidth="576.0">
          <font>
             <Font size="15.0" />
-         </font></Label>
-      <Label fx:id="categoryBookText" layoutX="395.0" layoutY="160.0" prefHeight="21.0" prefWidth="576.0">
+         </font></TextField>
+      <TextField fx:id="categoryBookText" layoutX="395.0" layoutY="160.0" prefHeight="21.0" prefWidth="576.0">
          <font>
             <Font size="15.0" />
-         </font></Label>
-      <Label fx:id="goalBookText" layoutX="395.0" layoutY="182.0" prefHeight="21.0" prefWidth="576.0">
+         </font></TextField>
+      <TextField fx:id="goalBookText" layoutX="395.0" layoutY="182.0" prefHeight="21.0" prefWidth="576.0">
          <font>
             <Font size="15.0" />
-         </font></Label>
+         </font></TextField>
       <Button fx:id="editButton" layoutX="890.0" layoutY="79.0" mnemonicParsing="false" onAction="#editButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttoHoverv3.css">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0">
@@ -149,14 +150,14 @@
             </ImageView>
          </graphic>
       </Button>
-      <TableView layoutX="119.0" layoutY="305.0" prefHeight="53.0" prefWidth="855.0" style="-fx-background-color: #f7efd8;">
+      <TableView fx:id="borrowTable" layoutX="119.0" layoutY="305.0" prefHeight="53.0" prefWidth="855.0" style="-fx-background-color: #f7efd8;">
         <columns>
-          <TableColumn prefWidth="124.0" text="Số lượt truy cập" />
-          <TableColumn prefWidth="146.0" text="Số lượt đánh dấu trang" />
-            <TableColumn prefWidth="128.0" text="Số lượt mượn" />
-            <TableColumn prefWidth="149.5" text="Số lượt đã trả" />
-            <TableColumn prefWidth="140.0" text="Số lượt chờ" />
-            <TableColumn prefWidth="135.5" text="Số lượt đã mất" />
+          <TableColumn fx:id="accessCountColumn" prefWidth="124.0" text="Số lượt truy cập" />
+          <TableColumn fx:id="bookmarkCountColumn" prefWidth="146.0" text="Số lượt đánh dấu trang" />
+            <TableColumn fx:id="borrowCountColumn" prefWidth="128.0" text="Số lượt mượn" />
+            <TableColumn fx:id="returnCountColumn" prefWidth="149.5" text="Số lượt đã trả" />
+            <TableColumn fx:id="waitingCountColumn" prefWidth="140.0" text="Số lượt chờ" />
+            <TableColumn fx:id="lostCountColumn" prefWidth="135.5" text="Số lượt đã mất" />
         </columns>
       </TableView>
       <ScrollPane fx:id="scrollpane2" layoutX="121.0" layoutY="460.0" prefHeight="99.0" prefWidth="853.0" stylesheets="@../../../style.css">
