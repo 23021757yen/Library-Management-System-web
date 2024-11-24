@@ -13,7 +13,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +24,6 @@ public class AdminUserManagementController extends AdminMenuController {
 
     @FXML
     private TextField searchTextField;
-
-    private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @FXML
     public void initialize() {
@@ -211,6 +208,4 @@ public class AdminUserManagementController extends AdminMenuController {
             }
         }
     }
-
-
 }

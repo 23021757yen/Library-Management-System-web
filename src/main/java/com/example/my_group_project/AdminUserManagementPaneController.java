@@ -5,8 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
-public class AdminUserManagementPaneController extends AdminMenuController {
-
+public class AdminUserManagementPaneController {
     @FXML
     private Label dateOfBirth;
 
@@ -15,12 +14,6 @@ public class AdminUserManagementPaneController extends AdminMenuController {
 
     @FXML
     private Label gender;
-
-    @FXML
-    private HBox hbox;
-
-    @FXML
-    private Button moreButton;
 
     @FXML
     private Label phoneNumber;

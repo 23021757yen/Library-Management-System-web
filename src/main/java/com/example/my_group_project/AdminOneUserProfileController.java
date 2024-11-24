@@ -49,8 +49,6 @@ public class AdminOneUserProfileController extends AdminMenuController {
     @FXML
     private ImageView userImage;
     @FXML
-    private Button userManagementButton;
-    @FXML
     private TextField userNameTextField;
     @FXML
     private TextField userPhoneNumber;
@@ -90,7 +88,6 @@ public class AdminOneUserProfileController extends AdminMenuController {
 
     @FXML
     void getClear() {
-        //userIdTextField.setText("");
         userFullNameTextField.setText("");
         userNameTextField.setText("");
         userPhoneNumber.setText("");
@@ -111,7 +108,6 @@ public class AdminOneUserProfileController extends AdminMenuController {
         userDatePicker.setEditable(edit);
         genderComboBox.setDisable(!edit);
         passwordTextField.setEditable(edit);
-        //set trang thai cho uploadButton truoc va sau khi an editButton
         uploadButton.setVisible(edit);
         uploadButton.setDisable(!edit);
     }
