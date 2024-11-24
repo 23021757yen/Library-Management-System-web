@@ -4,24 +4,35 @@ import java.time.LocalDateTime;
 
 public class BorrowedBook extends Book {
     private String userId;
+    private String username;
     private String dateBorrow;
     private String dateBack;
     private String status;
 
     // Constructor
-    public BorrowedBook(String userId, String bookId, String title, String authors, String imageUrl, String description,
+    public BorrowedBook(String userId, String username, String bookId, String title, String authors, String imageUrl, String description,
                         String genre, int viewCount, int amount, LocalDateTime time, String dateBorrow, String dateBack, String status) {
         super(bookId, title, authors, imageUrl, description, genre, viewCount, amount, time);
         this.userId = userId;
         this.dateBorrow = dateBorrow;
         this.dateBack = dateBack;
         this.status = status;
+        this.username = username;
     }
 
     public BorrowedBook(String userId, String bookId, String title, String authors, String imageUrl, String description,
                         String genre, int viewCount, LocalDateTime time, String dateBorrow, String dateBack, String status) {
         super(bookId, title, authors, imageUrl, viewCount, genre, description, time);
         this.userId = userId;
+        this.dateBorrow = dateBorrow;
+        this.dateBack = dateBack;
+        this.status = status;
+    }
+
+    public BorrowedBook(String userId, String bookID, String username, String dateBorrow, String dateBack, String status) {
+        super(bookID);
+        this.userId = userId;
+        this.username = username;
         this.dateBorrow = dateBorrow;
         this.dateBack = dateBack;
         this.status = status;
@@ -58,5 +69,13 @@ public class BorrowedBook extends Book {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

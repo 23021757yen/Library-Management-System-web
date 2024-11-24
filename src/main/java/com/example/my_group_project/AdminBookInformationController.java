@@ -1,16 +1,23 @@
 package com.example.my_group_project;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,6 +41,15 @@ public class AdminBookInformationController extends AdminMenuController {
     private TextArea content;
 
     @FXML
+    private ImageView bookImage;
+
+    @FXML
+    private TextField searchTextField;
+
+    @FXML
+    private VBox vBox2;
+
+    @FXML
     private TableView<BorrowInfo> borrowTable;
 
     @FXML
@@ -47,12 +63,6 @@ public class AdminBookInformationController extends AdminMenuController {
 
     @FXML
     private TableColumn<BorrowInfo, Integer> returnCountColumn;
-
-    @FXML
-    private TableColumn<BorrowInfo, Integer> waitingCountColumn;
-
-    @FXML
-    private TableColumn<BorrowInfo, Integer> lostCountColumn;
 
     private Book currentBook;
 
@@ -71,8 +81,6 @@ public class AdminBookInformationController extends AdminMenuController {
         bookmarkCountColumn.setCellValueFactory(cellData -> cellData.getValue().bookmarkCountProperty().asObject());
         borrowCountColumn.setCellValueFactory(cellData -> cellData.getValue().borrowCountProperty().asObject());
         returnCountColumn.setCellValueFactory(cellData -> cellData.getValue().returnCountProperty().asObject());
-        waitingCountColumn.setCellValueFactory(cellData -> cellData.getValue().waitingCountProperty().asObject());
-        lostCountColumn.setCellValueFactory(cellData -> cellData.getValue().lostCountProperty().asObject());
     }
 
     private void setFieldsEditable(boolean editable) {
@@ -94,6 +102,14 @@ public class AdminBookInformationController extends AdminMenuController {
                 limitBookText.setText(String.valueOf(rs.getInt("amount")));
                 categoryBookText.setText(rs.getString("kind"));
                 content.setText(rs.getString("description"));
+                // Load and set the book image
+                String imageUrl = rs.getString("image");
+                if (imageUrl != null && !imageUrl.isEmpty()) {
+                    Image bookImageView = new Image(imageUrl);
+                    bookImage.setImage(bookImageView);
+                } else {
+                    bookImage.setImage(null); // Clear the image if URL is not available
+                }
             }
         } catch (SQLException e) {
             System.err.println("Error loading book information: " + e.getMessage());
@@ -101,65 +117,54 @@ public class AdminBookInformationController extends AdminMenuController {
     }
 
     public void loadBorrowInformation(String bookId) {
-        // Query to fetch borrow counts grouped by status
-        String borrowQuery = "SELECT COUNT(*) AS count, status FROM borrow WHERE book_ID = ? GROUP BY status";
-        // Query to fetch view count from the books table
+        // Query to fetch the count of borrow status of the book
+        String borrowCountQuery = "SELECT COUNT(*) AS borrowCount FROM borrow WHERE book_ID = ? AND status = 'borrowed'";
+        String returnCountQuery = "SELECT COUNT(*) AS returnCount FROM borrow WHERE book_ID = ? AND status = 'returned'";
+        // Query to fetch the view count from the books table
         String viewCountQuery = "SELECT viewCount FROM books WHERE book_ID = ?";
 
         ObservableList<BorrowInfo> borrowInfoList = FXCollections.observableArrayList();
 
         try (Connection conn = DatabaseConnection.getConnection()) {
-            // Fetch borrow information
-            try (PreparedStatement pstmt = conn.prepareStatement(borrowQuery)) {
+            // Fetch borrow count
+            int borrowCount = 0;
+            try (PreparedStatement pstmt = conn.prepareStatement(borrowCountQuery)) {
                 pstmt.setString(1, bookId);
                 ResultSet rs = pstmt.executeQuery();
-
-                int accessCount = 0;  // This will be updated with the actual viewCount
-                int bookmarkCount = 0;  // Replace with actual logic if applicable
-                int borrowCount = 0;
-                int returnCount = 0;
-                int waitingCount = 0;
-                int lostCount = 0;
-
-                while (rs.next()) {
-                    int count = rs.getInt("count");
-                    String status = rs.getString("status");
-
-                    switch (status) {
-                        case "borrowed":
-                            borrowCount = count;
-                            break;
-                        case "returned":
-                            returnCount = count;
-                            break;
-                        case "waiting":
-                            waitingCount = count;
-                            break;
-                        case "lost":
-                            lostCount = count;
-                            break;
-                        // Add cases for other statuses if necessary
-                    }
+                if (rs.next()) {
+                    borrowCount = rs.getInt("borrowCount");
                 }
-
-                // Fetch view count
-                try (PreparedStatement viewStmt = conn.prepareStatement(viewCountQuery)) {
-                    viewStmt.setString(1, bookId);
-                    ResultSet viewRs = viewStmt.executeQuery();
-                    if (viewRs.next()) {
-                        accessCount = viewRs.getInt("viewCount");
-                    }
-                }
-
-                // Add the borrow info to the list
-                borrowInfoList.add(new BorrowInfo(accessCount, bookmarkCount, borrowCount, returnCount, waitingCount, lostCount));
-                borrowTable.setItems(borrowInfoList);
             }
+
+            // Fetch view count
+            int viewCount = 0;
+            try (PreparedStatement viewStmt = conn.prepareStatement(viewCountQuery)) {
+                viewStmt.setString(1, bookId);
+                ResultSet viewRs = viewStmt.executeQuery();
+                if (viewRs.next()) {
+                    viewCount = viewRs.getInt("viewCount");
+                }
+            }
+
+            int returnCount = 0; // Logic to fetch returnCount
+            try (PreparedStatement pstmt = conn.prepareStatement(returnCountQuery)) {
+                pstmt.setString(1, bookId);
+                ResultSet rs = pstmt.executeQuery();
+                if (rs.next()) {
+                    returnCount = rs.getInt("returnCount");
+                }
+            }
+            int bookmarkCount = 0; // Replace with actual logic if applicable
+
+            // Add the borrow info to the list
+            borrowInfoList.add(new BorrowInfo(viewCount, bookmarkCount, borrowCount, returnCount));
+            borrowTable.setItems(borrowInfoList);
 
         } catch (SQLException e) {
             System.err.println("Error loading borrow information: " + e.getMessage());
         }
     }
+
 
     @FXML
     void editButtonOnAction(ActionEvent event) {
@@ -216,6 +221,118 @@ public class AdminBookInformationController extends AdminMenuController {
 
     @FXML
     void searchTextFieldOnAction(ActionEvent event) {
-        // Implement search functionality, if needed
+        String searchQuery = searchTextField.getText();
+        searchBooksByTitle(searchQuery);
+    }
+
+    private void searchBooksByTitle(String title) {
+        String query = "SELECT b.User_ID, b.book_ID, bk.title, u.name, b.borrowDate, b.backDate, b.status " +
+                "FROM borrow b " +
+                "JOIN user u ON b.User_ID = u.user_ID " +
+                "JOIN books bk ON b.book_ID = bk.book_ID " +
+                "WHERE bk.title LIKE ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, "%" + title + "%");
+            ResultSet rs = pstmt.executeQuery();
+            vBox2.getChildren().clear(); // Clear existing items
+            boolean booksFound = false;
+            while (rs.next()) {
+                booksFound = true;
+                BorrowedBook book = new BorrowedBook(rs.getString("b.User_ID"), rs.getString("b.book_ID"),
+                                             rs.getString("u.name"), rs.getString("b.borrowDate"),
+                                             rs.getString("b.backDate"), rs.getString("b.status"));
+                HBox row = createRow(book);
+                vBox2.getChildren().add(row);
+            }
+            if (!booksFound) {
+                showAlert("No books found with the title: " + title);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Search Results");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private HBox createRow(BorrowedBook book) {
+        HBox hBox = new HBox();
+        hBox.setStyle("-fx-background-color: #ffffff;");
+        hBox.setPrefHeight(45);
+        hBox.setPrefWidth(885);
+
+        ScrollPane userIDPane = createScrollablePane(130, book.getUserId());
+        ScrollPane bookIDPane = createScrollablePane(130, book.getId());
+        ScrollPane usernamePane = createScrollablePane(170, book.getUsername());
+        ScrollPane borrowDatePane = createScrollablePane(140, book.getDateBorrow());
+        ScrollPane backDatePane = createScrollablePane(140, book.getDateBack());
+        Pane statusPane = createCenterAlignedPane(140, book.getStatus());
+
+        hBox.getChildren().addAll(userIDPane, bookIDPane, usernamePane, borrowDatePane, backDatePane, statusPane);
+
+        // Add click event handler to hBox
+        hBox.setOnMouseClicked(event -> {
+            try {
+                loadAdminBookInformationScene(book);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        return hBox;
+    }
+
+    private Pane createCenterAlignedPane(double width, String value) {
+        Pane pane = new Pane();
+        pane.setPrefWidth(width);
+        pane.setPrefHeight(45);
+
+        Label label = new Label(value);
+        label.setAlignment(Pos.CENTER);
+        label.setLayoutX((width - 80) / 2); // Center align based on Pane width
+        label.setLayoutY(14);
+        label.setFont(new Font("System Bold", 15));
+
+        pane.getChildren().add(label);
+        return pane;
+    }
+
+    private void loadAdminBookInformationScene(Book book) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/my_group_project/AdminBookInformation.fxml"));
+        Parent root = loader.load();
+
+        // Pass the book data to the new controller
+        AdminBookInformationController controller = loader.getController();
+        controller.setBookData(book);
+
+        Stage stage = (Stage) vBox2.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    private ScrollPane createScrollablePane(double width, String value) {
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setPrefWidth(width);
+        scrollPane.setPrefHeight(45);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); // Hide horizontal scroll bar
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); // Hide vertical scroll bar
+
+        Pane pane = new Pane();
+        Label label = new Label(value);
+        label.setLayoutX(10);
+        label.setLayoutY(14);
+        label.setFont(new Font("System Bold", 15));
+        pane.getChildren().add(label);
+
+        scrollPane.setContent(pane);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.getStyleClass().add("hidden-scrollbar");
+
+        return scrollPane;
     }
 }

@@ -8,16 +8,12 @@ public class BorrowInfo {
     private final IntegerProperty bookmarkCount;
     private final IntegerProperty borrowCount;
     private final IntegerProperty returnCount;
-    private final IntegerProperty waitingCount;
-    private final IntegerProperty lostCount;
 
-    public BorrowInfo(int accessCount, int bookmarkCount, int borrowCount, int returnCount, int waitingCount, int lostCount) {
+    public BorrowInfo(int accessCount, int bookmarkCount, int borrowCount, int returnCount) {
         this.accessCount = new SimpleIntegerProperty(accessCount);
         this.bookmarkCount = new SimpleIntegerProperty(bookmarkCount);
         this.borrowCount = new SimpleIntegerProperty(borrowCount);
         this.returnCount = new SimpleIntegerProperty(returnCount);
-        this.waitingCount = new SimpleIntegerProperty(waitingCount);
-        this.lostCount = new SimpleIntegerProperty(lostCount);
     }
 
     // Getters
@@ -51,21 +47,5 @@ public class BorrowInfo {
 
     public IntegerProperty returnCountProperty() {
         return returnCount;
-    }
-
-    public int getWaitingCount() {
-        return waitingCount.get();
-    }
-
-    public IntegerProperty waitingCountProperty() {
-        return waitingCount;
-    }
-
-    public int getLostCount() {
-        return lostCount.get();
-    }
-
-    public IntegerProperty lostCountProperty() {
-        return lostCount;
     }
 }

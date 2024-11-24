@@ -85,7 +85,7 @@ public class UserBookProfileController extends UserMenuController {
     }
 
     void moreBook(List<Book> books) throws IOException {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < books.size(); i++) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("bookRelative.fxml"));
             Pane book = fxmlLoader.load();
 
@@ -101,12 +101,10 @@ public class UserBookProfileController extends UserMenuController {
             image.setImage(new Image(newBook.getImageUrl()));
             title.setText(newBook.getTitle());
             category.setText(newBook.getGenre());
-            //borrow.setText(newbook.);
             read.setText(String.valueOf(newBook.getViewCount()));
 
             image.setOnMouseClicked(mouseEvent -> {
                 try {
-                    //Code chỗn này
                     UserHomeController homeController = new UserHomeController();
                     homeController.bookProfile(image, newBook);
                 } catch (IOException e) {
@@ -327,7 +325,7 @@ public class UserBookProfileController extends UserMenuController {
     }
 
     private void incrementNumberOfBorrows(String bookId) {
-        String query = "UPDATE books SET number_of_borrows =  number_of_borrows + 1 WHERE book_ID = ?";
+        String query = "UPDATE books SET bookCount =  bookCount + 1 WHERE book_ID = ?";
         try (Connection conn = DatabaseConnection.getConnection(); PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, bookId);
             pstmt.executeUpdate();
