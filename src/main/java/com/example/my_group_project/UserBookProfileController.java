@@ -136,28 +136,28 @@ public class UserBookProfileController extends UserMenuController {
     }
 
     @FXML
-    void initialize() {
+    public void initialize() {
         try {
             get();
-            // ca cho nay nha
-            User.getCurrentUser().getRecentBook().addBook(Book.getMainBook());
-            currentBook.setTime(LocalDateTime.now());
-            if (User.getCurrentUser().getSavedBooks().contains(Book.getMainBook())) {
-                System.out.println("Sao lai khong cooooo");
-                //highlightButton.setVisible(false);
-                highlightButton.setStyle("-fx-text-fill: white");
+            // Ensure currentBook is initialized
+            currentBook = Book.getMainBook();
+            if (currentBook != null) {
+                User.getCurrentUser().getRecentBook().addBook(currentBook);
+                currentBook.setTime(LocalDateTime.now());
 
+                if (User.getCurrentUser().getSavedBooks().contains(currentBook)) {
+                    System.out.println("Sao lai khong cooooo");
+                    highlightButton.setStyle("-fx-text-fill: white");
+                } else {
+                    System.out.println("Ua cai gi vayyyy");
+                }
+
+                if (!currentBook.getGenre().isEmpty()) {
+                    List<Book> recommendedBooks = BookAPI.getRecommendedBooks(currentBook.getGenre(), MAX_ALLOWED_MATURITY_RATING);
+                    moreBook(recommendedBooks);
+                }
             } else {
-                System.out.println("Ua cai gi vayyyy");
-                // highlightButton.setVisible(true);
-            }
-            // BookAPI bookAPI = new BookAPI();
-            if(!currentBook.getGenre().isEmpty()){
-                List<Book> recommendedBooks = BookAPI.getRecommendedBooks(currentBook.getGenre(), MAX_ALLOWED_MATURITY_RATING);
-                moreBook(recommendedBooks);
-            }else {
-                //List<Book> recommendedBooks = BookAPI.getRecommendedBooks("", MAX_ALLOWED_MATURITY_RATING);
-                //moreBook(recommendedBooks);
+                System.err.println("currentBook is null");
             }
 
         } catch (IOException | SQLException | GeneralSecurityException e) {
@@ -173,7 +173,6 @@ public class UserBookProfileController extends UserMenuController {
             return;
         }
         if(UserHistoryController.getClickedBooksFromDatabase().contains(currentBook)){
-            //System.out.println("Chạy qua cái này rôi fnha má");
             UserHomeController.showIntro("Ban da muon sach nay", BaseController.getMainStage());
             return;
         }
@@ -181,7 +180,7 @@ public class UserBookProfileController extends UserMenuController {
         // Establish the database connection
         try (Connection connection = DatabaseConnection.getConnection()) {
             // Prepare the SQL query
-            String sql = "INSERT INTO borrow (book_ID, endDate, dueDate, User_ID, status, overTime) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO borrow (book_ID, borrowDate, backDate, User_ID, status, overTime) VALUES (?, ?, ?, ?, ?, ?)";
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                 preparedStatement.setString(1, currentBook.getId());
                 preparedStatement.setTimestamp(2, new Timestamp(System.currentTimeMillis()));
@@ -202,7 +201,7 @@ public class UserBookProfileController extends UserMenuController {
             e.printStackTrace();
         }
 
-        UserHomeController.showIntro("Bạn đã muownj thành công", BaseController.getMainStage());
+        UserHomeController.showIntro("Book borrowed successfully", BaseController.getMainStage());
     }
 
     @FXML

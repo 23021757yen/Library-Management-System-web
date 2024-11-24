@@ -84,7 +84,8 @@ CREATE TABLE `books` (
                          `author` varchar(255) NOT NULL,
                          `image` varchar(255) NOT NULL,
                          `addDate` datetime NOT NULL DEFAULT current_timestamp,
-                         `viewCount` int(11) NOT NULL DEFAULT 0
+                         `viewCount` int(11) NOT NULL DEFAULT 0,
+                         `borrowCount` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

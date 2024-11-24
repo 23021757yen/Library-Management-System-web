@@ -19,29 +19,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 
-public class UserHighLightController extends BaseController {
-    @FXML
-    private MenuItem homeMenuItem;
-
-    @FXML
-    private MenuItem moreInforMenuItem;
-
-    @FXML
-    private MenuItem profileMenuItem;
-
-    @FXML
-    private MenuItem searchMenuItem;
-
-    @FXML
-    private MenuItem logOutMenuItem;
-
-    @FXML
-    private Button backButton;
-
+public class UserHighLightController extends UserMenuController {
     @FXML
     private VBox vBoxBooks;
-
-
 
     @FXML
     void initialize(){
@@ -124,48 +104,4 @@ public class UserHighLightController extends BaseController {
             vBoxBooks.getChildren().add(newBook);
         }
     }
-
-
-
-    @FXML
-    void backButtonOnAction (ActionEvent event) {
-        super.backButtonOnAction(event);
-    }
-
-    @FXML
-    void homeOnAction(ActionEvent event) throws IOException {
-        MenuItem clickedItem = (MenuItem) event.getSource();
-        String selectedItem = clickedItem.getText();
-        super.changeScene("home.fxml", "Home");
-    }
-    @FXML
-    void searchButtonOnAction(ActionEvent event) throws IOException {
-        MenuItem clickedItem = (MenuItem) event.getSource();
-        String selectedItem = clickedItem.getText();
-        super.changeScene("searchBook.fxml", "Searching");
-    }
-    @FXML
-    void logOutOnAction(ActionEvent event) throws IOException {
-        if(BaseController.showAlter("Dang xuat", "Ban muon dang xuat chu???")){
-            MenuItem clickedItem = (MenuItem) event.getSource();
-            String selectedItem = clickedItem.getText();
-            super.changeScene("welcomeToWebsite.fxml", "Hello View");
-        }else {
-            event.consume();
-        }
-
-    }
-    @FXML
-    void moreInforOnAction(ActionEvent event) throws IOException {
-        MenuItem clickedItem = (MenuItem) event.getSource();
-        String selectedItem = clickedItem.getText();
-        super.changeScene("moreInformation.fxml", "MoreInfor");
-    }
-    @FXML
-    void profileButtonOnAction(ActionEvent event) throws IOException {
-        MenuItem clickedItem = (MenuItem) event.getSource();
-        String selectedItem = clickedItem.getText();
-        super.changeScene("profileUser.fxml", "ProfileUser");
-    }
-
 }

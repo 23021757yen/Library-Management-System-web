@@ -46,7 +46,7 @@
                         <MenuItem fx:id="searchMenuItem" mnemonicParsing="false" onAction="#searchOnAction" text="Search" />
                         <MenuItem fx:id="profileMenuItem" mnemonicParsing="false" onAction="#profileOnAction" text="CategoryMenu" />
                         <MenuItem fx:id="homeMenuItem" mnemonicParsing="false" onAction="#homeOnAction" text="Home" />
-                        <MenuItem fx:id="moreInforMenuItem" mnemonicParsing="false" onAction="#moreInforOnAction" text="MoreInformaition" />
+                        <MenuItem fx:id="moreInforMenuItem" mnemonicParsing="false" onAction="#moreInforOnAction" text="MoreInformation" />
                         <MenuItem fx:id="logOutMenuItem" mnemonicParsing="false" onAction="#logOutOnAction" text="LogOut" />
                      </items>
                      <graphic>
@@ -76,7 +76,7 @@
       </Pane>
       <ScrollPane layoutX="56.0" layoutY="210.0" prefHeight="375.0" prefWidth="909.0" stylesheets="@../../../style.css">
          <content>
-            <VBox prefHeight="5000.0" prefWidth="897.0" style="-fx-background-color: FFFFFF;" />
+            <VBox fx:id="vBoxBooks" prefHeight="5000.0" prefWidth="897.0" style="-fx-background-color: FFFFFF;" />
          </content>
       </ScrollPane>
    </children>

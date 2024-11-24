@@ -2,17 +2,16 @@ package com.example.my_group_project;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.Pagination;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,54 +20,59 @@ public class UserHistoryController extends UserMenuController {
     @FXML
     private VBox historyVBox;
 
-    private static String currentUserId = HelloController.userIdMain; // Replace with actual user ID handling
+    @FXML
+    private Pagination paginationHistory;
+
+    private PaginaTion paginaTion = new PaginaTion();
+
+    private String currentUserId = HelloController.userIdMain;
 
     @FXML
     public void initialize() {
-        displayHistory();
+        List<Book> clickedBooks = getClickedBooksFromDatabase();
+        pagination(clickedBooks);
     }
 
-
-
-    private void displayHistory() {
-        List<Book> clickedBooks = getClickedBooksFromDatabase();
-        System.out.println(clickedBooks.size());
+    private Node displayHistory(List<Book> clickedBooks) {
+        VBox pageVBox = new VBox();
+        pageVBox.setSpacing(10);
         if (clickedBooks.isEmpty()) {
-            historyVBox.getChildren().add(new Label("No books clicked yet."));
-            return;
+            pageVBox.getChildren().add(new Label("No books clicked yet."));
+            return pageVBox;
         }
 
         for (Book book : clickedBooks) {
             if (book == null) {
-                continue; // Skip if the book object is null
+                continue;
             }
 
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("bookProfileHighLight.fxml"));
                 Pane bookCard = loader.load();
-                System.out.println("Book card loaded: " + (bookCard != null));
+
                 UserBookProfileHighlightController controller = loader.getController();
                 controller.setBookDetails(book);
 
                 bookCard.setOnMouseClicked(event -> {
                     System.out.println("Book clicked: " + book.getTitle());
-                    showBookProfile(book); // Open book profile scene
+                    showBookProfile(book, bookCard); // Open book profile scene
                 });
 
-                historyVBox.getChildren().add(bookCard);
+                pageVBox.getChildren().add(bookCard);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+        return pageVBox;
     }
 
-    protected static List<Book> getClickedBooksFromDatabase() {
+    public static List<Book> getClickedBooksFromDatabase() {
         List<Book> books = new ArrayList<>();
-        String sql = "SELECT book_ID FROM borrow WHERE User_ID = ?";
+        String sql = "SELECT book_ID FROM borrow WHERE User_ID = ? ORDER BY backDate DESC";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, currentUserId);
+            pstmt.setString(1, User.getCurrentUser().getId());
             try (ResultSet rs = pstmt.executeQuery()) {
                 while (rs.next()) {
                     String bookId = rs.getString("book_ID");
@@ -83,24 +87,24 @@ public class UserHistoryController extends UserMenuController {
         return books;
     }
 
-    private void showBookProfile(Book book) {
+    public static void showBookProfile(Book book, Pane pane) {
         try {
             Book.setMainBook(book);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("bookProfile.fxml"));
+            FXMLLoader loader = new FXMLLoader(UserHistoryController.class.getResource("bookProfile.fxml"));
             Pane root = loader.load();
 
-            UserBookProfileController controller = loader.getController();
-
-            controller.setBookDetails(book);
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) pane.getScene().getWindow();
+            stage.setScene(scene);
             stage.setTitle("Book Profile");
             stage.show();
-
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    void pagination(List<Book> borrowedBooks) {
+        paginaTion.pagination(borrowedBooks, paginationHistory);
     }
 }

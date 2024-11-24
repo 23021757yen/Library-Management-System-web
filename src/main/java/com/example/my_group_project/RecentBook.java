@@ -11,8 +11,6 @@ public class RecentBook {
 
 
     void addBook(Book book) throws SQLException {
-        //chus ys
-        //System.out.println(recentbooks.peek().getTitle());
         if(recentbooks.contains(book)){
             recentbooks.remove(book);
             deleteData(book);
@@ -26,7 +24,6 @@ public class RecentBook {
     public List<Book> getRecentbooks() {
 
         List<Book> books = new ArrayList<>(recentbooks);
-        //Collections.sort(books,);
         books.sort(Comparator.comparing(Book::getTime, Comparator.nullsLast(LocalDateTime::compareTo)).reversed());
 
         return books;
