@@ -2,101 +2,215 @@ package com.example.my_group_project;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdminUserManagementController extends AdminMenuController {
 
     @FXML
     private VBox vBox;
 
+    @FXML
+    private TextField searchTextField;
+
     private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @FXML
     public void initialize() {
-        loadBorrowedBooks();
+        displayUser();
+
+        searchTextField.setOnKeyReleased(event -> filterSearch());
     }
 
-    public void loadBorrowedBooks() {
-        String query = "SELECT b.User_ID, b.book_ID, bo.title, bo.author, bo.image, bo.description, bo.kind, " +
-                "bo.viewCount, bo.addDate, b.borrowDate, b.backDate, b.status " +
-                "FROM borrow b JOIN books bo ON b.book_ID = bo.book_ID";
+    @FXML
+    protected static List<User> getUserFromDatabase() {
+        List<User> getUserFromDatabase = new ArrayList<>();
+        String sql = "SELECT User_ID, name, email, phone, dateOfBirth, gender FROM user;";
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-            ResultSet rs = pstmt.executeQuery();
-            vBox.getChildren().clear(); // Clear existing items
-            while (rs.next()) {
-                BorrowedBook borrowedBook = new BorrowedBook(
-                        rs.getString("User_ID"),
-                        rs.getString("book_ID"),
-                        rs.getString("title"),
-                        rs.getString("author"),
-                        rs.getString("image"),
-                        rs.getString("description"),
-                        rs.getString("kind"),
-                        rs.getInt("viewCount"),
-                        LocalDateTime.parse(rs.getString("addDate"), dateTimeFormatter),
-                        rs.getString("borrowDate"),
-                        rs.getString("backDate"),
-                        rs.getString("status")
-                );
-                HBox row = createRow(borrowedBook);
-                vBox.getChildren().add(row);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    String userId = rs.getString("User_ID");
+                    String userName = rs.getString("name");
+                    String email = rs.getString("email");
+                    String phoneNumber = rs.getString("phone");
+                    String dateOfBirth = rs.getString("dateOfBirth");
+                    String gender = rs.getString("gender");
+                    User user = new User(userId, userName, email, phoneNumber, dateOfBirth, gender);
+                    getUserFromDatabase.add(user);
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return getUserFromDatabase;
     }
 
-    private HBox createRow(BorrowedBook borrowedBook) {
-        HBox hBox = new HBox();
-        hBox.setStyle("-fx-background-color: #ffffff;");
-        hBox.setPrefHeight(45);
-        hBox.setPrefWidth(885);
+    private void displayUser() {
+        List<User> userList = getUserFromDatabase();
+        int index = 0;
+        if (userList.isEmpty()) {
+            vBox.getChildren().add(new Label("No user."));
+            return;
+        } else {
+            for (User user : userList) {
+                if (user == null) {
+                    continue;
+                }
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminUserManagementPane.fxml"));
+                    HBox userHBox = loader.load();
+                    AdminUserManagementPaneController userManagementPane = loader.getController();
+                    userManagementPane.setUserDetail(user);
+                    final int currentIndex = index;
+                    if (currentIndex % 2 == 0) {
+                        userHBox.setStyle("-fx-background-color: #f7efd8;");
+                    } else {
+                        userHBox.setStyle("-fx-background-color: #ffffff;");
+                    }
 
-        Label userIdLabel = new Label(borrowedBook.getUserId());
-        userIdLabel.setPrefWidth(130);
-        userIdLabel.setStyle("-fx-alignment: center;");
+                    StackPane stackPane = new StackPane();
+                    stackPane.getChildren().add(userHBox);
 
-        Label bookIdLabel = new Label(borrowedBook.getId());
-        bookIdLabel.setPrefWidth(130);
-        bookIdLabel.setStyle("-fx-alignment: center;");
+                    stackPane.setOnMouseEntered(event -> {
+                        userHBox.setStyle("-fx-background-color: #ffc100; -fx-cursor: hand;");
+                    });
 
-        Label bookNameLabel = new Label(borrowedBook.getTitle());
-        bookNameLabel.setPrefWidth(200);
-        bookNameLabel.setStyle("-fx-alignment: center;");
+                    stackPane.setOnMouseExited(event -> {
+                        if (currentIndex % 2 == 0) {
+                            userHBox.setStyle("-fx-background-color: #f7efd8;");
+                        } else {
+                            userHBox.setStyle("-fx-background-color: #ffffff;");
+                        }
+                    });
+                    userHBox.setOnMouseClicked(event -> {
+                        showUser(userManagementPane.getUserId());
+                    });
+                    vBox.getChildren().add(stackPane);
+                    index++;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
-        Label dateBorrowLabel = new Label(borrowedBook.getDateBorrow());
-        dateBorrowLabel.setPrefWidth(140);
-        dateBorrowLabel.setStyle("-fx-alignment: center;");
+    private void showUser(String userId) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminOneUserProfile.fxml"));
+            Pane userProfilePane = loader.load();
 
-        Label dateBackLabel = new Label(borrowedBook.getDateBack());
-        dateBackLabel.setPrefWidth(140);
-        dateBackLabel.setStyle("-fx-alignment: center;");
+            AdminOneUserProfileController userProfileController = loader.getController();
 
-        Label statusLabel = new Label(borrowedBook.getStatus());
-        statusLabel.setPrefWidth(140);
-        statusLabel.setStyle("-fx-alignment: center;");
+            userProfileController.loadUserProfile(userId);
+            userProfileController.displayUserBorrow(userId);
 
-        hBox.getChildren().addAll(userIdLabel, bookIdLabel, bookNameLabel, dateBorrowLabel, dateBackLabel, statusLabel);
-        return hBox;
+            Stage stage = (Stage) vBox.getScene().getWindow();
+            stage.setScene(new Scene(userProfilePane));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void addButtonOnAction(ActionEvent event) {
+        String newUserId = null;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminOneUserProfile.fxml"));
+        try {
+            Pane userProfilePane = loader.load();
+            AdminOneUserProfileController controller = loader.getController();
+            controller.setEditable(true);
+
+            Stage stage = (Stage) vBox.getScene().getWindow();
+            stage.setScene(new Scene(userProfilePane));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void searchTextFieldOnAction(ActionEvent event) {
-        // Implement search functionality, if needed
+        //code here
     }
 
-    @FXML
-    void addBookButtonOnAction(ActionEvent event) {
-        // Implement add book functionality, if needed
+    private void filterSearch() {
+        String search = searchTextField.getText();
+
+        List<User> filterUser = new ArrayList<>();
+        for (User user : getUserFromDatabase()) {
+            if (user.getId() != null && user.getId().contains(search) ||
+                    user.getUsername() != null && user.getUsername().contains(search) ||
+                    user.getEmail() != null && user.getEmail().contains(search) ||
+                    user.getPhone() != null && user.getPhone().contains(search) ||
+                    user.getDateOfBirth() != null && user.getDateOfBirth().contains(search) ||
+                    user.getGender() != null && user.getGender().contains(search)) {
+                filterUser.add(user);
+            }
+        }
+        displayFilterSearch(filterUser);
     }
+
+    private void displayFilterSearch(List<User> filterUser) {
+        vBox.getChildren().clear();
+
+        if (filterUser.isEmpty()) {
+            vBox.getChildren().add(new Label("No user found"));
+            return;
+        }
+
+        int index = 0;
+        for (User user : filterUser) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminUserManagementPane.fxml"));
+                HBox userHBox = loader.load();
+
+                AdminUserManagementPaneController userManagementPane = loader.getController();
+                userManagementPane.setUserDetail(user);  // Cập nhật chi tiết người dùng
+                final int currentIndex = index;
+                if (currentIndex % 2 == 0) {
+                    userHBox.setStyle("-fx-background-color: #f7efd8;");  // Màu nền cho dòng chẵn
+                } else {
+                    userHBox.setStyle("-fx-background-color: #ffffff;");  // Màu nền cho dòng lẻ
+                }
+
+                StackPane stackPane = new StackPane();
+                stackPane.getChildren().add(userHBox);
+
+                stackPane.setOnMouseEntered(event -> {
+                    userHBox.setStyle("-fx-background-color: #ffc100; -fx-cursor: hand;");
+                });
+
+                stackPane.setOnMouseExited(event -> {
+                    if (currentIndex % 2 == 0) {
+                        userHBox.setStyle("-fx-background-color: #f7efd8;");
+                    } else {
+                        userHBox.setStyle("-fx-background-color: #ffffff;");
+                    }
+                });
+                userHBox.setOnMouseClicked(event -> {
+                    showUser(userManagementPane.getUserId());
+                });
+                vBox.getChildren().add(stackPane);
+                index++;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
 }
