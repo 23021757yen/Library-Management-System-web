@@ -4,66 +4,67 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
-public class BookQuizGameController {
+import java.util.ArrayList;
+import java.util.List;
 
+public class BookQuizGameController extends UserMenuController{
     @FXML
     private Label questionLabel;
-
     @FXML
-    private Button optionButton1;
-
+    private TextField answerTextField;
     @FXML
-    private Button optionButton2;
-
+    private TextArea questionTextArea;
     @FXML
-    private Button optionButton3;
-
+    private Button nextButton;
     @FXML
-    private Button optionButton4;
+    private Label scoreLabel;
 
+    private List<BookQuestion> questions = new ArrayList<>();
     private int currentQuestionIndex = 0;
-
-    private String[][] questions = {
-            {"Who wrote 'To Kill a Mockingbird'?", "Harper Lee", "J.K. Rowling", "Ernest Hemingway", "F. Scott Fitzgerald"},
-            {"What is the name of the wizarding school in 'Harry Potter'?", "Hogwarts", "Durmstrang", "Beauxbatons", "Ilvermorny"}
-    };
-
-    private int[] correctAnswers = {0, 0}; // Index of the correct answer for each question
+    private int score = 0;
 
     @FXML
     public void initialize() {
-        loadNextQuestion();
-    }
+        // Example questions
+        questions.add(new BookQuestion("Who wrote 'Moby Dick'?", "Herman Melville"));
+        questions.add(new BookQuestion("In which novel is the character 'Holden Caulfield'?", "The Catcher in the Rye"));
 
-    private void loadNextQuestion() {
-        if (currentQuestionIndex < questions.length) {
-            questionLabel.setText(questions[currentQuestionIndex][0]);
-            optionButton1.setText(questions[currentQuestionIndex][1]);
-            optionButton2.setText(questions[currentQuestionIndex][2]);
-            optionButton3.setText(questions[currentQuestionIndex][3]);
-            optionButton4.setText(questions[currentQuestionIndex][4]);
-        } else {
-            questionLabel.setText("Quiz Completed!");
-            optionButton1.setDisable(true);
-            optionButton2.setDisable(true);
-            optionButton3.setDisable(true);
-            optionButton4.setDisable(true);
-        }
+        loadQuestion();
     }
 
     @FXML
-    private void handleOptionButton(ActionEvent event) {
-        Button clickedButton = (Button) event.getSource();
-        int clickedIndex = Integer.parseInt(clickedButton.getId().substring(clickedButton.getId().length() - 1)) - 1;
-
-        if (clickedIndex == correctAnswers[currentQuestionIndex]) {
-            System.out.println("Correct answer!");
-        } else {
-            System.out.println("Wrong answer!");
-        }
-
+    private void handleNextButtonAction(ActionEvent event) {
+        checkAnswer();
         currentQuestionIndex++;
-        loadNextQuestion();
+        if (currentQuestionIndex < questions.size()) {
+            loadQuestion();
+        } else {
+            endQuiz();
+        }
+    }
+
+    private void loadQuestion() {
+        BookQuestion currentQuestion = questions.get(currentQuestionIndex);
+        questionLabel.setText(String.valueOf(currentQuestionIndex));
+        questionTextArea.setText(currentQuestion.getQuestion());
+        answerTextField.clear();
+    }
+
+    private void checkAnswer() {
+        BookQuestion currentQuestion = questions.get(currentQuestionIndex);
+        String playerAnswer = answerTextField.getText().trim();
+        if (playerAnswer.equalsIgnoreCase(currentQuestion.getCorrectAnswer())) {
+            score++;
+        }
+        scoreLabel.setText(String.valueOf(score));
+    }
+
+    private void endQuiz() {
+        questionTextArea.setText("Quiz Over! Your final score is " + score + ".");
+        answerTextField.setVisible(false);
+        nextButton.setVisible(false);
     }
 }
