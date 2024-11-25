@@ -92,7 +92,7 @@ public class UserHighLightController extends UserMenuController {
                 try {
                     //Code chỗn này
                     UserHomeController homeController = new UserHomeController();
-
+                    SoundManager.playSound("src/main/resources/soundEffects/SEFE_BellTransition.wav");
                     homeController.bookProfile(image, book);
                 } catch (IOException e) {
                     e.printStackTrace();

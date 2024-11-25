@@ -82,6 +82,7 @@ public class AdminOneUserProfileController extends AdminMenuController {
     @FXML
     void onEdit() {
         isEdited = true;
+        SoundManager.playSound("src/main/resources/soundEffects/SEFE_KidsCheering.wav");
         setEditable(isEdited);
         saveButton.setDisable(!isEdited);
     }
@@ -349,6 +350,7 @@ public class AdminOneUserProfileController extends AdminMenuController {
                 } catch (IOException e) {
                     e.printStackTrace();
                     showAlert("Error", "An error occurred while reading the image.");
+                    SoundManager.playSound("src/main/resources/soundEffects/SEFE_Denied.wav");
                     return;
                 }
             } else {
@@ -373,6 +375,7 @@ public class AdminOneUserProfileController extends AdminMenuController {
             preparedStatement.setString(10, userId);
 
             preparedStatement.executeUpdate();
+            SoundManager.playSound("src/main/resources/soundEffects/SEFE_Yeehaaa.wav");
             System.out.println("Profile updated successfully!");
 
         } catch (SQLException e) {
@@ -385,9 +388,11 @@ public class AdminOneUserProfileController extends AdminMenuController {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Confirm Delete");
         alert.setHeaderText("Are you sure you want to delete this user?");
+        SoundManager.playSound("src/main/resources/soundEffects/SEFE_SadMusic.wav");
         alert.showAndWait().ifPresent(response -> {
             if (response == ButtonType.OK) {
                 deleteUserFromDatabase();
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_Painful_Scream.wav");
             }
         });
     }
@@ -404,6 +409,7 @@ public class AdminOneUserProfileController extends AdminMenuController {
             if (rowsAffected > 0) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Success");
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_Painful_Scream.wav");
                 alert.setHeaderText("User has been successfully deleted.");
                 alert.showAndWait();
 
@@ -437,10 +443,13 @@ public class AdminOneUserProfileController extends AdminMenuController {
         }
         if (phoneNumber.length() < 10 || !phoneNumber.matches("\\d+")) {
             showAlert("Lỗi", "PhoneNumber không hợp lệ!");
+            SoundManager.playSound("src/main/resources/soundEffects/SEFE_Denied.wav");
         } else if (!email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
             showAlert("Lỗi", "Email không hợp lệ!");
+            SoundManager.playSound("src/main/resources/soundEffects/SEFE_Denied.wav");
         } else if (fullname.isEmpty() || username.isEmpty() || phoneNumber.isEmpty() || email.isEmpty() || gender == null || dateOfBirth == null) {
             showAlert("Loi", "Vui lòng điền đầy đủ thông tin");
+            SoundManager.playSound("src/main/resources/soundEffects/SEFE_Denied.wav");
         } else {
             if (!userID.isEmpty() && userID != null) {
                 updateUserProfile(userID);

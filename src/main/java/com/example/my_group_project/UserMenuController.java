@@ -33,4 +33,9 @@ public abstract class UserMenuController extends BaseController{
     void searchOnAction(ActionEvent event) {
         super.changeScene("searchBook.fxml", "Searching");
     }
+
+    @FXML
+    void gameOnAction(ActionEvent event) {
+        super.changeScene("bookQuizGame.fxml", "Game Time!");
+    }
 }

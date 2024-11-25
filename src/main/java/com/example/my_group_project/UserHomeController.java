@@ -28,7 +28,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
-public class UserHomeController extends BaseController {
+public class UserHomeController extends UserMenuController {
     @FXML
     private Label nameOfPopular;
 
@@ -95,6 +95,7 @@ public class UserHomeController extends BaseController {
             image.setOnMouseClicked(mouseEvent -> {
                 try {
                     bookProfile(image, newBook);
+                    SoundManager.playSound("src/main/resources/soundEffects/SEFE_BellTransition.wav");
                 } catch (IOException | SQLException e) {
                     e.printStackTrace();
                 }
@@ -134,6 +135,7 @@ public class UserHomeController extends BaseController {
                 image.setOnMouseClicked(mouseEvent -> {
                     try {
                         bookProfile(image, newbook);
+                        SoundManager.playSound("src/main/resources/soundEffects/SEFE_BellTransition.wav");
                     } catch (IOException e) {
                         e.printStackTrace();
                     } catch (SQLException e) {
@@ -157,6 +159,7 @@ public class UserHomeController extends BaseController {
         imageBooks.setOnMouseClicked(mouseEvent -> {
             try {
                 bookProfile(imageBooks, popularBook);
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_BellTransition.wav");
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (SQLException e) {
@@ -226,14 +229,13 @@ public class UserHomeController extends BaseController {
 
     //them sach sau khi check
     void addToData(Book book) throws SQLException {
-        String query = "INSERT INTO `books`(`title`, `amount`, `description`, `location`, `yearPublic`, `price`, `kind`, `author`, `image`, `addDate`, `viewCount`) " +
+        String query = "INSERT INTO `books`(`title`, `amount`, `description`, `yearPublic`, `price`, `kind`, `author`, `image`, `addDate`, `viewCount`) " +
                 "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, book.getTitle());
             statement.setInt(2, 10);
             statement.setString(3, book.getDescription());
-            statement.setString(4, "somewhere in library");
             statement.setInt(5, 2015);
             statement.setInt(6, 200);
             statement.setString(7, book.getGenre());
@@ -255,6 +257,7 @@ public class UserHomeController extends BaseController {
     public static void showIntro(String message, Stage stage){
         Popup popup = new Popup();
         popup.setAutoHide(true);
+        SoundManager.playSound("src/main/resources/soundEffects/SEFE_AirHorn.wav");
 
         Label popupContent = new Label(message);
         popupContent.setStyle("-fx-background-color: black; -fx-text-fill: white; -fx-padding: 10px; -fx-border-radius: 5px; -fx-background-radius: 5px;");

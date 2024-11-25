@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.UserBookProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.UserBookProfileController">
    <children>
       <Pane layoutX="664.0" prefHeight="600.0" prefWidth="360.0" style="-fx-background-color: #f7efd8;">
          <children>
@@ -213,6 +213,15 @@
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
                         <Image url="@../../../picture/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="gameButton" layoutX="1.0" layoutY="367.0" mnemonicParsing="false" onAction="#gameOnAction" prefHeight="26.0" prefWidth="32.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" x="1.0" y="367.0">
+                     <image>
+                        <Image url="@../../../picture/gamepad.png" />
                      </image>
                   </ImageView>
                </graphic>

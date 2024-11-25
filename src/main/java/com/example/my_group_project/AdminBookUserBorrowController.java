@@ -1,5 +1,6 @@
 package com.example.my_group_project;
 
+import com.almasb.fxgl.audio.Sound;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -156,6 +157,7 @@ public class AdminBookUserBorrowController extends AdminMenuController {
     void editButtonOnAction(ActionEvent event) {
         isEditable = !isEditable;
         setEditMode(isEditable);
+        SoundManager.playSound("src/main/resources/soundEffects/SEFE_Bell.wav");
     }
 
     private void setEditMode(boolean editable) {
@@ -179,6 +181,7 @@ public class AdminBookUserBorrowController extends AdminMenuController {
                 statusLabel.setText("Information saved successfully!");
                 isEditable = false;
                 setEditMode(false);
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_Bell.wav");
             } catch (SQLException e) {
                 e.printStackTrace();
                 statusLabel.setText("Failed to save information. Try again.");

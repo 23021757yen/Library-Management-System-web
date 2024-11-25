@@ -67,6 +67,7 @@ public abstract class BaseController {
         } else {
             System.out.println("No previous scene to go back to.");
         }
+        SoundManager.playSound("src/main/resources/soundEffects/SEFE_BellTransition.wav");
     }
 
     public static boolean showAlter(String title, String message){
@@ -82,8 +83,10 @@ public abstract class BaseController {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent()) {
             if (result.get() == sureButton) {
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_Painful_Scream.wav");
                 return true;
             } else if (result.get() == cancelButton) {
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_Awwww.wav");
                 return false;
             }
         }

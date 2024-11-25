@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.UserHighLightController">
+<AnchorPane prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.UserHighLightController">
    <children>
       <Pane prefHeight="161.0" prefWidth="1024.0" style="-fx-background-color: #f7efd8;">
          <children>
@@ -48,6 +48,7 @@
                         <MenuItem fx:id="homeMenuItem" mnemonicParsing="false" onAction="#homeOnAction" text="Home" />
                         <MenuItem fx:id="moreInforMenuItem" mnemonicParsing="false" onAction="#moreInforOnAction" text="MoreInformation" />
                         <MenuItem fx:id="logOutMenuItem" mnemonicParsing="false" onAction="#logOutOnAction" text="LogOut" />
+                        <MenuItem fx:id="gameMenuItem" mnemonicParsing="false" onAction="#gameOnAction" text="Game" />
                      </items>
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0">

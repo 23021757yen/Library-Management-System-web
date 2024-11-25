@@ -1,5 +1,6 @@
 package com.example.my_group_project;
 
+import com.almasb.fxgl.audio.Sound;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -54,11 +55,15 @@ public class AdminHomeScene extends AdminMenuController {
         TextField amountField = createTextField("Quantity", 71);
 
         Button saveButton = new Button("Save");
-        saveButton.setOnAction(e -> saveBookDetails(bookIdField, titleField, authorField, genreField, amountField));
+        saveButton.setOnAction(e -> {
+            saveBookDetails(bookIdField, titleField, authorField, genreField, amountField);
+            SoundManager.playSound("src/resources/success.wav"); // Play sound on save
+        });
 
         hBox.getChildren().addAll(bookIdField, titleField, authorField, genreField, amountField, saveButton);
 
         vBox.getChildren().add(hBox);
+        SoundManager.playSound("src/main/resources/soundEffects/SEFE_Bell.wav");
     }
 
     private TextField createTextField(String placeholder, double width) {
@@ -79,6 +84,7 @@ public class AdminHomeScene extends AdminMenuController {
         // Validate input
         if (bookId.isEmpty() || title.isEmpty() || author.isEmpty() || genre.isEmpty() || amount.isEmpty()) {
             showAlert("Error", "All fields must be filled out.");
+            SoundManager.playSound("src/main/resources/soundEffects/SEFE_Denied.wav");
             return;
         }
 
@@ -96,12 +102,15 @@ public class AdminHomeScene extends AdminMenuController {
                 pstmt.setInt(5, amountInt);
                 pstmt.executeUpdate();
                 showAlert("Success", "Book details saved successfully!");
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_Censor.wav");
             } catch (SQLException e) {
                 showAlert("Error", "Failed to save book details.");
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_Denied.wav");
                 e.printStackTrace();
             }
         } catch (NumberFormatException e) {
             showAlert("Error", "Amount must be a number.");
+            SoundManager.playSound("src/main/resources/soundEffects/SEFE_Denied.wav");
         }
     }
 
@@ -340,6 +349,7 @@ public class AdminHomeScene extends AdminMenuController {
                 hBox.setOnMouseClicked(event -> {
                     try {
                         loadAdminBookInformationScene(book);
+                        SoundManager.playSound("src/main/resources/soundEffects/SEFE_AngelsSinging.wav");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

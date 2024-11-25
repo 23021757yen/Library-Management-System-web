@@ -12,8 +12,6 @@ public class BookController {
     public static List<Book> getListofBooks(){
         return listofBooks;
     }
-
-
     /*
     public static List<Book> fetchBooks() {
         List<Book> books = new ArrayList<>();
@@ -41,7 +39,6 @@ public class BookController {
         }
         return books;
     }
-
      */
 
     public static void updateViewCount(String bookID) throws SQLException {
@@ -117,8 +114,5 @@ public class BookController {
         }
         return latestBooks;
     }
-
     */
-
-
 }

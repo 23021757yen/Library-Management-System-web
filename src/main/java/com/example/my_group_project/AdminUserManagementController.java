@@ -13,7 +13,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -131,6 +130,7 @@ public class AdminUserManagementController extends AdminMenuController {
             Pane userProfilePane = loader.load();
             AdminOneUserProfileController controller = loader.getController();
             controller.setEditable(true);
+            SoundManager.playSound("src/main/resources/soundEffects/SEFE_BellTransition.wav");
 
             Stage stage = (Stage) vBox.getScene().getWindow();
             stage.setScene(new Scene(userProfilePane));
@@ -199,6 +199,7 @@ public class AdminUserManagementController extends AdminMenuController {
                     }
                 });
                 userHBox.setOnMouseClicked(event -> {
+                    SoundManager.playSound("src/main/resources/soundEffects/SEFE_CartoonSound2.wav");
                     showUser(userManagementPane.getUserId());
                 });
                 vBox.getChildren().add(stackPane);

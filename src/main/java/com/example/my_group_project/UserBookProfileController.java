@@ -1,5 +1,6 @@
 package com.example.my_group_project;
 
+import com.almasb.fxgl.audio.Sound;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -60,6 +61,7 @@ public class UserBookProfileController extends UserMenuController {
                 highlightButton.setStyle("-fx-text-fill: black");
                 //highlightButton.setVisible(true);
                 UserHomeController.showIntro("Ban da huy luu sach thanh cong!", BaseController.getMainStage());
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_Alert.wav");
             }else {
                 event.consume();
             }
@@ -70,6 +72,7 @@ public class UserBookProfileController extends UserMenuController {
             highlightButton.setStyle("-fx-text-fill: white");
             //highlightButton.setVisible(false);
             UserHomeController.showIntro("Ban da luu sach thanh cong!", BaseController.getMainStage());
+            SoundManager.playSound("src/main/resources/soundEffects/SEFE_SuperMario.wav");
         }
     }
 
@@ -107,6 +110,7 @@ public class UserBookProfileController extends UserMenuController {
                 try {
                     UserHomeController homeController = new UserHomeController();
                     homeController.bookProfile(image, newBook);
+                    SoundManager.playSound("src/main/resources/soundEffects/SEFE_Reloading.wav");
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (SQLException e) {
@@ -191,8 +195,10 @@ public class UserBookProfileController extends UserMenuController {
                 int rowsAffected = preparedStatement.executeUpdate();
                 if (rowsAffected > 0) {
                     System.out.println("Book successfully borrowed: " + currentBook.getTitle());
+                    SoundManager.playSound("src/main/resources/soundEffects/SEFE_Yeehaaa.wav");
                 } else {
                     System.out.println("Failed to borrow book: " + currentBook.getTitle());
+                    SoundManager.playSound("src/main/resources/soundEffects/SEFE_Slap.wav");
                 }
             }
         } catch (SQLException e) {
@@ -304,6 +310,7 @@ public class UserBookProfileController extends UserMenuController {
                 bookCard.setOnMouseClicked(event -> {
                     System.out.println("Book clicked: " + book.getTitle());
                     setBookDetails(book); // Set the selected book details
+                    SoundManager.playSound("src/main/resources/soundEffects/SEFE_AngelsSinging.wav");
                 });
 
                 bookTableVbox.getChildren().add(bookCard); // Add bookCard to bookTableVbox

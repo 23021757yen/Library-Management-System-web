@@ -55,7 +55,7 @@
       </Button>
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="406.0" layoutY="8.0">
          <image>
-            <Image url="@../../../picture/borrow.png" />
+            <Image url="@../../../picture/bookBorrow.png" />
          </image>
       </ImageView>
    </children>

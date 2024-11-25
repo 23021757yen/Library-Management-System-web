@@ -1,5 +1,6 @@
 package com.example.my_group_project;
 
+import com.almasb.fxgl.audio.Sound;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -184,11 +185,14 @@ public class AdminBookInformationController extends AdminMenuController {
                 pstmt.setString(5, currentBook.getId());
                 pstmt.executeUpdate();
                 System.out.println("Book information updated successfully.");
-                setFieldsEditable(false);  // Disable editing after save
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_Yeehaaa.wav");
+                setFieldsEditable(false);// Disable editing after save
             } catch (SQLException e) {
                 System.err.println("Error saving book information: " + e.getMessage());
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_Wrong_Answer.wav");
             } catch (NumberFormatException e) {
                 System.err.println("Invalid number format: " + e.getMessage());
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_Wrong_Answer.wav");
             }
         }
     }
@@ -213,8 +217,10 @@ public class AdminBookInformationController extends AdminMenuController {
                 borrowTable.getItems().clear();
 
                 System.out.println("Book deleted successfully.");
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_KidsCheering.wav");
             } catch (SQLException e) {
                 System.err.println("Error deleting book: " + e.getMessage());
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_Wrong_Answer.wav");
             }
         }
     }
@@ -259,6 +265,7 @@ public class AdminBookInformationController extends AdminMenuController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+        SoundManager.playSound("src/main/resources/soundEffects/SEFE_Alert.wav");
     }
 
     private HBox createRow(BorrowedBook book) {
@@ -280,6 +287,7 @@ public class AdminBookInformationController extends AdminMenuController {
         hBox.setOnMouseClicked(event -> {
             try {
                 loadAdminBookInformationScene(book);
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_BellTransition.wav");
             } catch (IOException e) {
                 e.printStackTrace();
             }

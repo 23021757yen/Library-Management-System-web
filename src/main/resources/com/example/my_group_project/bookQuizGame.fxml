@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.BookQuizGameController">
+    <children>
+        <Label fx:id="questionLabel" layoutX="50.0" layoutY="50.0" text="Question"/>
+        <Button fx:id="optionButton1" layoutX="50.0" layoutY="100.0" text="Option 1" onAction="#handleOptionButton"/>
+        <Button fx:id="optionButton2" layoutX="150.0" layoutY="100.0" text="Option 2" onAction="#handleOptionButton"/>
+        <Button fx:id="optionButton3" layoutX="250.0" layoutY="100.0" text="Option 3" onAction="#handleOptionButton"/>
+        <Button fx:id="optionButton4" layoutX="350.0" layoutY="100.0" text="Option 4" onAction="#handleOptionButton"/>
+    </children>
+</AnchorPane>
+

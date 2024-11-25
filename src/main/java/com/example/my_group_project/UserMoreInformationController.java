@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class UserMoreInformationController extends BaseController {
+public class UserMoreInformationController extends UserMenuController {
     @FXML
     private Button backButton;
 

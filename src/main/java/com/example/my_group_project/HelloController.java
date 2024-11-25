@@ -1,9 +1,11 @@
 package com.example.my_group_project;
 
+import com.almasb.fxgl.audio.Sound;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.print.PageLayout;
 import javafx.scene.control.*;
 import javafx.scene.shape.Rectangle;
 
@@ -36,16 +38,19 @@ public class HelloController extends BaseController {
     @FXML
     void adminButtonOnAction(ActionEvent event) {
         super.changeScene("logInAdmin.fxml", "Admin Login");
+        SoundManager.playSound("src/main/resources/soundEffects/SEFE_Cuckoo.wav");
     }
 
     @FXML
     void loginButtonOnAction(ActionEvent event) {
         super.changeScene("logInUser.fxml", "Login");
+        SoundManager.playSound("src/main/resources/soundEffects/SEFE_Cuckoo.wav");
     }
 
     @FXML
     void signupButtonOnAction(ActionEvent event) {
         super.changeScene("signUpUser.fxml", "Sign up");
+        SoundManager.playSound("src/main/resources/soundEffects/SEFE_Cuckoo.wav");
     }
 
     @FXML
@@ -53,10 +58,12 @@ public class HelloController extends BaseController {
         loginButton.setVisible(true);
         signupButton.setVisible(true);
         rectangle.setVisible(true);
+        SoundManager.playSound("src/main/resources/soundEffects/SEFE_Cuckoo.wav");
     }
 
     @FXML
     void backButtonOnAction(ActionEvent event) {
+        SoundManager.playSound("src/main/resources/soundEffects/SEFE_BellTransition.wav");
         super.changeScene("welcomeToWebsite.fxml", "Nhóm 3 con gián");
     }
 
@@ -77,6 +84,7 @@ public class HelloController extends BaseController {
             String password = enterPasswordField.getText();
             saveLoginDetails(username, password);
         }
+        SoundManager.playSound("src/main/resources/soundEffects/SEFE_CrowdClapping.wav");
     }
 
     @FXML
@@ -90,6 +98,7 @@ public class HelloController extends BaseController {
             validateLogin(username, password);
         } else {
             loginMessageLabel.setText("Please enter your username and password");
+            SoundManager.playSound("src/main/resources/soundEffects/SEFE_Alert.wav");
         }
     }
 
@@ -107,8 +116,10 @@ public class HelloController extends BaseController {
                 try (ResultSet queryResult = statement.executeQuery()) {
                     if (queryResult.next() && queryResult.getInt(1) == 0) {
                         loginMessageLabel.setText("Invalid username or password");
+                        SoundManager.playSound("src/main/resources/soundEffects/SEFE_Alert.wav");
                     } else {
                         loginMessageLabel.setText("Login successful");
+                        SoundManager.playSound("src/main/resources/soundEffects/SEFE_Whoosh01.wav");
                         userId = getUserId(connectDB, username, password);
                         System.out.println("User ID after login: " + userId);
                         userIdMain = userId;
