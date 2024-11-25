@@ -41,18 +41,28 @@ public class BookUtils {
             return;
         }
 
-        String sql = "INSERT INTO books (book_ID, title, author, image, description, kind, viewCount, addDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO books (book_ID, title, author, description, kind, viewCount, addDate"
+                + (book.getImageUrl() != null ? ", image" : "")
+                + ") VALUES (?, ?, ?, ?, ?, ?, ?"
+                + (book.getImageUrl() != null ? ", ?" : "")
+                + ")";
+
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
             pstmt.setString(1, book.getId());
             pstmt.setString(2, book.getTitle());
             pstmt.setString(3, book.getAuthors());
-            pstmt.setString(4, book.getImageUrl());
-            pstmt.setString(5, book.getDescription());
-            pstmt.setString(6, book.getGenre());
-            pstmt.setInt(7, book.getViewCount());
+            pstmt.setString(4, book.getDescription());
+            pstmt.setString(5, book.getGenre());
+            pstmt.setInt(6, book.getViewCount());
             LocalDateTime dateTime = book.getTime();
-            pstmt.setTimestamp(8, dateTime != null ? Timestamp.valueOf(dateTime) : Timestamp.valueOf(LocalDateTime.now()));
+            pstmt.setTimestamp(7, dateTime != null ? Timestamp.valueOf(dateTime) : Timestamp.valueOf(LocalDateTime.now()));
+
+            if (book.getImageUrl() != null) {
+                pstmt.setString(8, book.getImageUrl());
+            }
+
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

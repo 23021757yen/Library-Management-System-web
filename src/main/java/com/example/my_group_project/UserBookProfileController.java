@@ -101,7 +101,11 @@ public class UserBookProfileController extends UserMenuController {
 
             Book newBook = books.get(i);
             author.setText(newBook.getAuthors());
-            image.setImage(new Image(newBook.getImageUrl()));
+            if (newBook.getImageUrl() != null) {
+                image.setImage(new Image(newBook.getImageUrl()));
+            } else {
+                System.out.println("Image URL is null, skipping image setting.");
+            }
             title.setText(newBook.getTitle());
             category.setText(newBook.getGenre());
             read.setText(String.valueOf(newBook.getViewCount()));
@@ -264,7 +268,9 @@ public class UserBookProfileController extends UserMenuController {
     }
 
     private void fetchAndDisplayBookMetrics(String bookId) {
-        String fetchMetricsSql = "SELECT viewCount, borrowCount FROM books WHERE book_ID = ?";
+        String fetchMetricsSql = "SELECT bk.viewCount, COUNT(b.book_ID) AS borrowCount "
+                + "FROM books bk " + "LEFT JOIN borrow b ON bk.book_ID = b.book_ID AND b.status = 'borrowed' "
+                + "WHERE bk.book_ID = ? " + "GROUP BY bk.book_ID";
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement fetchStmt = connection.prepareStatement(fetchMetricsSql)) {
 

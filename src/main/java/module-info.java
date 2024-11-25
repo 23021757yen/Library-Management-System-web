@@ -15,6 +15,7 @@ module com.example.my_group_project {
 
     requires java.sql;
     requires mysql.connector.j;
+    requires org.apache.commons.text;
 
     requires google.api.client;
     requires google.http.client;

@@ -28,6 +28,9 @@ public class HelloApplication extends Application {
     }
 
     private void showAlert(WindowEvent event) {
+        // Play alert sound
+        SoundManager.playSound("src/main/resources/soundEffects/SEFE_Alert.wav");
+
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Exit Application");
         alert.setHeaderText("Are you sure you want to leave us?");
@@ -41,12 +44,16 @@ public class HelloApplication extends Application {
 
         if (result.isPresent()) {
             if (result.get() == sureButton) {
+                // Play button click sound
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_Denied.wav");
                 try {
                     saveRecentBooksToDatabase();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
             } else if (result.get() == cancelButton) {
+                // Play button click sound
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_CrowdClapping.wav");
                 event.consume();
             }
         }

@@ -1,5 +1,6 @@
 package com.example.my_group_project;
 
+import com.almasb.fxgl.audio.Sound;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,6 +60,7 @@ public class UserRegisterController {
         Parent root = FXMLLoader.load(getClass().getResource("logInUser.fxml"));
         stage.setTitle("Login");
         stage.setScene(new Scene(root));
+        SoundManager.playSound("src/main/resources/soundEffects/SEFE_Pop.wav");
     }
 
     @FXML
@@ -73,6 +75,7 @@ public class UserRegisterController {
             registerUser();
         } else {
             registrationMessageLabel.setText("Invalid input! Please check your details.");
+            SoundManager.playSound("src/main/resources/soundEffects/SEFE_Alert.wav");
         }
     }
 
@@ -118,7 +121,7 @@ public class UserRegisterController {
                     checkPhone.setVisible(true);
 
                 } else checkPhone.setVisible(false);
-
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_Wrong_Answer.wav");
             } else {
 
                 String insertQuery = "INSERT INTO user (User_ID, name, password, email, phone) VALUES (?, ?, ?, ?, ?)";
@@ -134,10 +137,12 @@ public class UserRegisterController {
 
                 if (rowsAffected > 0) {
                     registrationMessageLabel.setText("User has been registered successfully!");
+                    SoundManager.playSound("src/main/resources/soundEffects/SEFE_CrowdClapping.wav");
                     toLogInScene();
 
                 } else {
                     registrationMessageLabel.setText("Registration failed. Please try again.");
+                    SoundManager.playSound("src/main/resources/soundEffects/SEFE_Denied.wav");
                 }
             }
 

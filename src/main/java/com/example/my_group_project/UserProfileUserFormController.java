@@ -63,6 +63,7 @@ public class UserProfileUserFormController extends UserMenuController {
 
     @FXML
     void onEdit() {
+        SoundManager.playSound("src/main/resources/soundEffects/SEFE_Notification_Bell.wav");
         isEdited= true;
         setEditable(isEdited);
         saveButton.setDisable(!isEdited);
@@ -126,22 +127,18 @@ public class UserProfileUserFormController extends UserMenuController {
             preparedStatement.setString(4, emailField.getText());
             preparedStatement.setDate(5, java.sql.Date.valueOf(dateOfBirthPicker.getValue()));
             preparedStatement.setString(6, genderBox.getValue());
-            System.out.print("3sdnajsncdc");
+
             if (selectedImageFile != null) {
                 try (FileInputStream imageStream = new FileInputStream(selectedImageFile)) {
-                    System.out.print("2sdnajsncdc");
                     byte[] imageBytes = Files.readAllBytes(selectedImageFile.toPath());
                     preparedStatement.setBinaryStream(7, new ByteArrayInputStream(imageBytes), imageBytes.length);
                     System.out.println("Selected file: " + selectedImageFile.getAbsolutePath());
-                    System.out.print("5sdnajsncdc");
                 } catch (IOException e) {
-                    System.out.print("1sdnajsncdc");
                     e.printStackTrace();
                     showAlert("Error", "An error occurred while reading the image.");
                     return;
                 }
             } else {
-                System.out.print("sdnajsncdc");
                 preparedStatement.setNull(7, java.sql.Types.BLOB);
             }
             preparedStatement.setString(8, userId);
@@ -150,8 +147,10 @@ public class UserProfileUserFormController extends UserMenuController {
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {
                 System.out.println("Profile updated successfully!");
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_AngelsSinging.wav");
             } else {
                 System.out.println("Failed to update profile.");
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_Alert.wav");
             }
 
         } catch (SQLException e) {
@@ -173,12 +172,15 @@ public class UserProfileUserFormController extends UserMenuController {
         }
         if (phoneNumber.length() < 10 || !phoneNumber.matches("\\d+")) {
             showAlert("Lỗi", "PhoneNumber không hợp lệ!");
+            SoundManager.playSound("src/main/resources/soundEffects/SEFE_Alert.wav");
         }
         else if (!email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
             showAlert("Lỗi", "Email không hợp lệ!");
+            SoundManager.playSound("src/main/resources/soundEffects/SEFE_Alert.wav");
         }
         else if(fullname.isEmpty() || username.isEmpty() || phoneNumber.isEmpty() || email.isEmpty() || gender == null || dateOfBirth == null) {
             showAlert("Loi", "Vui long dien day du thong tin");
+            SoundManager.playSound("src/main/resources/soundEffects/SEFE_Alert.wav");
         }
         else {
             if(!userId.isEmpty() && userId != null ) {

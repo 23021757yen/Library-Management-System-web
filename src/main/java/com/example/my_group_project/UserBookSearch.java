@@ -26,9 +26,16 @@ public class UserBookSearch extends BaseController {
     // Create an instance of SearchCache
     private SearchCache searchCache = new SearchCache();
 
+    // Create an instance of BookRecommendation
+    private BookRecommendation bookRecommendation = new BookRecommendation();
+
     @FXML
     void searchTextFieldOnAction(ActionEvent event) {
+        long startTime = System.currentTimeMillis(); // Start time measurement
         searchBooks();
+        long endTime = System.currentTimeMillis(); // End time measurement
+        long executionTime = endTime - startTime;
+        System.out.println("Execution time: " + executionTime + " ms");
     }
 
     private void searchBooks() {
@@ -60,11 +67,17 @@ public class UserBookSearch extends BaseController {
             return;
         }
 
+        // Enhance search results using AI-based recommendation
+        List<Book> recommendedBooks = bookRecommendation.recommendBooks(query, books);
+
         // Display search results
-        displaySearchResults(books);
+        displaySearchResults(recommendedBooks);
     }
 
     private void displaySearchResults(List<Book> books) {
+        // Play a sound effect when displaying search results
+        SoundManager.playSound("src/main/resources/soundEffects/SEFE_KidsCheering.wav");
+
         resultsVBox.getChildren().clear();
         for (Book book : books) {
             HBox bookInfoBox = new HBox(10);
@@ -89,6 +102,9 @@ public class UserBookSearch extends BaseController {
             bookInfoBox.getChildren().add(bookInfo);
 
             bookInfoBox.setOnMouseClicked(event -> {
+                // Play a sound effect when a book item is clicked
+                SoundManager.playSound("src/main/resources/soundEffects/SEFE_AngelsSinging.wav");
+
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("bookProfile.fxml"));
                     Parent root = loader.load();
@@ -106,5 +122,30 @@ public class UserBookSearch extends BaseController {
 
             resultsVBox.getChildren().add(bookInfoBox);
         }
+    }
+
+    public static void main(String[] args) {
+        UserBookSearch userBookSearch = new UserBookSearch();
+        userBookSearch.testSearchBooks();
+    }
+
+    public void testSearchBooks() {
+        try {
+            String testQuery = "fiction";
+            long startTime = System.currentTimeMillis(); // Start time measurement
+            searchBooks(testQuery);
+            long endTime = System.currentTimeMillis(); // End time measurement
+            long executionTime = endTime - startTime;
+            System.out.println("Execution time for query \"" + testQuery + "\": " + executionTime + " ms");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void searchBooks(String query) {
+        // This method is for testing purposes, simulating the searchBooks method with a provided query
+        // without needing to trigger from UI.
+        searchTextField.setText(query);
+        searchTextFieldOnAction(null);
     }
 }

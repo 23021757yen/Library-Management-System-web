@@ -80,7 +80,7 @@ CREATE TABLE `books` (
                          `yearPublic` year(4) DEFAULT NULL,
                          `price` int(11) DEFAULT NULL,
                          `kind` varchar(50) DEFAULT NULL,
-                         `book_ID` int(11) NOT NULL,
+                         `book_ID` varchar(20) NOT NULL,
                          `author` varchar(255) NOT NULL,
                          `image` varchar(255) NOT NULL,
                          `addDate` datetime NOT NULL DEFAULT current_timestamp,
@@ -111,7 +111,7 @@ INSERT INTO books (title, amount, description, location, yearPublic, price, kind
 --
 
 CREATE TABLE `borrow` (
-                          `book_ID` int(11) DEFAULT NULL,
+                          `book_ID` varchar(20) DEFAULT NULL,
                           `borrowDate` datetime NOT NULL DEFAULT current_timestamp,
                           `backDate` datetime NOT NULL DEFAULT current_timestamp,
                           `User_ID` varchar(20) NOT NULL,
@@ -153,7 +153,7 @@ CREATE TABLE `fine` (
 
 CREATE TABLE `highlightbook` (
                                  `user_ID` varchar(20) NOT NULL,
-                                 `book_ID` int(11) NOT NULL
+                                 `book_ID` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -183,7 +183,7 @@ CREATE TABLE `nhaxb` (
 
 CREATE TABLE `recentbooks` (
                                `user_ID` varchar(20) NOT NULL,
-                               `book_ID` int(11) NOT NULL,
+                               `book_ID` varchar(20) NOT NULL,
                                `time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -293,12 +293,6 @@ ALTER TABLE user
 --
 
 --
--- AUTO_INCREMENT cho bảng `books`
---
-ALTER TABLE `books`
-    MODIFY `book_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-
---
 -- AUTO_INCREMENT cho bảng `fine`
 --
 ALTER TABLE `fine`
@@ -344,13 +338,3 @@ ALTER TABLE `books`
 
 ALTER TABLE `borrow`
     DROP FOREIGN KEY `borrow_ibfk_1`;
-
-select * from borrow;
-select * from user where User_ID = 'yIZyAv7pnT';
-
-describe borrow;
-describe  books;
-ALTER TABLE books
-    MODIFY COLUMN book_ID VARCHAR(20);
-ALTER TABLE borrow
-    MODIFY COLUMN book_ID VARCHAR(20);

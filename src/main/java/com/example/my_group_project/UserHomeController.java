@@ -278,31 +278,6 @@ public class UserHomeController extends UserMenuController {
         fadeOut.play();
     }
 
-
-    @FXML
-    void cateButtonOnAction(ActionEvent event) {
-        super.changeScene("categoryMenu.fxml", "Category Menu");
-    }
-
-    @FXML
-    void homeButtonOnAction(ActionEvent event) {
-        super.changeScene("home.fxml", "Home");
-    }
-
-    @FXML
-    void moreInforButtonOnAction(ActionEvent event) {
-        super.changeScene("moreInformation.fxml", "More Information");
-    }
-
-    @FXML
-    void logOutButtonOnAction(ActionEvent event) {
-        if(BaseController.showAlter("Dang xuat", "Ban muon dang xuat chu???")){
-            super.changeScene("welcomeToWebsite.fxml", "HelloView");
-        }else {
-            event.consume();
-        }
-    }
-
     @FXML
     void profileButtonOnAction(ActionEvent event) {
         super.changeScene("profileUser.fxml", "Profile");
