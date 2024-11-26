@@ -20,7 +20,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminHomeScene extends AdminMenuController {
+public abstract class AdminHomeScene extends AdminMenuController {
 
     @FXML
     private VBox vBox;

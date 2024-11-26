@@ -111,5 +111,6 @@
          </font>
       </Label>
        <Button fx:id="nextButton" layoutX="916.0" layoutY="440.0" mnemonicParsing="false" onAction="#handleNextButtonAction" text="Next" />
+      <Label fx:id="feedbackLabel" layoutX="117.0" layoutY="393.0" prefHeight="17.0" prefWidth="776.0" text="Label" />
    </children>
 </AnchorPane>
