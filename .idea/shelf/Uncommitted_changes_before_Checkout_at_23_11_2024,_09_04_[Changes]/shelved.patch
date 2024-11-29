@@ -1,0 +1,993 @@
+Index: src/main/java/com/example/my_group_project/AdminBorrowBookController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javafx.event.ActionEvent;\nimport javafx.fxml.FXML;\nimport javafx.scene.control.Button;\nimport javafx.scene.control.ScrollPane;\nimport javafx.scene.layout.HBox;\nimport javafx.scene.layout.VBox;\n\nimport java.io.IOException;\n\npublic class AdminBorrowBookController extends BaseController {\n\n    @FXML\n    private Button addBookButton;\n\n    @FXML\n    private Button backButton;\n\n    @FXML\n    private Button bookBorrowButton;\n\n    @FXML\n    private Button homeScene1Button;\n\n    @FXML\n    private Button logOutButton;\n\n    @FXML\n    private Button reportButton;\n\n    @FXML\n    private ScrollPane scrollPane;\n\n    @FXML\n    private HBox searchTextField;\n\n    @FXML\n    private Button userManagementButton;\n\n    @FXML\n    private VBox vBox;\n\n    @FXML\n    void addButtonOnAction(ActionEvent event) {\n\n    }\n\n    @FXML\n    void backButtonOnAction(ActionEvent event) throws IOException {\n        super.changeScene(\"AdminHomeScene1.fxml\", \"AdminHomeScene1\");\n    }\n\n    @FXML\n    void homeScene1ButtonOnAction(ActionEvent event) throws IOException {\n        super.changeScene(\"AdminHomeScene1.fxml\", \"AdminHomeScene1\");\n    }\n\n    @FXML\n    void bookBorrowButtonOnAction(ActionEvent event) throws IOException {\n        super.changeScene(\"AdminBorrowBook.fxml\", \"AdminBorrowBook\");\n    }\n\n    @FXML\n    void userManagementButtonOnAction(ActionEvent event) throws IOException {\n        super.changeScene(\"AdminUserManagement.fxml\", \"AdminUserManagement\");\n    }\n\n    @FXML\n    void reportButtonOnAction(ActionEvent event) throws IOException {\n        super.changeScene(\"AdminReport.fxml\", \"AdminReport\");\n    }\n\n    @FXML\n    void logOutButtonOnAction(ActionEvent event) throws IOException {\n        super.changeScene(\"welcomeToWebsite.fxml\", \"welcomeToWebsite\");\n    }g\n\n\n    // load pane san co\n    //thuc hien tim kiem nhanh cho thanh search\n    // add them sach theo pane( da noi o home scene1 )\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/my_group_project/AdminBorrowBookController.java b/src/main/java/com/example/my_group_project/AdminBorrowBookController.java
+--- a/src/main/java/com/example/my_group_project/AdminBorrowBookController.java	(revision e71ac808726392e7fcd9b1cb2114c2d4a58767ba)
++++ b/src/main/java/com/example/my_group_project/AdminBorrowBookController.java	(date 1732327387770)
+@@ -1,3 +1,4 @@
++
+ import javafx.event.ActionEvent;
+ import javafx.fxml.FXML;
+ import javafx.scene.control.Button;
+@@ -72,7 +73,7 @@
+     @FXML
+     void logOutButtonOnAction(ActionEvent event) throws IOException {
+         super.changeScene("welcomeToWebsite.fxml", "welcomeToWebsite");
+-    }g
++    }
+ 
+ 
+     // load pane san co
+Index: src/main/java/com/example/my_group_project/HelloController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.my_group_project ;\n\nimport javafx.event.ActionEvent;\nimport javafx.fxml.FXML;\nimport javafx.scene.control.Button;\nimport javafx.scene.control.MenuItem;\nimport javafx.scene.control.*;\nimport javafx.scene.control.DatePicker;\nimport javafx.scene.control.ComboBox;\nimport java.sql.Connection;\nimport java.sql.PreparedStatement;\nimport java.sql.ResultSet;\nimport java.sql.SQLException;\nimport javafx.scene.control.Alert;\nimport javafx.scene.control.Alert.AlertType;\nimport javafx.stage.FileChooser;\nimport java.io.File;\nimport javafx.scene.image.Image;\nimport java.io.IOException;\nimport javafx.stage.Stage;\nimport javafx.scene.Scene;\nimport javafx.scene.Parent;\nimport javafx.fxml.FXMLLoader;\nimport java.sql.Statement;\nimport javafx.scene.shape.Rectangle;\n\n\n\npublic class HelloController extends BaseController {\n    @FXML\n    private Label loginMessageLabel;\n    @FXML\n    private Rectangle rectangle;\n    @FXML\n    private Button loginButton, signupButton, userButton, adminButton, checkLoginButton, backButton;\n    @FXML\n    private TextField usernameTextField;\n    @FXML\n    private PasswordField enterPasswordField;\n\n    private String userId;\n\n    public static String userIdMain;\n\n    @FXML\n    void adminButtonOnAction(ActionEvent event) {\n        super.changeScene(\"logInAdmin.fxml\", \"Admin Login\");\n    }\n\n    @FXML\n    void loginButtonOnAction(ActionEvent event) {\n        super.changeScene(\"logInUser.fxml\", \"Login\");\n    }\n\n    @FXML\n    void signupButtonOnAction(ActionEvent event) {\n        super.changeScene(\"signUpUser.fxml\", \"Sign up\");\n    }\n\n    @FXML\n    void userButtonOnAction(ActionEvent event) {\n        loginButton.setVisible(true);\n        signupButton.setVisible(true);\n        rectangle.setVisible(true);\n    }\n\n    @FXML\n    void backButtonOnAction(ActionEvent event) {super.changeScene(\"welcomeToWebsite.fxml\", \"Nhóm 3 con gián\");\n    }\n\n    @FXML\n    public void checkLoginButtonOnAction(ActionEvent event) {\n        if (!usernameTextField.getText().isBlank() && !enterPasswordField.getText().isBlank()) {\n            validateLogin();\n        } else {\n            loginMessageLabel.setText(\"Please enter your username and password\");\n        }\n    }\n\n    public void validateLogin() {\n        DatabaseConnection connectNow = new DatabaseConnection();\n        Connection connectDB = connectNow.getConnection();\n        if (connectDB == null) {\n            loginMessageLabel.setText(\"Failed to connect to the database\");\n            System.out.println(\"Connection is null\");\n        } else {\n            String verifyLogin = \"SELECT COUNT(1) FROM user WHERE name = '\" + usernameTextField.getText() + \"' AND password = '\" + enterPasswordField.getText() + \"'\";\n            try (Statement statement = connectDB.createStatement();\n                 ResultSet queryResult = statement.executeQuery(verifyLogin)) {\n                if (queryResult.next() && queryResult.getInt(1) == 0) {\n                    loginMessageLabel.setText(\"Invalid username or password\");\n                } else {\n                    loginMessageLabel.setText(\"Login successful\");\n                    userId = getUserId(connectDB);  // Gọi phương thức getUserId để lấy User_ID\n                    System.out.println(\"User ID after login: \" + userId);\n                    userIdMain = userId;\n                    toMainScene();\n                }\n            } catch (SQLException e) {\n                e.printStackTrace();\n            }\n        }\n    }\n\n    public String getUserId(Connection connectDB) {\n        String query = \"SELECT User_ID FROM user WHERE name = ? AND password = ?\";\n        try (PreparedStatement statement = connectDB.prepareStatement(query)) {\n            statement.setString(1, usernameTextField.getText());\n            statement.setString(2, enterPasswordField.getText());\n\n            ResultSet resultSet = statement.executeQuery();\n            if (resultSet.next()) {\n                userId = resultSet.getString(\"User_ID\");\n                System.out.print(\"acb\");\n            }\n        } catch (SQLException e) {\n            e.printStackTrace();\n            System.out.print(\"acbd\");\n        }\n        return userId;\n    }\n\n    public void toMainScene() {\n        super.changeScene(\"home.fxml\", \"Home\");\n    }\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/my_group_project/HelloController.java b/src/main/java/com/example/my_group_project/HelloController.java
+--- a/src/main/java/com/example/my_group_project/HelloController.java	(revision e71ac808726392e7fcd9b1cb2114c2d4a58767ba)
++++ b/src/main/java/com/example/my_group_project/HelloController.java	(date 1732327325821)
+@@ -1,30 +1,20 @@
+-package com.example.my_group_project ;
++package com.example.my_group_project;
+ 
++import javafx.collections.FXCollections;
++import javafx.collections.ObservableList;
+ import javafx.event.ActionEvent;
+ import javafx.fxml.FXML;
+-import javafx.scene.control.Button;
+-import javafx.scene.control.MenuItem;
+ import javafx.scene.control.*;
+-import javafx.scene.control.DatePicker;
+-import javafx.scene.control.ComboBox;
++import javafx.scene.shape.Rectangle;
++
+ import java.sql.Connection;
+ import java.sql.PreparedStatement;
+ import java.sql.ResultSet;
+ import java.sql.SQLException;
+-import javafx.scene.control.Alert;
+-import javafx.scene.control.Alert.AlertType;
+-import javafx.stage.FileChooser;
+-import java.io.File;
+-import javafx.scene.image.Image;
+-import java.io.IOException;
+-import javafx.stage.Stage;
+-import javafx.scene.Scene;
+-import javafx.scene.Parent;
+-import javafx.fxml.FXMLLoader;
+-import java.sql.Statement;
+-import javafx.scene.shape.Rectangle;
+-
+-
++import java.util.ArrayList;
++import java.util.List;
++import java.util.prefs.BackingStoreException;
++import java.util.prefs.Preferences;
+ 
+ public class HelloController extends BaseController {
+     @FXML
+@@ -32,19 +22,20 @@
+     @FXML
+     private Rectangle rectangle;
+     @FXML
+-    private Button loginButton, signupButton, userButton, adminButton, checkLoginButton, backButton;
++    private Button loginButton, signupButton;
+     @FXML
+-    private TextField usernameTextField;
++    private ComboBox usernameComboBox;
+     @FXML
+     private PasswordField enterPasswordField;
++    @FXML
++    private CheckBox rememberMeCheckBox;
+ 
+     private String userId;
+-
+     public static String userIdMain;
+ 
+     @FXML
+     void adminButtonOnAction(ActionEvent event) {
+-        super.changeScene("logInAdmin.fxml", "Admin Login");
++        super.changeScene("logInAdmin.fxml", "Admin login");
+     }
+ 
+     @FXML
+@@ -65,36 +56,63 @@
+     }
+ 
+     @FXML
+-    void backButtonOnAction(ActionEvent event) {super.changeScene("welcomeToWebsite.fxml", "Nhóm 3 con gián");
++    private void initialize() {
++        // Ensure usernameComboBox is not null before loading details
++        if (usernameComboBox != null) {
++            loadLoginDetails();
++        } else {
++            System.out.println("usernameComboBox is null during initialization");
++        }
++    }
++
++    @FXML
++    private void rememberMeCheckBoxOnAction(ActionEvent event) {
++        if (rememberMeCheckBox.isSelected()) {
++            String username = usernameComboBox.getEditor().getText();
++            String password = enterPasswordField.getText();
++            saveLoginDetails(username, password);
++        }
+     }
+ 
+     @FXML
+-    public void checkLoginButtonOnAction(ActionEvent event) {
+-        if (!usernameTextField.getText().isBlank() && !enterPasswordField.getText().isBlank()) {
+-            validateLogin();
++    void checkLoginButtonOnAction(ActionEvent event) {
++        String username = usernameComboBox.getEditor().getText();
++        String password = enterPasswordField.getText();
++        Connection connection = DatabaseConnection.getConnection();
++        if (!username.isBlank() && !password.isBlank()) {
++            User loggedUser = new User(getUserId(connection,username,password), username);
++            User.setCurrentUser(loggedUser);
++            validateLogin(username, password);
+         } else {
+             loginMessageLabel.setText("Please enter your username and password");
+         }
+     }
+ 
+-    public void validateLogin() {
++    public void validateLogin(String username, String password) {
+         DatabaseConnection connectNow = new DatabaseConnection();
+         Connection connectDB = connectNow.getConnection();
+         if (connectDB == null) {
+             loginMessageLabel.setText("Failed to connect to the database");
+             System.out.println("Connection is null");
+         } else {
+-            String verifyLogin = "SELECT COUNT(1) FROM user WHERE name = '" + usernameTextField.getText() + "' AND password = '" + enterPasswordField.getText() + "'";
+-            try (Statement statement = connectDB.createStatement();
+-                 ResultSet queryResult = statement.executeQuery(verifyLogin)) {
+-                if (queryResult.next() && queryResult.getInt(1) == 0) {
+-                    loginMessageLabel.setText("Invalid username or password");
+-                } else {
+-                    loginMessageLabel.setText("Login successful");
+-                    userId = getUserId(connectDB);  // Gọi phương thức getUserId để lấy User_ID
+-                    System.out.println("User ID after login: " + userId);
+-                    userIdMain = userId;
+-                    toMainScene();
++            String verifyLogin = "SELECT COUNT(1) FROM user WHERE name = ? AND password = ?";
++            try (PreparedStatement statement = connectDB.prepareStatement(verifyLogin)) {
++                statement.setString(1, username);
++                statement.setString(2, password);
++                try (ResultSet queryResult = statement.executeQuery()) {
++                    if (queryResult.next() && queryResult.getInt(1) == 0) {
++                        loginMessageLabel.setText("Invalid username or password");
++                    } else {
++                        loginMessageLabel.setText("Login successful");
++                        userId = getUserId(connectDB, username, password);
++                        System.out.println("User ID after login: " + userId);
++                        userIdMain = userId;
++
++                        if (rememberMeCheckBox.isSelected()) {
++                            saveLoginDetails(username, password);
++                        }
++                        toHomeScene();
++                    }
+                 }
+             } catch (SQLException e) {
+                 e.printStackTrace();
+@@ -102,26 +120,98 @@
+         }
+     }
+ 
+-    public String getUserId(Connection connectDB) {
++    public void toHomeScene() {
++        super.changeScene("home.fxml", "Home");
++    }
++
++    public String getUserId(Connection connectDB, String username, String password) {
+         String query = "SELECT User_ID FROM user WHERE name = ? AND password = ?";
+         try (PreparedStatement statement = connectDB.prepareStatement(query)) {
+-            statement.setString(1, usernameTextField.getText());
+-            statement.setString(2, enterPasswordField.getText());
+-
++            statement.setString(1, username);
++            statement.setString(2, password);
+             ResultSet resultSet = statement.executeQuery();
+             if (resultSet.next()) {
+-                userId = resultSet.getString("User_ID");
+-                System.out.print("acb");
++                return resultSet.getString("User_ID");
+             }
+         } catch (SQLException e) {
+             e.printStackTrace();
+-            System.out.print("acbd");
+         }
+-        return userId;
++        return null;
+     }
++
++    private void saveLoginDetails(String username, String password) {
++        Preferences prefs = Preferences.userNodeForPackage(HelloController.class);
++        List<String> usernames = new ArrayList<>();
++        List<String> passwords = new ArrayList<>();
++
++        try {
++            for (String key : prefs.keys()) {
++                if (key.startsWith("username")) {
++                    usernames.add(prefs.get(key, ""));
++                } else if (key.startsWith("password")) {
++                    passwords.add(prefs.get(key, ""));
++                }
++            }
++        } catch (BackingStoreException e) {
++            e.printStackTrace();
++        }
++
++        if (!usernames.contains(username)) {
++            usernames.add(username);
++            passwords.add(password);
++
++            for (int i = 0; i < usernames.size(); i++) {
++                prefs.put("username" + i, usernames.get(i));
++                prefs.put("password" + i, passwords.get(i));
++            }
++        }
++    }
++
++    private void loadLoginDetails() {
++        Preferences prefs = Preferences.userNodeForPackage(HelloController.class);
++        List<String> usernames = new ArrayList<>();
++        List<String> passwords = new ArrayList<>();
++
++        try {
++            for (String key : prefs.keys()) {
++                if (key.startsWith("username")) {
++                    String username = prefs.get(key, null);
++                    if (username != null && !usernames.contains(username)) {
++                        usernames.add(username);
++                    }
++                } else if (key.startsWith("password")) {
++                    String password = prefs.get(key, null);
++                    if (password != null && passwords.size() < usernames.size()) {
++                        passwords.add(password);
++                    }
++                }
++            }
++        } catch (BackingStoreException e) {
++            e.printStackTrace();
++        }
+ 
+-    public void toMainScene() {
+-        super.changeScene("home.fxml", "Home");
++        ObservableList<String> usernameList = FXCollections.observableArrayList(usernames);
++        System.out.println("Loaded usernames: " + usernames);
++        System.out.println("Loaded passwords: " + passwords);
++
++        if (usernameComboBox != null) {
++            usernameComboBox.setItems(usernameList);
++            System.out.println("usernameComboBox initialized");
++
++            usernameComboBox.setOnAction(event -> {
++                int index = usernameComboBox.getSelectionModel().getSelectedIndex();
++                if (index >= 0 && index < passwords.size()) {
++                    enterPasswordField.setText(passwords.get(index));
++                }
++            });
++
++            // Allow typing new usernames
++            usernameComboBox.getEditor().textProperty().addListener((observable, oldValue, newValue) -> {
++                enterPasswordField.clear();
++            });
++        } else {
++            System.out.println("usernameComboBox is null");
++        }
+     }
+ }
+ 
+Index: src/main/java/com/example/my_group_project/BaseController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.my_group_project ;\n\nimport javafx.fxml.FXMLLoader;\nimport javafx.scene.Parent;\nimport javafx.scene.Scene;\nimport javafx.stage.Stage;\n\nimport java.io.IOException;\n\npublic class BaseController {\n    private static Stage mainStage;\n\n    public static void setMainStage(Stage stage) {\n        if (stage == null) {\n            throw new IllegalArgumentException(\"Stage cannot be null\");\n        }\n        mainStage = stage;\n    }\n\n    public static Stage getMainStage() {\n        if (mainStage == null) {\n            throw new IllegalStateException(\"Main stage is not set. Ensure setMainStage is called.\");\n        }\n        return mainStage;\n    }\n\n    protected void changeScene(String fxml, String title) {\n        if (mainStage == null) {\n            throw new IllegalStateException(\"Main stage is not set. Ensure setMainStage is called.\");\n        }\n\n        try {\n            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));\n            Parent root = loader.load();\n            mainStage.setTitle(title);\n            Scene newScene = new Scene(root);\n            mainStage.setScene(newScene);\n\n        } catch (IOException e) {\n            System.err.println(\"Error loading FXML file: \" + fxml);\n            e.printStackTrace();\n        }\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/my_group_project/BaseController.java b/src/main/java/com/example/my_group_project/BaseController.java
+--- a/src/main/java/com/example/my_group_project/BaseController.java	(revision e71ac808726392e7fcd9b1cb2114c2d4a58767ba)
++++ b/src/main/java/com/example/my_group_project/BaseController.java	(date 1732327330999)
+@@ -1,44 +1,108 @@
+-package com.example.my_group_project ;
++package com.example.my_group_project;
+ 
++import javafx.event.ActionEvent;
++import javafx.fxml.FXML;
+ import javafx.fxml.FXMLLoader;
+ import javafx.scene.Parent;
+ import javafx.scene.Scene;
++import javafx.scene.control.Alert;
++import javafx.scene.control.ButtonBar;
++import javafx.scene.control.ButtonType;
+ import javafx.stage.Stage;
+ 
+ import java.io.IOException;
++import java.util.Optional;
++import java.util.Stack;
+ 
+-public class BaseController {
++public abstract class BaseController {
+     private static Stage mainStage;
++    private static Stack<Scene> sceneStack = new Stack<>();
+ 
++    // Method to set the main stage
+     public static void setMainStage(Stage stage) {
+-        if (stage == null) {
+-            throw new IllegalArgumentException("Stage cannot be null");
+-        }
+         mainStage = stage;
+     }
+ 
++    // Method to get the main stage (optional convenience method)
+     public static Stage getMainStage() {
+-        if (mainStage == null) {
+-            throw new IllegalStateException("Main stage is not set. Ensure setMainStage is called.");
+-        }
+         return mainStage;
+     }
+ 
++    // Method to change the scene and push the current scene to the stack
+     protected void changeScene(String fxml, String title) {
+         if (mainStage == null) {
+             throw new IllegalStateException("Main stage is not set. Ensure setMainStage is called.");
+         }
+-
+         try {
+             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+             Parent root = loader.load();
+-            mainStage.setTitle(title);
+             Scene newScene = new Scene(root);
++
++            // Push the new scene to the stack
++            sceneStack.push(newScene);
++
++            mainStage.setTitle(title);
+             mainStage.setScene(newScene);
+ 
++            // Print the scene stack for debugging
++            // printSceneStack();
+         } catch (IOException e) {
+-            System.err.println("Error loading FXML file: " + fxml);
+             e.printStackTrace();
+         }
+     }
+-}
++
++    // Method to handle the back button action
++    @FXML
++    void backButtonOnAction(ActionEvent event) {
++        if (mainStage == null) {
++            throw new IllegalStateException("Main stage is not set. Ensure setMainStage is called.");
++        }
++        if (!sceneStack.isEmpty()) {
++            // Remove the current scene from the stack
++            sceneStack.pop();
++            if (!sceneStack.isEmpty()) {
++                // Set the previous scene as the current scene
++                Scene previousScene = sceneStack.peek();
++                mainStage.setScene(previousScene);
++            } else {
++                System.out.println("No previous scene to go back to.");
++            }
++        } else {
++            System.out.println("No previous scene to go back to.");
++        }
++
++        // Print the scene stack for debugging
++        //printSceneStack();
++    }
++
++    // Method to print the scene stack
++    /*
++    private void printSceneStack() {
++        System.out.println("Scene Stack:");
++        for (Scene scene : sceneStack) {
++            System.out.println(scene);
++        }
++    }
++    */
++
++    public static boolean showAlter(String title, String message){
++        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
++        alert.setTitle(title);
++        alert.setHeaderText(message);
++        alert.setContentText(null);
++
++        ButtonType sureButton = new ButtonType("Đồng ý");
++        ButtonType cancelButton = new ButtonType("Hủy bỏ", ButtonBar.ButtonData.CANCEL_CLOSE);
++
++        alert.getButtonTypes().setAll(sureButton, cancelButton);
++        Optional<ButtonType> result = alert.showAndWait();
++        if (result.isPresent()) {
++            if (result.get() == sureButton) {
++                return true;
++            } else if (result.get() == cancelButton) {
++                return false;
++            }
++        }
++        return false;
++    }
++}
+\ No newline at end of file
+Index: target/classes/com/example/my_group_project/profileUser.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/classes/com/example/my_group_project/profileUser.fxml b/target/classes/com/example/my_group_project/profileUser.fxml
+deleted file mode 100644
+--- a/target/classes/com/example/my_group_project/profileUser.fxml	(revision e71ac808726392e7fcd9b1cb2114c2d4a58767ba)
++++ /dev/null	(revision e71ac808726392e7fcd9b1cb2114c2d4a58767ba)
+@@ -1,90 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.geometry.Insets?>
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.Label?>
+-<?import javafx.scene.control.MenuButton?>
+-<?import javafx.scene.control.MenuItem?>
+-<?import javafx.scene.effect.DropShadow?>
+-<?import javafx.scene.image.Image?>
+-<?import javafx.scene.image.ImageView?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.layout.BorderPane?>
+-<?import javafx.scene.layout.Pane?>
+-<?import javafx.scene.text.Font?>
+-
+-<AnchorPane prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.UserProfileUserController">
+-   <children>
+-      <Pane prefHeight="161.0" prefWidth="1024.0" style="-fx-background-color: #f7efd8;">
+-         <children>
+-            <ImageView fitHeight="161.0" fitWidth="1024.0" opacity="0.24">
+-               <image>
+-                  <Image url="@../../../picture/background.jpg" />
+-               </image>
+-            </ImageView>
+-            <Button fx:id="backButton" layoutX="960.0" layoutY="17.0" mnemonicParsing="false" onAction="#backButtonOnAction" style="-fx-background-color: 000000;" underline="true">
+-               <opaqueInsets>
+-                  <Insets />
+-               </opaqueInsets>
+-               <font>
+-                  <Font name="System Bold Italic" size="15.0" />
+-               </font>
+-               <graphic>
+-                  <ImageView fitHeight="34.0" fitWidth="26.0">
+-                     <image>
+-                        <Image url="@../../../picture/back.png" />
+-                     </image>
+-                  </ImageView>
+-               </graphic>
+-            </Button>
+-            <BorderPane layoutX="875.0" layoutY="18.0" prefHeight="155.0" prefWidth="99.0">
+-               <top>
+-                  <MenuButton mnemonicParsing="false" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: 000000;" BorderPane.alignment="CENTER">
+-                     <items>
+-                        <MenuItem fx:id="searchMenuItem" mnemonicParsing="false" onAction="#searchMenuItemOnAction" text="Search" />
+-                        <MenuItem fx:id="categoryMenuItem" mnemonicParsing="false" onAction="#categoryMenuItemOnAction" text="CategoryMenu" />
+-                        <MenuItem fx:id="homeMenuItem" mnemonicParsing="false" onAction="#homeMenuItemOnAction" text="Home" />
+-                        <MenuItem fx:id="moreInforMenuItem" mnemonicParsing="false" onAction="#moreInforMenuItemOnAction" text="MoreInformaition" />
+-                        <MenuItem fx:id="logOutMenuItem" mnemonicParsing="false" onAction="#logOutMenuItemOnAction" text="LogOut" />
+-                     </items>
+-                     <graphic>
+-                        <ImageView fitHeight="30.0" fitWidth="30.0">
+-                           <image>
+-                              <Image url="@../../../picture/menu.png" />
+-                           </image>
+-                        </ImageView>
+-                     </graphic>
+-                  </MenuButton>
+-               </top>
+-            </BorderPane>
+-            <Label layoutX="15.0" layoutY="15.0" text="LMS">
+-               <font>
+-                  <Font name="Impact" size="30.0" />
+-               </font>
+-            </Label>
+-            <Label layoutX="420.0" layoutY="87.0" text="PROFILE" textAlignment="CENTER">
+-               <font>
+-                  <Font name="Impact" size="60.0" />
+-               </font>
+-            </Label>
+-         </children>
+-         <effect>
+-            <DropShadow />
+-         </effect>
+-      </Pane>
+-      <Button fx:id="historyButton" layoutX="232.0" layoutY="472.0" mnemonicParsing="false" onAction="#historyButtonOnAction" prefHeight="25.0" prefWidth="593.0" style="-fx-background-radius: 20;" stylesheets="@../../../buttonHover.css" text="HISTORY" textAlignment="CENTER">
+-         <font>
+-            <Font name="Impact" size="15.0" />
+-         </font>
+-      </Button>
+-      <Button fx:id="highLightButton" layoutX="232.0" layoutY="509.0" mnemonicParsing="false" onAction="#highlightButtonOnAction" prefHeight="25.0" prefWidth="593.0" style="-fx-background-radius: 20;" stylesheets="@../../../buttonHover.css" text="HIGHLIGHT" textAlignment="CENTER">
+-         <font>
+-            <Font name="Impact" size="15.0" />
+-         </font>
+-      </Button>
+-      <Button fx:id="profileFormButton" layoutX="233.0" layoutY="434.0" mnemonicParsing="false" onAction="#profileFormButtonOnAction" prefHeight="28.0" prefWidth="593.0" style="-fx-background-radius: 20;" stylesheets="@../../../buttonHover.css" text="PROFILE">
+-         <font>
+-            <Font name="Impact" size="15.0" />
+-         </font></Button>
+-   </children>
+-</AnchorPane>
+Index: database.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>-- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)\n--\n-- Host: 127.0.0.1    Database: library\n-- ------------------------------------------------------\n-- Server version\t8.0.39\n\n/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;\n/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;\n/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;\n/*!50503 SET NAMES utf8 */;\n/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\n\n--\n-- Table structure for table `admin`\n--\n\ncreate database library;\nuse library;\n\nDROP TABLE IF EXISTS `admin`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!50503 SET character_set_client = utf8mb4 */;\nCREATE TABLE `admin` (\n  `admin_ID` varchar(10) NOT NULL DEFAULT '',\n  `password` varchar(100) NOT NULL DEFAULT 'root',\n  PRIMARY KEY (`admin_ID`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;\n/*!40101 SET character_set_client = @saved_cs_client */;\n\n--\n-- Table structure for table `author`\n--\n\nDROP TABLE IF EXISTS `author`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!50503 SET character_set_client = utf8mb4 */;\nCREATE TABLE `author` (\n  `au_ID` varchar(20) DEFAULT '',\n  `tacpham` text,\n  `name` varchar(255) NOT NULL DEFAULT '',\n  `tieusu` text,\n  PRIMARY KEY (`name`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;\n/*!40101 SET character_set_client = @saved_cs_client */;\n\n--\n-- Table structure for table `books`\n--\n\nDROP TABLE IF EXISTS `books`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!50503 SET character_set_client = utf8mb4 */;\nCREATE TABLE `books` (\n  `title` varchar(255) DEFAULT NULL,\n  `amount` int DEFAULT '100',\n  `description` text,\n  `location` varchar(255) DEFAULT NULL,\n  `yearPublic` date DEFAULT NULL,\n  `price` int DEFAULT NULL,\n  `kind` varchar(50) DEFAULT NULL,\n  `book_ID` varchar(20) NOT NULL,\n  `author` varchar(20) NOT NULL,\n  PRIMARY KEY (`book_ID`),\n  KEY `author` (`author`),\n  CONSTRAINT `books_ibfk_1` FOREIGN KEY (`author`) REFERENCES `author` (`name`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;\n/*!40101 SET character_set_client = @saved_cs_client */;\n\n--\n-- Table structure for table `borrow`\n--\n\nDROP TABLE IF EXISTS `borrow`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!50503 SET character_set_client = utf8mb4 */;\nCREATE TABLE `borrow` (\n  `book_ID` varchar(20) NOT NULL DEFAULT '',\n  `endDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `dueDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `User_ID` varchar(20) NOT NULL,\n  `status` varchar(20) DEFAULT NULL,\n  `overTime` varchar(10) DEFAULT NULL,\n  KEY `User_ID` (`User_ID`),\n  KEY `book_ID` (`book_ID`),\n  CONSTRAINT `borrow_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`),\n  CONSTRAINT `borrow_ibfk_2` FOREIGN KEY (`book_ID`) REFERENCES `books` (`book_ID`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;\n/*!40101 SET character_set_client = @saved_cs_client */;\n\n--\n-- Table structure for table `fine`\n--\n\nDROP TABLE IF EXISTS `fine`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!50503 SET character_set_client = utf8mb4 */;\nCREATE TABLE `fine` (\n  `fine_ID` int NOT NULL AUTO_INCREMENT,\n  `dueDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `endDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `reason` varchar(255) DEFAULT NULL,\n  `amount` int DEFAULT NULL,\n  `status` varchar(20) NOT NULL DEFAULT 'done',\n  `User_ID` varchar(20) DEFAULT NULL,\n  PRIMARY KEY (`fine_ID`),\n  KEY `User_ID` (`User_ID`),\n  CONSTRAINT `fine_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;\n/*!40101 SET character_set_client = @saved_cs_client */;\n\n--\n-- Table structure for table `nhaxb`\n--\n\nDROP TABLE IF EXISTS `nhaxb`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!50503 SET character_set_client = utf8mb4 */;\nCREATE TABLE `nhaxb` (\n  `name` varchar(255) NOT NULL DEFAULT '',\n  `address` varchar(255) DEFAULT NULL,\n  `contact` varchar(255) NOT NULL DEFAULT '',\n  PRIMARY KEY (`name`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;\n/*!40101 SET character_set_client = @saved_cs_client */;\n\n--\n-- Table structure for table `user`\n--\n\nDELIMITER $$\n\nCREATE FUNCTION generateRandomID(length INT) RETURNS VARCHAR(255)\n    DETERMINISTIC\nBEGIN\n    DECLARE chars VARCHAR(62) DEFAULT '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\n    DECLARE result VARCHAR(255) DEFAULT '';\n    DECLARE i INT DEFAULT 0;\n\n    WHILE i < length DO\n            SET result = CONCAT(result, SUBSTRING(chars, FLOOR(1 + RAND() * 62), 1));\n            SET i = i + 1;\n        END WHILE;\n\n    RETURN result;\nEND$$\n\nDELIMITER ;\n\nDROP TABLE IF EXISTS `user`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!50503 SET character_set_client = utf8mb4 */;\nCREATE TABLE `user` (\n  `User_ID` varchar(20) NOT NULL DEFAULT '',\n  `name` varchar(100) DEFAULT NULL,\n  `fullname` varchar(100) DEFAULT NULL,\n  `password` varchar(100) NOT NULL DEFAULT 'root',\n  `email` varchar(50) NOT NULL DEFAULT '',\n  `phone` varchar(20) DEFAULT NULL,\n  `status` varchar(20) NOT NULL DEFAULT 'active',\n  `dateOfBirth` varchar(20) NOT NULL DEFAULT '',\n  `gender` varchar(20) NOT NULL DEFAULT '',\n  `profile_image` BLOB,\n  PRIMARY KEY (`User_ID`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;\n\nALTER TABLE `user` MODIFY COLUMN `profile_image` BLOB NULL;\n\nALTER TABLE user MODIFY COLUMN profile_image LONGBLOB;\n\n\n/*!40101 SET character_set_client = @saved_cs_client */;\n/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;\n\n/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;\n/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;\n/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;\n/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;\n/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;\n/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;\n/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;\n\n\n\n-- Dump completed on 2024-10-14 20:20:51\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/database.sql b/database.sql
+--- a/database.sql	(revision e71ac808726392e7fcd9b1cb2114c2d4a58767ba)
++++ b/database.sql	(date 1732327332337)
+@@ -1,190 +1,326 @@
+--- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
++-- phpMyAdmin SQL Dump
++-- version 5.2.1
++-- https://www.phpmyadmin.net/
+ --
+--- Host: 127.0.0.1    Database: library
+--- ------------------------------------------------------
+--- Server version	8.0.39
++-- Máy chủ: 127.0.0.1
++-- Thời gian đã tạo: Th10 19, 2024 lúc 12:59 PM
++-- Phiên bản máy phục vụ: 10.4.32-MariaDB
++-- Phiên bản PHP: 8.2.12
++
++SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
++START TRANSACTION;
++SET time_zone = "+00:00";
++
+ 
+ /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+ /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+ /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+-/*!50503 SET NAMES utf8 */;
+-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+-/*!40103 SET TIME_ZONE='+00:00' */;
+-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
++/*!40101 SET NAMES utf8mb4 */;
+ 
+ --
+--- Table structure for table `admin`
++-- Cơ sở dữ liệu: `library`
+ --
+ 
+-create database library;
+-use library;
++USE library;
++
++DELIMITER $$
++--
++-- Các hàm
++--
++CREATE DEFINER=`root`@`localhost` FUNCTION `generateRandomID` (`len` INT) RETURNS VARCHAR(255) CHARSET utf8mb4 COLLATE utf8mb4_general_ci DETERMINISTIC BEGIN
++    DECLARE chars VARCHAR(62) DEFAULT 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
++    DECLARE result VARCHAR(255) DEFAULT '';
++    DECLARE i INT DEFAULT 0;
++
++    WHILE i < len DO
++            SET result = CONCAT(result, SUBSTRING(chars, FLOOR(1 + RAND() * CHAR_LENGTH(chars)), 1));
++            SET i = i + 1;
++        END WHILE;
++
++    RETURN result;
++END$$
++
++DELIMITER ;
+ 
+-DROP TABLE IF EXISTS `admin`;
+-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+-/*!50503 SET character_set_client = utf8mb4 */;
++-- --------------------------------------------------------
++
++--
++-- Cấu trúc bảng cho bảng `admin`
++--
++
+ CREATE TABLE `admin` (
+-  `admin_ID` varchar(10) NOT NULL DEFAULT '',
+-  `password` varchar(100) NOT NULL DEFAULT 'root',
+-  PRIMARY KEY (`admin_ID`)
+-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-/*!40101 SET character_set_client = @saved_cs_client */;
++                         `admin_ID` varchar(10) NOT NULL DEFAULT '',
++                         `password` varchar(100) NOT NULL DEFAULT 'root'
++) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
++
++-- --------------------------------------------------------
+ 
+ --
+--- Table structure for table `author`
++-- Cấu trúc bảng cho bảng `author`
+ --
+ 
+-DROP TABLE IF EXISTS `author`;
+-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+-/*!50503 SET character_set_client = utf8mb4 */;
+ CREATE TABLE `author` (
+-  `au_ID` varchar(20) DEFAULT '',
+-  `tacpham` text,
+-  `name` varchar(255) NOT NULL DEFAULT '',
+-  `tieusu` text,
+-  PRIMARY KEY (`name`)
+-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-/*!40101 SET character_set_client = @saved_cs_client */;
++                          `au_ID` varchar(20) DEFAULT '',
++                          `tacpham` text DEFAULT NULL,
++                          `name` varchar(255) NOT NULL DEFAULT '',
++                          `tieusu` text DEFAULT NULL
++) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
++
++-- --------------------------------------------------------
+ 
+ --
+--- Table structure for table `books`
++-- Cấu trúc bảng cho bảng `books`
+ --
+ 
+-DROP TABLE IF EXISTS `books`;
+-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+-/*!50503 SET character_set_client = utf8mb4 */;
+ CREATE TABLE `books` (
+-  `title` varchar(255) DEFAULT NULL,
+-  `amount` int DEFAULT '100',
+-  `description` text,
+-  `location` varchar(255) DEFAULT NULL,
+-  `yearPublic` date DEFAULT NULL,
+-  `price` int DEFAULT NULL,
+-  `kind` varchar(50) DEFAULT NULL,
+-  `book_ID` varchar(20) NOT NULL,
+-  `author` varchar(20) NOT NULL,
+-  PRIMARY KEY (`book_ID`),
+-  KEY `author` (`author`),
+-  CONSTRAINT `books_ibfk_1` FOREIGN KEY (`author`) REFERENCES `author` (`name`)
+-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-/*!40101 SET character_set_client = @saved_cs_client */;
++                         `title` varchar(255) DEFAULT NULL,
++                         `amount` int(11) DEFAULT 100,
++                         `description` text DEFAULT NULL,
++                         `location` varchar(255) DEFAULT NULL,
++                         `yearPublic` year(4) DEFAULT NULL,
++                         `price` int(11) DEFAULT NULL,
++                         `kind` varchar(50) DEFAULT NULL,
++                         `book_ID` varchar(20) NOT NULL,
++                         `author` varchar(255) NOT NULL,
++                         `image` varchar(255) NOT NULL,
++                         `addDate` datetime NOT NULL DEFAULT current_timestamp,
++                         `viewCount` int(11) NOT NULL DEFAULT 0
++) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
++
++--
++-- Đang đổ dữ liệu cho bảng `books`
++--
++INSERT INTO books (title, amount, description, location, yearPublic, price, kind, book_ID, author, image, addDate, viewCount) VALUES
++                                                                                                                                  ('The Distinction of Fiction', 10, 'Winner of the Aldo and Jeanne Scaglione Prize for Comparative Literary Studies from the Modern Language Association Winner of the Modern Language Association\'s Aldo and Jeanne Scaglione Prize for Comparative Literary Studies The border between fact and fiction has been trespassed so often it seems to be a highway. Works of history that include fictional techniques are usually held in contempt, but works of fiction that include history are among the greatest of classics. Fiction claims to be able to convey its own unique kinds of truth. But unless a reader knows in advance whether a narrative is fictional or not, judgment can be frustrated and confused. In The Distinction of Fiction, Dorrit Cohn argues that fiction does present specific clues to its fictionality, and its own justifications. Indeed, except in cases of deliberate deception, fiction achieves its purposes best by exercising generic conventions that inform the reader that it is fiction. Cohn tests her conclusions against major narrative works, including Proust\'s A la Recherche du temps perdu, Mann\'s Death in Venice, Tolstoy\'s War and Peace, and Freud\'s case studies. She contests widespread poststructuralist views that all narratives are fictional. On the contrary, she separates fiction and nonfiction as necessarily distinct, even when bound together. An expansion of Cohn\'s Christian Gauss lectures at Princeton and the product of many years of labor and thought, The Distinction of Fiction builds on narratological and phenomenological theories to show that boundaries between fiction and history can be firmly and systematically explored.', 'somewhere in library', '2015', 200, NULL, '1', 'Dorrit Cohn', 'http://books.google.com/books/content?id=5Zpq0Rmm7hQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', '2024-11-11', 37),
++                                                                                                                                  ('John Fowles\'s Fiction and the Poetics of Postmodernism', 10, 'Salami presents, for instance, a critique of the self-conscious narrative of the diary form in The Collector, the intertextual relations of the multiplicity of voices, the problems of subjectivity, the reader\'s position, the politics of seduction, ideology, and history in The Magus and The French Lieutenant\'s Woman. The book also analyzes the ways in which Fowles uses and abuses the short-story genre, in which enigmas remain enigmatic and the author disappears to leave the characters free to construct their own texts. Salami centers, for example, on A Maggot, which embodies the postmodernist technique of dialogical narrative, the problem of narrativization of history, and the explicitly political critique of both past and present in terms of social and religious dissent. These political questions are also echoed in Fowles\'s nonfictional book The Aristos, in which he strongly rejects the totalization of narratives and the materialization of society.', 'somewhere in library', '2015', 200, 'Language Arts & Disciplines', '23', 'Mahmoud Salami', 'http://books.google.com/books/content?id=EquizXeXb3kC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', '2024-11-13', 62),
++                                                                                                                                  ('Handbook of Formative Assessment in the Disciplines', 10, 'The Handbook of Formative Assessment in the Disciplines meaningfully addresses current developments in the field, offering a unique and timely focus on domain dependency. Building from an updated definition of formative assessment, the book covers the integration of measurement principles into practice; the operationalization of formative assessment within specific domains, beyond generic strategies; evolving research directions including student involvement and self-regulation; and new approaches to the challenges of incorporating formative assessment training into pre-service and in-service educator training. As supporters of large-scale testing programs increasingly consider the potential of formative assessments to improve teaching and learning, this handbook advances the subject through novel frameworks, intersections of theory, research, and practice, and attention to discernible disciplines. Written for instructors, graduate students, researchers, and policymakers, each chapter provides expert perspectives on the procedures and evaluations that enable teachers to adapt teaching and learning in-process toward student achievement.', 'somewhere in library', '2015', 200, 'Education', '24', 'Heidi L. Andrade, Randy E. Bennett, Gregory J. Cizek', 'http://books.google.com/books/content?id=jj73DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', '2024-11-13', 8),
++                                                                                                                                  ('Fitzgerald\'s Craft of Short Fiction', 10, 'Normal0falsefalsefalseMicrosoftInternetExplorer4 Fitzgerald\'s Craft of Short Fiction offers the first comprehensive study of the four collections of short stories that F. Scott Fitzgerald (1896-1940) prepared for publication during his lifetime: Flappers and Philosophers (1920), Tales of the Jazz Age (1922), All the Sad Young Men (1926), and Taps at Reveille (1935). These authorized collections--which include works from the entire range of Fitzgerald\'s career, from his undergraduate days at Princeton to his final contributions to Esquire magazine--provide an ideal overview of his development as a short story writer. Originally published in 1989, this volume draws upon Fitzgerald\'s copious personal correspondence, biographical studies, and all available criticism, and analyzes how Fitzgerald perceived his achievements as a writer of short fiction from both artistic and commercial standpoints. Petry pays close attention to the individual stories, exploring how Fitzgerald\'s growing technical expertise and the evolution of his themes reflect changes in his personal life.', 'somewhere in library', '2015', 200, 'Literary Criticism', '25', 'Alice Hall Petry', 'http://books.google.com/books/content?id=gSVfmIScfJIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', '2024-11-13', 12),
++                                                                                                                                  ('New Boundaries in Political Science Fiction', 10, 'Surveying the vast expanse of politically-charged science fiction, this book posits that the defining dilemma for these tales rests in whether identity and meaning germinate from progressive linear changes or progress, or from a continuous return to primitive realities of war, death and the competition for survival.', 'somewhere in library', '2015', 200, 'Fiction', '26', 'Donald M. Hassler, Clyde Wilcox', 'http://books.google.com/books/content?id=-8iD6iuO-iAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', '2024-11-13', 22),
++                                                                                                                                  ('The Art of Fiction', 10, NULL, 'somewhere in library', '2015', 200, 'Fiction', '27', 'Walter Besant', 'http://books.google.com/books/content?id=QkRMAAAAMAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', '2024-11-14', 2),
++                                                                                                                                  ('The Supernatural in Short Fiction of the Americas', 10, 'The continuing cultural encounters of the Americas, between European and indigenous cultures, and between scientific materialism and premodern supernaturalism, have originated new narrative forms. While supernatural short fiction of the Americas belongs to the broad category of the fantastic, which is generally approached synchronically, reading audiences of the past 200 years have shifted their beliefs about the supernatural several times. While nineteenth-century readers understood science as real and the supernatural as imaginary, modern audiences recognize both as inaccurate, a shift which allows authors of supernatural fiction to celebrate premodern indigenous beliefs which were once disdained by a materialist culture. This book situates supernatural short fiction of the Americas within the changing cultural and epistemological contexts of the last 200 years and explores how authors have drawn upon a wealth of indigenous traditions. The book begins with a discussion of theories of the supernatural and the fantastic. It then looks at some of the first encounters of European and Native American supernatural beliefs and points to the common elements of these early traditions. The volume next focuses on American literature of the nineteenth century, which has a complex fusion of materialist biases and metaphysical fascinations. The final portion of the book gives greater attention to Spanish-American literature and the blending of the supernatural with attitudes of nostalgia and uncertainty.', 'somewhere in library', '2015', 200, 'Literary Criticism', '28', 'Dana Del George', 'http://books.google.com/books/content?id=duPEEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', '2024-11-14', 5),
++                                                                                                                                  ('A Companion to Sensation Fiction', 10, 'This comprehensive collection offers a complete introduction to one of the most popular literary forms of the Victorian period, its key authors and works, its major themes, and its lasting legacy. Places key authors and novels in their cultural and historical context Includes studies of major topics such as race, gender, melodrama, theatre, poetry, realism in fiction, and connections to other art forms Contributions from top international scholars approach an important literary genre from a range of perspectives Offers both a pre and post-history of the genre to situate it in the larger tradition of Victorian publishing and literature Incorporates coverage of traditional research and cutting-edge contemporary scholarship', 'somewhere in library', '2015', 200, 'Literary Criticism', '29', 'Pamela K. Gilbert', 'http://books.google.com/books/content?id=1M_XknhqA-MC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', '2024-11-15', 26),
++                                                                                                                                  ('A Companion to Sensation Fiction', 10, 'This comprehensive collection offers a complete introduction to one of the most popular literary forms of the Victorian period, its key authors and works, its major themes, and its lasting legacy. Places key authors and novels in their cultural and historical context Includes studies of major topics such as race, gender, melodrama, theatre, poetry, realism in fiction, and connections to other art forms Contributions from top international scholars approach an important literary genre from a range of perspectives Offers both a pre and post-history of the genre to situate it in the larger tradition of Victorian publishing and literature Incorporates coverage of traditional research and cutting-edge contemporary scholarship', 'somewhere in library', '2015', 200, 'Literary Criticism', '30', 'Pamela K. Gilbert', 'http://books.google.com/books/content?id=1M_XknhqA-MC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', '2024-11-15', 1),
++                                                                                                                                  ('A Companion to Sensation Fiction', 10, 'This comprehensive collection offers a complete introduction to one of the most popular literary forms of the Victorian period, its key authors and works, its major themes, and its lasting legacy. Places key authors and novels in their cultural and historical context Includes studies of major topics such as race, gender, melodrama, theatre, poetry, realism in fiction, and connections to other art forms Contributions from top international scholars approach an important literary genre from a range of perspectives Offers both a pre and post-history of the genre to situate it in the larger tradition of Victorian publishing and literature Incorporates coverage of traditional research and cutting-edge contemporary scholarship', 'somewhere in library', '2015', 200, 'Literary Criticism', '31', 'Pamela K. Gilbert', 'http://books.google.com/books/content?id=1M_XknhqA-MC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', '2024-11-15', 1),
++                                                                                                                                  ('Schools of Fiction', 10, 'In Schools of Fiction, Morgan Day Frank considers a bizarre but integral feature of the modern educational experience: that teachers enthusiastically teach literary works that have terrible things to say about school. From Ishmael\'s insistence in Herman Melville\'s Moby-Dick that a whale-ship was my Yale College and my Harvard, to the unnamed narrator\'s expulsion from his southern college in Ralph Ellison\'s Invisible Man, the most frequently taught books in the English curriculum tend to be those that cast the school as a stultifying and inhumane social institution. Why have educators preferred the anti-scholasticism of the American romance tradition to the didacticism of sentimentalists? Why have they organized African American literature as a discursive category around texts that despaired of the post-Reconstruction institutional system? Why did they start teaching novels, that literary form whose very nature, in Mikhail Bakhtin\'s words, is not canonic? Reading literature in class is a paradoxical undertaking that, according to Day Frank, has proved foundational to the development of American formal education over the last two centuries, allowing the school to claim access to a social world external to itself. By drawing attention to the transformative effect literature has had on the school, Schools of Fiction challenges some of our core assumptions about the nature of cultural administration and the place of English in the curriculum. The educational system, Day Frank argues, has depended historically on the cultural objects whose existence it is ordinarily thought to govern and the academic subject it is ordinarily thought to have marginalized.', 'somewhere in library', '2015', 200, 'Education', '32', 'Morgan Day Frank', 'http://books.google.com/books/content?id=PvegEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', '2024-11-15', 1),
++                                                                                                                                  ('Genesis: History, Fiction, or Neither?', 10, 'The nature of the Genesis narrative has sparked much debate among Christians. This book introduces three predominant interpretive genres and their implications for biblical understanding. Each contributor identifies their position on the genre or genres of Genesis, chapters 1-11, addresses why their interpretation is respectful of and appropriate to the text, and contributes examples of its application to a variety of passages. The positions include: Theological History(Genesis can be taken seriously as both history and theology) – defended by James K. Hoffmeier. Proto-History (the early Genesis narratives consist of a variety of literary genres; which, nonetheless, do not obscure the book\'s theological teaching) – defended by Gordon J. Wenham. Ancient Historiography (an understanding of Genesis that seeks to reconcile the limitations of its human authors with the nature of it being the Word of God) defended by Kenton L. Sparks. General editor and Old Testament scholar Charles Halton explains the importance of genre and provides historical insight in the introduction and helpful summaries of each position in the conclusion. In the reader-friendly Counterpoints format, this book helps readers to reflect on the strengths and weaknesses of each view and draw informed conclusions in this much-debated topic.', 'somewhere in library', '2015', 200, 'Religion', '33', 'James K. Hoffmeier, Gordon John Wenham, Kenton Sparks', 'http://books.google.com/books/content?id=nfN9BAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api', '2024-11-15', 1);
++
++-- --------------------------------------------------------
+ 
+ --
+--- Table structure for table `borrow`
++-- Cấu trúc bảng cho bảng `borrow`
+ --
+ 
+-DROP TABLE IF EXISTS `borrow`;
+-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+-/*!50503 SET character_set_client = utf8mb4 */;
+ CREATE TABLE `borrow` (
+-  `book_ID` varchar(20) NOT NULL DEFAULT '',
+-  `endDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+-  `dueDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+-  `User_ID` varchar(20) NOT NULL,
+-  `status` varchar(20) DEFAULT NULL,
+-  `overTime` varchar(10) DEFAULT NULL,
+-  KEY `User_ID` (`User_ID`),
+-  KEY `book_ID` (`book_ID`),
+-  CONSTRAINT `borrow_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`),
+-  CONSTRAINT `borrow_ibfk_2` FOREIGN KEY (`book_ID`) REFERENCES `books` (`book_ID`)
+-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-/*!40101 SET character_set_client = @saved_cs_client */;
++                          `book_ID` varchar(20) NOT NULL,
++                          `borrowDate` datetime NOT NULL DEFAULT current_timestamp,
++                          `backDate` datetime NOT NULL DEFAULT current_timestamp,
++                          `User_ID` varchar(20) NOT NULL,
++                          `status` varchar(20) DEFAULT NULL,
++                          `overTime` varchar(10) DEFAULT NULL
++) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
++
++--
++-- for testing purpose
++--
++INSERT INTO borrow (book_ID, borrowDate, backDate, User_ID, status, overTime) VALUES
++                                                                                  ('1', '2024-11-01 10:00:00', '2024-12-01 10:00:00', 'bnzNlV6rpM', 'borrowed', 'no'),
++                                                                                  ('23', '2024-11-05 11:00:00', '2024-12-05 11:00:00', 'VIlmTripsi', 'borrowed', 'yes'),
++                                                                                  ('24', '2024-11-10 09:30:00', '2024-12-10 09:30:00', 'bnzNlV6rpM', 'returned', 'no'),
++                                                                                  ('25', '2024-11-15 14:00:00', '2024-12-15 14:00:00', 'Vvyvawn0VJ', 'borrowed', 'no'),
++                                                                                  ('26', '2024-11-20 16:00:00', '2024-12-20 16:00:00', 'vSLEwrImsp', 'borrowed', 'yes');
++
++-- --------------------------------------------------------
+ 
+ --
+--- Table structure for table `fine`
++-- Cấu trúc bảng cho bảng `fine`
+ --
+ 
+-DROP TABLE IF EXISTS `fine`;
+-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+-/*!50503 SET character_set_client = utf8mb4 */;
+ CREATE TABLE `fine` (
+-  `fine_ID` int NOT NULL AUTO_INCREMENT,
+-  `dueDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+-  `endDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+-  `reason` varchar(255) DEFAULT NULL,
+-  `amount` int DEFAULT NULL,
+-  `status` varchar(20) NOT NULL DEFAULT 'done',
+-  `User_ID` varchar(20) DEFAULT NULL,
+-  PRIMARY KEY (`fine_ID`),
+-  KEY `User_ID` (`User_ID`),
+-  CONSTRAINT `fine_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`)
+-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-/*!40101 SET character_set_client = @saved_cs_client */;
++                        `fine_ID` int(11) NOT NULL,
++                        `dueDate` datetime NOT NULL DEFAULT current_timestamp(),
++                        `endDate` datetime NOT NULL DEFAULT current_timestamp(),
++                        `reason` varchar(255) DEFAULT NULL,
++                        `amount` int(11) DEFAULT NULL,
++                        `status` varchar(20) NOT NULL DEFAULT 'done',
++                        `User_ID` varchar(20) DEFAULT NULL
++) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
++
++-- --------------------------------------------------------
++
++--
++-- Cấu trúc bảng cho bảng `highlightbook`
++--
++
++CREATE TABLE `highlightbook` (
++                                 `user_ID` varchar(20) NOT NULL,
++                                 `book_ID` varchar(20) NOT NULL
++) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+ 
+ --
+--- Table structure for table `nhaxb`
++-- Đang đổ dữ liệu cho bảng `highlightbook`
+ --
+ 
+-DROP TABLE IF EXISTS `nhaxb`;
+-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+-/*!50503 SET character_set_client = utf8mb4 */;
++INSERT INTO `highlightbook` (`user_ID`, `book_ID`) VALUES
++    ('bnzNlV6rpM', '26');
++
++-- --------------------------------------------------------
++
++--
++-- Cấu trúc bảng cho bảng `nhaxb`
++--
++
+ CREATE TABLE `nhaxb` (
+-  `name` varchar(255) NOT NULL DEFAULT '',
+-  `address` varchar(255) DEFAULT NULL,
+-  `contact` varchar(255) NOT NULL DEFAULT '',
+-  PRIMARY KEY (`name`)
+-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-/*!40101 SET character_set_client = @saved_cs_client */;
++                         `name` varchar(255) NOT NULL DEFAULT '',
++                         `address` varchar(255) DEFAULT NULL,
++                         `contact` varchar(255) NOT NULL DEFAULT ''
++) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
++
++-- --------------------------------------------------------
+ 
+ --
+--- Table structure for table `user`
++-- Cấu trúc bảng cho bảng `recentbooks`
+ --
+ 
+-DELIMITER $$
++CREATE TABLE `recentbooks` (
++                               `user_ID` varchar(20) NOT NULL,
++                               `book_ID` varchar(20) NOT NULL,
++                               `time` timestamp NOT NULL DEFAULT current_timestamp()
++) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+ 
+-CREATE FUNCTION generateRandomID(length INT) RETURNS VARCHAR(255)
+-    DETERMINISTIC
+-BEGIN
+-    DECLARE chars VARCHAR(62) DEFAULT '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+-    DECLARE result VARCHAR(255) DEFAULT '';
+-    DECLARE i INT DEFAULT 0;
++--
++-- Đang đổ dữ liệu cho bảng `recentbooks`
++--
+ 
+-    WHILE i < length DO
+-            SET result = CONCAT(result, SUBSTRING(chars, FLOOR(1 + RAND() * 62), 1));
+-            SET i = i + 1;
+-        END WHILE;
++INSERT INTO `recentbooks` (`user_ID`, `book_ID`, `time`) VALUES
++                                                             ('bnzNlV6rpM', 29, '2024-11-19 04:10:59'),
++                                                             ('bnzNlV6rpM', 26, '2024-11-18 18:25:25'),
++                                                             ('bnzNlV6rpM', 24, '2024-11-18 17:48:28');
+ 
+-    RETURN result;
+-END$$
++-- --------------------------------------------------------
+ 
+-DELIMITER ;
++--
++-- Cấu trúc bảng cho bảng `user`
++--
+ 
+-DROP TABLE IF EXISTS `user`;
+-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+-/*!50503 SET character_set_client = utf8mb4 */;
+ CREATE TABLE `user` (
+-  `User_ID` varchar(20) NOT NULL DEFAULT '',
+-  `name` varchar(100) DEFAULT NULL,
+-  `fullname` varchar(100) DEFAULT NULL,
+-  `password` varchar(100) NOT NULL DEFAULT 'root',
+-  `email` varchar(50) NOT NULL DEFAULT '',
+-  `phone` varchar(20) DEFAULT NULL,
+-  `status` varchar(20) NOT NULL DEFAULT 'active',
+-  `dateOfBirth` varchar(20) NOT NULL DEFAULT '',
+-  `gender` varchar(20) NOT NULL DEFAULT '',
+-  `profile_image` BLOB,
+-  PRIMARY KEY (`User_ID`)
+-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
++                        `User_ID` varchar(20) NOT NULL DEFAULT '',
++                        `email` varchar(50) NOT NULL DEFAULT '',
++                        `name` varchar(100) DEFAULT NULL,
++                        `fullname` varchar(100) DEFAULT NULL,
++                        `password` varchar(100) NOT NULL DEFAULT 'root',
++                        `phone` varchar(20) NOT NULL DEFAULT ' ',
++                        `status` varchar(20) NOT NULL DEFAULT 'active',
++                        `dateOfBirth` varchar(20) NOT NULL DEFAULT ' ',
++                        `gender` varchar(20) NOT NULL DEFAULT ' '
++) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
++
++--
++-- Đang đổ dữ liệu cho bảng `user`
++--
++
++INSERT INTO `user` (`User_ID`, `email`, `name`, `password`, `phone`) VALUES
++                                                                         ('bnzNlV6rpM', 'yen@gmail.com', 'tuyen', '12345a@A', '12345678'),
++                                                                         ('g6FpCKvVZ9', 'tuyen@gmail.com', 'tuyen', '12345', '000000000'),
++                                                                         ('jjIAmDa9oQ', 'tuyen@gmail.com', 'tuyen', '12345', '123456789'),
++                                                                         ('L2ybub8j3u', 'tyen123@gmail.com', 'tuyen', '12345', '123456789'),
++                                                                         ('lMMWPH0359', 'tuyencute@gmail.com', 'tuyen23', 'Tuyen123@', '0123456789'),
++                                                                         ('rZ7j9POdmq', 'tyen', 'tyen123', 'ngtyen123@gmail.com', '03344556677'),
++                                                                         ('VIlmTripsi', 'tuyen123@gmail.com', 'tuyenne', 'Tuyen@123', '0000000000'),
++                                                                         ('vSLEwrImsp', 'tuyen@gmail.com', 'tuyen', '123456', '12345678'),
++                                                                         ('Vvyvawn0VJ', 'tuyen@gmail.com', 'tuyen1', '12345', '123456789');
++
++--
++-- Chỉ mục cho các bảng đã đổ
++--
+ 
+-ALTER TABLE `user` MODIFY COLUMN `profile_image` BLOB NULL;
++--
++-- Chỉ mục cho bảng `admin`
++--
++ALTER TABLE `admin`
++    ADD PRIMARY KEY (`admin_ID`);
+ 
+-ALTER TABLE user MODIFY COLUMN profile_image LONGBLOB;
++--
++-- Chỉ mục cho bảng `author`
++--
++ALTER TABLE `author`
++    ADD PRIMARY KEY (`name`);
+ 
++--
++-- Chỉ mục cho bảng `books`
++--
++ALTER TABLE `books`
++    ADD PRIMARY KEY (`book_ID`);
+ 
+-/*!40101 SET character_set_client = @saved_cs_client */;
+-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
++--
++-- Chỉ mục cho bảng `borrow`
++--
++ALTER TABLE `borrow`
++    ADD KEY `User_ID` (`User_ID`),
++    ADD KEY `fk_book_id` (`book_ID`);
+ 
+-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
++--
++-- Chỉ mục cho bảng `fine`
++--
++ALTER TABLE `fine`
++    ADD PRIMARY KEY (`fine_ID`),
++    ADD KEY `User_ID` (`User_ID`);
++
++--
++-- Chỉ mục cho bảng `highlightbook`
++--
++ALTER TABLE `highlightbook`
++    ADD KEY `fk_user_id` (`user_ID`),
++    ADD KEY `first` (`book_ID`);
++
++--
++-- Chỉ mục cho bảng `nhaxb`
++--
++ALTER TABLE `nhaxb`
++    ADD PRIMARY KEY (`name`);
++
++--
++-- Chỉ mục cho bảng `user`
++--
++ALTER TABLE `user`
++    ADD PRIMARY KEY (`User_ID`);
++
++ALTER TABLE user
++    ADD COLUMN profile_image LONGBLOB;
++
++--
++-- AUTO_INCREMENT cho bảng `fine`
++--
++ALTER TABLE `fine`
++    MODIFY `fine_ID` int(11) NOT NULL AUTO_INCREMENT;
++
++--
++-- Các ràng buộc cho các bảng đã đổ
++--
++
++--
++-- Các ràng buộc cho bảng `borrow`
++--
++ALTER TABLE `borrow`
++    ADD CONSTRAINT `borrow_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`),
++    ADD CONSTRAINT `fk_book_id` FOREIGN KEY (`book_ID`) REFERENCES `books` (`book_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
++
++--
++-- Các ràng buộc cho bảng `fine`
++--
++ALTER TABLE `fine`
++    ADD CONSTRAINT `fine_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`);
++
++--
++-- Các ràng buộc cho bảng `highlightbook`
++--
++ALTER TABLE `highlightbook`
++    ADD CONSTRAINT `first` FOREIGN KEY (`book_ID`) REFERENCES `books` (`book_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
++    ADD CONSTRAINT `fk_user_id` FOREIGN KEY (`user_ID`) REFERENCES `user` (`User_ID`);
++COMMIT;
++
+ /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+ /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+ /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+-
+ 
+-
+--- Dump completed on 2024-10-14 20:20:51
+-
++ALTER TABLE `borrow`
++    DROP FOREIGN KEY `borrow_ibfk_1`;
+\ No newline at end of file

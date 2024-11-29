@@ -1,0 +1,22 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_23_11_2024,_09_04_[Changes]" date="1732327469336" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_11_2024,_09_04_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 23/11/2024, 09:04 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/module-info.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/my_group_project/DatabaseConnection.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/my_group_project/Book.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/my_group_project/BookAPI.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/my_group_project/HelloController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/my_group_project/HelloApplication.class" />
+  </binary>
+</changelist>
