@@ -234,5 +234,4 @@ public class AdminHomeScene extends AdminMenuController {
             }
         }
     }
-
 }

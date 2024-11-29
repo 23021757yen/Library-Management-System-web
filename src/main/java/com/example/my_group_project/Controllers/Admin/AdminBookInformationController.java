@@ -76,7 +76,6 @@ public class AdminBookInformationController extends AdminHomeScene {
     @FXML
     public void initialize() {
         setFieldsEditable(false);
-
         searchTextField.setOnKeyReleased(event -> filterSearch());
     }
 
@@ -94,6 +93,7 @@ public class AdminBookInformationController extends AdminHomeScene {
 
     @FXML
     void editButtonOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         setFieldsEditable(true);
     }
 
@@ -129,6 +129,7 @@ public class AdminBookInformationController extends AdminHomeScene {
                 pstmt.executeUpdate();
 
                 System.out.println("Book information updated successfully.");
+                SoundPlay.playSound("/soundEffects/SEFE_Notification_Bell.wav");
                 setFieldsEditable(false);
 
             } catch (SQLException e) {
@@ -154,6 +155,7 @@ public class AdminBookInformationController extends AdminHomeScene {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Success");
                 alert.setHeaderText("Book has been successfully added.");
+                SoundPlay.playSound("/soundEffects/SEFE_Notification_Bell.wav");
                 alert.showAndWait();
                 changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
 
@@ -162,6 +164,7 @@ public class AdminBookInformationController extends AdminHomeScene {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setHeaderText("An error occurred while saving the book.");
+                SoundPlay.playSound("/soundEffects/SEFE_Pop.wav");
                 alert.showAndWait();
             }
         }
@@ -173,6 +176,7 @@ public class AdminBookInformationController extends AdminHomeScene {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm Delete");
         alert.setHeaderText("Are you sure you want to delete this user?");
+        SoundPlay.playSound("/soundEffects/SEFE_Notification_Bell.wav");
         alert.showAndWait().ifPresent(response -> {
             if (response == ButtonType.OK) {
                 deleteBookFromDatabase();
@@ -193,6 +197,7 @@ public class AdminBookInformationController extends AdminHomeScene {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Success");
                 alert.setHeaderText("Book has been successfully deleted.");
+                SoundPlay.playSound("/soundEffects/SEFE_SadMusic.wav");
                 alert.showAndWait();
 
                 changeScene("AdminHomeScene1.fxml", "AdminHomeScene1");
@@ -202,6 +207,7 @@ public class AdminBookInformationController extends AdminHomeScene {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("An error occurred while deleting the user.");
+            SoundPlay.playSound("/soundEffects/SEFE_Pop.wav");
             alert.showAndWait();
         }
     }
@@ -471,6 +477,7 @@ public class AdminBookInformationController extends AdminHomeScene {
 
     @FXML
     public void backButtonOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         super.changeScene("AdminHomeScene1.fxml","AdminHomeScene1" );
     }
 

@@ -3,6 +3,7 @@ import com.example.my_group_project.Controllers.Admin.AdminMenuController;
 import com.example.my_group_project.HelloApplication;
 
 import com.example.my_group_project.Controllers.BaseController;
+import com.example.my_group_project.SoundPlay;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,21 +20,25 @@ import java.util.List;
 public abstract class AdminMenuController extends BaseController {
     @FXML
     void homeScene1ButtonOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         super.changeScene("AdminHomeScene1.fxml","AdminHomeScene1");
     }
 
     @FXML
     void bookBorrowButtonOnAction(ActionEvent event) throws IOException {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         super.changeScene("AdminBorrowBook.fxml", "AdminBorrowBook");
     }
 
     @FXML
     void userManagementButtonOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         super.changeScene("AdminUserManagement.fxml", "AdminUserManagement");
     }
 
     @FXML
     void reportButtonOnAction(ActionEvent event) throws IOException {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         super.changeScene("AdminReport.fxml", "AdminReport");
     }
 
@@ -50,6 +55,4 @@ public abstract class AdminMenuController extends BaseController {
             event.consume();
         }
     }
-
-
 }

@@ -2,7 +2,7 @@ package com.example.my_group_project.Controllers.Admin;
 import com.example.my_group_project.Database.DatabaseConnection;
 
 
-
+import com.example.my_group_project.SoundPlay;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -29,12 +29,6 @@ public class AdminBookUserBorrowController extends AdminMenuController{
     private Label authorNameLabel;
 
     @FXML
-    private Button backButton;
-
-    @FXML
-    private Button bookBorrowButton;
-
-    @FXML
     private Label bookIdLabel;
 
     @FXML
@@ -56,25 +50,6 @@ public class AdminBookUserBorrowController extends AdminMenuController{
     @FXML
     private Label dateOfBirthLabel;
 
-
-    @FXML
-    private Button editButton;
-
-    @FXML
-    private Button homeScene1Button;
-
-    @FXML
-    private Button logOutButton;
-
-    @FXML
-    private TextField noteTextField;
-
-    @FXML
-    private Button reportButton;
-
-    @FXML
-    private Button saveButton;
-
     @FXML
     private Label statusLabel;
 
@@ -89,9 +64,6 @@ public class AdminBookUserBorrowController extends AdminMenuController{
 
     @FXML
     private ImageView userImage;
-
-    @FXML
-    private Button userManagementButton;
 
     @FXML
     private Label userNameLabel;
@@ -219,7 +191,7 @@ public class AdminBookUserBorrowController extends AdminMenuController{
 
     @FXML
     public void backButtonOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         super.changeScene("AdminHomeScene1.fxml","AdminHomeScene1" );
     }
-
 }
