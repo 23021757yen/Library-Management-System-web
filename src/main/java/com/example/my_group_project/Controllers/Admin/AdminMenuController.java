@@ -50,4 +50,6 @@ public abstract class AdminMenuController extends BaseController {
             event.consume();
         }
     }
+
+
 }

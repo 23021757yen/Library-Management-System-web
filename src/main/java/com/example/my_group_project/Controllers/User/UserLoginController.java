@@ -3,6 +3,7 @@ package com.example.my_group_project.Controllers.User;
 import com.example.my_group_project.Controllers.BaseController;
 import com.example.my_group_project.Database.DatabaseConnection;
 import com.example.my_group_project.Database.LoginDetail;
+import com.example.my_group_project.SoundPlay;
 import com.example.my_group_project.User.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -46,6 +47,7 @@ public class UserLoginController extends BaseController {
 
     @FXML
     void loginButtonOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_Bell.wav");
         super.changeScene("loginUser.fxml", "User Login");
     }
 

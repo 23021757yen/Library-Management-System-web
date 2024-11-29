@@ -1,7 +1,7 @@
 package com.example.my_group_project.Controllers.User;
 
 import com.example.my_group_project.Database.DatabaseConnection;
-import com.example.my_group_project.Report.Report;
+import com.example.my_group_project.Report;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

@@ -23,7 +23,7 @@ public class Book {
         this.id = bookID;
     }
 
-    public Book(String bookID, String title, String author, String imageURL, String description, String genre, int viewCount, int borrowCount) {
+    public Book(String bookID, String title, String author, String imageURL, String description, String genre, int viewCount, int borrowCount, int yearPublic) {
         this.id = bookID;
         this.title = title;
         this.author = author;
@@ -32,9 +32,10 @@ public class Book {
         this.genre = genre;
         this.viewCount = viewCount;
         this.borrowCount = borrowCount;
+        this.yearPublic = yearPublic;
     }
 
-    public Book(String bookID, String title, String author, String imageURL, String description, String genre, int viewCount) {
+    public Book(String bookID, String title, String author, String imageURL, String description, String genre, int viewCount, int yearPublic) {
         this.id = bookID;
         this.title = title;
         this.author = author;
@@ -42,6 +43,7 @@ public class Book {
         this.description = description;
         this.genre = genre;
         this.viewCount = viewCount;
+        this.yearPublic = yearPublic;
     }
 
     public Book(String bookID, String title, String author, int yearPublic, String genre, String description, String imageURL) {

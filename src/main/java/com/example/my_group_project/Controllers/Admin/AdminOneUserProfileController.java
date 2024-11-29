@@ -348,7 +348,7 @@ public class AdminOneUserProfileController extends AdminMenuController {
             preparedStatement.setString(3, userNameTextField.getText());
             preparedStatement.setString(4, userPhoneNumber.getText());
             preparedStatement.setString(5, userEmail.getText());
-            preparedStatement.setDate(6, java.sql.Date.valueOf(userDatePicker.getValue()));
+            preparedStatement.setDate(6, Date.valueOf(userDatePicker.getValue()));
             preparedStatement.setString(7, genderComboBox.getValue());
 
             if (selectedImageFile != null) {
@@ -490,4 +490,5 @@ public class AdminOneUserProfileController extends AdminMenuController {
     public void backButtonOnAction(ActionEvent event) {
         super.changeScene("AdminHomeScene1.fxml","AdminHomeScene1" );
     }
+
 }

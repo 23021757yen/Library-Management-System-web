@@ -5,212 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd609af7-8671-4d94-94d2-4ad427ee0efe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bookDatabase.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/highlightbook.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main - Shortcut.lnk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Book/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Book/BorrowInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Book/BorrowedBook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Book/RecentBook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Book/Searching/BookAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Book/Searching/BookRecommendation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Book/Searching/SearchCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/BookQuestion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/BookQuizGameController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/BookQuizStartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminBookInformationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminBookInformationPaneController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminBookUserBorrowController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminBorrowBookController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminBorrowBookPaneController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminHomePaneController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminHomeScene.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminLoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminOneUserProfileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminOneUserProfilePaneController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminReportController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminReportOneUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminReportPaneController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminUserManagementController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminUserManagementPaneController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/BaseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/PaginaTion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserBookProfileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserBookProfileHighlightController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserBookSearch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserConfirmPasswordController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserForgetPasswordController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserHighLightController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserHistoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserHomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserLoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserMoreInformationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserProfileUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserProfileUserFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserRegisterController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserReportPaneController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserSendEmailController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Database/BookInDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Database/DatabaseConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Database/LoginDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Database/TestInformation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Database/UserInDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Report/Report.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/SoundPlay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/User/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/buttoHoverv3.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/buttonChoose.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/buttonHide.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/buttonHover.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/buttonHoverDashboard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/buttonHoverv2.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/buttonText.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/AdminBookInformation.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/AdminBookInformationPane.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/AdminBookUserBorrow.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/AdminBook_UserBorrow.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/AdminBorrowBook.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/AdminBorrowBookPane.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/AdminHomePane.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/AdminHomeScene1.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/AdminHomeScene2.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/AdminHomeScene3.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/AdminOneUserProfile.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/AdminOneUserProfilePane.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/AdminReport.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/AdminReportOneUser.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/AdminReportPane.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/AdminUserManagement.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/AdminUserManagementPane.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/bookCard.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/bookProfileHighLight.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/bookQuizGame.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/bookQuizGameStart.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/bookTopCategory.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/categoryForm.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/categoryMenu.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/emailSend.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/forgetPassStage1.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/forgetPassStage2.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/highlightBook.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/history.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/home.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/moreInformation.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/profileUserForm.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/reportPane.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/my_group_project/searchBook.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/comboBox.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/custom.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/hBox.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/menuItem.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/pagination.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/Account-cuate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/Bibliophile-bro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/Booklover_cuate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/Company-cuate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/Enter_OTP_cuate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/Exciting_news_amico.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/Forgot password-cuate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/Stamp_collecting_bro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/Thinking face-bro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/Train-bro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/Train-rafiki.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/World-pana.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/background_.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/badge.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/book.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/bookBorrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/bookBorrow2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/bookLost.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/chat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/gamepad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/hide.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/idea.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/lArrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/logout.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/no_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/oldBook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/phone-call.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/rArrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/remember.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/remembered.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/picture/visible.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/questionsAndAnswers/answers.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/questionsAndAnswers/questions.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_AirHorn.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Alert.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_AngelsSinging.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Awwww.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_BadumTsss.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Bell.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_BellTransition.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_CartoonAccent.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_CartoonSound2.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Cash_Register_Catching.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Censor.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_ClockTicking.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Conspiracy Theory.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Crickets.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_CrowdClapping.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Cuckoo.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Denied.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_DramaticHorn.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Dreaming.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_DrumRoll.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_DunDunDun.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Fail.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Falling.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Fart.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Flashback.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_GlassBreaking.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Heartbeat.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_KidsCheering.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_MouseClick.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Notification_Bell.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Painful_Scream.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_PartyHorn.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Phone Ringing.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Pop.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Punch01.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Punch02.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Reloading.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Rewind.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_SadMusic.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Slap.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_SuperMario.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Suspense01.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_TakingPhotos.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Throw.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_ThugLife.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Typewriter.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Vinyl Scratch01.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Vinyl Scratch02.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Whoosh01.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Whoosh02.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Whoosh03.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Whoosh04.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Whoosh05.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Whoosh06.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Whoosh07.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Whoosh08.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Wow.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Wrong_Answer.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Yeehaaa.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/SEFE_Yeet.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/sefe_Suspense 02.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/sefe_Suspense 03.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Book/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Book/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Book/BorrowInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Book/BorrowInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Book/Searching/BookAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Book/Searching/BookAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/BookQuizGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/BookQuizGameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/BookQuizStartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/BookQuizStartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminBookUserBorrowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminBookUserBorrowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminBorrowBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminBorrowBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminHomeScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminHomeScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminOneUserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminOneUserProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminReportOneUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminReportOneUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminReportPaneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminReportPaneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserHistoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserMoreInformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserMoreInformationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserProfileUserFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserProfileUserFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserRegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserRegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserReportPaneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserReportPaneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserSendEmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/User/UserSendEmailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Database/BookInDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Database/BookInDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Report/Report.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/SoundPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/SoundPlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Book/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Book/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Book/BorrowInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Book/BorrowInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Book/Searching/BookAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Book/Searching/BookAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/BookQuizGameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/BookQuizGameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/BookQuizStartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/BookQuizStartController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/Admin/AdminBorrowBookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/Admin/AdminBorrowBookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/Admin/AdminReportController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/Admin/AdminReportController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/Admin/AdminReportOneUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/Admin/AdminReportOneUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/Admin/AdminReportPaneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/Admin/AdminReportPaneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserLoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserMoreInformationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserMoreInformationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserProfileUserFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserProfileUserFormController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserRegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserRegisterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserReportPaneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserReportPaneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserSendEmailController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserSendEmailController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserSendEmailController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserSendEmailController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Database/BookInDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Database/BookInDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Report/Report.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/SoundPlay.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/SoundPlay.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,8 +90,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/maianhpham/Documents/Library-Management-System-web",
+    "last_opened_file_path": "/Users/maianhpham/Documents/Zalo Received Files/My_Group_Project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -274,11 +114,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/my_group_project" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin" />
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources/com" />
+      <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -338,8 +178,9 @@
       <updated>1732631395498</updated>
       <workItem from="1732631396576" duration="19054000" />
       <workItem from="1732651194347" duration="51042000" />
-      <workItem from="1732837664804" duration="807000" />
-      <workItem from="1732845218242" duration="54000" />
+      <workItem from="1732837664804" duration="3898000" />
+      <workItem from="1732845399307" duration="7000" />
+      <workItem from="1732846858335" duration="1707000" />
     </task>
     <servers />
   </component>

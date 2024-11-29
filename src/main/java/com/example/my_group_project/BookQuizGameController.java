@@ -1,7 +1,7 @@
 package com.example.my_group_project;
-
 import com.example.my_group_project.Controllers.BaseController;
 import com.example.my_group_project.Controllers.User.UserMenuController;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -74,7 +74,7 @@ public class BookQuizGameController extends UserMenuController {
         }
         currentQuestionIndex = 0;
         score = 0;
-        scoreLabel.setText("Score: " + score);
+        scoreLabel.setText(String.valueOf(score));
         loadQuestion();
     }
 

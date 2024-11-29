@@ -1,10 +1,12 @@
 package com.example.my_group_project.Controllers.User;
+import com.example.my_group_project.SoundPlay;
 
 import com.example.my_group_project.Database.DatabaseConnection;
 import com.example.my_group_project.Database.TestInformation;
-import com.example.my_group_project.SoundPlay;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -80,6 +82,9 @@ public class UserProfileUserFormController extends UserMenuController {
         emailField.setEditable(edit);
         dateOfBirthPicker.setEditable(edit);
         genderBox.setDisable(!edit);
+
+        //uploadButton.setVisible(edit);
+        //uploadButton.setDisable(!edit);
     }
 
     @FXML
@@ -136,7 +141,7 @@ public class UserProfileUserFormController extends UserMenuController {
             preparedStatement.setString(2, usernameField.getText());
             preparedStatement.setString(3, phoneNumberField.getText());
             preparedStatement.setString(4, emailField.getText());
-            preparedStatement.setDate(5, java.sql.Date.valueOf(dateOfBirthPicker.getValue()));
+            preparedStatement.setDate(5, Date.valueOf(dateOfBirthPicker.getValue()));
             preparedStatement.setString(6, genderBox.getValue());
             System.out.print("3sdnajsncdc");
             if (selectedImageFile != null) {
@@ -154,7 +159,7 @@ public class UserProfileUserFormController extends UserMenuController {
                 }
             } else {
                 System.out.print("sdnajsncdc");
-                preparedStatement.setNull(7, java.sql.Types.BLOB);
+                preparedStatement.setNull(7, Types.BLOB);
             }
             preparedStatement.setString(8, userId);
 

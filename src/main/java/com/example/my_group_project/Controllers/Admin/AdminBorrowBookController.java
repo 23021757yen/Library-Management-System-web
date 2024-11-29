@@ -1,5 +1,6 @@
 package com.example.my_group_project.Controllers.Admin;
 import com.example.my_group_project.Database.BookInDatabase;
+import static com.example.my_group_project.Database.BookInDatabase.getBorrowedBookFromDatabase;
 import com.example.my_group_project.Book.BorrowedBook;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +11,10 @@ import javafx.scene.layout.*;
 
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +27,7 @@ import javafx.stage.Stage;
 public class AdminBorrowBookController extends AdminMenuController {
 
 
-    @FXML
+   @FXML
     private Button backButton;
 
     @FXML
@@ -176,9 +181,9 @@ public class AdminBorrowBookController extends AdminMenuController {
                         bookHBox.setStyle("-fx-background-color: #ffffff;");
                     }
                 });
-                bookHBox.setOnMouseClicked(event -> {
-                    showBook(borrowBookPane.getBookId(), borrowBookPane.getUserId());
-                });
+                /*bookHBox.setOnMouseClicked(event -> {
+                    showUser(userManagementPane.getUserId());
+                });*/
                 vBox.getChildren().add(stackPane);
                 index++;
             } catch (IOException e) {

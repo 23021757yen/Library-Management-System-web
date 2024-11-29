@@ -28,7 +28,7 @@ public class BookInDatabase {
     // Create - Method to insert a book into the database
     public static void insertBook(Book book) throws SQLException {
         if (!isBookInDatabase(book)) {  // Check if the book already exists in the database
-            String sql = "INSERT INTO book (bookID, title, author, imageURL, description, genre, viewCount, borrowCount) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO book (bookID, title, author, imageURL, description, genre, viewCount, borrowCount, yearPublic) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             try (Connection conn = DatabaseConnection.getConnection();
                  PreparedStatement pstmt = conn.prepareStatement(sql)) {
                 pstmt.setString(1, book.getId());
@@ -39,6 +39,7 @@ public class BookInDatabase {
                 pstmt.setString(6, book.getGenre());
                 pstmt.setInt(7, book.getViewCount());
                 pstmt.setInt(8, book.getBorrowCount());
+                pstmt.setInt(9, book.getYearPublic());
                 pstmt.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -303,7 +304,8 @@ public class BookInDatabase {
                         resultSet.getString("imageURL"),
                         resultSet.getString("description"),
                         resultSet.getString("genre"),
-                        resultSet.getInt("viewCount")));
+                        resultSet.getInt("viewCount"),
+                        resultSet.getInt("yearPublic")));
             }
         } catch (SQLException e) {
             e.printStackTrace();

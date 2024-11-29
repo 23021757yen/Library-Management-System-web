@@ -1,5 +1,6 @@
 package com.example.my_group_project.Book;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
 public class BorrowInfo {

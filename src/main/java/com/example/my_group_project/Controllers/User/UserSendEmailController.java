@@ -1,4 +1,5 @@
 package com.example.my_group_project.Controllers.User;
+import com.example.my_group_project.SoundPlay;
 
 import com.example.my_group_project.Controllers.BaseController;
 import javafx.event.ActionEvent;
@@ -79,7 +80,7 @@ public class UserSendEmailController extends BaseController {
 
     @FXML
     private void nextButtonOnAction(ActionEvent event) {
-        //SoundPlay.playSound("/soundEffects/SEFE_CartoonAccent.wav");
+        SoundPlay.playSound("/soundEffects/SEFE_CartoonAccent.wav");
         if (verifyOTP(otpcode.getText(), OTPcode)) {
             super.changeScene("forgetPassStage2.fxml", "Change password");
         }
@@ -87,7 +88,7 @@ public class UserSendEmailController extends BaseController {
 
     @FXML
     private void clickEnter(KeyEvent event) {
-        //SoundPlay.playSound("/soundEffects/SEFE_CartoonAccent.wav");
+        SoundPlay.playSound("/soundEffects/SEFE_CartoonAccent.wav");
         if (event.getCode() == KeyCode.ENTER) {
             nextButtonOnAction(null);
         }

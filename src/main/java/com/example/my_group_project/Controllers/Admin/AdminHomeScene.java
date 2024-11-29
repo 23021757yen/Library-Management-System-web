@@ -53,7 +53,7 @@ public class AdminHomeScene extends AdminMenuController {
              PreparedStatement statement = connection.prepareStatement(sql)) {
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
-                    x1 = resultSet.getInt("total");
+                        x1 = resultSet.getInt("total");
                     //String viewCount= String.valueOf(resultSet.getInt("total"));
                     //numberOfBookText.setText(viewCount);
                 }

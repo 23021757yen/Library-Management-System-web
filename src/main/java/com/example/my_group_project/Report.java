@@ -1,4 +1,4 @@
-package com.example.my_group_project.Report;
+package com.example.my_group_project;
 
 public class Report {
     private String reportId;

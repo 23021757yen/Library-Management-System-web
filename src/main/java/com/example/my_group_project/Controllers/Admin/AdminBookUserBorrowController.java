@@ -183,16 +183,16 @@ public class AdminBookUserBorrowController extends AdminMenuController{
     private void saveButtonOnAction(ActionEvent event) {
         // Lấy dữ liệu từ TextField
         String borrowDateString = dateBorrow.getText();
-        // String returnDateString = dateReturn.getText();
+       // String returnDateString = dateReturn.getText();
 
         // Chuyển đổi String thành LocalDateTime
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
         LocalDateTime borrowDateTime = LocalDateTime.parse(borrowDateString, formatter);
-        // LocalDateTime returnDateTime = LocalDateTime.parse(returnDateString, formatter);
+       // LocalDateTime returnDateTime = LocalDateTime.parse(returnDateString, formatter);
 
         // Chuyển đổi LocalDateTime thành java.sql.Timestamp
-        java.sql.Timestamp sqlBorrowDate = java.sql.Timestamp.valueOf(borrowDateTime);
+        Timestamp sqlBorrowDate = Timestamp.valueOf(borrowDateTime);
         //java.sql.Timestamp sqlReturnDate = java.sql.Timestamp.valueOf(returnDateTime);
 
         String bookId = bookIdLabel.getText();

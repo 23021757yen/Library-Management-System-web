@@ -51,29 +51,27 @@ public class BookAPI {
                 String imageURL = (volume.getVolumeInfo().getImageLinks() != null) ? volume.getVolumeInfo().getImageLinks().getThumbnail() : null;
                 String description = (volume.getVolumeInfo().getDescription() != null) ? volume.getVolumeInfo().getDescription() : "No description available";
                 String genre = (volume.getVolumeInfo().getCategories() != null) ? String.join(", ", volume.getVolumeInfo().getCategories()) : "No genre available";
-                String publishedDate = volume.getVolumeInfo().getPublishedDate();
+                // Retrieve and parse the published date
+                String publishDate = volume.getVolumeInfo().getPublishedDate();
                 int yearPublic;
-                if (publishedDate != null) {
+                if (publishDate != null) {
                     try {
-                        LocalDate date = LocalDate.parse(publishedDate, DateTimeFormatter.ISO_DATE);
-                        yearPublic = date.getYear();
-                    } catch (DateTimeParseException e) {
-                        // Handle the case where the date is in a different format, e.g., just the year
-                        try {
-                            yearPublic = Integer.parseInt(publishedDate.substring(0, 4));
-                        } catch (NumberFormatException ex) {
-                            // If parsing fails, set a default value or handle the error accordingly
-                            yearPublic = -1; // Use -1 or another value to indicate an unknown year
-                            }
+                    LocalDate date = LocalDate.parse(publishDate, DateTimeFormatter.ISO_DATE);
+                    yearPublic = date.getYear(); } catch (DateTimeParseException e) {
+                    // Handle the case where the date is in a different format, e.g., just the year
+                    try {
+                        yearPublic = Integer.parseInt(publishDate.substring(0, 4));
+                    } catch (NumberFormatException ex) {
+                        // If parsing fails, set a default value or handle the error accordingly
+                        yearPublic = -1; // Use -1 or another value to indicate an unknown year
+                        }
                     }
                 } else {
                     // Default value if the publish date is not available
                     yearPublic = -1; // Use -1 or another value to indicate an unknown year
                 }
-
-                bookList.add(new Book(bookID, title, author, yearPublic, genre, description, imageURL));
+                bookList.add(new Book(bookID, title, author, imageURL, description, genre,0, yearPublic));
             }
-        }
-        return bookList;
+        } return bookList;
     }
 }
