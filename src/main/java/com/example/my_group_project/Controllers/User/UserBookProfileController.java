@@ -5,6 +5,7 @@ import com.example.my_group_project.Book.Searching.BookAPI;
 import com.example.my_group_project.Controllers.BaseController;
 import com.example.my_group_project.Database.BookInDatabase;
 import com.example.my_group_project.Database.DatabaseConnection;
+import com.example.my_group_project.SoundPlay;
 import com.example.my_group_project.User.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -84,6 +85,7 @@ public class UserBookProfileController extends UserMenuController {
                 if (showAlert("Hoi lai", "Ban co muon huy luu sach khong")) {
                     try {
                         BookInDatabase.deleteBook(currentBook, "DELETE FROM highlightbook WHERE userID = ? AND bookID = ?");
+                        SoundPlay.playSound("/soundEffects/SEFE_Painful_Scream.wav");
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -99,6 +101,7 @@ public class UserBookProfileController extends UserMenuController {
                 highlightImage.setImage(lateImage);
                 highlightBook();
                 UserHomeController.showIntro("Ban da luu sach thanh cong!", getMainStage());
+                SoundPlay.playSound("/soundEffects/SEFE_Bell.wav");
             }
         } else {
             System.out.println("Không có ảnh hiển thị");
@@ -132,7 +135,7 @@ public class UserBookProfileController extends UserMenuController {
             } catch (IllegalArgumentException e) {
                 URL defaultImageUrl = UserBookProfileController.class.getResource("/picture/no_image.png");
                 if (defaultImageUrl != null) {
-                    System.out.println("Dmdmdmdmdmdmdmdmdm");
+                    System.out.println("Dmdmdmdmdmdmdmdmdm"); //em xin loi bon em stress qua aj :((
                     imageView.setImage(new Image(defaultImageUrl.toExternalForm()));
                 }
             }
@@ -195,6 +198,7 @@ public class UserBookProfileController extends UserMenuController {
         }
         if (UserHistoryController.getClickedBooksFromDatabase().contains(currentBook)) {
             showIntro("Ban da muon sach nay", getMainStage());
+            SoundPlay.playSound("/soundEffects/SEFE_Pop.wav");
             return;
         }
         if (BaseController.showAlert("Thong bao", "Ban co muon muon sach nay khong")) {
@@ -219,6 +223,7 @@ public class UserBookProfileController extends UserMenuController {
             }
 
             UserHomeController.showIntro("Ban da muon sach thanh cong", getMainStage());
+            SoundPlay.playSound("/soundEffects/SEFE_Bell.wav");
             currentBook.setBorrowCount(currentBook.getBorrowCount() + 1);
             BookInDatabase.updateViewCount(currentBook.getId(), "UPDATE book SET borrowCount = borrowCount + 1 WHERE bookID = ?");
         } else {

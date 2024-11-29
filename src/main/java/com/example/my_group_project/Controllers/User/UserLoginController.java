@@ -29,7 +29,7 @@ public class UserLoginController extends BaseController {
     @FXML
     private Rectangle rectangle;
     @FXML
-    private Button loginButton, signupButton, forgetButton;
+    private Button loginButton, signupButton;
     @FXML
     private ComboBox<LoginDetail> usernameComboBox;
     @FXML
@@ -42,27 +42,31 @@ public class UserLoginController extends BaseController {
 
     @FXML
     void adminButtonOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         super.changeScene("loginAdmin.fxml", "Admin Login");
     }
 
     @FXML
     void loginButtonOnAction(ActionEvent event) {
-        SoundPlay.playSound("/soundEffects/SEFE_Bell.wav");
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         super.changeScene("loginUser.fxml", "User Login");
     }
 
     @FXML
     void signupButtonOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         super.changeScene("signUpUser.fxml", "Sign up");
     }
 
     @FXML
     void forgetButtonOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         super.changeScene("forgetPassStage1.fxml", "forget Password");
     }
 
     @Override
     public void backButtonOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         super.changeScene("welcomeToWebsite.fxml", "Hello!");
     }
 
@@ -85,6 +89,7 @@ public class UserLoginController extends BaseController {
 
     @FXML
     private void rememberMeCheckBoxOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         if (rememberMeCheckBox.isSelected()) {
             String username = usernameComboBox.getEditor().getText();
             String password = enterPasswordField.getText();
@@ -116,9 +121,11 @@ public class UserLoginController extends BaseController {
                 statement.setString(2, password);
                 try (ResultSet queryResult = statement.executeQuery()) {
                     if (queryResult.next() && queryResult.getInt(1) == 0) {
+                        SoundPlay.playSound("/soundEffects/SEFE_Wrong_Answer.wav");
                         loginMessageLabel.setText("Invalid username or password");
                     } else {
                         loginMessageLabel.setText("Login successful");
+                        SoundPlay.playSound("/soundEffects/SEFE_KidsCheering.wav");
                         userID = getUserId(connectDB, username, password);
                         System.out.println("User ID after login: " + userID);
                         userIDMain = userID;

@@ -5,6 +5,7 @@ import com.example.my_group_project.Book.BorrowInfo;
 import com.example.my_group_project.Book.BorrowedBook;
 import com.example.my_group_project.Database.BookInDatabase;
 import com.example.my_group_project.Database.DatabaseConnection;
+import com.example.my_group_project.SoundPlay;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -172,11 +173,9 @@ public class AdminBookInformationController extends AdminHomeScene {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm Delete");
         alert.setHeaderText("Are you sure you want to delete this user?");
-        //SoundManager.playSound("src/main/resources/soundEffects/SEFE_SadMusic.wav");
         alert.showAndWait().ifPresent(response -> {
             if (response == ButtonType.OK) {
                 deleteBookFromDatabase();
-                //SoundManager.playSound("src/main/resources/soundEffects/SEFE_Painful_Scream.wav");
             }
         });
     }
@@ -193,7 +192,6 @@ public class AdminBookInformationController extends AdminHomeScene {
             if (rowsAffected > 0) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Success");
-                //SoundManager.playSound("src/main/resources/soundEffects/SEFE_Painful_Scream.wav");
                 alert.setHeaderText("Book has been successfully deleted.");
                 alert.showAndWait();
 

@@ -4,6 +4,7 @@ import com.example.my_group_project.Book.Book;
 import com.example.my_group_project.Controllers.PaginaTion;
 import com.example.my_group_project.Database.BookInDatabase;
 import com.example.my_group_project.Database.DatabaseConnection;
+import com.example.my_group_project.SoundPlay;
 import com.example.my_group_project.User.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -123,6 +124,7 @@ public class UserHistoryController extends UserMenuController {
 
     @FXML
     public void backButtonOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         int current = paginaTion.backButton();
         if(current < 0){
             super.backButtonOnAction(event);

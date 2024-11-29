@@ -2,6 +2,7 @@ package com.example.my_group_project.Controllers.User;
 
 import com.example.my_group_project.Controllers.BaseController;
 import com.example.my_group_project.Database.DatabaseConnection;
+import com.example.my_group_project.SoundPlay;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -81,6 +82,7 @@ public class UserConfirmPasswordController extends BaseController {
 
     @FXML
     void clickEnter(KeyEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         if(event.getCode() == KeyCode.ENTER) {
             nextButtonAction(null);
         }
@@ -88,6 +90,7 @@ public class UserConfirmPasswordController extends BaseController {
 
     @FXML
     void clickEnter1(KeyEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         if(event.getCode() == KeyCode.ENTER) {
             nextButtonAction(null);
         }

@@ -1,7 +1,7 @@
 package com.example.my_group_project;
+
 import com.example.my_group_project.Controllers.BaseController;
 import com.example.my_group_project.Controllers.User.UserMenuController;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,6 +27,8 @@ public class BookQuizGameController extends UserMenuController {
     private TextArea questionTextArea;
     @FXML
     private Button checkButton;
+    @FXML
+    private Button nextButton;
     @FXML
     private Label scoreLabel;
     @FXML
@@ -82,6 +84,7 @@ public class BookQuizGameController extends UserMenuController {
     private void handleCheckButtonAction(ActionEvent event) {
         checkAnswer();
         checkButton.setDisable(true); // Disable check button after checking the answer
+        answerTextField.setEditable(false); // Make the text field non-editable
     }
 
     @FXML
@@ -99,6 +102,8 @@ public class BookQuizGameController extends UserMenuController {
         questionLabel.setText(String.valueOf(currentQuestionIndex + 1));
         questionTextArea.setText(currentQuestion.getQuestion());
         answerTextField.clear();
+        answerTextField.setEditable(true); // Make the text field editable again for the next question
+        checkButton.setDisable(true); // Disable check button until the user enters text
         feedbackLabel.setText(""); // Clear feedback label
     }
 
@@ -106,9 +111,11 @@ public class BookQuizGameController extends UserMenuController {
         BookQuestion currentQuestion = selectedQuestions.get(currentQuestionIndex);
         String playerAnswer = answerTextField.getText().trim();
         if (playerAnswer.equalsIgnoreCase(currentQuestion.getCorrectAnswer())) {
+            SoundPlay.playSound("/soundEffects/SEFE_CrowdClapping.wav");
             score++;
             feedbackLabel.setText("Correct!");
         } else {
+            SoundPlay.playSound("/soundEffects/SEFE_Wrong_Answer.wav");
             feedbackLabel.setText("Incorrect. The correct answer is: " + currentQuestion.getCorrectAnswer());
         }
         scoreLabel.setText(String.valueOf(score));
@@ -136,6 +143,35 @@ public class BookQuizGameController extends UserMenuController {
         }
     }
 
+    public void homeOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
+        showConfirmationAndChangeScene("home.fxml", "Home");
+    }
+
+    @FXML
+    public void moreInforOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
+        showConfirmationAndChangeScene("moreInformation.fxml", "More Information");
+    }
+
+    @FXML
+    public void gameButtonOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
+        showConfirmationAndChangeScene("bookQuizGameStart.fxml", "bookQuizGameStart");
+    }
+
+    @FXML
+    public void profileOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
+        showConfirmationAndChangeScene("profileUser.fxml", "Profile");
+    }
+
+    @FXML
+    public void searchOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
+        showConfirmationAndChangeScene("searchBook.fxml", "Searching");
+    }
+
     private void endQuiz() {
         questionTextArea.setText("Quiz Over! Your final score is " + score + ".");
         answerTextField.setVisible(false);
@@ -145,6 +181,7 @@ public class BookQuizGameController extends UserMenuController {
     }
 
     private void showEndQuizDialog() {
+        SoundPlay.playSound("/soundEffects/SEFE_Bell.wav");
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Quiz Over!");
         alert.setHeaderText("Congratulations!");
@@ -170,5 +207,4 @@ public class BookQuizGameController extends UserMenuController {
             changeScene("home.fxml", "home");
         }
     }
-
 }

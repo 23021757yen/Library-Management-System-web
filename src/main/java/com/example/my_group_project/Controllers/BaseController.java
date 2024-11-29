@@ -1,7 +1,9 @@
 package com.example.my_group_project.Controllers;
 
+import com.almasb.fxgl.audio.Sound;
 import com.example.my_group_project.Controllers.User.UserProfileUserFormController;
 import com.example.my_group_project.HelloApplication;
+import com.example.my_group_project.SoundPlay;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -89,6 +91,7 @@ public abstract class BaseController {
     @FXML
     // Method to handle the back button action
     public void backButtonOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         if (mainStage == null) {
             throw new IllegalStateException("Main stage is not set. Ensure setMainStage is called.");
         }
@@ -117,6 +120,7 @@ public abstract class BaseController {
 
 
     public static boolean showAlert(String title, String message){
+        SoundPlay.playSound("/soundEffects/SEFE_Notification_Bell.wav");
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(title);
         alert.setHeaderText(message);
@@ -140,12 +144,12 @@ public abstract class BaseController {
 
     @FXML
     public static void showAlert1(String title, String message) {
+        SoundPlay.playSound("/soundEffects/SEFE_Notification_Bell.wav");
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.getDialogPane().setStyle("-fx-background-color: #f7efd8; -fx-border-radius: 20px;");
-        //alert.getDialogPane().getStylesheets().add(getClass().getResource("/custom.css").toExternalForm());
         String cssPath = UserProfileUserFormController.class.getResource("/custom.css").toExternalForm();
         alert.getDialogPane().getStylesheets().add(cssPath);
         alert.showAndWait();

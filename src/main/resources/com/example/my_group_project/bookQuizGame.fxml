@@ -79,7 +79,7 @@
                 <Font name="Impact" size="30.0" />
             </font>
         </Label>
-        <TextArea fx:id="questionTextArea" layoutX="117.0" layoutY="209.0" prefHeight="167.0" prefWidth="774.0">
+        <TextArea fx:id="questionTextArea" editable="false" layoutX="117.0" layoutY="209.0" prefHeight="167.0" prefWidth="774.0">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font></TextArea>
@@ -121,7 +121,7 @@
          </font></Button>
       <ImageView fitHeight="247.0" fitWidth="236.0" layoutX="655.0" layoutY="157.0">
          <image>
-            <Image url="@../../../picture/Thinking%20face-bro.png" />
+            <Image url="@../../../picture/Thinking_face-bro.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="51.0" layoutY="63.0">

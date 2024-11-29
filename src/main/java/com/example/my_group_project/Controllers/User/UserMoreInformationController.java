@@ -2,6 +2,7 @@ package com.example.my_group_project.Controllers.User;
 
 import com.example.my_group_project.Database.DatabaseConnection;
 import com.example.my_group_project.Report;
+import com.example.my_group_project.SoundPlay;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -82,6 +83,7 @@ public class UserMoreInformationController extends UserMenuController {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Please fill in all the fields.");
+            SoundPlay.playSound("/soundEffects/SEFE_Pop.wav");
             alert.getDialogPane().setStyle("-fx-background-color: #f7efd8; -fx-border-radius: 20px;");
             String cssPath = UserProfileUserFormController.class.getResource("/custom.css").toExternalForm();
             alert.getDialogPane().getStylesheets().add(cssPath);
@@ -108,6 +110,7 @@ public class UserMoreInformationController extends UserMenuController {
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Success");
                 alert.setHeaderText("Report has been successfully saved.");
+                SoundPlay.playSound("/soundEffects/SEFE_Awwww.wav");
                 alert.getDialogPane().setStyle("-fx-background-color: #f7efd8; -fx-border-radius: 20px;");
                 String cssPath = UserProfileUserFormController.class.getResource("/custom.css").toExternalForm();
                 alert.getDialogPane().getStylesheets().add(cssPath);
@@ -116,7 +119,6 @@ public class UserMoreInformationController extends UserMenuController {
                 clearTextField();
                 setEditable(false);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
             Alert alert = new Alert(AlertType.ERROR);
