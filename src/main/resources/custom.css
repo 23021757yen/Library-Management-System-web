@@ -6,6 +6,10 @@
 
 }
 
+.dialog-pane .label {
+    -fx-font-weight: bold;
+}
+
 .button {
     -fx-background-color: #ffc100;
     -fx-text-fill: white;

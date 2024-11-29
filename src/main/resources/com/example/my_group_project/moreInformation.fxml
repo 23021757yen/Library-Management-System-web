@@ -3,32 +3,26 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.UserMoreInformationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.Controllers.User.UserMoreInformationController">
    <children>
-      <ImageView fitHeight="452.0" fitWidth="479.0" layoutX="551.0" layoutY="106.0" opacity="0.5">
+      <ImageView fitHeight="287.0" fitWidth="506.0" layoutX="302.0" layoutY="85.0">
          <image>
-            <Image url="@../../../picture/Bibliophile-bro.png" />
+            <Image url="@../../../picture/Train-rafiki.png" />
          </image>
       </ImageView>
       <Pane layoutX="23.0" layoutY="73.0" prefHeight="476.0" prefWidth="40.0" style="-fx-background-color: #f7efd8; -fx-background-radius: 10;">
          <children>
-            <Button fx:id="categoryButton" layoutX="2.0" layoutY="85.0" mnemonicParsing="false" onAction="#categoryOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0">
-                     <image>
-                        <Image url="@../../../picture/menu.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
             <Button fx:id="homeButton" layoutX="2.0" layoutY="203.0" mnemonicParsing="false" onAction="#homeOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
@@ -38,7 +32,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="moreInforButton" layoutX="2.0" layoutY="319.0" mnemonicParsing="false" onAction="#moreInforOnAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+            <Button fx:id="moreInforButton" layoutX="2.0" layoutY="319.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0">
                      <image>
@@ -74,15 +68,6 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="gameButton" layoutX="1.0" layoutY="367.0" mnemonicParsing="false" onAction="#gameOnAction" prefHeight="26.0" prefWidth="32.0" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0">
-                     <image>
-                        <Image url="@../../../picture/gamepad.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
          </children>
          <effect>
             <DropShadow height="10.0" offsetX="2.0" offsetY="2.0" radius="4.5" width="10.0" />
@@ -93,52 +78,7 @@
             <Font name="Impact" size="30.0" />
          </font>
       </Label>
-      <Text layoutX="111.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LMS (Library Management System) là một trang web quản lý thư viện trực tuyến, giúp người dùng dễ dàng tìm kiếm, đăng ký và mượn sách từ kho sách của thư viện. Với giao diện thân thiện và dễ sử dụng, LMS cho phép người dùng duyệt qua danh sách các đầu sách, kiểm tra tình trạng sách còn hay đã mượn, và đăng ký mượn sách chỉ với vài thao tác đơn giản. Hệ thống cũng hỗ trợ tính năng quản lý thông tin người dùng, lịch sử mượn sách, và thông báo về hạn trả sách, giúp nâng cao trải nghiệm người dùng và tiết kiệm thời gian cho cả người mượn và nhân viên thư viện." textAlignment="JUSTIFY" wrappingWidth="816.76953125">
-         <font>
-            <Font name="System Italic" size="15.0" />
-         </font>
-      </Text>
-      <Text layoutX="146.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Đảm bảo cập nhật, thêm, hủy sách kịp thời" wrappingWidth="479.02587890625">
-         <font>
-            <Font name="System Italic" size="15.0" />
-         </font>
-      </Text>
-      <Text layoutX="146.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yêu cầu người dùng sử dụng sách cũng như mượn trả sách đúng hạn" wrappingWidth="479.02587890625">
-         <font>
-            <Font name="System Italic" size="15.0" />
-         </font>
-      </Text>
-      <Text layoutX="146.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact: lmsLibraryManagmentSystem@gmail.com" wrappingWidth="479.02587890625">
-         <font>
-            <Font name="System Italic" size="15.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="111.0" layoutY="284.0">
-         <image>
-            <Image url="@../../../picture/idea.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="111.0" layoutY="329.0">
-         <image>
-            <Image url="@../../../picture/idea.png" />
-         </image>
-      </ImageView>
-      <Text layoutX="146.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotline: 0978349285" wrappingWidth="479.02587890625">
-         <font>
-            <Font name="System Italic" size="15.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="114.0" layoutY="373.0">
-         <image>
-            <Image url="@../../../picture/chat.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="114.0" layoutY="413.0">
-         <image>
-            <Image url="@../../../picture/phone-call.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="backButton" layoutX="948.0" layoutY="536.0" mnemonicParsing="false" onAction="#backButtonOnAction" style="-fx-background-color: ffffff; -fx-background-radius: 20;" underline="true">
+      <Button fx:id="backButton" layoutX="958.0" layoutY="554.0" mnemonicParsing="false" onAction="#backButtonOnAction" style="-fx-background-color: ffffff; -fx-background-radius: 20;" underline="true">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -149,6 +89,114 @@
             <ImageView fitHeight="34.0" fitWidth="26.0">
                <image>
                   <Image url="@../../../picture/back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Pane layoutX="109.0" layoutY="73.0" prefHeight="136.0" prefWidth="868.0" style="-fx-background-color: ffc100; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="24.0" layoutY="25.0" text="TITLE:">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="59.0" text="CONTENT:">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="titleTextField" layoutX="93.0" layoutY="29.0" prefHeight="25.0" prefWidth="749.0" promptText="Type the title" style="-fx-background-color: ffffff; -fx-background-radius: 20;" />
+            <TextField fx:id="contentTextField" layoutX="23.0" layoutY="89.0" prefHeight="25.0" prefWidth="819.0" promptText="Type the content" style="-fx-background-color: ffffff; -fx-background-radius: 20;" />
+            <Button fx:id="editButton" layoutX="772.0" mnemonicParsing="false" onAction="#editButtonOnAction" style="-fx-background-color: transparent;" stylesheets="@../../../buttoHoverv3.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/edit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="saveButton" layoutX="805.0" mnemonicParsing="false" onAction="#saveButtonOnAction" style="-fx-background-color: transparent;" stylesheets="@../../../buttoHoverv3.css">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0">
+                     <image>
+                        <Image url="@../../../picture/download.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <ScrollPane layoutX="108.0" layoutY="336.0" prefHeight="213.0" prefWidth="868.0" style="-fx-background-color: ffffff;" stylesheets="@../../../style.css">
+         <content>
+            <VBox fx:id="vBox" prefHeight="350.0" prefWidth="856.0" style="-fx-background-color: ffffff;" />
+         </content>
+      </ScrollPane>
+      <HBox layoutX="107.0" layoutY="298.0" prefHeight="41.0" prefWidth="865.0">
+         <children>
+            <Pane prefHeight="41.0" prefWidth="175.0">
+               <children>
+                  <Label layoutX="48.0" layoutY="11.0" text="REPORT_ID">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="41.0" prefWidth="210.0">
+               <children>
+                  <Label layoutX="49.0" layoutY="11.0" text="EXECUTION DATE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="41.0" prefWidth="306.0">
+               <children>
+                  <Label layoutX="131.0" layoutY="10.0" text="TITLE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="41.0" prefWidth="176.0">
+               <children>
+                  <Label layoutX="61.0" layoutY="10.0" text="STATUS">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+      <HBox layoutX="102.0" layoutY="257.0" prefHeight="33.0" prefWidth="873.0">
+         <children>
+            <TextField fx:id="searchTextField" prefHeight="41.0" prefWidth="838.0" promptText="search" style="-fx-background-color: #f7efd8; -fx-background-radius: 20;" />
+            <ImageView fitHeight="32.0" fitWidth="35.0">
+               <image>
+                  <Image url="@../../../picture/search.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Label layoutX="479.0" layoutY="212.0" text="HISTORY">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="223.0" fitWidth="229.0" layoutX="23.0" layoutY="15.0">
+         <image>
+            <Image url="@../../../picture/World-pana.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="gameButton" layoutX="26.0" layoutY="159.0" mnemonicParsing="false" onAction="#gameButtonOnAction" style="-fx-background-radius: 30;" stylesheets="@../../../buttonHoverDashboard.css">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0">
+               <image>
+                  <Image url="@../../../picture/gamepad.png" />
                </image>
             </ImageView>
          </graphic>

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.UserProfileUserController">
+<AnchorPane prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.my_group_project.Controllers.User.UserProfileUserController">
    <children>
       <Pane prefHeight="161.0" prefWidth="1024.0" style="-fx-background-color: #f7efd8;">
          <children>
@@ -42,11 +42,9 @@
                   <MenuButton mnemonicParsing="false" prefHeight="38.0" prefWidth="48.0" style="-fx-background-color: 000000;" BorderPane.alignment="CENTER">
                      <items>
                         <MenuItem fx:id="searchMenuItem" mnemonicParsing="false" onAction="#searchOnAction" text="Search" />
-                        <MenuItem fx:id="categoryMenuItem" mnemonicParsing="false" onAction="#categoryOnAction" text="CategoryMenu" />
                         <MenuItem fx:id="homeMenuItem" mnemonicParsing="false" onAction="#homeOnAction" text="Home" />
                         <MenuItem fx:id="moreInforMenuItem" mnemonicParsing="false" onAction="#moreInforOnAction" text="MoreInformaition" />
                         <MenuItem fx:id="logOutMenuItem" mnemonicParsing="false" onAction="#logOutOnAction" text="LogOut" />
-                        <MenuItem fx:id="gameMenuItem" mnemonicParsing="false" onAction="#gameOnAction" text="Game" />
                      </items>
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0">
@@ -87,5 +85,10 @@
          <font>
             <Font name="Impact" size="15.0" />
          </font></Button>
+      <ImageView fitHeight="263.0" fitWidth="230.0" layoutX="399.0" layoutY="161.0">
+         <image>
+            <Image url="@../../../picture/Account-cuate.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
