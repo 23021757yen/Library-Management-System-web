@@ -1,5 +1,6 @@
 package com.example.my_group_project.Controllers.Admin;
 import com.example.my_group_project.Controllers.User.UserReportPaneController;
+import com.example.my_group_project.SoundPlay;
 import com.example.my_group_project.User.User;
 import com.example.my_group_project.Database.DatabaseConnection;
 
@@ -333,7 +334,7 @@ public class AdminReportOneUserController extends AdminMenuController{
     @FXML
     private void handleCheckBox(ActionEvent event) {
         isChecked = statusCheckBox.isSelected();
-
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         if(isChecked) {
             updateStatus(reportIdTextField.getText(), "DONE");
         } else {
@@ -362,6 +363,7 @@ public class AdminReportOneUserController extends AdminMenuController{
 
     @FXML
     public void backButtonOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         super.changeScene("AdminHomeScene1.fxml","AdminHomeScene1" );
     }
 

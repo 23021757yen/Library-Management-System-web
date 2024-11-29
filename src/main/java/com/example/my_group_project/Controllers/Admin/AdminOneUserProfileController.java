@@ -1,6 +1,7 @@
 package com.example.my_group_project.Controllers.Admin;
 import com.example.my_group_project.Book.BorrowedBook;
 import com.example.my_group_project.Database.DatabaseConnection;
+import com.example.my_group_project.SoundPlay;
 import com.example.my_group_project.User.User;
 
 
@@ -89,6 +90,7 @@ public class AdminOneUserProfileController extends AdminMenuController {
     // set trang thai
     @FXML
     void onEdit() {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         isEdited = true;
         setEditable(isEdited);
         saveButton.setDisable(!isEdited);
@@ -425,6 +427,7 @@ public class AdminOneUserProfileController extends AdminMenuController {
 
     @FXML
     void onSave() {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         String userID = userIdTextField.getText();
         String fullname = userFullNameTextField.getText();
         String username = userNameTextField.getText();
@@ -466,6 +469,7 @@ public class AdminOneUserProfileController extends AdminMenuController {
                     updateUserProfile(userID);
                 } else {
                     insertNewUser(fullname, username, phoneNumber, email, dateOfBirth, gender, password);
+                    SoundPlay.playSound("/soundEffects/SEFE_Notitfication_Bell.wav");
                 }
             }
             setEditable(false);
@@ -488,7 +492,7 @@ public class AdminOneUserProfileController extends AdminMenuController {
 
     @FXML
     public void backButtonOnAction(ActionEvent event) {
+        SoundPlay.playSound("/soundEffects/SEFE_MouseClick.wav");
         super.changeScene("AdminHomeScene1.fxml","AdminHomeScene1" );
     }
-
 }

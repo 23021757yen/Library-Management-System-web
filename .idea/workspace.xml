@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd609af7-8671-4d94-94d2-4ad427ee0efe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Diagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Diagram_structure.puml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminBookInformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminBookInformationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminBookUserBorrowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminBookUserBorrowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminHomeScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminHomeScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/Admin/AdminBookInformationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/Admin/AdminBookInformationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/Admin/AdminMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/Admin/AdminMenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserHistoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserHistoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserMoreInformationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/my_group_project/Controllers/User/UserMoreInformationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminOneUserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminOneUserProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminReportOneUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/my_group_project/Controllers/Admin/AdminReportOneUserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +139,7 @@
       <workItem from="1732837664804" duration="3898000" />
       <workItem from="1732845399307" duration="7000" />
       <workItem from="1732846858335" duration="6768000" />
-      <workItem from="1732854155560" duration="261000" />
+      <workItem from="1732854155560" duration="829000" />
     </task>
     <servers />
   </component>
